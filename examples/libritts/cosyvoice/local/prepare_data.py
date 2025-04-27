@@ -9,7 +9,7 @@ logger = logging.getLogger()
 
 
 def main():
-    wavs = list(glob.glob('{}/*/*/*wav'.format(args.src_dir)))
+    wavs = list(glob.glob('{}/*wav'.format(args.src_dir)))
 
     utt2wav, utt2text, utt2spk, spk2utt = {}, {}, {}, {}
     for wav in tqdm(wavs):

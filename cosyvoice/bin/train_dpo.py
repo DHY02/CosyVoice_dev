@@ -128,6 +128,7 @@ def main():
     model = configs[args.model]
     ref_model = None
     if args.dpo:
+        logging.debug('Using DPO to train.')
         ref_model = deepcopy(model)
     start_step, start_epoch = 0, -1
     if args.checkpoint is not None:

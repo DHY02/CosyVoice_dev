@@ -238,6 +238,7 @@ def cosyvoice_join(group_join, info_dict):
 def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None):
     device = int(os.environ.get('LOCAL_RANK', 0))
 
+
     dtype = info_dict["dtype"]
     if dtype == "fp16":
         dtype = torch.float16
@@ -250,7 +251,6 @@ def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None
         autocast = torch.cuda.amp.autocast(enabled=scaler is not None)
     else:
         autocast = torch.cuda.amp.autocast(enabled=True, dtype=dtype, cache_enabled=False)
-
     with autocast:
         info_dict['loss_dict'] = model(batch, device)
         if ref_model and dpo_loss:
@@ -272,6 +272,8 @@ def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None
             info_dict['loss_dict']["dpo_acc"] = dpo_acc
             info_dict['loss_dict']["chosen_reward"] = chosen_reward.mean()
             info_dict['loss_dict']["reject_reward"] = reject_reward.mean()
+            info_dict['loss_dict'].pop("chosen_logps", None)
+            info_dict['loss_dict'].pop("rejected_logps", None)
     return info_dict
 
 

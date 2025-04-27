@@ -293,7 +293,7 @@ def sort(data, sort_size=500, mode='train'):
         yield x
 
 
-def static_batch(data, batch_size=16):
+def static_batch(data, batch_size=4):
     """ Static batch the data by `batch_size`
 
         Args:
@@ -342,7 +342,7 @@ def dynamic_batch(data, max_frames_in_batch=12000, mode='train'):
         yield buf
 
 
-def batch(data, batch_type='static', batch_size=16, max_frames_in_batch=12000, mode='train'):
+def batch(data, batch_type='static', batch_size=4, max_frames_in_batch=12000, mode='train'):
     """ Wrapper for static/dynamic batch
     """
     if mode == 'inference':
