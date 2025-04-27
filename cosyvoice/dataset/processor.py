@@ -293,7 +293,7 @@ def sort(data, sort_size=500, mode='train'):
         yield x
 
 
-def static_batch(data, batch_size=4):
+def static_batch(data, batch_size=1):
     """ Static batch the data by `batch_size`
 
         Args:
@@ -342,7 +342,7 @@ def dynamic_batch(data, max_frames_in_batch=12000, mode='train'):
         yield buf
 
 
-def batch(data, batch_type='static', batch_size=4, max_frames_in_batch=12000, mode='train'):
+def batch(data, batch_type='static', batch_size=1, max_frames_in_batch=12000, mode='train'):
     """ Wrapper for static/dynamic batch
     """
     if mode == 'inference':
@@ -406,6 +406,10 @@ def padding(data, use_spk_embedding, mode='train', gan=False, dpo=False):
             "spk_embedding": spk_embedding,
         }
         if dpo:
+            valid_samples = [i for i in order if 'reject_speech_token' in sample[i]]
+            if len(valid_samples) == 0:
+                logging.warning("DPO: 跳过缺失reject_speech_token的batch")
+                continue
             reject_speech_token = [torch.tensor(sample[i]['reject_speech_token']) for i in order]
             reject_speech_token_len = torch.tensor([i.size(0) for i in reject_speech_token], dtype=torch.int32)
             reject_speech_token = pad_sequence(reject_speech_token,
