@@ -1,17 +1,17 @@
 Run train. We only support llm traning for now. If your want to train from scratch, please use conf/cosyvoice.fromscratch.yaml
-[2025-04-27 14:28:31,899] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-27 15:01:04,525] [INFO] [real_accelerator.py:203:get_accelerator] Setting ds_accelerator to cuda (auto detect)
 [93m [WARNING] [0m async_io requires the dev libaio .so object and headers but these were not found.
 [93m [WARNING] [0m async_io: please install the libaio-dev package with apt
 [93m [WARNING] [0m If libaio is already installed (perhaps from source), try setting the CFLAGS and LDFLAGS environment variables to where it can be found.
 [93m [WARNING] [0m Please specify the CUTLASS repo directory as environment variable $CUTLASS_PATH
 [93m [WARNING] [0m sparse_attn requires a torch version >= 1.5 and < 2.0 but detected 2.3
 [93m [WARNING] [0m using untested triton version (2.3.1), only 1.0.0 is known to be compatible
-2025-04-27 14:28:33,762 INFO training on multiple gpus, this gpu 0, rank 0, world_size 1
-2025-04-27 14:28:33,764 DEBUG Using DPO to train.
-2025-04-27 14:28:37,910 INFO [Rank 0] Checkpoint: save to checkpoint /home/CosyVoice/examples/libritts/cosyvoice2/exp/cosyvoice2/llm/torch_ddp/init.pt
+2025-04-27 15:01:10,587 INFO training on multiple gpus, this gpu 0, rank 0, world_size 1
+2025-04-27 15:01:10,592 DEBUG Using DPO to train.
+2025-04-27 15:01:20,663 INFO [Rank 0] Checkpoint: save to checkpoint /home/CosyVoice/examples/libritts/cosyvoice2/exp/cosyvoice2/llm/torch_ddp/init.pt
 start step 0 start epoch -1
-2025-04-27 14:28:37,911 INFO Epoch 0 TRAIN info lr 1e-05 rank 0
-2025-04-27 14:28:37,911 INFO using accumulate grad, new batch size is 2 times larger than before
+2025-04-27 15:01:20,851 INFO Epoch 0 TRAIN info lr 1e-05 rank 0
+2025-04-27 15:01:20,851 INFO using accumulate grad, new batch size is 2 times larger than before
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
 Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
