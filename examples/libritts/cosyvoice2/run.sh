@@ -6,8 +6,8 @@ stage=5
 stop_stage=5
 
 # data_url=www.openslr.org/resources/60
-data_dir=/home/CosyVoice/examples/libritts/cosyvoice2/data
-pretrained_model_dir=/home/pretrained_models/CosyVoice2-0.5B
+data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data
+pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
 
 receive="angry_receive_train"
 reject="angry_reject_train"
