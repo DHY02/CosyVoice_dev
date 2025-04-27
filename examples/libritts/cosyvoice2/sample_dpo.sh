@@ -28,7 +28,7 @@ if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
         --llm_model $pretrained_model_dir/llm.pt \
         --flow_model $pretrained_model_dir/flow.pt \
         --hifigan_model $pretrained_model_dir/hift.pt \
-        --result_dir `pwd`/exp/cosyvoice/casia_train_angry50_inf/$mode/samp_$num
+        --result_dir `pwd`/exp/cosyvoice/casia_dpo/$mode/samp_$num
       ((num++))
     done
   done
