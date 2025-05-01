@@ -9,7 +9,7 @@ sample_rate: 24000
 llm_input_size: 896
 llm_output_size: 896
 spk_embed_dim: 192
-qwen_pretrain_path: ''
+qwen_pretrain_path: '../../../../../CosyVoice2-0.5B/CosyVoice-BlankEN'
 token_frame_rate: 25
 token_mel_ratio: 2
 
@@ -20,14 +20,15 @@ num_decoding_left_chunks: 1 # streaming inference flow decoder left chunk size, 
 # model params
 # for all class/function included in this repo, we use !<name> or !<new> for intialization, so that user may find all corresponding class/function according to one single yaml.
 # for system/third_party class/function, we do not require this.
-llm: !new:cosyvoice.llm.llm.Qwen2LM
+llm: !new:cosyvoice.llm.llm_dpo2.Qwen2LM
     llm_input_size: !ref <llm_input_size>
     llm_output_size: !ref <llm_output_size>
     speech_token_size: 6561
     length_normalized_loss: True
     lsm_weight: 0
+    dpo: False
     mix_ratio: [5, 15]
-    llm: !new:cosyvoice.llm.llm.Qwen2Encoder
+    llm: !new:cosyvoice.llm.llm_dpo2.Qwen2Encoder
         pretrain_path: !ref <qwen_pretrain_path>
     sampling: !name:cosyvoice.utils.common.ras_sampling
         top_p: 0.6
@@ -172,7 +173,7 @@ batch: !name:cosyvoice.dataset.processor.batch
     max_frames_in_batch: 2000
 padding: !name:cosyvoice.dataset.processor.padding
     use_spk_embedding: False # change to True during sft
-
+    dpo: False
 
 # dataset processor pipeline
 data_pipeline: [
@@ -210,7 +211,7 @@ train_conf:
     scheduler: constantlr # change to constantlr during sft
     scheduler_conf:
         warmup_steps: 2500
-    max_epoch: 200
+    max_epoch: 10
     grad_clip: 5
     accum_grad: 2
     log_interval: 100

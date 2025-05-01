@@ -9,7 +9,7 @@ sample_rate: 24000
 llm_input_size: 896
 llm_output_size: 896
 spk_embed_dim: 192
-qwen_pretrain_path: '/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B/CosyVoice-BlankEN'
+qwen_pretrain_path: '/home/pretrained_models/CosyVoice2-0.5B/CosyVoice-BlankEN'
 token_frame_rate: 25
 token_mel_ratio: 2
 
@@ -33,7 +33,7 @@ llm: !new:cosyvoice.llm.llm_dpo2.Qwen2LM
     sampling: !name:cosyvoice.utils.common.ras_sampling
         top_p: 0.8
         top_k: 25
-        win_size: 10
+        win_size: 10 # 10
         tau_r: 0.1
 
 flow: !new:cosyvoice.flow.flow.CausalMaskedDiffWithXvec

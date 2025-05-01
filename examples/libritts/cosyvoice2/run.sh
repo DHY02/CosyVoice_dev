@@ -2,12 +2,12 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=5
-stop_stage=5
+stage=4
+stop_stage=4
 
 # data_url=www.openslr.org/resources/60
-data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data
-pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
+data_dir=/home/CosyVoice/examples/libritts/cosyvoice2/data
+pretrained_model_dir=/home/pretrained_models/CosyVoice2-0.5B
 
 receive="angry_receive_train"
 reject="angry_reject_train"
@@ -70,23 +70,23 @@ if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
 fi
 
 # inference
-# if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
-#   echo "Run inference. Please make sure utt in tts_text is in prompt_data"
-#   # TODO consider remove bin/inference.py, or use similar initilization method as in readme
-#   for mode in sft; do
-#     python cosyvoice/bin/inference.py --mode $mode \
-#       --gpu 0 \
-#       --config conf/cosyvoice2.yaml \
-#       --prompt_data data/casia_test/parquet/data.list \
-#       --prompt_utt2data data/casia_test/parquet/utt2data.list \
-#       --tts_text `pwd`/tts_text_angry50_test.json \
-#       --qwen_pretrain_path $pretrained_model_dir/CosyVoice-BlankEN \
-#       --llm_model $pretrained_model_dir/llm.pt \
-#       --flow_model $pretrained_model_dir/flow.pt \
-#       --hifigan_model $pretrained_model_dir/hift.pt \
-#       --result_dir `pwd`/exp/cosyvoice/test-angry/$mode
-#   done
-# fi
+if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
+  echo "Run inference. Please make sure utt in tts_text is in prompt_data"
+  # TODO consider remove bin/inference.py, or use similar initilization method as in readme
+  for mode in zero_shot; do
+    python cosyvoice/bin/inference.py --mode $mode \
+      --gpu 0 \
+      --config conf/cosyvoice2_dpo_infer.yaml \
+      --prompt_data data/casia/parquet/data.list \
+      --prompt_utt2data data/casia/parquet/utt2data.list \
+      --tts_text `pwd`/wav2tts_text_dpo_1200_test.json \
+      --qwen_pretrain_path $pretrained_model_dir/CosyVoice-BlankEN \
+      --llm_model $pretrained_model_dir/llm.pt \
+      --flow_model $pretrained_model_dir/flow.pt \
+      --hifigan_model $pretrained_model_dir/hift.pt \
+      --result_dir `pwd`/exp/cosyvoice/test_dpo_1200_sft/$mode
+  done
+fi
 
 # train llm
 export CUDA_VISIBLE_DEVICES="0"
@@ -129,14 +129,14 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
 fi
 
 # average model
-average_num=5
+average_num=1
 if [ ${stage} -le 6 ] && [ ${stop_stage} -ge 6 ]; then
-  for model in llm flow hifigan; do
-    decode_checkpoint=`pwd`/exp/cosyvoice/$model/$train_engine/${model}.pt
+  for model in llm; do
+    decode_checkpoint=`pwd`/exp/cosyvoice2/$model/$train_engine/${model}.pt
     echo "do model average and final checkpoint is $decode_checkpoint"
     python cosyvoice/bin/average_model.py \
       --dst_model $decode_checkpoint \
-      --src_path `pwd`/exp/cosyvoice/$model/$train_engine  \
+      --src_path `pwd`/exp/cosyvoice2/$model/$train_engine  \
       --num ${average_num} \
       --val_best
   done

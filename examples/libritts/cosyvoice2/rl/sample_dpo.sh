@@ -1,13 +1,18 @@
 #!/bin/bash
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
+cd ..
 . ./path.sh || exit 1;
 
 stage=4
+
 stop_stage=4
 
-# data_url=www.openslr.org/resources/60
-data_dir=`pwd`/data
-pretrained_model_dir=/home/pretrained_models/CosyVoice2-0.5B
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+root_dir="$(dirname "$(dirname "$(dirname "$script_dir")")")"
+
+cosyvoice2_dir="${root_dir}/examples/libritts/cosyvoice2"
+
+pretrained_model_dir="${root_dir}/pretrained_models/CosyVoice2-0.5B"
 
 corpus="casia"
 datasets="${corpus}"
@@ -16,7 +21,7 @@ if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ]; then
   echo "Data preparation, prepare wav.scp/text/utt2spk/spk2utt"
   for x in ${datasets}; do
     mkdir -p data/$x
-    python local/prepare_data.py --src_dir $data_dir/$x --des_dir data/$x
+    python local/prepare_data.py --src_dir data/$x --des_dir data/$x
   done
 fi
 
@@ -55,19 +60,21 @@ if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
   num=1
   # TODO consider remove bin/inference.py, or use similar initilization method as in readme
   # zero_shot mode 的tts text不需要angry<|endofprompt|>前缀
-  for mode in sft; do
-    for sam_conf in cosyvoice2 cosyvoice2_s1 cosyvoice2_s2; do
+  # 17 hours to sample once, 51 hours to sample three times
+  for mode in instruct; do
+    for sam_conf in cosyvoice2_s2 cosyvoice2_s3 cosyvoice2_s4; do
+      echo "sample with conf ${sam_conf}"
       python cosyvoice/bin/inference.py --mode $mode \
         --gpu 0 \
         --config conf/$sam_conf.yaml \
-        --prompt_data data/casia/parquet/data.list \
-        --prompt_utt2data data/casia/parquet/utt2data.list \
-        --tts_text `pwd`/wav2tts_text_dpo_ori.json \
+        --prompt_data data/m3ed/whole/parquet/data.list \
+        --prompt_utt2data data/m3ed/whole/parquet/utt2data.list \
+        --tts_text `pwd`/wav2text_samp.json \
         --qwen_pretrain_path $pretrained_model_dir/CosyVoice-BlankEN \
-        --llm_model $pretrained_model_dir/llm.pt \
+        --llm_model $pretrained_model_dir/llm_init.pt \
         --flow_model $pretrained_model_dir/flow.pt \
         --hifigan_model $pretrained_model_dir/hift.pt \
-        --result_dir `pwd`/exp/cosyvoice/casia_dpo_2/$mode/samp_$num
+        --result_dir `pwd`/exp/cosyvoice/dpo_samp/$mode/samp_$num
       ((num++))
     done
   done
