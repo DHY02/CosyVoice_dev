@@ -74,12 +74,18 @@ def main():
     for path in path_list:
         print('Processing {}'.format(path))
         states = torch.load(path, map_location=torch.device('cpu'))
-        for k in states.keys():
-            if k not in ['step', 'epoch']:
-                if k not in avg.keys():
-                    avg[k] = states[k].clone()
+        # for k in states.keys():
+        #     if k not in ['step', 'epoch']:
+        #         if k not in avg.keys():
+        #             avg[k] = states[k].clone()
+        #         else:
+        #             avg[k] += states[k]
+        for k, v in states.items():
+            if isinstance(v, torch.Tensor):
+                if k not in avg:
+                    avg[k] = v.clone()
                 else:
-                    avg[k] += states[k]
+                    avg[k] += v
     # average
     for k in avg.keys():
         if avg[k] is not None:

@@ -43,7 +43,7 @@ def get_args():
                         help='gpu id for this rank, -1 for cpu')
     parser.add_argument('--mode',
                         default='sft',
-                        choices=['sft', 'zero_shot'],
+                        choices=['sft', 'zero_shot', 'instruct'],
                         help='inference mode')
     parser.add_argument('--result_dir', required=True, help='asr result file')
     args = parser.parse_args()
@@ -101,6 +101,11 @@ def main():
             if args.mode == 'sft':
                 model_input = {'text': tts_text_token, 'text_len': tts_text_token_len,
                                'llm_embedding': spk_embedding, 'flow_embedding': spk_embedding}
+            elif args.mode == 'instruct':
+                model_input = {'text': tts_text_token, 'text_len': tts_text_token_len,
+                'flow_prompt_speech_token': speech_token, 'flow_prompt_speech_token_len': speech_token_len,
+                'prompt_speech_feat': speech_feat, 'prompt_speech_feat_len': speech_feat_len,
+                'llm_embedding': utt_embedding, 'flow_embedding': utt_embedding}
             else:
                 model_input = {'text': tts_text_token, 'text_len': tts_text_token_len,
                                'prompt_text': text_token, 'prompt_text_len': text_token_len,
