@@ -1,0 +1,1071 @@
+Applying config 1...
+INFO 05-02 01:52:41 __init__.py:207] Automatically detected platform cuda.
+failed to import ttsfrd, use WeTextProcessing instead
+WARNING 05-02 01:52:43 registry.py:352] Model architecture CosyVoice2Model is already registered, and will be overwritten by the new model class <class 'async_cosyvoice.vllm_use_cosyvoice2_model.CosyVoice2Model'>.
+2025-05-02 01:52:43,307 - modelscope - INFO - PyTorch version 2.5.1 Found.
+2025-05-02 01:52:43,307 - modelscope - INFO - Loading ast index from /root/.cache/modelscope/ast_indexer
+2025-05-02 01:52:43,323 - modelscope - INFO - Loading done! Current index file version is 1.15.0, with md5 5b4b80618f4a206b47e6b099b48d624d and a total number of 980 components indexed
+2025-05-02 01:52:43,324 DEBUG Using selector: EpollSelector
+/root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/site-packages/diffusers/models/lora.py:393: FutureWarning: `LoRACompatibleLinear` is deprecated and will be removed in version 1.0.0. Use of `LoRACompatibleLinear` is deprecated. Please switch to PEFT backend by installing PEFT: `pip install peft`.
+  deprecate("LoRACompatibleLinear", "1.0.0", deprecation_message)
+2025-05-02 01:52:44,006 INFO input frame rate=25
+[0;93m2025-05-02 01:52:44.817185763 [W:onnxruntime:, transformer_memcpy.cc:74 ApplyImpl] 2 Memcpy nodes are added to the graph torch_jit for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.[m
+[0;93m2025-05-02 01:52:44.822303499 [W:onnxruntime:, session_state.cc:1166 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.[m
+[0;93m2025-05-02 01:52:44.822332443 [W:onnxruntime:, session_state.cc:1168 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.[m
+[0;93m2025-05-02 01:52:45.967383986 [W:onnxruntime:, transformer_memcpy.cc:74 ApplyImpl] 8 Memcpy nodes are added to the graph main_graph for CUDAExecutionProvider. It might have negative impact on performance (including unable to run CUDA graph). Set session_options.log_severity_level=1 to see the detail logs before this message.[m
+[0;93m2025-05-02 01:52:45.969206825 [W:onnxruntime:, session_state.cc:1166 VerifyEachNodeIsAssignedToAnEp] Some nodes were not assigned to the preferred execution providers which may or may not have an negative impact on performance. e.g. ORT explicitly assigns shape related ops to CPU to improve perf.[m
+[0;93m2025-05-02 01:52:45.969239211 [W:onnxruntime:, session_state.cc:1168 VerifyEachNodeIsAssignedToAnEp] Rerunning with verbose output on a non-minimal build will show node assignments.[m
+2025-05-02 01:52:46,094 WETEXT INFO building fst for zh_normalizer ...
+2025-05-02 01:52:46,094 INFO building fst for zh_normalizer ...
+2025-05-02 01:52:59,251 WETEXT INFO done
+2025-05-02 01:52:59,251 INFO done
+2025-05-02 01:52:59,251 WETEXT INFO fst path: /root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/site-packages/tn/zh_tn_tagger.fst
+2025-05-02 01:52:59,251 INFO fst path: /root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/site-packages/tn/zh_tn_tagger.fst
+2025-05-02 01:52:59,251 WETEXT INFO           /root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/site-packages/tn/zh_tn_verbalizer.fst
+2025-05-02 01:52:59,251 INFO           /root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/site-packages/tn/zh_tn_verbalizer.fst
+2025-05-02 01:52:59,253 WETEXT INFO found existing fst: /root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/site-packages/tn/en_tn_tagger.fst
+2025-05-02 01:52:59,253 INFO found existing fst: /root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/site-packages/tn/en_tn_tagger.fst
+2025-05-02 01:52:59,254 WETEXT INFO                     /root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/site-packages/tn/en_tn_verbalizer.fst
+2025-05-02 01:52:59,254 INFO                     /root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/site-packages/tn/en_tn_verbalizer.fst
+2025-05-02 01:52:59,254 WETEXT INFO skip building fst for en_normalizer ...
+2025-05-02 01:52:59,254 INFO skip building fst for en_normalizer ...
+2025-05-02 01:52:59,817 ERROR doesn't exist prompt_audio_path: /home/none/test.wav
+INFO 05-02 01:52:59 config.py:2444] Downcasting torch.float32 to torch.float16.
+INFO 05-02 01:52:59 config.py:549] This model supports multiple tasks: {'score', 'embed', 'generate', 'classify', 'reward'}. Defaulting to 'generate'.
+INFO 05-02 01:52:59 config.py:1555] Chunked prefill is enabled with max_num_batched_tokens=1024.
+WARNING 05-02 01:53:00 utils.py:2128] CUDA was previously initialized. We must use the `spawn` multiprocessing start method. Setting VLLM_WORKER_MULTIPROC_METHOD to 'spawn'. See https://docs.vllm.ai/en/latest/getting_started/troubleshooting.html#python-multiprocessing for more information.
+INFO 05-02 01:53:03 __init__.py:207] Automatically detected platform cuda.
+failed to import ttsfrd, use WeTextProcessing instead
+WARNING 05-02 01:53:05 registry.py:352] Model architecture CosyVoice2Model is already registered, and will be overwritten by the new model class <class 'async_cosyvoice.vllm_use_cosyvoice2_model.CosyVoice2Model'>.
+2025-05-02 01:53:05,172 - modelscope - INFO - PyTorch version 2.5.1 Found.
+2025-05-02 01:53:05,172 - modelscope - INFO - Loading ast index from /root/.cache/modelscope/ast_indexer
+2025-05-02 01:53:05,189 - modelscope - INFO - Loading done! Current index file version is 1.15.0, with md5 5b4b80618f4a206b47e6b099b48d624d and a total number of 980 components indexed
+INFO 05-02 01:53:05 core.py:50] Initializing a V1 LLM engine (v0.7.3) with config: model='/home/CosyVoice2-0.5B', speculative_config=None, tokenizer='/home/CosyVoice2-0.5B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.float16, max_seq_len=1024, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar'), observability_config=ObservabilityConfig(otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=0, served_model_name=/home/CosyVoice2-0.5B, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"level":3,"custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":512}
+WARNING 05-02 01:53:05 utils.py:2262] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,list_loras,load_config,pin_lora,remove_lora,scheduler_config not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x7fe628b5b640>
+WARNING 05-02 01:53:06 interface.py:304] Using 'pin_memory=False' as WSL is detected. This may slow down the performance.
+INFO 05-02 01:53:06 gpu_model_runner.py:1049] Starting to load model /home/CosyVoice2-0.5B...
+INFO 05-02 01:53:06 cuda.py:157] Using Flash Attention backend on V1 engine.
+WARNING 05-02 01:53:06 topk_topp_sampler.py:46] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+WARNING 05-02 01:53:06 rejection_sampler.py:47] FlashInfer is not available. Falling back to the PyTorch-native implementation of rejection sampling. For the best performance, please install FlashInfer.
+/root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/site-packages/torch/utils/_device.py:106: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  return func(*args, **kwargs)
+Loading pt checkpoint shards:   0% Completed | 0/1 [00:00<?, ?it/s]
+Loading pt checkpoint shards: 100% Completed | 1/1 [00:03<00:00,  3.97s/it]
+Loading pt checkpoint shards: 100% Completed | 1/1 [00:03<00:00,  3.97s/it]
+
+INFO 05-02 01:53:10 gpu_model_runner.py:1060] Loading model weights took 0.9530 GB
+INFO 05-02 01:53:14 backends.py:408] Using cache directory: /root/.cache/vllm/torch_compile_cache/1d1cb7dadd/rank_0 for vLLM's torch.compile
+INFO 05-02 01:53:14 backends.py:418] Dynamo bytecode transform time: 3.93 s
+INFO 05-02 01:53:15 backends.py:115] Directly load the compiled graph for shape None from the cache
+INFO 05-02 01:53:17 monitor.py:33] torch.compile takes 3.93 s in total
+INFO 05-02 01:53:17 kv_cache_utils.py:522] # GPU blocks: 10368
+INFO 05-02 01:53:17 kv_cache_utils.py:525] Maximum concurrency for 1024 tokens per request: 162.00x
+INFO 05-02 01:53:31 gpu_model_runner.py:1339] Graph capturing finished in 14 secs, took 0.37 GiB
+INFO 05-02 01:53:31 core.py:116] init engine (profile, create kv cache, warmup model) took 20.50 seconds
+2025-05-02 01:53:31,284 DEBUG Using selector: EpollSelector
+[05/02/2025-01:53:34] [TRT] [I] Loaded engine size: 155 MiB
+[05/02/2025-01:53:35] [TRT] [I] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +1650, now: CPU 0, GPU 1786 (MiB)
+[05/02/2025-01:53:36] [TRT] [I] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +1650, now: CPU 0, GPU 3436 (MiB)
+combo_list len: 24
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:53:45,480 INFO synthesis text 钱没了。
+2025-05-02 01:53:46,076 INFO llm job done, generated   80 tokens, time cost: 0.596s
+2025-05-02 01:53:46,076 DEBUG speech_tokens: len: 80  data: [4030, 6486, 6486, 6486, 6486, 6486, 4299, 4164, 5648, 5405, 5407, 5404, 4678, 2517, 3535, 5021, 143, 32, 29, 47, 3990, 5937, 5289, 6177, 4314, 344, 2201, 17, 17, 368, 1340, 1340, 1106, 3293, 4751, 2317, 3772, 6202, 3771, 5104, 3403, 3403, 3403, 3403, 1000, 1729, 2064, 2028, 2028, 1947, 2028, 2031, 2040, 2028, 2028, 2031, 2028, 2031, 4218, 4218, 4215, 2031, 4299, 4218, 4218, 4218, 4218, 4299, 4218, 4299, 4218, 4299, 4299, 4218, 6486, 6486, 6486, 6486, 6486, 6486]
+2025-05-02 01:53:47,535 INFO yield speech len 3.2, rtf 0.6424356251955032
+100%|██████████| 1/1 [00:10<00:00, 10.78s/it]100%|██████████| 1/1 [00:10<00:00, 10.78s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:53:55,777 INFO synthesis text 怎么不做饭呀？
+2025-05-02 01:53:55,947 INFO llm job done, generated   28 tokens, time cost: 0.170s
+2025-05-02 01:53:55,947 DEBUG speech_tokens: len: 28  data: [1708, 4921, 2259, 245, 515, 1884, 2125, 494, 1443, 2166, 2159, 3560, 5649, 5742, 5092, 5084, 6453, 3618, 5024, 4779, 4536, 4460, 53, 44, 812, 1217, 4132, 1944]
+2025-05-02 01:53:58,154 INFO yield speech len 1.12, rtf 2.1229788661003113
+100%|██████████| 1/1 [00:10<00:00, 10.59s/it]100%|██████████| 1/1 [00:10<00:00, 10.59s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:06,249 INFO synthesis text 我不猜你说吧谁。
+2025-05-02 01:54:06,445 INFO llm job done, generated   33 tokens, time cost: 0.195s
+2025-05-02 01:54:06,445 DEBUG speech_tokens: len: 33  data: [1735, 2112, 5831, 5102, 1443, 2166, 5829, 5097, 1044, 6376, 2916, 5841, 5189, 4543, 2292, 3427, 1376, 3712, 6292, 3636, 5081, 702, 2864, 731, 5238, 5238, 806, 35, 2303, 4571, 4380, 5109, 1545]
+2025-05-02 01:54:07,588 INFO yield speech len 1.32, rtf 1.014270746346676
+100%|██████████| 1/1 [00:09<00:00,  9.43s/it]100%|██████████| 1/1 [00:09<00:00,  9.43s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:07,613 INFO synthesis text 这个活也派我干呀？
+2025-05-02 01:54:07,903 INFO llm job done, generated   61 tokens, time cost: 0.290s
+2025-05-02 01:54:07,903 DEBUG speech_tokens: len: 61  data: [785, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 1950, 1815, 4512, 4611, 4606, 1132, 264, 2828, 2897, 2760, 4947, 2841, 2185, 1457, 707, 4616, 4938, 566, 110, 2166, 1404, 5589, 6075, 5269, 4567, 3644, 4373, 1457, 602, 1369, 2112, 165, 2417, 5509, 4456, 4379, 2240, 4670, 2339, 83, 2675, 488, 497, 1253, 1982, 4218, 4218, 4137, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:54:09,463 INFO yield speech len 2.44, rtf 0.7582191561089188
+100%|██████████| 1/1 [00:01<00:00,  1.87s/it]100%|██████████| 1/1 [00:01<00:00,  1.87s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:12,506 INFO synthesis text 俺愿意咋尝就咋尝用不着你管。
+2025-05-02 01:54:13,972 INFO llm job done, generated  280 tokens, time cost: 1.465s
+2025-05-02 01:54:13,972 DEBUG speech_tokens: len: 280  data: [2984, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:54:14,140 INFO yield speech len 11.2, rtf 0.1458980781691415
+100%|██████████| 1/1 [00:04<00:00,  4.67s/it]100%|██████████| 1/1 [00:04<00:00,  4.67s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:22,163 INFO synthesis text 你今天是不是。
+2025-05-02 01:54:22,529 INFO llm job done, generated   62 tokens, time cost: 0.366s
+2025-05-02 01:54:22,529 DEBUG speech_tokens: len: 62  data: [1490, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4137, 1968, 3914, 2726, 3482, 1295, 1860, 5649, 3237, 4697, 4479, 6261, 2463, 2517, 4742, 4460, 4576, 5146, 5319, 5323, 4512, 5343, 6061, 1450, 2175, 2182, 3638, 5977, 6048, 5322, 2982, 5341, 2417, 2405, 2378, 2378, 191, 920, 1595, 1735, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:54:22,678 INFO yield speech len 2.48, rtf 0.2077195913560929
+100%|██████████| 1/1 [00:08<00:00,  8.53s/it]100%|██████████| 1/1 [00:08<00:00,  8.53s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:22,707 INFO synthesis text 和文波说了？
+2025-05-02 01:54:22,846 INFO llm job done, generated   21 tokens, time cost: 0.139s
+2025-05-02 01:54:22,846 DEBUG speech_tokens: len: 21  data: [1704, 2430, 524, 2915, 4372, 623, 829, 4317, 1443, 5102, 5081, 5967, 6048, 2178, 3644, 5084, 4780, 6066, 4619, 5599, 4131]
+2025-05-02 01:54:22,994 INFO yield speech len 0.84, rtf 0.3419314111982073
+100%|██████████| 1/1 [00:00<00:00,  3.19it/s]100%|██████████| 1/1 [00:00<00:00,  3.19it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:30,934 INFO synthesis text 我让她过来。
+2025-05-02 01:54:31,156 INFO llm job done, generated   42 tokens, time cost: 0.222s
+2025-05-02 01:54:31,156 DEBUG speech_tokens: len: 42  data: [1502, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2121, 3644, 635, 848, 3796, 1690, 3002, 4708, 4071, 54, 5835, 6076, 4699, 1098, 1302, 666, 5100, 5088, 4727, 2989, 3314, 29, 3650, 2924, 2194, 1060, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:54:31,303 INFO yield speech len 1.68, rtf 0.21936893463134766
+100%|██████████| 1/1 [00:08<00:00,  8.31s/it]100%|██████████| 1/1 [00:08<00:00,  8.31s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:38,405 INFO synthesis text 三十万？
+2025-05-02 01:54:38,503 INFO llm job done, generated   19 tokens, time cost: 0.098s
+2025-05-02 01:54:38,504 DEBUG speech_tokens: len: 19  data: [1816, 6379, 6457, 6540, 4194, 2189, 4786, 5532, 5226, 5319, 5319, 3063, 1208, 1426, 2540, 4379, 2921, 733, 1789]
+2025-05-02 01:54:38,637 INFO yield speech len 0.76, rtf 0.30616176755804764
+100%|██████████| 1/1 [00:07<00:00,  7.33s/it]100%|██████████| 1/1 [00:07<00:00,  7.33s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:38,659 INFO synthesis text 你看你借我这个采访室。
+2025-05-02 01:54:38,922 INFO llm job done, generated   54 tokens, time cost: 0.262s
+2025-05-02 01:54:38,922 DEBUG speech_tokens: len: 54  data: [1517, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 2040, 6015, 2213, 728, 84, 5112, 5265, 2362, 3670, 566, 1131, 5650, 4695, 4849, 5078, 3644, 719, 946, 5244, 4604, 1126, 2585, 4188, 5103, 3655, 2195, 3294, 4950, 1223, 1235, 5940, 5319, 5319, 5259, 6062, 1688, 3730, 1539, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:54:39,067 INFO yield speech len 2.16, rtf 0.1886747501514576
+100%|██████████| 1/1 [00:00<00:00,  2.34it/s]100%|██████████| 1/1 [00:00<00:00,  2.34it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:46,299 INFO synthesis text 你说他把我当猴看。
+2025-05-02 01:54:46,686 INFO llm job done, generated   73 tokens, time cost: 0.387s
+2025-05-02 01:54:46,686 DEBUG speech_tokens: len: 73  data: [1499, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 1563, 3670, 2726, 566, 1295, 5890, 6049, 3144, 6473, 5093, 5000, 4600, 1842, 2190, 5841, 6157, 189, 2163, 2351, 6158, 4700, 5097, 6558, 6559, 626, 797, 1923, 300, 2270, 5671, 5023, 4960, 4869, 4860, 4863, 512, 629, 719, 2915, 2181, 165, 2271, 5832, 5194, 5266, 5266, 4466, 4385, 2207, 776, 1513, 4299, 6486, 6486, 6486, 6486, 6405, 6405, 6405, 6405, 6405, 4218]
+2025-05-02 01:54:46,833 INFO yield speech len 2.92, rtf 0.18288574806631427
+100%|██████████| 1/1 [00:07<00:00,  7.76s/it]100%|██████████| 1/1 [00:07<00:00,  7.76s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:54,814 INFO synthesis text 不照样打败日本鬼子吗。
+2025-05-02 01:54:56,024 INFO llm job done, generated  220 tokens, time cost: 1.210s
+2025-05-02 01:54:56,024 DEBUG speech_tokens: len: 220  data: [1490, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4299, 2166, 4347, 1457, 5744, 1680, 5163, 2415, 5265, 4942, 4898, 2996, 4912, 4460, 497, 1558, 2139, 55, 3647, 1703, 1001, 1920, 1350, 4457, 4382, 8, 386, 3077, 5979, 5979, 5343, 957, 1107, 380, 5124, 5532, 501, 657, 5095, 140, 386, 557, 1051, 6379, 807, 65, 4071, 668, 4862, 4950, 4878, 4131, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:54:56,168 INFO yield speech len 8.8, rtf 0.15378854491493918
+100%|██████████| 1/1 [00:09<00:00,  9.33s/it]100%|██████████| 1/1 [00:09<00:00,  9.33s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:59,194 INFO synthesis text 懂不懂游戏规则。
+2025-05-02 01:54:59,519 INFO llm job done, generated   63 tokens, time cost: 0.324s
+2025-05-02 01:54:59,519 DEBUG speech_tokens: len: 63  data: [1490, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4299, 1842, 2252, 2759, 629, 1349, 2132, 2175, 3603, 5829, 4842, 1842, 4438, 5026, 674, 2045, 2833, 404, 569, 728, 5342, 4512, 4922, 4749, 4858, 1923, 660, 5099, 2381, 4841, 4776, 4200, 6374, 5176, 77, 632, 518, 2678, 4865, 4946, 4942, 1244, 2032, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:54:59,664 INFO yield speech len 2.52, rtf 0.18649810836428687
+100%|██████████| 1/1 [00:03<00:00,  3.49s/it]100%|██████████| 1/1 [00:03<00:00,  3.49s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:54:59,691 INFO synthesis text 爱情对你来说可能就像俱乐部。
+2025-05-02 01:55:00,005 INFO llm job done, generated   65 tokens, time cost: 0.314s
+2025-05-02 01:55:00,005 DEBUG speech_tokens: len: 65  data: [1948, 5671, 4536, 4499, 2510, 4191, 5648, 2274, 539, 6020, 1887, 2340, 5337, 4778, 1563, 539, 62, 3880, 29, 1463, 224, 5345, 6048, 6048, 3861, 6473, 5099, 4997, 4978, 4860, 3402, 2112, 2031, 162, 2592, 308, 856, 1964, 29, 915, 4678, 3099, 5261, 4756, 2319, 2432, 1725, 4758, 3858, 5341, 964, 2477, 4754, 720, 2166, 3600, 5091, 5101, 3526, 3486, 2112, 2112, 4299, 4299, 4299]
+2025-05-02 01:55:00,175 INFO yield speech len 2.6, rtf 0.18634942861703727
+100%|██████████| 1/1 [00:00<00:00,  1.97it/s]100%|██████████| 1/1 [00:00<00:00,  1.97it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:08,151 INFO synthesis text 你踩我脚了你。
+2025-05-02 01:55:08,947 INFO llm job done, generated  140 tokens, time cost: 0.796s
+2025-05-02 01:55:08,947 DEBUG speech_tokens: len: 140  data: [1517, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:55:09,089 INFO yield speech len 5.6, rtf 0.16743485416684833
+100%|██████████| 1/1 [00:08<00:00,  8.91s/it]100%|██████████| 1/1 [00:08<00:00,  8.91s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:16,935 INFO synthesis text 你们这帮律师真的是靠嘴吃饭呐！
+2025-05-02 01:55:17,505 INFO llm job done, generated   94 tokens, time cost: 0.570s
+2025-05-02 01:55:17,506 DEBUG speech_tokens: len: 94  data: [2975, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 1959, 1564, 998, 512, 1268, 1295, 859, 4314, 2603, 4540, 1590, 5238, 3074, 4517, 1188, 712, 6323, 4955, 3852, 4532, 6317, 1862, 800, 5319, 5241, 3711, 3722, 6071, 5333, 2408, 113, 1462, 1950, 2112, 5163, 3132, 4520, 4473, 6180, 4411, 3062, 5238, 3069, 954, 3, 2268, 4872, 5052, 5057, 2825, 3475, 5649, 5727, 4286, 887, 1277, 1286, 789, 5319, 6021, 856, 6058, 5581, 6453, 2683, 5752, 6077, 31, 3670, 1504, 1703, 1226, 3412, 1944, 4218, 4218, 4137, 4137, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:55:17,669 INFO yield speech len 3.76, rtf 0.19526640151409394
+100%|██████████| 1/1 [00:08<00:00,  8.58s/it]100%|██████████| 1/1 [00:08<00:00,  8.58s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:20,703 INFO synthesis text 结果我比来比去。
+2025-05-02 01:55:21,257 INFO llm job done, generated   92 tokens, time cost: 0.554s
+2025-05-02 01:55:21,257 DEBUG speech_tokens: len: 92  data: [1517, 4299, 4299, 4218, 4218, 4299, 4218, 4218, 3975, 3975, 4218, 4218, 2112, 2004, 4922, 4432, 4488, 4749, 4778, 80, 59, 4595, 4599, 2112, 651, 3612, 6559, 4373, 728, 728, 719, 635, 635, 626, 623, 2810, 4997, 5006, 2006, 2087, 2068, 6531, 6531, 5803, 3644, 638, 4997, 4833, 2166, 1917, 5344, 3481, 2753, 154, 6230, 2, 3650, 2195, 4605, 1929, 1917, 5587, 3482, 1295, 807, 1257, 5001, 4593, 5325, 5298, 5298, 6000, 3813, 5316, 5343, 6073, 3887, 1700, 1610, 2031, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:55:21,408 INFO yield speech len 3.68, rtf 0.19174917884494946
+100%|██████████| 1/1 [00:03<00:00,  3.74s/it]100%|██████████| 1/1 [00:03<00:00,  3.74s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:21,442 INFO synthesis text 才给袁帅写了推荐信。
+2025-05-02 01:55:21,663 INFO llm job done, generated   39 tokens, time cost: 0.222s
+2025-05-02 01:55:21,664 DEBUG speech_tokens: len: 39  data: [1705, 3646, 2276, 474, 186, 2330, 3563, 4372, 1697, 842, 3104, 5950, 6048, 2628, 4537, 2195, 4407, 5648, 4920, 2249, 1612, 299, 1113, 27, 3483, 2374, 5101, 3462, 4686, 4823, 17, 2968, 5726, 5648, 4678, 4749, 4634, 2203, 1464]
+2025-05-02 01:55:21,799 INFO yield speech len 1.56, rtf 0.22939550570952585
+100%|██████████| 1/1 [00:00<00:00,  2.58it/s]100%|██████████| 1/1 [00:00<00:00,  2.57it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:28,451 INFO synthesis text 老师您这太看得起我了。
+2025-05-02 01:55:28,797 INFO llm job done, generated   55 tokens, time cost: 0.345s
+2025-05-02 01:55:28,797 DEBUG speech_tokens: len: 55  data: [1708, 3798, 2675, 2843, 3709, 6048, 3708, 5987, 5330, 5321, 1649, 1621, 1788, 4218, 4218, 4218, 4137, 4137, 4137, 4137, 4137, 4137, 1950, 2049, 1564, 512, 4480, 3831, 5241, 5330, 136, 300, 5832, 5436, 5269, 2654, 84, 3078, 5356, 2359, 1719, 59, 2733, 4678, 2706, 1295, 5824, 5100, 719, 1220, 1937, 497, 1217, 4132, 1945]
+2025-05-02 01:55:28,951 INFO yield speech len 2.2, rtf 0.22714896635575726
+100%|██████████| 1/1 [00:07<00:00,  7.15s/it]100%|██████████| 1/1 [00:07<00:00,  7.15s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:31,980 INFO synthesis text 好，除非你告诉我。
+2025-05-02 01:55:32,412 INFO llm job done, generated   75 tokens, time cost: 0.431s
+2025-05-02 01:55:32,412 DEBUG speech_tokens: len: 75  data: [1517, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 3888, 5346, 5589, 5591, 4133, 1217, 491, 2795, 4981, 4860, 3402, 2025, 2112, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4299, 2112, 2112, 2247, 3834, 1134, 2102, 5828, 6453, 4320, 4568, 4850, 5074, 6261, 1727, 566, 1375, 1788, 162, 4807, 4779, 4916, 3476, 6454, 6373, 4043, 4373, 4373, 2915, 710, 545, 2702, 3402, 3402, 2028, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218]
+2025-05-02 01:55:32,541 INFO yield speech len 3.0, rtf 0.18707950909932455
+100%|██████████| 1/1 [00:03<00:00,  3.59s/it]100%|██████████| 1/1 [00:03<00:00,  3.59s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:32,577 INFO synthesis text 还有五分钟就要考试了。
+2025-05-02 01:55:32,923 INFO llm job done, generated   55 tokens, time cost: 0.345s
+2025-05-02 01:55:32,923 DEBUG speech_tokens: len: 55  data: [1816, 6075, 5832, 3647, 3653, 4733, 5020, 4778, 2216, 4997, 5100, 6532, 4292, 2105, 2186, 6537, 3573, 194, 2392, 5937, 1887, 5970, 3152, 4997, 5081, 4982, 5044, 6258, 4920, 2670, 4607, 4700, 2432, 4943, 468, 3, 162, 3897, 1217, 1334, 1567, 6048, 5319, 5319, 5238, 5179, 5331, 4599, 4493, 3799, 3800, 2918, 974, 245, 1944]
+2025-05-02 01:55:33,058 INFO yield speech len 2.2, rtf 0.21845568310130725
+100%|██████████| 1/1 [00:00<00:00,  1.95it/s]100%|██████████| 1/1 [00:00<00:00,  1.95it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:33,081 INFO synthesis text 因为我喜欢他。
+2025-05-02 01:55:33,346 INFO llm job done, generated   44 tokens, time cost: 0.265s
+2025-05-02 01:55:33,346 DEBUG speech_tokens: len: 44  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 2031, 5614, 4912, 4994, 4312, 5798, 4598, 2585, 1457, 728, 4592, 4444, 5320, 5488, 2715, 566, 1847, 2841, 583, 731, 103, 1887, 57, 5832, 6085, 5266, 5356, 3888, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:55:33,504 INFO yield speech len 1.76, rtf 0.2401607957753268
+100%|██████████| 1/1 [00:00<00:00,  2.26it/s]100%|██████████| 1/1 [00:00<00:00,  2.26it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:33,527 INFO synthesis text 你能不能别老这么说话。
+2025-05-02 01:55:33,862 INFO llm job done, generated   64 tokens, time cost: 0.334s
+2025-05-02 01:55:33,862 DEBUG speech_tokens: len: 64  data: [1502, 4218, 4218, 4218, 4218, 4218, 4218, 4137, 1959, 3747, 2213, 4913, 754, 1725, 29, 497, 5775, 2175, 5086, 2286, 1476, 2, 2693, 5689, 6501, 2112, 1689, 566, 386, 4463, 6066, 4456, 4136, 602, 1370, 1113, 4509, 4609, 4754, 2124, 1400, 599, 848, 6048, 5322, 3395, 5081, 5093, 4947, 4947, 5066, 5675, 3890, 1703, 3170, 3888, 4299, 4218, 4218, 4218, 4218, 6405, 6405, 4218]
+2025-05-02 01:55:34,000 INFO yield speech len 2.56, rtf 0.1845693215727806
+100%|██████████| 1/1 [00:00<00:00,  2.03it/s]100%|██████████| 1/1 [00:00<00:00,  2.03it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:34,022 INFO synthesis text 一直就有！
+2025-05-02 01:55:34,208 INFO llm job done, generated   28 tokens, time cost: 0.185s
+2025-05-02 01:55:34,208 DEBUG speech_tokens: len: 28  data: [4245, 4747, 4827, 4746, 4993, 2834, 1699, 3948, 5970, 1618, 6070, 4587, 5649, 4614, 5050, 2828, 3319, 2339, 488, 2678, 5023, 5089, 1339, 4299, 4299, 6486, 6486, 6486]
+2025-05-02 01:55:34,325 INFO yield speech len 1.12, rtf 0.2700639622552054
+100%|██████████| 1/1 [00:00<00:00,  3.10it/s]100%|██████████| 1/1 [00:00<00:00,  3.10it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:34,348 INFO synthesis text 不用那么累。
+2025-05-02 01:55:34,569 INFO llm job done, generated   39 tokens, time cost: 0.222s
+2025-05-02 01:55:34,570 DEBUG speech_tokens: len: 39  data: [1502, 4137, 4137, 4137, 4137, 4137, 4137, 4218, 2139, 1416, 1448, 2105, 1457, 6313, 5344, 5085, 2888, 1801, 1722, 2, 666, 2124, 1217, 803, 6229, 4430, 4463, 278, 278, 2193, 249, 4218, 4218, 4218, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:55:34,692 INFO yield speech len 1.56, rtf 0.22073999429360414
+100%|██████████| 1/1 [00:00<00:00,  2.74it/s]100%|██████████| 1/1 [00:00<00:00,  2.74it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:34,715 INFO synthesis text 高手在民间。
+2025-05-02 01:55:34,915 INFO llm job done, generated   31 tokens, time cost: 0.200s
+2025-05-02 01:55:34,916 DEBUG speech_tokens: len: 31  data: [1708, 243, 479, 575, 5030, 5084, 5102, 5102, 3709, 6048, 135, 1331, 1367, 1287, 5644, 4709, 2924, 958, 1887, 1268, 512, 6181, 6261, 2742, 2256, 4778, 4595, 4523, 777, 3891, 1950]
+2025-05-02 01:55:35,058 INFO yield speech len 1.24, rtf 0.2765609372046686
+100%|██████████| 1/1 [00:00<00:00,  2.75it/s]100%|██████████| 1/1 [00:00<00:00,  2.75it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:35,086 INFO synthesis text 你说你那么多鱼苗撒下去。
+2025-05-02 01:55:35,442 INFO llm job done, generated   66 tokens, time cost: 0.356s
+2025-05-02 01:55:35,443 DEBUG speech_tokens: len: 66  data: [1490, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 2040, 3828, 2213, 2726, 1376, 5940, 6048, 3861, 3638, 5077, 4554, 6099, 4912, 566, 1563, 3750, 4384, 5508, 2610, 4314, 2792, 64, 300, 2909, 2900, 3320, 2104, 4130, 3127, 4315, 2672, 731, 4946, 4401, 6535, 6377, 2198, 3889, 1462, 2221, 4919, 2202, 5105, 147, 4921, 5298, 5271, 1186, 962, 844, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218]
+2025-05-02 01:55:35,584 INFO yield speech len 2.64, rtf 0.18857157591617468
+100%|██████████| 1/1 [00:00<00:00,  1.91it/s]100%|██████████| 1/1 [00:00<00:00,  1.91it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:35,612 INFO synthesis text 别别别。
+2025-05-02 01:55:36,045 INFO llm job done, generated   80 tokens, time cost: 0.433s
+2025-05-02 01:55:36,045 DEBUG speech_tokens: len: 80  data: [4246, 4299, 2139, 927, 5020, 4579, 2300, 1902, 1824, 4496, 4567, 1173, 1824, 2555, 4499, 4496, 4819, 4738, 4818, 4818, 4791, 4791, 4791, 5440, 3253, 4225, 4225, 4144, 3415, 4144, 4143, 4227, 4227, 4227, 4227, 4227, 4218, 4173, 4137, 4218, 4218, 4218, 4218, 4227, 4218, 4218, 4227, 4227, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405]
+2025-05-02 01:55:36,164 INFO yield speech len 3.2, rtf 0.1726134866476059
+100%|██████████| 1/1 [00:00<00:00,  1.73it/s]100%|██████████| 1/1 [00:00<00:00,  1.73it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:44,176 INFO synthesis text 到底谁在陷害我？
+2025-05-02 01:55:44,827 INFO llm job done, generated  107 tokens, time cost: 0.650s
+2025-05-02 01:55:44,827 DEBUG speech_tokens: len: 107  data: [1499, 4218, 4137, 4218, 4218, 4218, 4137, 4137, 4137, 4137, 4137, 4218, 4137, 4137, 4137, 4137, 4137, 1950, 2031, 2058, 57, 2, 4868, 4949, 2789, 728, 560, 1842, 42, 1295, 1295, 1376, 5943, 4590, 4509, 4509, 63, 140, 143, 395, 1376, 3563, 4614, 4200, 4932, 4564, 35, 4407, 4918, 4675, 4686, 4858, 2303, 38, 1964, 3414, 4860, 5598, 5915, 89, 1118, 2185, 2185, 1448, 520, 2677, 490, 1216, 1215, 1215, 1224, 2037, 2040, 2112, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:55:45,005 INFO yield speech len 4.28, rtf 0.193597501683458
+100%|██████████| 1/1 [00:08<00:00,  8.84s/it]100%|██████████| 1/1 [00:08<00:00,  8.84s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:45,034 INFO synthesis text 有点发脾气也正常。
+2025-05-02 01:55:45,457 INFO llm job done, generated   70 tokens, time cost: 0.423s
+2025-05-02 01:55:45,457 DEBUG speech_tokens: len: 70  data: [3704, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4137, 1266, 3482, 137, 710, 5096, 870, 4452, 4841, 35, 1802, 4278, 6453, 5186, 6157, 5268, 219, 1650, 4947, 3455, 3482, 2590, 4191, 5405, 4722, 5019, 5019, 2582, 872, 403, 2004, 5322, 4604, 5049, 4906, 5938, 1725, 5322, 2997, 5589, 3413, 2441, 2441, 4628, 4871, 4952, 4898, 2009, 2003, 4299, 6486, 6486, 6486, 4299, 4299, 6486, 6405, 6405, 4218]
+2025-05-02 01:55:45,600 INFO yield speech len 2.8, rtf 0.20211849893842426
+100%|██████████| 1/1 [00:00<00:00,  1.69it/s]100%|██████████| 1/1 [00:00<00:00,  1.69it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:45,625 INFO synthesis text 净瞎琢磨这些了。
+2025-05-02 01:55:45,866 INFO llm job done, generated   40 tokens, time cost: 0.241s
+2025-05-02 01:55:45,866 DEBUG speech_tokens: len: 40  data: [1490, 4299, 2112, 4272, 5405, 4740, 4821, 1105, 2050, 3957, 6214, 5650, 2239, 1463, 5105, 948, 6048, 2179, 629, 1398, 2858, 2377, 2247, 4611, 2582, 1286, 5242, 5651, 2481, 4760, 4379, 3800, 533, 3160, 1737, 1749, 1468, 1701, 4299, 4299]
+2025-05-02 01:55:46,007 INFO yield speech len 1.6, rtf 0.2390637993812561
+100%|██████████| 1/1 [00:00<00:00,  2.47it/s]100%|██████████| 1/1 [00:00<00:00,  2.47it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:46,033 INFO synthesis text 听起来还挺优秀的。
+2025-05-02 01:55:46,239 INFO llm job done, generated   38 tokens, time cost: 0.205s
+2025-05-02 01:55:46,239 DEBUG speech_tokens: len: 38  data: [2140, 789, 4542, 2760, 4994, 6261, 6501, 5658, 4679, 2202, 157, 74, 3647, 5832, 5111, 2418, 2490, 2598, 1268, 2078, 1862, 884, 5099, 5095, 4431, 4756, 2319, 4833, 5092, 641, 1272, 137, 245, 3404, 4132, 3888, 2109, 4299]
+2025-05-02 01:55:46,381 INFO yield speech len 1.52, rtf 0.228932029322574
+100%|██████████| 1/1 [00:00<00:00,  2.69it/s]100%|██████████| 1/1 [00:00<00:00,  2.69it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:46,422 INFO synthesis text 您拿着。
+2025-05-02 01:55:46,494 INFO llm job done, generated   14 tokens, time cost: 0.072s
+2025-05-02 01:55:46,495 DEBUG speech_tokens: len: 14  data: [1806, 3185, 2834, 5290, 6255, 2233, 1460, 1946, 2594, 870, 6048, 810, 999, 2112]
+2025-05-02 01:55:46,627 INFO yield speech len 0.56, rtf 0.3658362797328404
+100%|██████████| 1/1 [00:00<00:00,  4.11it/s]100%|██████████| 1/1 [00:00<00:00,  4.10it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:55:54,171 INFO synthesis text 钟老师。
+2025-05-02 01:55:54,361 INFO llm job done, generated   31 tokens, time cost: 0.190s
+2025-05-02 01:55:54,362 DEBUG speech_tokens: len: 31  data: [4246, 4299, 2976, 3144, 4853, 5098, 5776, 5692, 4619, 2675, 605, 3712, 6048, 4512, 4512, 808, 5507, 2420, 2276, 2916, 2919, 1461, 1788, 1788, 1788, 1788, 1788, 4299, 4299, 4299, 4299]
+2025-05-02 01:55:54,495 INFO yield speech len 1.24, rtf 0.2608099291401525
+100%|██████████| 1/1 [00:07<00:00,  7.87s/it]100%|██████████| 1/1 [00:07<00:00,  7.87s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:02,132 INFO synthesis text 我知道他去了择数。
+2025-05-02 01:56:02,389 INFO llm job done, generated   46 tokens, time cost: 0.257s
+2025-05-02 01:56:02,389 DEBUG speech_tokens: len: 46  data: [1708, 2050, 3590, 692, 2621, 1680, 5241, 3802, 6062, 4603, 144, 2250, 5672, 1223, 575, 2677, 5592, 4134, 1216, 1893, 300, 2916, 3646, 312, 4839, 6027, 3120, 5345, 145, 1532, 2, 4188, 5648, 316, 1037, 551, 4781, 5248, 6048, 5571, 5827, 2186, 1366, 1312, 2032, 2031]
+2025-05-02 01:56:02,529 INFO yield speech len 1.84, rtf 0.2158237540203592
+100%|██████████| 1/1 [00:08<00:00,  8.03s/it]100%|██████████| 1/1 [00:08<00:00,  8.03s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:02,550 INFO synthesis text 你们要原谅我不懂事。
+2025-05-02 01:56:03,195 INFO llm job done, generated  117 tokens, time cost: 0.645s
+2025-05-02 01:56:03,195 DEBUG speech_tokens: len: 117  data: [1502, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2049, 6100, 4886, 2564, 2127, 2125, 17, 2699, 4993, 4567, 5672, 2576, 3563, 4129, 3887, 140, 731, 5960, 2962, 4849, 5185, 4871, 3509, 4373, 719, 715, 2166, 1443, 5094, 870, 64, 707, 1403, 2048, 5940, 5319, 5319, 5319, 4509, 4611, 5252, 2987, 2928, 2031, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:03,340 INFO yield speech len 4.68, rtf 0.16868547496632635
+100%|██████████| 1/1 [00:00<00:00,  1.24it/s]100%|██████████| 1/1 [00:00<00:00,  1.24it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:03,507 INFO synthesis text 我对你的最初印象。
+2025-05-02 01:56:03,682 INFO llm job done, generated   31 tokens, time cost: 0.175s
+2025-05-02 01:56:03,682 DEBUG speech_tokens: len: 31  data: [2113, 728, 2891, 225, 72, 4603, 2373, 3913, 2726, 1605, 65, 226, 5649, 4770, 4606, 1214, 789, 6048, 3564, 5827, 5340, 5073, 4967, 2051, 1025, 5485, 4678, 16, 2918, 3403, 1944]
+2025-05-02 01:56:03,792 INFO yield speech len 1.24, rtf 0.23023870683485462
+100%|██████████| 1/1 [00:00<00:00,  2.22it/s]100%|██████████| 1/1 [00:00<00:00,  2.22it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:03,820 INFO synthesis text 跟你也没什么好说的。
+2025-05-02 01:56:04,297 INFO llm job done, generated   86 tokens, time cost: 0.477s
+2025-05-02 01:56:04,298 DEBUG speech_tokens: len: 86  data: [1499, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2112, 2112, 84, 2397, 2327, 4442, 3669, 5856, 5937, 2940, 4940, 1268, 1295, 3482, 5020, 4911, 4938, 4777, 2330, 110, 1881, 4074, 1882, 8, 386, 5100, 4857, 5322, 5323, 5325, 4576, 1396, 4317, 2125, 4946, 4951, 4860, 4860, 4860, 5589, 5756, 656, 719, 2180, 3753, 6048, 6048, 6049, 6048, 4077, 6553, 5830, 5099, 2891, 4484, 147, 2166, 63, 2216, 272, 2468, 3412, 4131, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:04,441 INFO yield speech len 3.44, rtf 0.18064712369164757
+100%|██████████| 1/1 [00:00<00:00,  1.55it/s]100%|██████████| 1/1 [00:00<00:00,  1.55it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:04,482 INFO synthesis text 这有什么不能说的。
+2025-05-02 01:56:04,626 INFO llm job done, generated   27 tokens, time cost: 0.144s
+2025-05-02 01:56:04,626 DEBUG speech_tokens: len: 27  data: [1815, 5322, 4573, 4849, 1133, 1370, 3700, 6051, 766, 2125, 1316, 5053, 2166, 5826, 4762, 1719, 983, 2936, 6048, 5319, 1450, 719, 272, 543, 1, 3646, 1704]
+2025-05-02 01:56:04,761 INFO yield speech len 1.08, rtf 0.2586247744383635
+100%|██████████| 1/1 [00:00<00:00,  3.16it/s]100%|██████████| 1/1 [00:00<00:00,  3.16it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:04,915 INFO synthesis text 念旧情的分上。
+2025-05-02 01:56:05,229 INFO llm job done, generated   61 tokens, time cost: 0.313s
+2025-05-02 01:56:05,229 DEBUG speech_tokens: len: 61  data: [2032, 6180, 4885, 4858, 4571, 4409, 754, 1808, 3471, 4678, 5586, 4600, 2903, 641, 150, 4919, 4488, 2517, 1376, 881, 1721, 6262, 300, 4511, 626, 6453, 6537, 6537, 398, 4514, 5962, 5962, 5962, 6048, 6048, 5319, 2334, 4540, 3161, 1217, 1225, 1215, 1215, 2026, 2028, 2028, 2028, 4299, 4299, 4299, 4299, 4299, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486]
+2025-05-02 01:56:05,331 INFO yield speech len 2.44, rtf 0.17036238654715116
+100%|██████████| 1/1 [00:00<00:00,  1.76it/s]100%|██████████| 1/1 [00:00<00:00,  1.76it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:05,360 INFO synthesis text 故意破坏他人财物。
+2025-05-02 01:56:05,709 INFO llm job done, generated   60 tokens, time cost: 0.348s
+2025-05-02 01:56:05,709 DEBUG speech_tokens: len: 60  data: [1499, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4218, 492, 657, 5826, 5829, 3638, 4778, 4939, 2752, 970, 2166, 3564, 2776, 2813, 638, 4947, 2779, 5051, 1541, 845, 791, 870, 1032, 5103, 6084, 6401, 5266, 3877, 3887, 950, 2233, 6099, 4916, 2187, 6075, 1703, 737, 953, 3638, 5829, 5829, 4373, 2186, 2104, 1978, 4137, 4137, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:56:05,852 INFO yield speech len 2.4, rtf 0.20511587460835776
+100%|██████████| 1/1 [00:00<00:00,  1.93it/s]100%|██████████| 1/1 [00:00<00:00,  1.93it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:05,876 INFO synthesis text 你会唱会弹。
+2025-05-02 01:56:06,097 INFO llm job done, generated   39 tokens, time cost: 0.221s
+2025-05-02 01:56:06,097 DEBUG speech_tokens: len: 39  data: [1736, 1563, 2213, 566, 971, 2754, 2772, 4601, 2429, 2490, 5322, 5115, 4537, 4862, 2684, 2693, 3423, 4218, 4218, 4137, 4137, 4218, 6405, 6405, 6405, 6405, 4299, 573, 2838, 5095, 4598, 403, 2004, 59, 1460, 731, 2189, 5121, 1797]
+2025-05-02 01:56:06,212 INFO yield speech len 1.56, rtf 0.21532636422377366
+100%|██████████| 1/1 [00:00<00:00,  2.80it/s]100%|██████████| 1/1 [00:00<00:00,  2.80it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:06,233 INFO synthesis text 别怕。
+2025-05-02 01:56:06,300 INFO llm job done, generated   12 tokens, time cost: 0.067s
+2025-05-02 01:56:06,300 DEBUG speech_tokens: len: 12  data: [1709, 2112, 1677, 3563, 2249, 216, 1431, 6076, 5428, 3169, 3402, 2028]
+2025-05-02 01:56:06,442 INFO yield speech len 0.48, rtf 0.4348556200663249
+100%|██████████| 1/1 [00:00<00:00,  4.39it/s]100%|██████████| 1/1 [00:00<00:00,  4.39it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:06,461 INFO synthesis text 对。
+2025-05-02 01:56:06,492 INFO llm job done, generated    7 tokens, time cost: 0.031s
+2025-05-02 01:56:06,492 DEBUG speech_tokens: len: 7  data: [1842, 2340, 4843, 2219, 2194, 2274, 2031]
+2025-05-02 01:56:06,646 INFO yield speech len 0.28, rtf 0.6612939493996756
+100%|██████████| 1/1 [00:00<00:00,  4.94it/s]100%|██████████| 1/1 [00:00<00:00,  4.94it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:06,671 INFO synthesis text 你上次在山里面的事。
+2025-05-02 01:56:07,056 INFO llm job done, generated   72 tokens, time cost: 0.385s
+2025-05-02 01:56:07,056 DEBUG speech_tokens: len: 72  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2040, 3427, 539, 566, 6051, 5322, 5322, 120, 5266, 2675, 1235, 2046, 6378, 6374, 6130, 6102, 2962, 3719, 2993, 3722, 1762, 2112, 2112, 2004, 6376, 2233, 4463, 2194, 6048, 6048, 5322, 2317, 5188, 5104, 5392, 6066, 2961, 5021, 620, 2128, 2128, 1187, 2249, 1479, 1035, 2222, 4417, 6048, 5319, 5319, 5319, 5238, 5260, 3068, 3068, 3769, 1573, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:07,193 INFO yield speech len 2.88, rtf 0.1810906661881341
+100%|██████████| 1/1 [00:00<00:00,  1.84it/s]100%|██████████| 1/1 [00:00<00:00,  1.84it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:07,218 INFO synthesis text 周总那么优秀。
+2025-05-02 01:56:07,377 INFO llm job done, generated   29 tokens, time cost: 0.159s
+2025-05-02 01:56:07,377 DEBUG speech_tokens: len: 29  data: [1708, 2112, 2976, 3141, 5087, 5091, 2583, 5646, 2828, 1340, 1396, 3663, 4699, 2601, 6498, 2393, 538, 1132, 704, 5831, 2992, 4593, 4759, 2553, 2426, 599, 602, 2677, 4212]
+2025-05-02 01:56:07,510 INFO yield speech len 1.16, rtf 0.2524926744658372
+100%|██████████| 1/1 [00:00<00:00,  3.17it/s]100%|██████████| 1/1 [00:00<00:00,  3.17it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:07,532 INFO synthesis text 我在北京上大学。
+2025-05-02 01:56:07,676 INFO llm job done, generated   31 tokens, time cost: 0.144s
+2025-05-02 01:56:07,676 DEBUG speech_tokens: len: 31  data: [1708, 1429, 728, 623, 145, 3456, 4565, 4459, 2166, 137, 305, 566, 5649, 2265, 4967, 5209, 6048, 2385, 5752, 1396, 297, 5914, 6077, 59, 4593, 3840, 1862, 878, 2324, 4468, 5835]
+2025-05-02 01:56:07,775 INFO yield speech len 1.24, rtf 0.19625290747611754
+100%|██████████| 1/1 [00:00<00:00,  3.82it/s]100%|██████████| 1/1 [00:00<00:00,  3.81it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:07,800 INFO synthesis text 你要把琴琴过继给别人？
+2025-05-02 01:56:08,154 INFO llm job done, generated   66 tokens, time cost: 0.354s
+2025-05-02 01:56:08,154 DEBUG speech_tokens: len: 66  data: [761, 4218, 4218, 4218, 4218, 4218, 4218, 4137, 1960, 3994, 6261, 3184, 566, 1295, 1295, 3480, 4604, 5025, 5057, 1434, 676, 4133, 731, 843, 4921, 4488, 6, 566, 6019, 3993, 4432, 2598, 4615, 6094, 2131, 654, 5829, 5097, 2341, 5649, 2265, 4614, 732, 186, 71, 1920, 1917, 2024, 566, 764, 2378, 3795, 5341, 5293, 4573, 2926, 2916, 1705, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:08,278 INFO yield speech len 2.64, rtf 0.18091770735653964
+100%|██████████| 1/1 [00:00<00:00,  2.00it/s]100%|██████████| 1/1 [00:00<00:00,  2.00it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:08,301 INFO synthesis text 好不好？
+2025-05-02 01:56:08,388 INFO llm job done, generated   17 tokens, time cost: 0.087s
+2025-05-02 01:56:08,388 DEBUG speech_tokens: len: 17  data: [4002, 5427, 5832, 2792, 629, 2166, 3613, 5058, 5427, 5832, 5114, 974, 974, 5429, 4780, 4815, 4299]
+2025-05-02 01:56:08,539 INFO yield speech len 0.68, rtf 0.35041290171006145
+100%|██████████| 1/1 [00:00<00:00,  3.86it/s]100%|██████████| 1/1 [00:00<00:00,  3.86it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:08,560 INFO synthesis text 他跟他哥们儿喝酒去了。
+2025-05-02 01:56:09,092 INFO llm job done, generated   92 tokens, time cost: 0.532s
+2025-05-02 01:56:09,092 DEBUG speech_tokens: len: 92  data: [3689, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2112, 2166, 2217, 6075, 1946, 974, 3161, 5591, 3404, 3404, 5591, 5672, 4943, 2432, 5346, 972, 2112, 87, 239, 32, 3669, 1833, 54, 3645, 1217, 308, 2031, 975, 180, 4205, 5501, 4852, 5006, 5050, 4314, 1396, 1163, 1649, 1649, 1649, 1648, 1540, 1219, 4863, 4860, 2673, 2017, 4205, 4934, 5086, 4807, 2416, 1275, 4678, 1294, 1133, 1118, 638, 719, 719, 1364, 870, 5001, 3813, 1636, 971, 4591, 6067, 551, 491, 5346, 6075, 3159, 972, 2025, 4299, 4218, 4218, 4218, 4218, 4218, 4137, 4137]
+2025-05-02 01:56:09,216 INFO yield speech len 3.68, rtf 0.17832375091055164
+100%|██████████| 1/1 [00:00<00:00,  1.48it/s]100%|██████████| 1/1 [00:00<00:00,  1.48it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:09,244 INFO synthesis text 让你下决心生产的蓝色烟花。
+2025-05-02 01:56:09,736 INFO llm job done, generated   85 tokens, time cost: 0.492s
+2025-05-02 01:56:09,736 DEBUG speech_tokens: len: 85  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2031, 3738, 5940, 3144, 5270, 4942, 2450, 1482, 512, 1295, 4432, 4676, 2239, 5998, 2918, 879, 4921, 888, 971, 4778, 4672, 5648, 2499, 5723, 4804, 6048, 6048, 5319, 2395, 4600, 5286, 4317, 5241, 2352, 5832, 5833, 734, 1480, 1914, 63, 29, 3718, 6230, 245, 734, 2939, 5853, 6373, 6374, 6373, 4690, 2255, 1376, 2715, 2724, 5021, 4598, 4421, 5692, 2778, 5028, 5028, 5028, 5066, 5672, 5347, 5356, 3168, 1701, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:09,867 INFO yield speech len 3.4, rtf 0.18309466979082895
+100%|██████████| 1/1 [00:00<00:00,  1.54it/s]100%|██████████| 1/1 [00:00<00:00,  1.54it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:09,890 INFO synthesis text 我觉得这个代价有点大。
+2025-05-02 01:56:11,069 INFO llm job done, generated  220 tokens, time cost: 1.179s
+2025-05-02 01:56:11,069 DEBUG speech_tokens: len: 220  data: [1499, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4299, 2122, 5803, 5102, 65, 546, 3390, 1943, 157, 306, 4592, 141, 4521, 4858, 1065, 128, 219, 297, 4540, 5189, 314, 4921, 4534, 3647, 2510, 1133, 2912, 2421, 69, 4849, 32, 1482, 1905, 1029, 4564, 5508, 6077, 3170, 6075, 3888, 3888, 2025, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:11,182 INFO yield speech len 8.8, rtf 0.14680415391921997
+100%|██████████| 1/1 [00:01<00:00,  1.31s/it]100%|██████████| 1/1 [00:01<00:00,  1.31s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:11,203 INFO synthesis text 我。
+2025-05-02 01:56:11,399 INFO llm job done, generated   40 tokens, time cost: 0.196s
+2025-05-02 01:56:11,400 DEBUG speech_tokens: len: 40  data: [6460, 6486, 4299, 3597, 5070, 3640, 1454, 725, 716, 599, 608, 515, 488, 2675, 2684, 3169, 3169, 5437, 3970, 3160, 3187, 3892, 3169, 4225, 4225, 3972, 3891, 3891, 4224, 4227, 4227, 4143, 4227, 4227, 4227, 4227, 4218, 4134, 4134, 1947]
+2025-05-02 01:56:11,487 INFO yield speech len 1.6, rtf 0.17731651663780212
+100%|██████████| 1/1 [00:00<00:00,  3.31it/s]100%|██████████| 1/1 [00:00<00:00,  3.30it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:11,509 INFO synthesis text 我就问你。
+2025-05-02 01:56:11,705 INFO llm job done, generated   36 tokens, time cost: 0.196s
+2025-05-02 01:56:11,705 DEBUG speech_tokens: len: 36  data: [1499, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 3616, 1457, 272, 231, 4918, 1186, 5501, 5803, 6532, 5095, 4567, 2370, 6261, 1641, 2645, 539, 539, 539, 1348, 4299, 6486, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:11,821 INFO yield speech len 1.44, rtf 0.21618107954661053
+100%|██████████| 1/1 [00:00<00:00,  3.02it/s]100%|██████████| 1/1 [00:00<00:00,  3.02it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:11,851 INFO synthesis text 说分手了。
+2025-05-02 01:56:11,970 INFO llm job done, generated   21 tokens, time cost: 0.119s
+2025-05-02 01:56:11,970 DEBUG speech_tokens: len: 21  data: [1708, 6021, 6049, 3141, 3395, 2822, 6534, 2817, 4565, 5290, 6051, 5322, 119, 602, 1358, 1612, 2018, 2432, 2917, 3645, 2112]
+2025-05-02 01:56:12,076 INFO yield speech len 0.84, rtf 0.2682240236373175
+100%|██████████| 1/1 [00:00<00:00,  3.95it/s]100%|██████████| 1/1 [00:00<00:00,  3.95it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:12,105 INFO synthesis text 长得还漂亮。
+2025-05-02 01:56:12,291 INFO llm job done, generated   34 tokens, time cost: 0.185s
+2025-05-02 01:56:12,291 DEBUG speech_tokens: len: 34  data: [1789, 5163, 3144, 3080, 3404, 500, 509, 1887, 549, 2459, 5832, 5832, 734, 4841, 1923, 1647, 4785, 2760, 4831, 4780, 5023, 5050, 5000, 644, 1856, 1611, 80, 395, 2929, 3159, 1215, 1215, 2025, 4299]
+2025-05-02 01:56:12,398 INFO yield speech len 1.36, rtf 0.21515173070571
+100%|██████████| 1/1 [00:00<00:00,  3.14it/s]100%|██████████| 1/1 [00:00<00:00,  3.14it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:20,104 INFO synthesis text 今天诊所里面都。
+2025-05-02 01:56:20,397 INFO llm job done, generated   53 tokens, time cost: 0.293s
+2025-05-02 01:56:20,397 DEBUG speech_tokens: len: 53  data: [1517, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 3462, 5405, 322, 4769, 6018, 1023, 5433, 4994, 4517, 4487, 4495, 5937, 4074, 5244, 954, 737, 2228, 6174, 5653, 4915, 1127, 5050, 6066, 2266, 566, 1885, 1646, 611, 41, 1563, 1029, 2297, 5051, 5083, 5061, 3579, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:20,548 INFO yield speech len 2.12, rtf 0.209762915125433
+100%|██████████| 1/1 [00:08<00:00,  8.15s/it]100%|██████████| 1/1 [00:08<00:00,  8.15s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:20,573 INFO synthesis text 你满意了？
+2025-05-02 01:56:20,682 INFO llm job done, generated   22 tokens, time cost: 0.108s
+2025-05-02 01:56:20,682 DEBUG speech_tokens: len: 22  data: [1951, 1267, 1268, 2726, 3096, 4311, 1217, 731, 5, 53, 4912, 5748, 5586, 4604, 3394, 2486, 5672, 4946, 2675, 3159, 1950, 1950]
+2025-05-02 01:56:20,820 INFO yield speech len 0.88, rtf 0.28022202578457917
+100%|██████████| 1/1 [00:00<00:00,  3.71it/s]100%|██████████| 1/1 [00:00<00:00,  3.71it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:20,841 INFO synthesis text 你什么意思呀？
+2025-05-02 01:56:21,047 INFO llm job done, generated   45 tokens, time cost: 0.206s
+2025-05-02 01:56:21,047 DEBUG speech_tokens: len: 45  data: [1499, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 2040, 3831, 2941, 4994, 539, 800, 6048, 5322, 957, 734, 2127, 2125, 35, 5722, 5721, 5073, 5064, 4498, 6102, 6373, 5625, 5500, 4697, 5641, 5021, 2195, 5834, 6086, 1702, 4299, 4299, 6486, 6486, 6486, 6486, 4299, 4299]
+2025-05-02 01:56:21,193 INFO yield speech len 1.8, rtf 0.1959203349219428
+100%|██████████| 1/1 [00:00<00:00,  2.69it/s]100%|██████████| 1/1 [00:00<00:00,  2.69it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:21,232 INFO synthesis text 都是因为小的时候。
+2025-05-02 01:56:21,540 INFO llm job done, generated   57 tokens, time cost: 0.307s
+2025-05-02 01:56:21,540 DEBUG speech_tokens: len: 57  data: [1493, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 1842, 2243, 4970, 5102, 5582, 5967, 5319, 4512, 4535, 566, 1241, 2780, 5855, 5777, 5096, 4598, 4849, 4407, 5648, 4686, 8, 1946, 1220, 524, 1272, 56, 4576, 5214, 5319, 5238, 2982, 1538, 149, 2682, 4941, 4863, 4955, 2762, 2789, 611, 2060, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218]
+2025-05-02 01:56:21,701 INFO yield speech len 2.28, rtf 0.20575711601658872
+100%|██████████| 1/1 [00:00<00:00,  1.98it/s]100%|██████████| 1/1 [00:00<00:00,  1.98it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:21,724 INFO synthesis text 等会儿吧！
+2025-05-02 01:56:21,807 INFO llm job done, generated   12 tokens, time cost: 0.083s
+2025-05-02 01:56:21,807 DEBUG speech_tokens: len: 12  data: [1842, 59, 4970, 5043, 2766, 5031, 3080, 1188, 434, 5834, 5832, 1461]
+2025-05-02 01:56:21,912 INFO yield speech len 0.48, rtf 0.3905450304349264
+100%|██████████| 1/1 [00:00<00:00,  4.81it/s]100%|██████████| 1/1 [00:00<00:00,  4.80it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:21,935 INFO synthesis text 噢，那我要去请示一下我们副店长。
+2025-05-02 01:56:22,617 INFO llm job done, generated  126 tokens, time cost: 0.682s
+2025-05-02 01:56:22,617 DEBUG speech_tokens: len: 126  data: [1493, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 1951, 2678, 4973, 4973, 4973, 4982, 4973, 5000, 4973, 4976, 2789, 4976, 4973, 2789, 2825, 5009, 2109, 1947, 3645, 5835, 5838, 5838, 5838, 5838, 3651, 3732, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 1806, 3747, 4459, 5185, 2720, 3563, 638, 785, 1295, 4517, 4780, 4943, 147, 4675, 3102, 4859, 1050, 5405, 4488, 2526, 3563, 1052, 1484, 1511, 6048, 5322, 2343, 5343, 3482, 3482, 5021, 5161, 5648, 4749, 4544, 5917, 3161, 2711, 5722, 2915, 623, 2124, 1100, 137, 4852, 6534, 6537, 6507, 5043, 5802, 5015, 1923, 78, 5100, 4597, 2222, 1563, 1752, 4593, 2312, 3650, 1460, 1703, 974, 974, 1217, 2675, 4717, 5445, 4218, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 4299, 4218]
+2025-05-02 01:56:22,763 INFO yield speech len 5.04, rtf 0.16432541703420972
+100%|██████████| 1/1 [00:00<00:00,  1.18it/s]100%|██████████| 1/1 [00:00<00:00,  1.18it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:22,803 INFO synthesis text 我不愿意。
+2025-05-02 01:56:23,013 INFO llm job done, generated   36 tokens, time cost: 0.210s
+2025-05-02 01:56:23,013 DEBUG speech_tokens: len: 36  data: [1568, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2121, 5829, 719, 705, 2166, 2160, 2186, 2099, 3724, 3804, 4612, 4379, 2204, 4885, 4902, 5505, 5020, 2554, 2517, 249, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:23,150 INFO yield speech len 1.44, rtf 0.24119863907496136
+100%|██████████| 1/1 [00:00<00:00,  2.60it/s]100%|██████████| 1/1 [00:00<00:00,  2.60it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:23,189 INFO synthesis text 刘华强，你得多给他十三万块钱。
+2025-05-02 01:56:23,656 INFO llm job done, generated   96 tokens, time cost: 0.467s
+2025-05-02 01:56:23,656 DEBUG speech_tokens: len: 96  data: [3707, 6486, 6486, 6486, 4299, 4299, 4299, 4299, 4218, 4017, 1611, 395, 890, 5087, 5100, 2760, 4944, 2675, 3647, 4540, 1122, 4676, 2355, 2446, 8, 974, 488, 4961, 3177, 1707, 5919, 5919, 2922, 1545, 2049, 1482, 539, 5100, 1923, 2262, 2303, 359, 566, 1689, 1842, 882, 5018, 5061, 2907, 732, 2401, 359, 1133, 1842, 2919, 5845, 3647, 2918, 5279, 3121, 6021, 6048, 6051, 1524, 1535, 5176, 6455, 2502, 4403, 4402, 6498, 4960, 4699, 4232, 1320, 648, 4869, 4540, 2582, 3471, 4676, 2355, 593, 278, 8, 41, 5934, 3984, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 4299]
+2025-05-02 01:56:23,799 INFO yield speech len 3.84, rtf 0.15892218798398972
+100%|██████████| 1/1 [00:00<00:00,  1.55it/s]100%|██████████| 1/1 [00:00<00:00,  1.55it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:23,835 INFO synthesis text 我可是你大舅！
+2025-05-02 01:56:24,112 INFO llm job done, generated   49 tokens, time cost: 0.277s
+2025-05-02 01:56:24,112 DEBUG speech_tokens: len: 49  data: [1499, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2077, 4373, 1457, 710, 5086, 975, 162, 262, 878, 6048, 3135, 4615, 834, 1241, 557, 951, 54, 5998, 6157, 2195, 1275, 4679, 2562, 4602, 5050, 602, 629, 1358, 2113, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:24,265 INFO yield speech len 1.96, rtf 0.21959810840840244
+100%|██████████| 1/1 [00:00<00:00,  2.16it/s]100%|██████████| 1/1 [00:00<00:00,  2.16it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:24,304 INFO synthesis text 看到品如嫁到有钱人家。
+2025-05-02 01:56:24,813 INFO llm job done, generated  101 tokens, time cost: 0.509s
+2025-05-02 01:56:24,813 DEBUG speech_tokens: len: 101  data: [1789, 162, 5346, 6318, 5589, 4779, 4456, 2233, 5856, 5938, 1851, 2242, 5428, 4862, 2705, 2897, 714, 2163, 6000, 4731, 2436, 5021, 2672, 458, 3995, 3995, 1832, 3708, 1612, 2099, 2102, 2102, 3560, 3641, 5828, 5828, 5831, 5830, 4609, 1167, 2112, 3462, 4919, 4678, 4479, 4539, 6157, 6319, 28, 1032, 2196, 4942, 2789, 2909, 3320, 2715, 3562, 3152, 707, 719, 1457, 2177, 2099, 1923, 4921, 4675, 4678, 4704, 2760, 566, 386, 8, 17, 3022, 5289, 5280, 5952, 5976, 2228, 41, 1482, 1726, 1727, 3994, 1887, 5650, 4919, 285, 2573, 2924, 2918, 3160, 3889, 3889, 3160, 973, 3159, 3888, 3888, 1782, 2112]
+2025-05-02 01:56:24,982 INFO yield speech len 4.04, rtf 0.16777521312826932
+100%|██████████| 1/1 [00:00<00:00,  1.40it/s]100%|██████████| 1/1 [00:00<00:00,  1.40it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:25,020 INFO synthesis text 咱们今天不谈这些没用的。
+2025-05-02 01:56:26,218 INFO llm job done, generated  240 tokens, time cost: 1.198s
+2025-05-02 01:56:26,218 DEBUG speech_tokens: len: 240  data: [1490, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:26,366 INFO yield speech len 9.6, rtf 0.14026783406734467
+100%|██████████| 1/1 [00:01<00:00,  1.38s/it]100%|██████████| 1/1 [00:01<00:00,  1.38s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:26,391 INFO synthesis text 叶小姐我跟你说哦。
+2025-05-02 01:56:26,761 INFO llm job done, generated   72 tokens, time cost: 0.370s
+2025-05-02 01:56:26,761 DEBUG speech_tokens: len: 72  data: [3704, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 4299, 1960, 5020, 5019, 4821, 4409, 71, 5161, 5405, 2499, 737, 3404, 4970, 957, 5651, 2229, 3482, 395, 143, 140, 62, 736, 4299, 4218, 4218, 4299, 3643, 5093, 2810, 1920, 165, 4604, 4494, 6180, 6180, 2726, 1295, 1862, 6048, 6048, 6048, 936, 5825, 5098, 5078, 4970, 4970, 518, 602, 2879, 2887, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6405, 4218]
+2025-05-02 01:56:26,894 INFO yield speech len 2.88, rtf 0.17490453190273708
+100%|██████████| 1/1 [00:00<00:00,  1.91it/s]100%|██████████| 1/1 [00:00<00:00,  1.91it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:26,929 INFO synthesis text 讨人嫌了。
+2025-05-02 01:56:27,371 INFO llm job done, generated  100 tokens, time cost: 0.441s
+2025-05-02 01:56:27,371 DEBUG speech_tokens: len: 100  data: [1816, 4299, 4299, 4299, 4299, 2112, 30, 2997, 3483, 3402, 5589, 4945, 2762, 1319, 1805, 1808, 1808, 3185, 4722, 5385, 5725, 6457, 6385, 6388, 5667, 2834, 32, 734, 47, 5934, 5448, 4743, 5347, 3160, 1830, 1984, 3403, 3168, 2037, 2040, 2040, 1948, 2028, 2031, 2031, 2031, 2031, 4227, 2112, 2031, 2031, 2112, 2031, 2031, 2031, 2112, 4218, 4218, 4218, 2031, 4218, 2031, 2031, 4218, 4218, 4218, 4218, 4218, 4218, 4299, 4299, 4299, 4299, 4218, 4299, 4299, 4299, 4299, 4218, 4299, 4299, 4299, 6486, 4299, 6486, 4299, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486]
+2025-05-02 01:56:27,511 INFO yield speech len 4.0, rtf 0.14558780193328857
+100%|██████████| 1/1 [00:00<00:00,  1.63it/s]100%|██████████| 1/1 [00:00<00:00,  1.63it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:27,547 INFO synthesis text 关于创业这方面。
+2025-05-02 01:56:27,695 INFO llm job done, generated   30 tokens, time cost: 0.148s
+2025-05-02 01:56:27,695 DEBUG speech_tokens: len: 30  data: [2113, 696, 4754, 4484, 4562, 4265, 3887, 963, 5973, 3861, 5589, 4945, 4664, 4967, 4992, 4605, 194, 789, 969, 161, 6534, 685, 3407, 497, 4314, 3833, 2753, 359, 737, 733]
+2025-05-02 01:56:27,839 INFO yield speech len 1.2, rtf 0.24353722731272381
+100%|██████████| 1/1 [00:00<00:00,  3.08it/s]100%|██████████| 1/1 [00:00<00:00,  3.08it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:27,863 INFO synthesis text 就已经具有明显的犯罪嫌疑。
+2025-05-02 01:56:28,284 INFO llm job done, generated   78 tokens, time cost: 0.420s
+2025-05-02 01:56:28,284 DEBUG speech_tokens: len: 78  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 3462, 2499, 4615, 5077, 3314, 3454, 1295, 1295, 1842, 4677, 1376, 4557, 4074, 4677, 3858, 5586, 4994, 2725, 2563, 434, 2762, 692, 1358, 2087, 2112, 2031, 4071, 1646, 512, 6181, 4800, 5160, 5408, 2535, 2195, 13, 1564, 297, 731, 353, 4266, 6534, 4537, 4387, 1725, 4674, 158, 5021, 4753, 4921, 566, 143, 2204, 5695, 4965, 4912, 5642, 2726, 4913, 4993, 1277, 4299, 6486, 6486, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:28,402 INFO yield speech len 3.12, rtf 0.17286263979398286
+100%|██████████| 1/1 [00:00<00:00,  1.78it/s]100%|██████████| 1/1 [00:00<00:00,  1.78it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:28,427 INFO synthesis text 你说你给钱你急什么呢？
+2025-05-02 01:56:28,777 INFO llm job done, generated   71 tokens, time cost: 0.350s
+2025-05-02 01:56:28,777 DEBUG speech_tokens: len: 71  data: [3704, 6486, 6486, 6405, 6405, 6405, 6405, 6405, 4218, 4218, 3894, 1969, 3670, 2699, 2726, 1376, 5968, 6048, 1179, 5087, 4762, 1482, 3428, 5073, 2418, 735, 2401, 224, 395, 960, 5651, 4461, 2517, 395, 62, 35, 2228, 5208, 5772, 4965, 5020, 1376, 2004, 4676, 1267, 1295, 4857, 5220, 6048, 120, 2, 1908, 1884, 1073, 2224, 6018, 2934, 4537, 4780, 4870, 3402, 6486, 6486, 6486, 6486, 6486, 6405, 6405, 6405, 6405, 4218]
+2025-05-02 01:56:28,935 INFO yield speech len 2.84, rtf 0.17896277803770255
+100%|██████████| 1/1 [00:00<00:00,  1.89it/s]100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:28,974 INFO synthesis text 嘶！真的？
+2025-05-02 01:56:29,190 INFO llm job done, generated   40 tokens, time cost: 0.215s
+2025-05-02 01:56:29,190 DEBUG speech_tokens: len: 40  data: [2086, 6372, 6373, 6373, 6373, 5644, 5646, 1986, 2031, 2031, 2031, 2031, 2112, 2031, 2112, 2031, 2112, 2112, 2112, 2112, 2112, 2112, 2112, 2031, 2112, 2112, 4434, 4590, 4512, 769, 4376, 5850, 6015, 6018, 306, 4484, 2432, 3403, 3403, 2025]
+2025-05-02 01:56:29,328 INFO yield speech len 1.6, rtf 0.22090449929237366
+100%|██████████| 1/1 [00:00<00:00,  2.57it/s]100%|██████████| 1/1 [00:00<00:00,  2.57it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:29,349 INFO synthesis text 你帮我参谋参谋这发型。
+2025-05-02 01:56:29,601 INFO llm job done, generated   47 tokens, time cost: 0.251s
+2025-05-02 01:56:29,601 DEBUG speech_tokens: len: 47  data: [1789, 3912, 2699, 1376, 970, 2163, 2513, 4943, 5044, 5777, 635, 146, 6378, 2943, 5835, 5837, 4536, 6255, 5041, 2798, 1036, 5646, 2916, 5842, 2189, 4314, 2858, 710, 876, 5322, 2417, 3510, 6534, 4780, 6157, 8, 4435, 5405, 4678, 1294, 647, 134, 5935, 5772, 3495, 4215, 2112]
+2025-05-02 01:56:29,759 INFO yield speech len 1.88, rtf 0.21782783751792098
+100%|██████████| 1/1 [00:00<00:00,  2.33it/s]100%|██████████| 1/1 [00:00<00:00,  2.33it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:29,782 INFO synthesis text 我早就想回家了。
+2025-05-02 01:56:29,946 INFO llm job done, generated   28 tokens, time cost: 0.164s
+2025-05-02 01:56:29,946 DEBUG speech_tokens: len: 28  data: [1789, 2185, 5099, 135, 6378, 4680, 2675, 542, 2499, 3153, 4602, 4674, 4552, 3413, 673, 2841, 1451, 404, 3471, 4695, 2276, 6077, 5429, 5501, 2747, 515, 3402, 4131]
+2025-05-02 01:56:30,088 INFO yield speech len 1.12, rtf 0.2738582236426217
+100%|██████████| 1/1 [00:00<00:00,  3.06it/s]100%|██████████| 1/1 [00:00<00:00,  3.06it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:30,126 INFO synthesis text 二层高架床。
+2025-05-02 01:56:30,481 INFO llm job done, generated   66 tokens, time cost: 0.354s
+2025-05-02 01:56:30,481 DEBUG speech_tokens: len: 66  data: [1526, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 1951, 1946, 4214, 6238, 6022, 6058, 6062, 6062, 6059, 6059, 3872, 1685, 1616, 1614, 5649, 4672, 2916, 3169, 299, 1721, 3911, 3911, 6179, 6178, 1987, 2112, 0, 2665, 5755, 2897, 2915, 5015, 69, 4686, 5021, 5189, 4133, 1946, 922, 3705, 4077, 663, 719, 494, 1217, 497, 2693, 5690, 5529, 3913, 4299, 4218, 4218, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:56:30,582 INFO yield speech len 2.64, rtf 0.172619747393059
+100%|██████████| 1/1 [00:00<00:00,  2.04it/s]100%|██████████| 1/1 [00:00<00:00,  2.04it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:30,605 INFO synthesis text 儿子。
+2025-05-02 01:56:30,682 INFO llm job done, generated   13 tokens, time cost: 0.077s
+2025-05-02 01:56:30,682 DEBUG speech_tokens: len: 13  data: [2058, 3402, 1298, 1163, 3866, 4534, 6456, 6376, 4419, 4411, 2919, 1707, 4299]
+2025-05-02 01:56:30,830 INFO yield speech len 0.52, rtf 0.43412538675161505
+100%|██████████| 1/1 [00:00<00:00,  4.06it/s]100%|██████████| 1/1 [00:00<00:00,  4.06it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:30,855 INFO synthesis text 正因为是这样。
+2025-05-02 01:56:31,019 INFO llm job done, generated   35 tokens, time cost: 0.164s
+2025-05-02 01:56:31,019 DEBUG speech_tokens: len: 35  data: [2139, 2976, 3870, 2414, 2792, 1262, 1106, 3455, 4994, 4589, 5801, 5099, 2417, 2402, 5967, 6051, 3801, 1698, 5406, 3153, 4603, 4566, 4597, 2591, 2753, 1294, 1295, 116, 731, 3161, 3404, 3412, 4131, 4212, 2112]
+2025-05-02 01:56:31,168 INFO yield speech len 1.4, rtf 0.22339344024658206
+100%|██████████| 1/1 [00:00<00:00,  2.98it/s]100%|██████████| 1/1 [00:00<00:00,  2.98it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:31,205 INFO synthesis text 相信。
+2025-05-02 01:56:31,512 INFO llm job done, generated   60 tokens, time cost: 0.308s
+2025-05-02 01:56:31,513 DEBUG speech_tokens: len: 60  data: [2032, 6344, 3077, 5825, 2983, 5322, 5568, 3885, 5342, 4514, 4384, 1458, 4299, 4299, 4299, 4299, 4299, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112]
+2025-05-02 01:56:31,634 INFO yield speech len 2.4, rtf 0.17887999614079794
+100%|██████████| 1/1 [00:00<00:00,  2.15it/s]100%|██████████| 1/1 [00:00<00:00,  2.15it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:31,657 INFO synthesis text 什么样？
+2025-05-02 01:56:32,073 INFO llm job done, generated   80 tokens, time cost: 0.416s
+2025-05-02 01:56:32,073 DEBUG speech_tokens: len: 80  data: [4246, 1959, 1950, 1959, 1959, 1959, 1956, 5940, 6048, 5238, 5481, 6211, 5238, 1612, 1361, 1361, 1280, 1037, 1361, 1361, 3557, 1370, 1370, 1370, 1370, 1289, 1289, 1289, 1289, 1046, 3233, 3314, 2585, 2585, 2585, 2585, 2828, 2585, 2828, 2828, 5015, 5015, 5744, 5015, 5015, 5015, 5096, 5098, 2130, 6504, 6504, 4317, 2879, 2798, 2798, 2798, 2795, 2798, 2798, 2798, 2798, 2798, 2825, 2825, 2825, 2825, 2825, 2825, 2825, 2906, 2906, 2903, 2900, 3143, 3875, 3887, 6074, 6074, 6071, 5342]
+2025-05-02 01:56:32,204 INFO yield speech len 3.2, rtf 0.17117030918598175
+100%|██████████| 1/1 [00:00<00:00,  1.76it/s]100%|██████████| 1/1 [00:00<00:00,  1.76it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:32,227 INFO synthesis text 这不是我的错。
+2025-05-02 01:56:32,480 INFO llm job done, generated   51 tokens, time cost: 0.252s
+2025-05-02 01:56:32,480 DEBUG speech_tokens: len: 51  data: [1493, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 1869, 4515, 2415, 4601, 2166, 2160, 2155, 2186, 5825, 5967, 5319, 5319, 3144, 4842, 3644, 3562, 2822, 56, 1923, 63, 65, 2085, 5647, 5725, 5481, 3564, 2838, 2915, 5012, 4863, 2673, 3402, 3402, 1215, 1944, 2025, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:32,587 INFO yield speech len 2.04, rtf 0.17617683784634458
+100%|██████████| 1/1 [00:00<00:00,  2.63it/s]100%|██████████| 1/1 [00:00<00:00,  2.63it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:32,621 INFO synthesis text 他不敢把你怎么着。
+2025-05-02 01:56:32,863 INFO llm job done, generated   55 tokens, time cost: 0.242s
+2025-05-02 01:56:32,863 DEBUG speech_tokens: len: 55  data: [1583, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2166, 30, 5832, 5833, 675, 2166, 3618, 5097, 5097, 723, 81, 2345, 1460, 92, 2130, 2163, 2918, 3890, 2918, 3021, 3670, 2807, 5019, 4191, 6377, 5400, 2216, 1396, 2131, 119, 960, 5163, 5319, 214, 4460, 4862, 4951, 4950, 1944, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:32,983 INFO yield speech len 2.2, rtf 0.16460906375538217
+100%|██████████| 1/1 [00:00<00:00,  2.54it/s]100%|██████████| 1/1 [00:00<00:00,  2.54it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:33,011 INFO synthesis text 你就别问了。
+2025-05-02 01:56:33,241 INFO llm job done, generated   46 tokens, time cost: 0.230s
+2025-05-02 01:56:33,241 DEBUG speech_tokens: len: 46  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 3750, 2699, 2753, 1275, 4678, 4589, 2819, 2166, 1917, 1133, 566, 305, 140, 5099, 3642, 3615, 5089, 4564, 4567, 4501, 6337, 4151, 3935, 3962, 245, 488, 2675, 3403, 1945, 2109, 4299, 4299, 4299, 4299, 6486, 6486, 4299]
+2025-05-02 01:56:33,344 INFO yield speech len 1.84, rtf 0.1809560734292735
+100%|██████████| 1/1 [00:00<00:00,  2.79it/s]100%|██████████| 1/1 [00:00<00:00,  2.79it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:33,368 INFO synthesis text 用来调香的。
+2025-05-02 01:56:33,523 INFO llm job done, generated   29 tokens, time cost: 0.155s
+2025-05-02 01:56:33,523 DEBUG speech_tokens: len: 29  data: [1951, 3561, 6071, 5075, 3587, 1802, 974, 4514, 228, 2220, 2598, 982, 521, 719, 5176, 4672, 2328, 2297, 4874, 5776, 6262, 1278, 308, 973, 2916, 1701, 1701, 1947, 2031]
+2025-05-02 01:56:33,653 INFO yield speech len 1.16, rtf 0.24558244080379094
+100%|██████████| 1/1 [00:00<00:00,  3.25it/s]100%|██████████| 1/1 [00:00<00:00,  3.25it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:33,680 INFO synthesis text 说你利用职务之便。
+2025-05-02 01:56:34,008 INFO llm job done, generated   63 tokens, time cost: 0.328s
+2025-05-02 01:56:34,008 DEBUG speech_tokens: len: 63  data: [1499, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 3726, 6048, 6048, 3132, 6311, 5005, 4482, 6018, 2941, 539, 530, 1583, 2075, 1612, 4858, 5073, 4992, 4912, 5020, 4607, 4970, 2888, 3533, 1645, 1761, 6049, 1524, 1607, 1118, 3644, 5802, 5829, 2666, 1689, 5241, 3792, 5989, 234, 2166, 966, 5100, 4849, 4490, 8, 16, 1545, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:34,122 INFO yield speech len 2.52, rtf 0.17550048373994373
+100%|██████████| 1/1 [00:00<00:00,  2.14it/s]100%|██████████| 1/1 [00:00<00:00,  2.14it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:34,145 INFO synthesis text 生日快乐。
+2025-05-02 01:56:34,329 INFO llm job done, generated   33 tokens, time cost: 0.184s
+2025-05-02 01:56:34,330 DEBUG speech_tokens: len: 33  data: [2059, 5460, 4839, 4756, 2589, 4487, 4655, 6094, 5938, 6208, 6208, 5587, 3158, 1932, 1218, 405, 2682, 4465, 5915, 2195, 160, 5908, 5989, 4567, 4563, 4807, 4807, 4808, 3161, 974, 974, 1001, 2031]
+2025-05-02 01:56:34,446 INFO yield speech len 1.32, rtf 0.22822473988388522
+100%|██████████| 1/1 [00:00<00:00,  3.11it/s]100%|██████████| 1/1 [00:00<00:00,  3.11it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:34,469 INFO synthesis text 是一点办法都没有。
+2025-05-02 01:56:34,834 INFO llm job done, generated   69 tokens, time cost: 0.364s
+2025-05-02 01:56:34,834 DEBUG speech_tokens: len: 69  data: [1502, 4299, 6486, 6486, 6486, 6486, 6486, 4299, 1788, 6024, 6051, 5322, 4593, 3063, 6073, 6073, 1034, 2032, 3454, 5020, 4992, 4776, 2139, 2166, 48, 2834, 278, 764, 1560, 1806, 2112, 298, 5186, 4536, 4491, 5392, 6345, 6538, 3546, 5429, 3647, 1460, 743, 1896, 1842, 73, 2819, 5071, 6501, 4311, 32, 278, 4994, 5073, 5073, 4858, 2297, 599, 611, 611, 2113, 4299, 6486, 6486, 6486, 6486, 6486, 6486, 4299]
+2025-05-02 01:56:34,983 INFO yield speech len 2.76, rtf 0.18609572147977527
+100%|██████████| 1/1 [00:00<00:00,  1.87it/s]100%|██████████| 1/1 [00:00<00:00,  1.87it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:35,006 INFO synthesis text 我不知道为什么。
+2025-05-02 01:56:35,411 INFO llm job done, generated   82 tokens, time cost: 0.405s
+2025-05-02 01:56:35,411 DEBUG speech_tokens: len: 82  data: [1493, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4299, 4299, 1393, 5102, 2816, 1443, 2172, 1451, 1518, 3864, 4507, 141, 2250, 5185, 4862, 5075, 3616, 5068, 4605, 4821, 5101, 5146, 5319, 4593, 2309, 442, 2130, 2125, 2675, 2441, 2926, 3888, 2028, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:35,546 INFO yield speech len 3.28, rtf 0.16459728159555576
+100%|██████████| 1/1 [00:00<00:00,  1.79it/s]100%|██████████| 1/1 [00:00<00:00,  1.78it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:35,585 INFO synthesis text 你才残次品呢。
+2025-05-02 01:56:35,878 INFO llm job done, generated   55 tokens, time cost: 0.293s
+2025-05-02 01:56:35,878 DEBUG speech_tokens: len: 55  data: [1490, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 2040, 5937, 4886, 4913, 566, 808, 6378, 2214, 5841, 1460, 3734, 4596, 1842, 5400, 5832, 5194, 2192, 3667, 5938, 6376, 6374, 5391, 4447, 1920, 3837, 4947, 4993, 5021, 26, 1483, 1484, 1479, 32, 2918, 5348, 4943, 4862, 497, 1973, 4299, 6486, 4299, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:36,021 INFO yield speech len 2.2, rtf 0.1981044899333607
+100%|██████████| 1/1 [00:00<00:00,  2.12it/s]100%|██████████| 1/1 [00:00<00:00,  2.12it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:36,061 INFO synthesis text 是不是？
+2025-05-02 01:56:36,180 INFO llm job done, generated   28 tokens, time cost: 0.118s
+2025-05-02 01:56:36,180 DEBUG speech_tokens: len: 28  data: [1978, 5862, 5319, 2979, 4600, 720, 3638, 5886, 5238, 803, 140, 733, 1704, 1950, 1950, 1950, 1950, 1950, 1950, 1950, 1950, 1950, 1950, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:56:36,271 INFO yield speech len 1.12, rtf 0.18732654196875434
+100%|██████████| 1/1 [00:00<00:00,  4.03it/s]100%|██████████| 1/1 [00:00<00:00,  4.03it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:36,293 INFO synthesis text 俺家的鸡蛋。
+2025-05-02 01:56:36,472 INFO llm job done, generated   36 tokens, time cost: 0.179s
+2025-05-02 01:56:36,472 DEBUG speech_tokens: len: 36  data: [1951, 5672, 5428, 3647, 32, 1479, 1969, 2130, 2004, 4675, 2590, 815, 4133, 2377, 2007, 2261, 795, 2004, 4676, 2256, 6154, 5425, 5425, 5181, 1842, 2001, 4600, 4456, 5429, 2918, 2918, 734, 737, 736, 1461, 1461]
+2025-05-02 01:56:36,573 INFO yield speech len 1.44, rtf 0.1945815152592129
+100%|██████████| 1/1 [00:00<00:00,  3.34it/s]100%|██████████| 1/1 [00:00<00:00,  3.33it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:36,604 INFO synthesis text 你说什么？
+2025-05-02 01:56:36,729 INFO llm job done, generated   16 tokens, time cost: 0.124s
+2025-05-02 01:56:36,729 DEBUG speech_tokens: len: 16  data: [2032, 6018, 2699, 539, 3712, 6291, 3530, 4492, 5319, 36, 1396, 2125, 488, 4942, 5031, 2112]
+2025-05-02 01:56:36,853 INFO yield speech len 0.64, rtf 0.38811899721622467
+100%|██████████| 1/1 [00:00<00:00,  3.60it/s]100%|██████████| 1/1 [00:00<00:00,  3.60it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:36,891 INFO synthesis text 我每次去能不能抢到一袋两袋。
+2025-05-02 01:56:37,277 INFO llm job done, generated   85 tokens, time cost: 0.386s
+2025-05-02 01:56:37,277 DEBUG speech_tokens: len: 85  data: [1490, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 2112, 2186, 2915, 5053, 3582, 4311, 4543, 602, 305, 1851, 6377, 6131, 2232, 4451, 1293, 5001, 5325, 5325, 3129, 6316, 3158, 3158, 3077, 1520, 2031, 4299, 2031, 3747, 1477, 2459, 5043, 6504, 4969, 1881, 20, 4664, 4554, 3462, 4435, 2517, 5844, 1946, 1229, 1801, 1770, 2, 5672, 5023, 4600, 2753, 1294, 3481, 1680, 64, 4460, 5192, 3151, 2348, 3005, 1217, 1316, 1807, 1029, 2219, 4460, 5189, 5108, 2192, 2194, 6243, 6486, 6486, 4299, 4299, 6486, 6405, 4218]
+2025-05-02 01:56:37,400 INFO yield speech len 3.4, rtf 0.14975295347325943
+100%|██████████| 1/1 [00:00<00:00,  1.84it/s]100%|██████████| 1/1 [00:00<00:00,  1.84it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:37,424 INFO synthesis text 我是担心她泄露公司机密。
+2025-05-02 01:56:37,860 INFO llm job done, generated   84 tokens, time cost: 0.436s
+2025-05-02 01:56:37,860 DEBUG speech_tokens: len: 84  data: [2032, 6560, 3644, 2906, 2897, 704, 794, 6021, 5319, 5319, 3069, 3071, 876, 2085, 2252, 5186, 4460, 4496, 4427, 4671, 4919, 2499, 5426, 4859, 4832, 4805, 5453, 6181, 6261, 2040, 4299, 4299, 2112, 2112, 2085, 2916, 6075, 6085, 5429, 3161, 5429, 4496, 4752, 4999, 4675, 4756, 2337, 4614, 4598, 137, 1693, 1693, 5825, 1457, 1457, 2176, 573, 660, 5102, 5777, 6505, 5773, 4644, 5726, 5645, 5652, 6148, 5176, 2988, 2004, 5651, 4677, 5425, 4939, 5074, 3831, 6258, 6012, 5073, 4913, 539, 1268, 1259, 1258]
+2025-05-02 01:56:38,006 INFO yield speech len 3.36, rtf 0.17320229893638975
+100%|██████████| 1/1 [00:00<00:00,  1.66it/s]100%|██████████| 1/1 [00:00<00:00,  1.66it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:38,046 INFO synthesis text 行你问吧。
+2025-05-02 01:56:38,328 INFO llm job done, generated   59 tokens, time cost: 0.282s
+2025-05-02 01:56:38,329 DEBUG speech_tokens: len: 59  data: [1517, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 2031, 5136, 5485, 5485, 5485, 5488, 1050, 1295, 1295, 1133, 2942, 5529, 5529, 4227, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 2049, 6100, 4913, 566, 971, 4368, 3529, 4537, 4563, 2934, 3912, 1806, 2166, 353, 3647, 3890, 3161, 5832, 1458, 4299, 4299, 4299, 4299, 6486, 6486, 6486, 6486, 6486, 4299]
+2025-05-02 01:56:38,468 INFO yield speech len 2.36, rtf 0.17885202068393513
+100%|██████████| 1/1 [00:00<00:00,  2.17it/s]100%|██████████| 1/1 [00:00<00:00,  2.17it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:38,491 INFO synthesis text 你在这等我。
+2025-05-02 01:56:38,595 INFO llm job done, generated   22 tokens, time cost: 0.103s
+2025-05-02 01:56:38,595 DEBUG speech_tokens: len: 22  data: [1708, 1268, 566, 2834, 4778, 804, 5643, 5186, 2416, 5250, 2378, 1110, 55, 1217, 5014, 5046, 5100, 5084, 2789, 2674, 3888, 1947]
+2025-05-02 01:56:38,725 INFO yield speech len 0.88, rtf 0.265635685487227
+100%|██████████| 1/1 [00:00<00:00,  3.93it/s]100%|██████████| 1/1 [00:00<00:00,  3.93it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:38,762 INFO synthesis text 自从她妈走了以后。
+2025-05-02 01:56:39,060 INFO llm job done, generated   62 tokens, time cost: 0.298s
+2025-05-02 01:56:39,060 DEBUG speech_tokens: len: 62  data: [1580, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 4191, 6458, 6381, 5909, 1535, 1767, 6376, 3240, 584, 1319, 6258, 57, 5832, 3898, 5428, 4314, 2125, 5834, 5915, 4459, 1680, 6378, 6457, 2261, 599, 638, 2018, 4205, 4487, 5100, 5721, 1295, 1376, 806, 4860, 4860, 2673, 4951, 5052, 5050, 4970, 626, 2087, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:39,173 INFO yield speech len 2.48, rtf 0.1654450931856709
+100%|██████████| 1/1 [00:00<00:00,  2.25it/s]100%|██████████| 1/1 [00:00<00:00,  2.25it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:39,192 INFO synthesis text 我也不是难受输棋。
+2025-05-02 01:56:39,697 INFO llm job done, generated  109 tokens, time cost: 0.504s
+2025-05-02 01:56:39,697 DEBUG speech_tokens: len: 109  data: [1502, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2122, 5830, 5830, 1457, 638, 2786, 4592, 4857, 5100, 4850, 2300, 469, 2175, 2139, 2163, 2185, 3638, 3709, 6048, 5319, 5238, 2979, 5260, 5261, 3074, 3071, 2993, 1526, 1517, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 2031, 2031, 1726, 5857, 3912, 2198, 1703, 1460, 14, 2942, 5155, 6021, 6048, 5238, 5319, 4573, 5054, 1457, 2102, 6021, 6048, 6048, 6049, 4104, 6553, 5829, 5796, 1119, 2004, 5651, 4676, 4435, 4678, 4407, 4407, 2463, 1780, 1052, 1052, 3239, 5426, 5506, 5559, 3283, 4299, 6486, 6486, 4299, 4299, 4299, 6486, 4299, 4299, 4299, 4299, 4218]
+2025-05-02 01:56:39,826 INFO yield speech len 4.36, rtf 0.14537436152816913
+100%|██████████| 1/1 [00:00<00:00,  1.54it/s]100%|██████████| 1/1 [00:00<00:00,  1.54it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:39,850 INFO synthesis text 算了。
+2025-05-02 01:56:40,138 INFO llm job done, generated   60 tokens, time cost: 0.287s
+2025-05-02 01:56:40,138 DEBUG speech_tokens: len: 60  data: [4003, 4299, 4299, 4272, 6130, 6458, 6460, 6541, 6540, 2826, 5061, 5591, 743, 1564, 1723, 3169, 3159, 2916, 729, 1821, 2121, 1701, 1785, 1785, 3975, 1788, 1797, 2031, 4218, 4218, 2112, 2031, 3975, 3975, 2031, 4218, 2031, 2031, 2112, 4218, 4218, 2031, 2031, 2031, 4218, 4218, 4218, 2031, 4218, 4218, 4218, 4299, 4299, 4218, 4299, 4218, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:40,256 INFO yield speech len 2.4, rtf 0.16901294390360516
+100%|██████████| 1/1 [00:00<00:00,  2.34it/s]100%|██████████| 1/1 [00:00<00:00,  2.34it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:40,278 INFO synthesis text 骗鬼吧你！
+2025-05-02 01:56:40,429 INFO llm job done, generated   29 tokens, time cost: 0.150s
+2025-05-02 01:56:40,429 DEBUG speech_tokens: len: 29  data: [2140, 3834, 4542, 2544, 4606, 4536, 2692, 4238, 573, 669, 3641, 137, 1034, 881, 2163, 1307, 5428, 2385, 5937, 4642, 2726, 2726, 287, 35, 2192, 4460, 2918, 1460, 2112]
+2025-05-02 01:56:40,558 INFO yield speech len 1.16, rtf 0.2409423219746557
+100%|██████████| 1/1 [00:00<00:00,  3.33it/s]100%|██████████| 1/1 [00:00<00:00,  3.33it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:40,581 INFO synthesis text 尕娃是我姑的命。
+2025-05-02 01:56:40,955 INFO llm job done, generated   65 tokens, time cost: 0.374s
+2025-05-02 01:56:40,955 DEBUG speech_tokens: len: 65  data: [1502, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 732, 171, 2513, 6077, 6077, 5347, 4699, 4285, 4284, 4700, 2189, 2, 731, 734, 935, 5943, 6048, 5319, 5322, 3135, 5338, 5098, 4372, 728, 707, 725, 2139, 2112, 651, 2856, 5828, 6559, 5826, 4608, 1923, 66, 4490, 41, 2127, 4318, 4317, 3832, 4993, 4913, 2699, 512, 1322, 1807, 1797, 4299, 6486, 6486, 6486, 6486, 6486, 6486, 4299]
+2025-05-02 01:56:41,089 INFO yield speech len 2.6, rtf 0.1953607339125413
+100%|██████████| 1/1 [00:00<00:00,  1.89it/s]100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:41,128 INFO synthesis text 对，对，刚怀的。
+2025-05-02 01:56:41,585 INFO llm job done, generated   89 tokens, time cost: 0.457s
+2025-05-02 01:56:41,585 DEBUG speech_tokens: len: 89  data: [1499, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 1761, 2262, 5824, 5006, 4487, 4463, 2303, 2546, 2555, 1096, 4299, 6486, 6486, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 1923, 144, 5824, 5014, 4486, 4490, 2303, 368, 1096, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 162, 4727, 5672, 4978, 5071, 5046, 4947, 5028, 2915, 974, 1463, 737, 2330, 2166, 135, 4538, 4700, 2684, 1216, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:41,714 INFO yield speech len 3.56, rtf 0.1647088634833861
+100%|██████████| 1/1 [00:00<00:00,  1.61it/s]100%|██████████| 1/1 [00:00<00:00,  1.61it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:41,736 INFO synthesis text 习惯了现在也。
+2025-05-02 01:56:42,009 INFO llm job done, generated   51 tokens, time cost: 0.272s
+2025-05-02 01:56:42,009 DEBUG speech_tokens: len: 51  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2031, 5946, 5485, 5485, 4759, 1051, 3563, 966, 567, 5830, 5078, 5105, 3017, 3962, 2189, 2258, 4509, 4756, 2562, 4570, 3018, 3993, 6373, 4492, 5268, 4570, 5021, 1267, 2724, 1295, 395, 143, 116, 2285, 3004, 4299, 6486, 6486, 4299, 4299, 6486, 6486, 4299]
+2025-05-02 01:56:42,137 INFO yield speech len 2.04, rtf 0.1967321423923268
+100%|██████████| 1/1 [00:00<00:00,  2.38it/s]100%|██████████| 1/1 [00:00<00:00,  2.37it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:42,157 INFO synthesis text 那你让我怀孕的时候。
+2025-05-02 01:56:42,600 INFO llm job done, generated   86 tokens, time cost: 0.442s
+2025-05-02 01:56:42,600 DEBUG speech_tokens: len: 86  data: [1813, 2031, 3975, 2031, 3975, 2031, 2112, 2031, 2031, 2031, 2031, 2031, 2031, 1725, 3750, 1476, 4376, 5672, 6158, 2308, 3669, 3913, 1241, 3455, 2753, 314, 809, 1537, 3795, 3137, 5509, 4942, 5048, 3590, 4346, 728, 683, 599, 683, 4947, 5028, 2841, 707, 812, 116, 2663, 4130, 6073, 5343, 4614, 5124, 3670, 1563, 63, 2297, 596, 596, 326, 3038, 6021, 6048, 5967, 3780, 1607, 443, 4860, 4860, 2767, 2867, 680, 2903, 1364, 1336, 2112, 2112, 2112, 2112, 2112, 2031, 2112, 4299, 4218, 4299, 4218, 4218, 2112]
+2025-05-02 01:56:42,739 INFO yield speech len 3.44, rtf 0.16901666341825974
+100%|██████████| 1/1 [00:00<00:00,  1.67it/s]100%|██████████| 1/1 [00:00<00:00,  1.67it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:42,778 INFO synthesis text 但不是现在。
+2025-05-02 01:56:42,916 INFO llm job done, generated   28 tokens, time cost: 0.138s
+2025-05-02 01:56:42,916 DEBUG speech_tokens: len: 28  data: [1789, 66, 4460, 5108, 127, 4075, 2166, 1440, 2186, 6554, 6048, 5322, 3073, 4445, 4753, 5651, 5019, 4598, 22, 1727, 4200, 5652, 4564, 5185, 731, 2919, 2194, 1789]
+2025-05-02 01:56:43,038 INFO yield speech len 1.12, rtf 0.23249132292611255
+100%|██████████| 1/1 [00:00<00:00,  3.37it/s]100%|██████████| 1/1 [00:00<00:00,  3.37it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:43,060 INFO synthesis text 但是我呢。
+2025-05-02 01:56:43,143 INFO llm job done, generated   19 tokens, time cost: 0.082s
+2025-05-02 01:56:43,143 DEBUG speech_tokens: len: 19  data: [2059, 4430, 5266, 5288, 5976, 6048, 3123, 5830, 4292, 2186, 719, 599, 29, 1482, 38, 488, 4951, 4959, 4131]
+2025-05-02 01:56:43,262 INFO yield speech len 0.76, rtf 0.265263883691085
+100%|██████████| 1/1 [00:00<00:00,  4.51it/s]100%|██████████| 1/1 [00:00<00:00,  4.51it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:43,285 INFO synthesis text 提醒小亮。
+2025-05-02 01:56:43,501 INFO llm job done, generated   47 tokens, time cost: 0.216s
+2025-05-02 01:56:43,501 DEBUG speech_tokens: len: 47  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 1842, 2193, 4947, 1267, 4211, 5100, 4587, 5401, 4650, 539, 4238, 5533, 5160, 4678, 2239, 2918, 1217, 542, 1936, 73, 5101, 4598, 5837, 4133, 1235, 1966, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218]
+2025-05-02 01:56:43,623 INFO yield speech len 1.88, rtf 0.18004432637640772
+100%|██████████| 1/1 [00:00<00:00,  2.78it/s]100%|██████████| 1/1 [00:00<00:00,  2.78it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:43,646 INFO synthesis text 你加入我们项目小组吧。
+2025-05-02 01:56:43,858 INFO llm job done, generated   46 tokens, time cost: 0.212s
+2025-05-02 01:56:43,858 DEBUG speech_tokens: len: 46  data: [1708, 1887, 1484, 2726, 2753, 2753, 1851, 4677, 2510, 5192, 6158, 6238, 3871, 6030, 5824, 2915, 2906, 680, 2124, 326, 4397, 4416, 4756, 4677, 4579, 6481, 670, 4318, 3617, 5180, 4513, 268, 974, 5056, 5094, 3462, 3303, 1454, 1376, 1443, 702, 3485, 5915, 4537, 5103, 1704]
+2025-05-02 01:56:43,995 INFO yield speech len 1.84, rtf 0.18957918104918106
+100%|██████████| 1/1 [00:00<00:00,  2.71it/s]100%|██████████| 1/1 [00:00<00:00,  2.71it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:44,022 INFO synthesis text 你说咱们俩这新婚之夜。
+2025-05-02 01:56:44,253 INFO llm job done, generated   38 tokens, time cost: 0.231s
+2025-05-02 01:56:44,253 DEBUG speech_tokens: len: 38  data: [1708, 3750, 2456, 3563, 5968, 4104, 5087, 2332, 6375, 38, 3890, 2124, 2368, 5337, 4490, 1703, 1703, 1518, 3141, 770, 4752, 4678, 2563, 6263, 3589, 5028, 5071, 2368, 1644, 6048, 3798, 4534, 3481, 5100, 4850, 62, 736, 1461]
+2025-05-02 01:56:44,410 INFO yield speech len 1.52, rtf 0.25531288824583354
+100%|██████████| 1/1 [00:00<00:00,  2.42it/s]100%|██████████| 1/1 [00:00<00:00,  2.42it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:44,440 INFO synthesis text 挺有特点。
+2025-05-02 01:56:44,558 INFO llm job done, generated   21 tokens, time cost: 0.118s
+2025-05-02 01:56:44,558 DEBUG speech_tokens: len: 21  data: [1816, 4678, 4785, 348, 1916, 1727, 5074, 4602, 2897, 1360, 300, 3078, 2511, 5094, 4753, 138, 321, 638, 35, 2920, 1470]
+2025-05-02 01:56:44,655 INFO yield speech len 0.84, rtf 0.25667349497477215
+100%|██████████| 1/1 [00:00<00:00,  4.12it/s]100%|██████████| 1/1 [00:00<00:00,  4.11it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:44,677 INFO synthesis text 我告诉你。
+2025-05-02 01:56:44,785 INFO llm job done, generated   19 tokens, time cost: 0.108s
+2025-05-02 01:56:44,785 DEBUG speech_tokens: len: 19  data: [2032, 3644, 2897, 2827, 2031, 81, 4844, 5022, 4946, 629, 4914, 5725, 4995, 1127, 910, 1726, 538, 988, 2032]
+2025-05-02 01:56:44,907 INFO yield speech len 0.76, rtf 0.3029647626374897
+100%|██████████| 1/1 [00:00<00:00,  4.01it/s]100%|██████████| 1/1 [00:00<00:00,  4.01it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:44,946 INFO synthesis text 就是你定的去美国。
+2025-05-02 01:56:45,804 INFO llm job done, generated  180 tokens, time cost: 0.858s
+2025-05-02 01:56:45,804 DEBUG speech_tokens: len: 180  data: [1490, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2031, 2139, 4921, 2553, 4609, 5098, 4286, 6048, 5319, 4503, 2292, 3913, 3914, 2726, 566, 566, 1051, 2166, 60, 3482, 5100, 4803, 6421, 6422, 1779, 2260, 2189, 2, 56, 156, 4920, 4839, 6027, 6000, 5316, 4608, 4311, 4314, 902, 2276, 287, 548, 1052, 1812, 573, 660, 4373, 3644, 728, 719, 629, 4973, 4942, 4869, 3411, 2028, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:45,977 INFO yield speech len 7.2, rtf 0.1432699958483378
+100%|██████████| 1/1 [00:01<00:00,  1.07s/it]100%|██████████| 1/1 [00:01<00:00,  1.07s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:46,000 INFO synthesis text 你小心。
+2025-05-02 01:56:46,098 INFO llm job done, generated   17 tokens, time cost: 0.097s
+2025-05-02 01:56:46,098 DEBUG speech_tokens: len: 17  data: [2140, 1970, 5065, 4767, 6538, 4443, 5186, 605, 2983, 6538, 5650, 3319, 4849, 4597, 4489, 1869, 2112]
+2025-05-02 01:56:46,224 INFO yield speech len 0.68, rtf 0.32885495354147515
+100%|██████████| 1/1 [00:00<00:00,  4.11it/s]100%|██████████| 1/1 [00:00<00:00,  4.10it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:46,251 INFO synthesis text 关心过头了？
+2025-05-02 01:56:46,529 INFO llm job done, generated   58 tokens, time cost: 0.278s
+2025-05-02 01:56:46,529 DEBUG speech_tokens: len: 58  data: [1492, 4299, 654, 663, 5831, 2894, 2189, 2273, 4400, 4642, 4426, 4755, 4759, 4678, 2499, 3563, 5534, 6098, 5935, 6261, 573, 660, 5829, 5100, 5084, 2867, 596, 144, 1032, 0, 4860, 2679, 500, 629, 710, 719, 1457, 1457, 3629, 6067, 5986, 4619, 4700, 4699, 4951, 3411, 2031, 2031, 2031, 2031, 2031, 4218, 4299, 4218, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:46,653 INFO yield speech len 2.32, rtf 0.1733047181162341
+100%|██████████| 1/1 [00:00<00:00,  2.34it/s]100%|██████████| 1/1 [00:00<00:00,  2.34it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:46,683 INFO synthesis text 这笑话死我了。
+2025-05-02 01:56:47,068 INFO llm job done, generated   71 tokens, time cost: 0.384s
+2025-05-02 01:56:47,068 DEBUG speech_tokens: len: 71  data: [1816, 4299, 4299, 4218, 3975, 4218, 3975, 3975, 1869, 2328, 3144, 4858, 5163, 5485, 6460, 6460, 6379, 5658, 4858, 4536, 4981, 2795, 2798, 2879, 1457, 582, 2850, 2903, 2918, 4414, 6535, 6429, 6432, 6465, 4284, 5014, 2819, 3644, 5804, 5101, 5084, 2789, 491, 1244, 1757, 1778, 6230, 2477, 5428, 3404, 1217, 1945, 2031, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:47,219 INFO yield speech len 2.84, rtf 0.18859497258360958
+100%|██████████| 1/1 [00:00<00:00,  1.77it/s]100%|██████████| 1/1 [00:00<00:00,  1.77it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:47,255 INFO synthesis text 不是佳妮你怎么想的呀！
+2025-05-02 01:56:48,349 INFO llm job done, generated  220 tokens, time cost: 1.093s
+2025-05-02 01:56:48,349 DEBUG speech_tokens: len: 220  data: [785, 1950, 4137, 4137, 4137, 4137, 4137, 4218, 2112, 2163, 2186, 6559, 5500, 6048, 5337, 2992, 4686, 2411, 3971, 5105, 1476, 2213, 2726, 2312, 125, 851, 1499, 1458, 1701, 2031, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 3894, 3894, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:56:48,461 INFO yield speech len 8.8, rtf 0.13702010566538028
+100%|██████████| 1/1 [00:01<00:00,  1.24s/it]100%|██████████| 1/1 [00:01<00:00,  1.24s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:48,500 INFO synthesis text 他们身上都带着那样一种。
+2025-05-02 01:56:48,895 INFO llm job done, generated   82 tokens, time cost: 0.395s
+2025-05-02 01:56:48,895 DEBUG speech_tokens: len: 82  data: [1493, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 2031, 2139, 54, 5832, 6157, 406, 4314, 335, 755, 5319, 4593, 2236, 5252, 5318, 5899, 6048, 2334, 5915, 488, 1235, 1967, 2130, 297, 5087, 5098, 1923, 2251, 5917, 223, 5244, 878, 55, 3750, 4393, 4569, 4993, 4939, 5192, 2684, 1019, 4994, 4911, 5668, 889, 2139, 5968, 1207, 707, 629, 719, 2861, 4237, 4236, 4218, 2112, 4299, 4299, 4299, 4299, 6486, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:49,020 INFO yield speech len 3.28, rtf 0.1585225506526668
+100%|██████████| 1/1 [00:00<00:00,  1.80it/s]100%|██████████| 1/1 [00:00<00:00,  1.80it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:49,044 INFO synthesis text 我妈也不管我。
+2025-05-02 01:56:49,332 INFO llm job done, generated   55 tokens, time cost: 0.288s
+2025-05-02 01:56:49,332 DEBUG speech_tokens: len: 55  data: [1490, 4299, 6486, 6486, 6486, 6486, 6486, 4299, 4299, 5830, 5831, 2825, 2705, 667, 6501, 2124, 6077, 6086, 5914, 4540, 5020, 3481, 404, 218, 2166, 4347, 5826, 5829, 4372, 2112, 651, 3640, 704, 731, 734, 506, 5776, 6504, 5775, 6558, 5830, 719, 719, 518, 497, 1225, 1944, 2109, 4299, 4299, 4299, 4299, 4218, 4218, 4218]
+2025-05-02 01:56:49,486 INFO yield speech len 2.2, rtf 0.20056659525090997
+100%|██████████| 1/1 [00:00<00:00,  2.16it/s]100%|██████████| 1/1 [00:00<00:00,  2.16it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:49,523 INFO synthesis text 特别难拿下。
+2025-05-02 01:56:49,693 INFO llm job done, generated   35 tokens, time cost: 0.169s
+2025-05-02 01:56:49,693 DEBUG speech_tokens: len: 35  data: [1735, 4299, 1032, 2295, 2511, 4743, 4851, 4763, 632, 2166, 1698, 2834, 2249, 3018, 3666, 2192, 29, 3750, 3666, 731, 1946, 3242, 4381, 4753, 4760, 2508, 4760, 2917, 6318, 4131, 2028, 2031, 1788, 2031, 2112]
+2025-05-02 01:56:49,802 INFO yield speech len 1.4, rtf 0.19901054246085031
+100%|██████████| 1/1 [00:00<00:00,  3.19it/s]100%|██████████| 1/1 [00:00<00:00,  3.19it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:49,826 INFO synthesis text 到处都是网友在支招。
+2025-05-02 01:56:50,114 INFO llm job done, generated   52 tokens, time cost: 0.287s
+2025-05-02 01:56:50,114 DEBUG speech_tokens: len: 52  data: [1789, 2112, 57, 4540, 5348, 2675, 635, 1370, 789, 3834, 4050, 3612, 1370, 303, 2243, 5084, 3314, 6048, 5322, 3152, 3644, 3642, 2867, 1946, 497, 5365, 5047, 4992, 2405, 716, 1046, 4191, 3222, 5192, 2276, 1653, 3057, 5319, 3723, 5344, 3064, 1896, 4593, 2401, 5186, 4862, 4862, 4861, 2676, 3486, 2118, 2112]
+2025-05-02 01:56:50,292 INFO yield speech len 2.08, rtf 0.22381498263432428
+100%|██████████| 1/1 [00:00<00:00,  2.05it/s]100%|██████████| 1/1 [00:00<00:00,  2.05it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:50,314 INFO synthesis text 满大街那么多摆摊的。
+2025-05-02 01:56:50,648 INFO llm job done, generated   68 tokens, time cost: 0.333s
+2025-05-02 01:56:50,648 DEBUG speech_tokens: len: 68  data: [1735, 1950, 2047, 2128, 2124, 1946, 1703, 1460, 734, 1479, 6100, 3750, 306, 6158, 6320, 3404, 3242, 145, 4920, 2508, 5021, 2330, 4514, 2232, 6261, 3906, 4600, 4564, 4727, 1395, 4311, 2783, 2468, 1842, 306, 3644, 2906, 5053, 2163, 2163, 2759, 3890, 1547, 926, 395, 147, 2241, 5589, 3412, 6404, 5510, 5294, 3863, 6059, 3880, 72, 4538, 5672, 3485, 3485, 1298, 1298, 1220, 1217, 1216, 1701, 1701, 1950]
+2025-05-02 01:56:50,809 INFO yield speech len 2.72, rtf 0.18194142509909236
+100%|██████████| 1/1 [00:00<00:00,  1.94it/s]100%|██████████| 1/1 [00:00<00:00,  1.94it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:50,832 INFO synthesis text 也是我自己乐意。
+2025-05-02 01:56:51,180 INFO llm job done, generated   59 tokens, time cost: 0.348s
+2025-05-02 01:56:51,180 DEBUG speech_tokens: len: 59  data: [1571, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 1951, 4939, 5668, 2591, 140, 113, 5238, 5319, 5319, 3141, 4843, 5101, 5831, 2897, 2486, 1119, 6379, 6374, 5391, 4608, 4449, 4200, 5651, 4675, 1295, 1043, 1531, 6229, 290, 4727, 5006, 2810, 2417, 4939, 3481, 5669, 5668, 5749, 4777, 4697, 404, 872, 1520, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:51,302 INFO yield speech len 2.36, rtf 0.19931540650836493
+100%|██████████| 1/1 [00:00<00:00,  2.04it/s]100%|██████████| 1/1 [00:00<00:00,  2.04it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:51,325 INFO synthesis text 怎么没有了呀？
+2025-05-02 01:56:51,587 INFO llm job done, generated   45 tokens, time cost: 0.261s
+2025-05-02 01:56:51,587 DEBUG speech_tokens: len: 45  data: [1502, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2139, 6378, 6373, 4420, 4311, 4314, 2702, 2124, 4071, 41, 359, 4993, 4992, 4857, 4492, 611, 692, 1666, 1828, 32, 1376, 3481, 2654, 5998, 5266, 5265, 5436, 1785, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:51,713 INFO yield speech len 1.8, rtf 0.2152393923865424
+100%|██████████| 1/1 [00:00<00:00,  2.45it/s]100%|██████████| 1/1 [00:00<00:00,  2.45it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:51,736 INFO synthesis text 以后不许不敲门就进我们家！
+2025-05-02 01:56:52,084 INFO llm job done, generated   64 tokens, time cost: 0.348s
+2025-05-02 01:56:52,084 DEBUG speech_tokens: len: 64  data: [761, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 1959, 3455, 3481, 1295, 881, 2673, 4860, 4876, 5084, 728, 2166, 2163, 5829, 4373, 3722, 5565, 1932, 1619, 2163, 2166, 5829, 3557, 4677, 2274, 3169, 5026, 1395, 2126, 29, 4557, 2733, 3156, 5824, 2256, 4443, 4607, 3587, 4345, 602, 2124, 2045, 103, 5649, 2266, 4544, 6157, 5356, 6075, 1948, 4137, 4137, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:56:52,205 INFO yield speech len 2.56, rtf 0.18308935686945915
+100%|██████████| 1/1 [00:00<00:00,  2.04it/s]100%|██████████| 1/1 [00:00<00:00,  2.04it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:52,229 INFO synthesis text 没想到你硬是把我跳过。
+2025-05-02 01:56:52,739 INFO llm job done, generated   96 tokens, time cost: 0.510s
+2025-05-02 01:56:52,739 DEBUG speech_tokens: len: 96  data: [761, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2040, 6259, 2125, 113, 386, 4859, 4428, 4675, 53, 488, 536, 2128, 1272, 2225, 4942, 4865, 2677, 2676, 1948, 1947, 2028, 1947, 2031, 2031, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4137, 4137, 4137, 4218, 4137, 4137, 4137, 2031, 5937, 5372, 4913, 3481, 3471, 4857, 4824, 6422, 5968, 5319, 3071, 2166, 703, 4133, 5591, 5101, 1457, 308, 1842, 30, 4704, 2364, 4807, 4946, 2915, 1456, 654, 699, 3644, 2716, 4860, 2673, 1972, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:56:52,845 INFO yield speech len 3.84, rtf 0.1606037219365438
+100%|██████████| 1/1 [00:00<00:00,  1.57it/s]100%|██████████| 1/1 [00:00<00:00,  1.57it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:52,874 INFO synthesis text 等不是办法。
+2025-05-02 01:56:53,060 INFO llm job done, generated   36 tokens, time cost: 0.185s
+2025-05-02 01:56:53,060 DEBUG speech_tokens: len: 36  data: [1735, 4299, 303, 4523, 4727, 2495, 560, 1319, 4237, 2130, 2166, 2182, 4373, 6229, 6048, 5323, 2337, 954, 4353, 2629, 5265, 5265, 4385, 1477, 1995, 6456, 6538, 3546, 569, 1946, 3889, 5832, 1701, 2025, 2112, 4299]
+2025-05-02 01:56:53,211 INFO yield speech len 1.44, rtf 0.23348993725246855
+100%|██████████| 1/1 [00:00<00:00,  2.76it/s]100%|██████████| 1/1 [00:00<00:00,  2.76it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:53,238 INFO synthesis text 您想，篮球可是。
+2025-05-02 01:56:53,568 INFO llm job done, generated   72 tokens, time cost: 0.329s
+2025-05-02 01:56:53,568 DEBUG speech_tokens: len: 72  data: [1490, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6405, 4218, 2040, 3829, 2942, 2753, 2213, 5208, 4803, 5401, 5408, 2715, 2501, 1463, 1460, 3404, 1235, 1721, 1723, 2112, 1707, 4299, 4218, 4218, 3894, 3798, 1532, 1463, 4379, 4398, 5532, 5650, 4650, 330, 1619, 716, 5094, 1299, 162, 2268, 2558, 869, 152, 5319, 5319, 5322, 2991, 5263, 5993, 5993, 5993, 5993, 3806, 1763, 4299, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 4218]
+2025-05-02 01:56:53,707 INFO yield speech len 2.88, rtf 0.16298434800571865
+100%|██████████| 1/1 [00:00<00:00,  2.03it/s]100%|██████████| 1/1 [00:00<00:00,  2.03it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:53,729 INFO synthesis text 他们的金牌班。
+2025-05-02 01:56:53,858 INFO llm job done, generated   26 tokens, time cost: 0.129s
+2025-05-02 01:56:53,858 DEBUG speech_tokens: len: 26  data: [1816, 2217, 5841, 6320, 2836, 6418, 1506, 2243, 148, 5650, 2499, 5020, 5286, 6501, 1404, 6084, 1460, 2195, 948, 702, 2513, 4376, 4385, 2928, 3975, 4299]
+2025-05-02 01:56:54,005 INFO yield speech len 1.04, rtf 0.265775964810298
+100%|██████████| 1/1 [00:00<00:00,  3.38it/s]100%|██████████| 1/1 [00:00<00:00,  3.38it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:54,044 INFO synthesis text 七零三的，五零六的。
+2025-05-02 01:56:54,415 INFO llm job done, generated   69 tokens, time cost: 0.370s
+2025-05-02 01:56:54,415 DEBUG speech_tokens: len: 69  data: [1502, 4299, 6486, 6486, 4299, 4299, 4299, 4299, 4299, 2112, 4191, 4676, 4513, 4542, 2535, 4939, 4849, 6066, 2962, 638, 1727, 6502, 5625, 6455, 5643, 4403, 5108, 4486, 5934, 6261, 1761, 4439, 2216, 29, 29, 757, 2031, 4299, 4299, 2041, 4373, 4373, 2186, 1442, 1615, 805, 395, 1724, 3992, 6309, 2233, 4849, 4564, 4978, 4934, 144, 2139, 63, 32, 5, 2191, 6243, 6486, 6486, 6486, 6486, 6486, 6486, 4299]
+2025-05-02 01:56:54,531 INFO yield speech len 2.76, rtf 0.1762704572815826
+100%|██████████| 1/1 [00:00<00:00,  1.91it/s]100%|██████████| 1/1 [00:00<00:00,  1.91it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:54,569 INFO synthesis text 我还能挣着钱吗我？
+2025-05-02 01:56:54,865 INFO llm job done, generated   60 tokens, time cost: 0.295s
+2025-05-02 01:56:54,865 DEBUG speech_tokens: len: 60  data: [1502, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2113, 3617, 728, 596, 3159, 6075, 3645, 1709, 4787, 3102, 3990, 4412, 32, 317, 6098, 5529, 4074, 1815, 5322, 4576, 4797, 6502, 3786, 3124, 2339, 5649, 4488, 2598, 260, 737, 847, 1804, 2125, 3404, 4456, 4788, 5074, 6532, 2915, 719, 599, 596, 524, 1702, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:55,019 INFO yield speech len 2.4, rtf 0.18747101227442425
+100%|██████████| 1/1 [00:00<00:00,  2.06it/s]100%|██████████| 1/1 [00:00<00:00,  2.06it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:55,054 INFO synthesis text 我有件事想跟你说。
+2025-05-02 01:56:55,228 INFO llm job done, generated   30 tokens, time cost: 0.175s
+2025-05-02 01:56:55,228 DEBUG speech_tokens: len: 30  data: [2032, 3617, 4843, 4614, 470, 1118, 546, 2589, 4544, 2213, 6021, 6048, 4581, 4525, 4677, 8, 1226, 1227, 127, 129, 3913, 539, 3685, 6048, 4077, 3641, 707, 2705, 3402, 2028]
+2025-05-02 01:56:55,336 INFO yield speech len 1.2, rtf 0.23550033569335938
+100%|██████████| 1/1 [00:00<00:00,  3.18it/s]100%|██████████| 1/1 [00:00<00:00,  3.18it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:55,359 INFO synthesis text 你怎么了，等等等一下。
+2025-05-02 01:56:56,463 INFO llm job done, generated  220 tokens, time cost: 1.104s
+2025-05-02 01:56:56,463 DEBUG speech_tokens: len: 220  data: [1493, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2049, 3913, 4993, 4605, 6459, 6454, 2232, 82, 4314, 2125, 2, 1505, 3800, 38, 3650, 5186, 4779, 4788, 4296, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:56,581 INFO yield speech len 8.8, rtf 0.13885330070148813
+100%|██████████| 1/1 [00:01<00:00,  1.24s/it]100%|██████████| 1/1 [00:01<00:00,  1.24s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:56,606 INFO synthesis text 王胜男。
+2025-05-02 01:56:56,684 INFO llm job done, generated   15 tokens, time cost: 0.077s
+2025-05-02 01:56:56,684 DEBUG speech_tokens: len: 15  data: [2031, 1457, 602, 2857, 5886, 5238, 4608, 3503, 1803, 758, 3242, 4459, 2190, 1707, 2031]
+2025-05-02 01:56:56,836 INFO yield speech len 0.6, rtf 0.3824849923451742
+100%|██████████| 1/1 [00:00<00:00,  3.97it/s]100%|██████████| 1/1 [00:00<00:00,  3.97it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:56,860 INFO synthesis text 取消吧。
+2025-05-02 01:56:57,111 INFO llm job done, generated   42 tokens, time cost: 0.251s
+2025-05-02 01:56:57,111 DEBUG speech_tokens: len: 42  data: [1814, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2058, 4920, 4836, 5541, 3327, 4049, 1295, 4677, 5405, 5651, 4650, 2402, 5429, 4864, 5065, 1437, 2166, 2873, 3161, 3888, 3159, 2916, 3645, 3645, 1794, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:57,224 INFO yield speech len 1.68, rtf 0.216825803120931
+100%|██████████| 1/1 [00:00<00:00,  2.59it/s]100%|██████████| 1/1 [00:00<00:00,  2.59it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:57,246 INFO synthesis text 你是感受不到它的魅力。
+2025-05-02 01:56:57,554 INFO llm job done, generated   60 tokens, time cost: 0.308s
+2025-05-02 01:56:57,554 DEBUG speech_tokens: len: 60  data: [2032, 5937, 4913, 4913, 4994, 5173, 6049, 6048, 5310, 1197, 243, 235, 3161, 734, 89, 1661, 3686, 5319, 5319, 2340, 5077, 2915, 2175, 2166, 2186, 3641, 225, 297, 4565, 5022, 4889, 308, 546, 2925, 6084, 2216, 552, 2243, 909, 4317, 1882, 4543, 4579, 4742, 2645, 2807, 1214, 1588, 3804, 890, 1295, 1295, 1267, 2517, 2517, 3246, 3246, 1059, 1869, 2112]
+2025-05-02 01:56:57,670 INFO yield speech len 2.4, rtf 0.1766735315322876
+100%|██████████| 1/1 [00:00<00:00,  2.26it/s]100%|██████████| 1/1 [00:00<00:00,  2.26it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:57,692 INFO synthesis text 我不在这段时间你有没有跟过别人？
+2025-05-02 01:56:58,405 INFO llm job done, generated  132 tokens, time cost: 0.712s
+2025-05-02 01:56:58,405 DEBUG speech_tokens: len: 132  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2122, 5830, 2906, 725, 2166, 2160, 1457, 2105, 3557, 5646, 6377, 4419, 5268, 4462, 474, 5244, 3141, 5345, 157, 57, 5096, 2513, 2618, 5227, 6048, 5319, 5319, 804, 1133, 79, 2004, 6377, 6134, 5424, 5507, 4517, 4463, 4495, 4395, 4299, 4299, 4218, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4299, 4299, 4299, 4218, 4218, 4218, 2040, 6015, 2942, 4993, 4992, 4938, 4616, 596, 602, 2124, 2127, 1640, 251, 260, 4913, 5749, 4615, 4727, 2675, 2789, 2816, 2822, 2096, 2140, 2112, 2112, 2112, 165, 2314, 4411, 6501, 4317, 651, 5101, 2903, 2160, 2166, 1695, 566, 566, 386, 62, 152, 5236, 6048, 3153, 4597, 4540, 4379, 738, 2028, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:58,547 INFO yield speech len 5.28, rtf 0.16196397217837247
+100%|██████████| 1/1 [00:00<00:00,  1.14it/s]100%|██████████| 1/1 [00:00<00:00,  1.14it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:58,587 INFO synthesis text 窥视这爱情的阴暗面。
+2025-05-02 01:56:58,824 INFO llm job done, generated   44 tokens, time cost: 0.237s
+2025-05-02 01:56:58,824 DEBUG speech_tokens: len: 44  data: [1789, 573, 648, 3564, 2315, 4849, 5074, 5214, 5319, 5319, 4530, 879, 5244, 968, 2324, 1760, 5914, 5916, 2546, 393, 5650, 4408, 258, 1564, 1746, 2246, 4939, 4911, 5075, 5129, 4420, 4536, 5185, 37, 2130, 4318, 3266, 4940, 62, 32, 739, 1467, 2112, 4299]
+2025-05-02 01:56:58,930 INFO yield speech len 1.76, rtf 0.19526400349356912
+100%|██████████| 1/1 [00:00<00:00,  2.63it/s]100%|██████████| 1/1 [00:00<00:00,  2.63it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:58,955 INFO synthesis text 晓白，你别瞎说八道行不行！
+2025-05-02 01:56:59,514 INFO llm job done, generated  109 tokens, time cost: 0.558s
+2025-05-02 01:56:59,514 DEBUG speech_tokens: len: 109  data: [3704, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 3894, 5136, 4755, 4678, 4921, 2463, 740, 2678, 724, 2166, 326, 2921, 5108, 5189, 5269, 5188, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4156, 5642, 3482, 1698, 2139, 1689, 2024, 1295, 62, 4603, 4587, 4431, 4921, 4499, 3647, 6158, 3035, 6291, 3636, 2903, 2810, 2166, 703, 6077, 6077, 2350, 1842, 4484, 4946, 2825, 2504, 4509, 5731, 322, 884, 6502, 2157, 2911, 5581, 4434, 5404, 4894, 3480, 890, 299, 4970, 5078, 5000, 635, 2006, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:56:59,637 INFO yield speech len 4.36, rtf 0.15657768337004774
+100%|██████████| 1/1 [00:00<00:00,  1.42it/s]100%|██████████| 1/1 [00:00<00:00,  1.42it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:56:59,668 INFO synthesis text 诶，你们是风帆小学的吧？
+2025-05-02 01:57:00,027 INFO llm job done, generated   78 tokens, time cost: 0.359s
+2025-05-02 01:57:00,027 DEBUG speech_tokens: len: 78  data: [1735, 4299, 4299, 2112, 1807, 3667, 41, 743, 4469, 4548, 4545, 1797, 2031, 1788, 3975, 3732, 3732, 3732, 3732, 3975, 4056, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2121, 6177, 4913, 1642, 2125, 2309, 5319, 5319, 3043, 6537, 4275, 4982, 5044, 6537, 2790, 4537, 4551, 4443, 4758, 2390, 569, 2983, 6298, 1914, 962, 148, 2259, 460, 1434, 4700, 5348, 3647, 3646, 1702, 2031, 2031, 1788, 2112, 2112, 2112, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:00,155 INFO yield speech len 3.12, rtf 0.15616982411115596
+100%|██████████| 1/1 [00:00<00:00,  1.94it/s]100%|██████████| 1/1 [00:00<00:00,  1.94it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:00,181 INFO synthesis text 我可以向你保证。
+2025-05-02 01:57:00,448 INFO llm job done, generated   52 tokens, time cost: 0.267s
+2025-05-02 01:57:00,448 DEBUG speech_tokens: len: 52  data: [1490, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2131, 4373, 2897, 2894, 486, 81, 90, 4609, 4857, 566, 4678, 5650, 4606, 4619, 751, 1241, 4939, 2424, 2166, 5050, 4136, 638, 1846, 1599, 3147, 4600, 4726, 560, 1966, 2040, 2031, 4299, 4299, 4299, 4218, 4218, 6405, 6405, 6405, 4218, 4218]
+2025-05-02 01:57:00,567 INFO yield speech len 2.08, rtf 0.1857899702512301
+100%|██████████| 1/1 [00:00<00:00,  2.44it/s]100%|██████████| 1/1 [00:00<00:00,  2.44it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:00,591 INFO synthesis text 上次对不起，骗您了。
+2025-05-02 01:57:01,187 INFO llm job done, generated  112 tokens, time cost: 0.596s
+2025-05-02 01:57:01,187 DEBUG speech_tokens: len: 112  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 1788, 5916, 5943, 5322, 4593, 2199, 5509, 2675, 506, 1968, 6379, 6374, 6372, 2261, 1920, 303, 2665, 4612, 2420, 2166, 2163, 5827, 885, 2004, 5651, 4679, 4408, 4651, 4650, 322, 566, 557, 1295, 1295, 3320, 3311, 2554, 1087, 1789, 2112, 4299, 4299, 4299, 4299, 4218, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4299, 4299, 4218, 2112, 4299, 4218, 4299, 4299, 4299, 4299, 4299, 4218, 4299, 4299, 4299, 2112, 2112, 1917, 3813, 4947, 4947, 2760, 4993, 4570, 2192, 13, 3912, 4156, 3428, 539, 80, 1480, 1480, 1505, 3935, 6148, 4619, 4861, 2674, 1215, 1945, 2112, 4299, 6486, 6486, 6486, 6486, 6486, 4299]
+2025-05-02 01:57:01,346 INFO yield speech len 4.48, rtf 0.1686545887163707
+100%|██████████| 1/1 [00:00<00:00,  1.29it/s]100%|██████████| 1/1 [00:00<00:00,  1.29it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:01,372 INFO synthesis text 你还让他给你画画。
+2025-05-02 01:57:02,284 INFO llm job done, generated  180 tokens, time cost: 0.912s
+2025-05-02 01:57:02,285 DEBUG speech_tokens: len: 180  data: [3704, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 4299, 4299, 4299, 4218, 2031, 1726, 3913, 539, 368, 5832, 5832, 1463, 8, 3158, 6073, 5270, 4871, 2124, 297, 5832, 6076, 4456, 1113, 204, 386, 4560, 6343, 512, 890, 579, 5028, 5028, 5024, 5429, 2675, 4860, 5028, 2841, 5057, 4780, 6158, 3890, 1469, 1469, 1467, 4299, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 1923, 4596, 1699, 1127, 1457, 654, 669, 5081, 4592, 5020, 3481, 1133, 632, 2673, 4941, 2676, 5084, 5084, 2906, 719, 2915]
+2025-05-02 01:57:02,430 INFO yield speech len 7.2, rtf 0.1468658447265625
+100%|██████████| 1/1 [00:01<00:00,  1.08s/it]100%|██████████| 1/1 [00:01<00:00,  1.08s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:02,470 INFO synthesis text 有什么不敢说的，谁呀？
+2025-05-02 01:57:03,619 INFO llm job done, generated  220 tokens, time cost: 1.148s
+2025-05-02 01:57:03,619 DEBUG speech_tokens: len: 220  data: [3704, 4299, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4137, 4137, 4866, 2796, 5588, 2576, 635, 728, 2102, 5940, 6048, 5241, 5241, 888, 110, 488, 2124, 2125, 4943, 4779, 1443, 2160, 5097, 5093, 1371, 90, 2273, 1460, 827, 998, 5967, 6048, 5967, 5238, 4123, 3644, 5090, 2894, 4727, 144, 63, 5, 731, 3889, 2916, 972, 1701, 2112, 4299, 4299, 4299, 4299, 6486, 4299, 6486, 6405, 6405, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:03,741 INFO yield speech len 8.8, rtf 0.14433045278895984
+100%|██████████| 1/1 [00:01<00:00,  1.31s/it]100%|██████████| 1/1 [00:01<00:00,  1.31s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:03,764 INFO synthesis text 放到网站上。
+2025-05-02 01:57:04,005 INFO llm job done, generated   43 tokens, time cost: 0.241s
+2025-05-02 01:57:04,005 DEBUG speech_tokens: len: 43  data: [1489, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 6537, 4266, 4780, 4871, 1884, 66, 4457, 2906, 1456, 728, 1217, 1010, 1887, 2976, 3144, 5272, 5271, 3041, 5227, 6048, 2409, 2276, 2918, 3413, 1224, 2028, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:04,148 INFO yield speech len 1.72, rtf 0.22300301596175792
+100%|██████████| 1/1 [00:00<00:00,  2.48it/s]100%|██████████| 1/1 [00:00<00:00,  2.48it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:04,181 INFO synthesis text 他是跟人家合租。
+2025-05-02 01:57:04,395 INFO llm job done, generated   37 tokens, time cost: 0.215s
+2025-05-02 01:57:04,396 DEBUG speech_tokens: len: 37  data: [1816, 4299, 1113, 5106, 3646, 3002, 5322, 5322, 2334, 1929, 201, 4595, 5341, 3805, 962, 125, 6262, 3471, 4695, 4463, 5266, 5589, 3402, 486, 1292, 551, 4528, 2166, 6459, 6465, 6554, 5071, 5073, 5802, 2112, 4299, 4299]
+2025-05-02 01:57:04,545 INFO yield speech len 1.48, rtf 0.24605635050180796
+100%|██████████| 1/1 [00:00<00:00,  2.53it/s]100%|██████████| 1/1 [00:00<00:00,  2.53it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:04,576 INFO synthesis text 怎么和有钱人交朋友？
+2025-05-02 01:57:04,874 INFO llm job done, generated   62 tokens, time cost: 0.297s
+2025-05-02 01:57:04,874 DEBUG speech_tokens: len: 62  data: [1492, 2112, 4191, 6374, 3231, 2324, 2124, 659, 2702, 4860, 495, 2576, 4857, 4911, 3155, 719, 1361, 546, 4435, 2517, 339, 845, 3011, 6043, 5304, 4498, 1482, 1293, 2499, 206, 4949, 723, 1434, 5589, 1226, 533, 3908, 2780, 4607, 5051, 4900, 3414, 2041, 3920, 6440, 4308, 4218, 4219, 3976, 4299, 6486, 6486, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 4218, 4218, 4218]
+2025-05-02 01:57:04,999 INFO yield speech len 2.48, rtf 0.17046764973671205
+100%|██████████| 1/1 [00:00<00:00,  2.21it/s]100%|██████████| 1/1 [00:00<00:00,  2.21it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:05,039 INFO synthesis text 我一个人我又不是养不起。
+2025-05-02 01:57:05,444 INFO llm job done, generated   77 tokens, time cost: 0.405s
+2025-05-02 01:57:05,444 DEBUG speech_tokens: len: 77  data: [1499, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2139, 3643, 2819, 161, 1294, 1294, 5750, 951, 90, 4852, 4563, 5332, 3887, 3886, 923, 5, 2192, 4415, 5149, 2031, 3894, 3972, 3891, 1944, 2112, 4299, 4299, 2113, 3644, 635, 3050, 3158, 5087, 726, 2166, 2185, 5824, 5967, 6048, 5238, 5337, 4603, 3562, 2752, 3650, 1955, 2131, 1434, 5088, 201, 5650, 5405, 4432, 4759, 1050, 1295, 2015, 566, 4517, 4406, 791, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:05,589 INFO yield speech len 3.08, rtf 0.1784578546301111
+100%|██████████| 1/1 [00:00<00:00,  1.70it/s]100%|██████████| 1/1 [00:00<00:00,  1.70it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:05,615 INFO synthesis text 出于公司的业绩和与论的考虑。
+2025-05-02 01:57:06,287 INFO llm job done, generated  129 tokens, time cost: 0.672s
+2025-05-02 01:57:06,287 DEBUG speech_tokens: len: 129  data: [1571, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 3783, 6048, 3861, 3564, 3564, 2856, 5102, 5828, 5582, 4049, 4048, 3887, 6074, 5581, 2112, 651, 2884, 2915, 6502, 5773, 5382, 6535, 6458, 6454, 4420, 1920, 63, 2219, 2330, 4939, 4983, 4974, 4992, 5100, 4840, 4436, 2249, 80, 2085, 6378, 5405, 4678, 4650, 5668, 2753, 647, 395, 368, 16, 735, 2112, 1707, 3648, 3648, 3648, 3648, 3645, 3648, 3648, 3645, 1701, 1701, 2112, 2112, 4212, 3483, 3483, 2754, 2754, 2754, 2673, 1261, 2747, 4754, 4858, 5469, 6270, 4047, 1619, 1613, 1613, 3801, 3072, 5094, 5094, 4510, 3666, 3751, 300, 2, 2459, 2112, 81, 405, 2673, 5589, 5589, 3403, 494, 602, 710, 1613, 3800, 1614, 4613, 5588, 3158, 971, 854, 853, 763, 745, 1869, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:06,429 INFO yield speech len 5.16, rtf 0.15778426052063935
+100%|██████████| 1/1 [00:00<00:00,  1.20it/s]100%|██████████| 1/1 [00:00<00:00,  1.20it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:06,459 INFO synthesis text 行！
+2025-05-02 01:57:06,567 INFO llm job done, generated   16 tokens, time cost: 0.108s
+2025-05-02 01:57:06,567 DEBUG speech_tokens: len: 16  data: [1733, 4137, 4650, 4677, 4675, 4678, 312, 1052, 971, 4612, 4824, 5043, 3529, 3768, 1986, 1950]
+2025-05-02 01:57:06,687 INFO yield speech len 0.64, rtf 0.3555186092853546
+100%|██████████| 1/1 [00:00<00:00,  3.91it/s]100%|██████████| 1/1 [00:00<00:00,  3.91it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:06,709 INFO synthesis text 如果我想追并且追到了。
+2025-05-02 01:57:06,951 INFO llm job done, generated   51 tokens, time cost: 0.242s
+2025-05-02 01:57:06,951 DEBUG speech_tokens: len: 51  data: [1489, 5976, 4043, 5094, 573, 2908, 2813, 2915, 2915, 5051, 4606, 4753, 2238, 3647, 497, 1562, 1761, 6048, 4043, 5501, 2327, 4607, 4849, 4633, 4623, 3165, 2112, 2166, 3156, 4994, 1725, 4678, 330, 764, 1680, 6051, 1395, 470, 4849, 2427, 300, 4540, 5671, 494, 518, 1693, 1288, 3160, 2916, 1458, 4299]
+2025-05-02 01:57:07,053 INFO yield speech len 2.04, rtf 0.16840053539650113
+100%|██████████| 1/1 [00:00<00:00,  2.75it/s]100%|██████████| 1/1 [00:00<00:00,  2.75it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:07,079 INFO synthesis text 你说呀！
+2025-05-02 01:57:07,156 INFO llm job done, generated   16 tokens, time cost: 0.077s
+2025-05-02 01:57:07,156 DEBUG speech_tokens: len: 16  data: [1951, 4939, 1376, 6048, 3861, 4367, 5090, 5065, 4572, 4605, 4490, 3161, 2792, 5347, 3888, 2028]
+2025-05-02 01:57:07,280 INFO yield speech len 0.64, rtf 0.31348802149295807
+100%|██████████| 1/1 [00:00<00:00,  4.46it/s]100%|██████████| 1/1 [00:00<00:00,  4.46it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:07,303 INFO synthesis text 没有人跟我说过。
+2025-05-02 01:57:07,540 INFO llm job done, generated   48 tokens, time cost: 0.236s
+2025-05-02 01:57:07,540 DEBUG speech_tokens: len: 48  data: [1490, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 2130, 3825, 2222, 2726, 4750, 4572, 5085, 3638, 3793, 3886, 113, 3664, 2049, 0, 2252, 5009, 5776, 701, 1361, 3712, 6048, 6049, 4104, 6556, 2828, 5086, 1455, 654, 669, 1457, 626, 542, 2000, 4299, 4299, 4299, 4299, 4218, 4218, 4218]
+2025-05-02 01:57:07,676 INFO yield speech len 1.92, rtf 0.194006289045016
+100%|██████████| 1/1 [00:00<00:00,  2.54it/s]100%|██████████| 1/1 [00:00<00:00,  2.54it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:07,715 INFO synthesis text 诶，是我的钱。
+2025-05-02 01:57:08,209 INFO llm job done, generated  102 tokens, time cost: 0.493s
+2025-05-02 01:57:08,209 DEBUG speech_tokens: len: 102  data: [1499, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 2040, 1564, 1564, 1563, 53, 887, 5258, 5500, 4851, 951, 303, 5322, 3810, 3807, 5582, 2585, 641, 1373, 1373, 1373, 1336, 2112, 1701, 3648, 3651, 3651, 3732, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 1951, 1466, 2924, 2276, 4463, 4543, 4570, 4463, 2303, 2546, 2555, 2834, 4994, 3535, 2112, 3975, 3975, 1788, 2112, 2112, 3729, 6024, 5322, 5322, 5322, 3156, 5340, 5071, 5804, 3644, 1457, 623, 29, 1839, 1026, 32, 4578, 2004, 5648, 4675, 2598, 2779, 2825, 2276, 2195, 4460, 4468, 5121, 1473, 6486, 6486, 6486, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:08,343 INFO yield speech len 4.08, rtf 0.1538400556526932
+100%|██████████| 1/1 [00:00<00:00,  1.50it/s]100%|██████████| 1/1 [00:00<00:00,  1.50it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:08,365 INFO synthesis text 你要不这样。
+2025-05-02 01:57:08,607 INFO llm job done, generated   48 tokens, time cost: 0.242s
+2025-05-02 01:57:08,607 DEBUG speech_tokens: len: 48  data: [1571, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 2031, 1969, 5615, 3455, 1268, 1268, 2726, 2276, 3404, 2789, 1437, 2112, 2163, 1457, 3394, 1896, 789, 5319, 2320, 4605, 4597, 4607, 4778, 3563, 3482, 2834, 197, 2918, 3404, 3404, 3412, 3411, 1944, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:08,710 INFO yield speech len 1.92, rtf 0.17964976529280346
+100%|██████████| 1/1 [00:00<00:00,  2.74it/s]100%|██████████| 1/1 [00:00<00:00,  2.74it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:08,732 INFO synthesis text 你们的回复和退稿噻！
+2025-05-02 01:57:08,938 INFO llm job done, generated   39 tokens, time cost: 0.206s
+2025-05-02 01:57:08,939 DEBUG speech_tokens: len: 39  data: [1951, 3993, 6180, 4886, 512, 863, 2128, 281, 1479, 4439, 2797, 4947, 699, 1118, 5345, 5337, 6537, 5826, 5102, 2673, 2692, 225, 300, 3495, 4851, 4606, 969, 174, 2891, 1223, 1358, 551, 5643, 3222, 4457, 4536, 5186, 731, 1461]
+2025-05-02 01:57:09,039 INFO yield speech len 1.56, rtf 0.1964559921851525
+100%|██████████| 1/1 [00:00<00:00,  3.07it/s]100%|██████████| 1/1 [00:00<00:00,  3.06it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:09,060 INFO synthesis text 给你前妻打电话。
+2025-05-02 01:57:09,840 INFO llm job done, generated  160 tokens, time cost: 0.780s
+2025-05-02 01:57:09,840 DEBUG speech_tokens: len: 160  data: [1526, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2031, 2112, 816, 214, 116, 4841, 4560, 6180, 2699, 566, 2013, 5648, 2274, 268, 35, 2212, 6261, 4919, 4513, 2544, 5100, 231, 300, 2921, 1946, 758, 2085, 52, 4769, 4493, 2780, 5028, 4956, 5052, 6401, 1946, 3899, 6075, 1944, 2112, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:10,029 INFO yield speech len 6.4, rtf 0.15135757625102997
+100%|██████████| 1/1 [00:00<00:00,  1.01it/s]100%|██████████| 1/1 [00:00<00:00,  1.01it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:10,062 INFO synthesis text 我说的每一句都是真的。
+2025-05-02 01:57:11,298 INFO llm job done, generated  220 tokens, time cost: 1.235s
+2025-05-02 01:57:11,298 DEBUG speech_tokens: len: 220  data: [3677, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 1950, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 1950, 1950, 1950, 1950, 4137, 4218, 1393, 3644, 2915, 2891, 3700, 6048, 6049, 1170, 5095, 4762, 1032, 4447, 2647, 4315, 2127, 92, 35, 305, 1286, 1295, 3482, 3482, 4534, 1284, 4918, 5568, 6072, 6073, 1700, 1943, 1862, 1619, 1619, 1619, 1528, 1500, 1788, 2031, 1950, 1950, 2031, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 1950, 4137, 4137, 1950, 1950, 2031, 2139, 297, 2243, 2903, 4373, 4286, 6048, 5319, 5319, 3054, 1619, 1608, 2139, 5241, 2322, 887, 32, 19, 5857, 3913, 3913, 1807, 543, 37, 973, 730, 973, 972, 1728, 2031, 4218, 4137, 4137, 4218, 4137, 4218, 4137, 4218, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:57:11,436 INFO yield speech len 8.8, rtf 0.15609334815632211
+100%|██████████| 1/1 [00:01<00:00,  1.40s/it]100%|██████████| 1/1 [00:01<00:00,  1.40s/it]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:11,475 INFO synthesis text 嫉妒我现在比你过得幸福。
+2025-05-02 01:57:11,937 INFO llm job done, generated   96 tokens, time cost: 0.462s
+2025-05-02 01:57:11,937 DEBUG speech_tokens: len: 96  data: [1489, 2112, 303, 4756, 5424, 5669, 5669, 5669, 4697, 888, 1029, 5744, 6479, 3563, 3644, 3644, 2813, 110, 2257, 5485, 4759, 4749, 4517, 4406, 1479, 2022, 5418, 4460, 2195, 228, 2166, 1700, 4940, 4804, 5937, 4886, 566, 1615, 2112, 654, 5829, 5080, 2540, 867, 2251, 2258, 4431, 4678, 4677, 4938, 5091, 4605, 4744, 6422, 3992, 3995, 1808, 6537, 6537, 6546, 4372, 4373, 1376, 2915, 5090, 5080, 5000, 2786, 599, 500, 3402, 2031, 2032, 1951, 2029, 4218, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:12,059 INFO yield speech len 3.84, rtf 0.15216929217179617
+100%|██████████| 1/1 [00:00<00:00,  1.61it/s]100%|██████████| 1/1 [00:00<00:00,  1.61it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:12,093 INFO synthesis text 其实你可以不用每次都送我回来。
+2025-05-02 01:57:12,463 INFO llm job done, generated   73 tokens, time cost: 0.369s
+2025-05-02 01:57:12,463 DEBUG speech_tokens: len: 73  data: [1709, 2733, 4759, 5298, 5587, 5980, 6048, 6048, 3708, 3722, 3065, 5333, 5330, 6031, 3729, 3975, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 2049, 6180, 4886, 647, 975, 162, 982, 4606, 5100, 2347, 2166, 1444, 1370, 5263, 5086, 5047, 6501, 1154, 8, 314, 2004, 6374, 5373, 4608, 300, 5078, 2741, 4752, 4914, 5087, 5777, 2780, 683, 2797, 5028, 698, 140, 2249, 3800, 2261, 5918, 3646, 3648, 1788]
+2025-05-02 01:57:12,585 INFO yield speech len 2.92, rtf 0.16840802480096687
+100%|██████████| 1/1 [00:00<00:00,  1.91it/s]100%|██████████| 1/1 [00:00<00:00,  1.91it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:12,609 INFO synthesis text 这就是说明他爱我。
+2025-05-02 01:57:13,000 INFO llm job done, generated   81 tokens, time cost: 0.391s
+2025-05-02 01:57:13,000 DEBUG speech_tokens: len: 81  data: [1499, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 1869, 2112, 5244, 3144, 4601, 4529, 1275, 4686, 4616, 5078, 5825, 3685, 6048, 3130, 3806, 5887, 6049, 3051, 6473, 5102, 5083, 666, 4071, 2699, 539, 395, 65, 4907, 4880, 4960, 1947, 5832, 1461, 2112, 1758, 5103, 6075, 5428, 5914, 1702, 1951, 3890, 5995, 5269, 4543, 4607, 5501, 4372, 4291, 4373, 728, 719, 602, 602, 494, 2678, 2678, 4943, 4889, 1271, 2031, 4299, 6486, 4299, 4299, 4299, 4218, 4218, 6405, 4218, 4218]
+2025-05-02 01:57:13,143 INFO yield speech len 3.24, rtf 0.1646213325453393
+100%|██████████| 1/1 [00:00<00:00,  1.80it/s]100%|██████████| 1/1 [00:00<00:00,  1.80it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:13,166 INFO synthesis text 现在反悔还来得及。
+2025-05-02 01:57:13,459 INFO llm job done, generated   50 tokens, time cost: 0.293s
+2025-05-02 01:57:13,459 DEBUG speech_tokens: len: 50  data: [1708, 4515, 4594, 2310, 4522, 1725, 5652, 4567, 2189, 4266, 3465, 245, 497, 4967, 4947, 2841, 728, 875, 44, 2194, 2437, 979, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 1947, 5346, 5833, 2381, 5986, 2, 1466, 2416, 297, 4604, 1041, 4921, 4759, 4731, 357, 1816]
+2025-05-02 01:57:13,581 INFO yield speech len 2.0, rtf 0.20761394500732422
+100%|██████████| 1/1 [00:00<00:00,  2.30it/s]100%|██████████| 1/1 [00:00<00:00,  2.30it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:13,602 INFO synthesis text 但具体去哪个班。
+2025-05-02 01:57:13,725 INFO llm job done, generated   27 tokens, time cost: 0.123s
+2025-05-02 01:57:13,725 DEBUG speech_tokens: len: 27  data: [1732, 2297, 4460, 1563, 5001, 6072, 6072, 160, 33, 339, 1052, 2742, 6027, 2373, 2373, 2935, 359, 1204, 93, 623, 2166, 2783, 5348, 4376, 4493, 5121, 3891]
+2025-05-02 01:57:13,847 INFO yield speech len 1.08, rtf 0.22741512016013815
+100%|██████████| 1/1 [00:00<00:00,  3.79it/s]100%|██████████| 1/1 [00:00<00:00,  3.78it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:13,876 INFO synthesis text 在她蒙受不白之冤的时候。
+2025-05-02 01:57:14,307 INFO llm job done, generated   84 tokens, time cost: 0.431s
+2025-05-02 01:57:14,307 DEBUG speech_tokens: len: 84  data: [3671, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4137, 1950, 4200, 6376, 2736, 272, 737, 35, 300, 2916, 6319, 488, 2151, 4317, 1400, 491, 3449, 6100, 6178, 5949, 5319, 2322, 623, 638, 727, 2139, 2163, 6559, 5831, 3644, 1455, 2166, 677, 1703, 737, 2654, 969, 1518, 6048, 3717, 3872, 5507, 4129, 4127, 4592, 4457, 2937, 5937, 1041, 65, 758, 6048, 6048, 5241, 1602, 1928, 2673, 4863, 4863, 638, 629, 2760, 2760, 2760, 1311, 2040, 2040, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:14,446 INFO yield speech len 3.36, rtf 0.16969839731852215
+100%|██████████| 1/1 [00:00<00:00,  1.68it/s]100%|██████████| 1/1 [00:00<00:00,  1.68it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:14,486 INFO synthesis text 怎么不见你出来管管？
+2025-05-02 01:57:14,768 INFO llm job done, generated   55 tokens, time cost: 0.282s
+2025-05-02 01:57:14,768 DEBUG speech_tokens: len: 55  data: [2957, 1950, 1950, 1950, 1950, 1950, 1950, 1950, 1950, 6348, 6457, 6372, 308, 1001, 1800, 1884, 497, 4862, 2172, 2163, 3644, 4852, 1275, 4677, 4850, 4463, 1644, 512, 241, 2976, 6264, 2859, 6067, 2234, 5270, 1335, 654, 1454, 1055, 4815, 5772, 699, 5090, 2513, 4537, 4379, 732, 1950, 1950, 4137, 4137, 4137, 3894, 4137, 4137]
+2025-05-02 01:57:14,884 INFO yield speech len 2.2, rtf 0.18130844289606265
+100%|██████████| 1/1 [00:00<00:00,  2.30it/s]100%|██████████| 1/1 [00:00<00:00,  2.29it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:14,923 INFO synthesis text 可是掉到粪坑里了。
+2025-05-02 01:57:15,435 INFO llm job done, generated   96 tokens, time cost: 0.512s
+2025-05-02 01:57:15,435 DEBUG speech_tokens: len: 96  data: [3704, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 2031, 324, 324, 243, 1370, 632, 632, 623, 875, 5319, 5319, 4509, 2988, 6067, 6068, 3881, 3800, 1613, 1694, 1613, 1532, 1532, 1531, 2031, 2031, 2139, 60, 4857, 4591, 5027, 710, 632, 1113, 306, 5024, 4973, 710, 728, 6507, 6537, 6534, 4825, 4523, 1477, 1808, 1905, 81, 324, 2682, 5006, 5689, 5772, 5529, 6255, 882, 404, 1294, 1295, 881, 874, 4042, 1775, 1217, 515, 2675, 515, 518, 1217, 3412, 3411, 3402, 1944, 2028, 4218, 4218, 4218, 4218, 4218, 4137, 4137, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:57:15,580 INFO yield speech len 3.84, rtf 0.171170507868131
+100%|██████████| 1/1 [00:00<00:00,  1.44it/s]100%|██████████| 1/1 [00:00<00:00,  1.44it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:15,612 INFO synthesis text 那你带我去吧。
+2025-05-02 01:57:15,859 INFO llm job done, generated   47 tokens, time cost: 0.247s
+2025-05-02 01:57:15,859 DEBUG speech_tokens: len: 47  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 1959, 3828, 2198, 5995, 5185, 102, 6504, 3266, 2726, 1295, 1689, 2082, 2219, 5188, 4563, 5098, 5749, 2912, 146, 1923, 4678, 4596, 2526, 5587, 963, 2166, 2621, 5834, 5348, 5356, 1944, 6486, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:15,982 INFO yield speech len 1.88, rtf 0.19700603282197993
+100%|██████████| 1/1 [00:00<00:00,  2.50it/s]100%|██████████| 1/1 [00:00<00:00,  2.50it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:16,005 INFO synthesis text 谁缠着你了？
+2025-05-02 01:57:16,226 INFO llm job done, generated   43 tokens, time cost: 0.221s
+2025-05-02 01:57:16,226 DEBUG speech_tokens: len: 43  data: [1732, 5862, 6048, 6048, 5322, 5241, 5322, 3054, 797, 761, 800, 314, 1376, 5749, 4614, 1689, 4512, 108, 3402, 6319, 1217, 812, 1644, 6019, 1527, 3060, 2324, 750, 3993, 269, 2726, 2753, 62, 3799, 3961, 2675, 4946, 4862, 4889, 2702, 3403, 1216, 2031]
+2025-05-02 01:57:16,343 INFO yield speech len 1.72, rtf 0.19636750221252441
+100%|██████████| 1/1 [00:00<00:00,  2.79it/s]100%|██████████| 1/1 [00:00<00:00,  2.79it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:16,367 INFO synthesis text 你最后一次。
+2025-05-02 01:57:16,536 INFO llm job done, generated   29 tokens, time cost: 0.169s
+2025-05-02 01:57:16,536 DEBUG speech_tokens: len: 29  data: [1708, 2049, 4886, 2726, 79, 2085, 5647, 3465, 4609, 4598, 152, 243, 2754, 2754, 5052, 5052, 5098, 3077, 2752, 2752, 70, 4191, 6131, 6376, 2988, 2252, 2919, 2919, 1545]
+2025-05-02 01:57:16,649 INFO yield speech len 1.16, rtf 0.24281575761992358
+100%|██████████| 1/1 [00:00<00:00,  3.30it/s]100%|██████████| 1/1 [00:00<00:00,  3.30it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:16,670 INFO synthesis text 我不会说漏嘴。
+2025-05-02 01:57:16,825 INFO llm job done, generated   33 tokens, time cost: 0.154s
+2025-05-02 01:57:16,825 DEBUG speech_tokens: len: 33  data: [1735, 2112, 3579, 5102, 725, 2166, 2160, 4373, 2833, 5025, 5067, 4607, 5971, 6048, 4122, 2813, 2395, 3044, 5054, 3476, 546, 4671, 1046, 44, 2194, 2437, 250, 2112, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:16,961 INFO yield speech len 1.32, rtf 0.22012591361999512
+100%|██████████| 1/1 [00:00<00:00,  3.23it/s]100%|██████████| 1/1 [00:00<00:00,  3.22it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:16,998 INFO synthesis text 我全包容你了。
+2025-05-02 01:57:17,265 INFO llm job done, generated   47 tokens, time cost: 0.267s
+2025-05-02 01:57:17,265 DEBUG speech_tokens: len: 47  data: [3677, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2113, 3643, 716, 146, 546, 4840, 3084, 746, 5, 4071, 2139, 2160, 4700, 4456, 4951, 5061, 6039, 6067, 3143, 620, 4664, 3828, 4399, 5075, 539, 44, 3962, 1046, 3650, 5105, 2917, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 4299]
+2025-05-02 01:57:17,388 INFO yield speech len 1.88, rtf 0.20768160515643183
+100%|██████████| 1/1 [00:00<00:00,  2.35it/s]100%|██████████| 1/1 [00:00<00:00,  2.35it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:17,410 INFO synthesis text 你不需要帮助吗？
+2025-05-02 01:57:17,604 INFO llm job done, generated   30 tokens, time cost: 0.195s
+2025-05-02 01:57:17,604 DEBUG speech_tokens: len: 30  data: [1708, 2130, 5371, 2753, 1695, 2166, 4369, 3709, 5322, 4758, 3318, 4606, 4537, 4862, 1434, 702, 3404, 2711, 5447, 4074, 5968, 4122, 6556, 2825, 4315, 2126, 488, 2692, 4131, 4299]
+2025-05-02 01:57:17,721 INFO yield speech len 1.2, rtf 0.25939345359802246
+100%|██████████| 1/1 [00:00<00:00,  3.03it/s]100%|██████████| 1/1 [00:00<00:00,  3.03it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:17,747 INFO synthesis text 我雇几个人去。
+2025-05-02 01:57:18,106 INFO llm job done, generated   61 tokens, time cost: 0.359s
+2025-05-02 01:57:18,107 DEBUG speech_tokens: len: 61  data: [1499, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 3616, 5102, 2789, 5084, 1446, 4299, 654, 2859, 5100, 5829, 5014, 951, 3462, 5405, 2751, 1295, 1295, 1897, 813, 775, 4484, 4578, 5307, 6073, 3113, 2222, 3666, 6262, 1806, 5001, 5326, 6054, 3111, 6074, 5344, 4613, 2327, 2219, 2200, 1462, 6486, 6486, 6486, 4299, 4299, 6486, 6486, 4299, 4299, 4299]
+2025-05-02 01:57:18,242 INFO yield speech len 2.44, rtf 0.202738847888884
+100%|██████████| 1/1 [00:00<00:00,  1.93it/s]100%|██████████| 1/1 [00:00<00:00,  1.93it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:18,265 INFO synthesis text 有什么事的话你就说。
+2025-05-02 01:57:18,527 INFO llm job done, generated   45 tokens, time cost: 0.261s
+2025-05-02 01:57:18,527 DEBUG speech_tokens: len: 45  data: [1708, 2769, 4616, 4997, 2912, 5899, 6048, 129, 1395, 4313, 5225, 6048, 6051, 4521, 4522, 300, 56, 529, 5028, 2770, 2756, 3161, 3161, 974, 3160, 3402, 1458, 1788, 2112, 2130, 5128, 4940, 646, 2733, 2347, 713, 1370, 6048, 6048, 1179, 2903, 5084, 4870, 5589, 2028]
+2025-05-02 01:57:18,626 INFO yield speech len 1.8, rtf 0.20035253630744085
+100%|██████████| 1/1 [00:00<00:00,  2.62it/s]100%|██████████| 1/1 [00:00<00:00,  2.62it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:18,648 INFO synthesis text 你总得有个人生规划吧。
+2025-05-02 01:57:18,890 INFO llm job done, generated   42 tokens, time cost: 0.242s
+2025-05-02 01:57:18,890 DEBUG speech_tokens: len: 42  data: [1708, 1563, 2699, 5020, 159, 5650, 398, 2879, 5040, 288, 4568, 4822, 4858, 353, 719, 489, 236, 950, 1619, 845, 3041, 5233, 6048, 2331, 4484, 5772, 582, 696, 4853, 4606, 5095, 2841, 5035, 5751, 6077, 1162, 2160, 1055, 1703, 1703, 3645, 1785]
+2025-05-02 01:57:18,982 INFO yield speech len 1.68, rtf 0.1990541106178647
+100%|██████████| 1/1 [00:00<00:00,  2.83it/s]100%|██████████| 1/1 [00:00<00:00,  2.83it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:19,008 INFO synthesis text 比较直接！
+2025-05-02 01:57:19,117 INFO llm job done, generated   22 tokens, time cost: 0.108s
+2025-05-02 01:57:19,117 DEBUG speech_tokens: len: 22  data: [2058, 2591, 5021, 3482, 1375, 6378, 4938, 4570, 4943, 614, 1842, 5319, 1533, 3725, 3076, 6376, 4911, 5092, 4570, 4543, 5838, 4299]
+2025-05-02 01:57:19,230 INFO yield speech len 0.88, rtf 0.2520853822881525
+100%|██████████| 1/1 [00:00<00:00,  4.07it/s]100%|██████████| 1/1 [00:00<00:00,  4.07it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:19,254 INFO synthesis text 只会让自己更加危险！
+2025-05-02 01:57:19,464 INFO llm job done, generated   45 tokens, time cost: 0.210s
+2025-05-02 01:57:19,464 DEBUG speech_tokens: len: 45  data: [1490, 4218, 4218, 2031, 4758, 5319, 1533, 1616, 1370, 2757, 2838, 4852, 3158, 3792, 5267, 4880, 2046, 6379, 5661, 5176, 1041, 4920, 2024, 1896, 174, 4599, 5769, 1888, 4921, 125, 4133, 3644, 5099, 4607, 5101, 4431, 4678, 565, 763, 2919, 732, 1461, 4299, 4218, 4218]
+2025-05-02 01:57:19,584 INFO yield speech len 1.8, rtf 0.1835522386762831
+100%|██████████| 1/1 [00:00<00:00,  2.85it/s]100%|██████████| 1/1 [00:00<00:00,  2.85it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:19,607 INFO synthesis text 你什么人生规划？
+2025-05-02 01:57:19,899 INFO llm job done, generated   61 tokens, time cost: 0.292s
+2025-05-02 01:57:19,899 DEBUG speech_tokens: len: 61  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2040, 6018, 4643, 4993, 2726, 539, 1268, 5943, 5322, 5244, 40, 272, 4314, 2854, 4536, 4578, 5982, 3077, 761, 3023, 5236, 6048, 3135, 2327, 2773, 6505, 573, 5098, 4601, 4778, 4529, 2797, 5028, 2850, 5026, 5348, 3161, 1703, 1703, 983, 1702, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:20,046 INFO yield speech len 2.44, rtf 0.1799699712972172
+100%|██████████| 1/1 [00:00<00:00,  2.18it/s]100%|██████████| 1/1 [00:00<00:00,  2.17it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:20,081 INFO synthesis text 我妈不会发现吗？
+2025-05-02 01:57:20,547 INFO llm job done, generated  104 tokens, time cost: 0.466s
+2025-05-02 01:57:20,547 DEBUG speech_tokens: len: 104  data: [4003, 4299, 4299, 4299, 663, 2915, 602, 2124, 2125, 6077, 6156, 2871, 2166, 1454, 3644, 2757, 4743, 2348, 6456, 2557, 6076, 4543, 5485, 5408, 2562, 4606, 4536, 2529, 4318, 506, 1226, 3412, 5589, 3528, 2049, 1957, 4141, 2034, 2040, 2040, 2028, 1785, 1788, 3972, 2031, 1788, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2031, 2112, 4218, 2031, 4299, 4299, 4299, 4218, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 6486, 4299, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486, 6486]
+2025-05-02 01:57:20,705 INFO yield speech len 4.16, rtf 0.1500468414563399
+100%|██████████| 1/1 [00:00<00:00,  1.52it/s]100%|██████████| 1/1 [00:00<00:00,  1.52it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:20,728 INFO synthesis text 跟踪我？我又不是明星为什么要跟踪我？
+2025-05-02 01:57:21,283 INFO llm job done, generated  116 tokens, time cost: 0.554s
+2025-05-02 01:57:21,283 DEBUG speech_tokens: len: 116  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 0, 154, 4483, 3744, 6180, 6379, 5644, 4736, 5053, 5775, 6504, 6504, 6531, 4373, 719, 599, 488, 2684, 1225, 2028, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4299, 2159, 3644, 380, 323, 2348, 2819, 2166, 1443, 3641, 5167, 5319, 2307, 2413, 4314, 1643, 566, 296, 5208, 5208, 5404, 5405, 5405, 2508, 4778, 4495, 5364, 5772, 4299, 4299, 4299, 4299, 4299, 4299, 4345, 5098, 4567, 5092, 5173, 6048, 3135, 110, 2124, 1883, 2726, 4661, 5834, 488, 1359, 3, 211, 4517, 5931, 6177, 6377, 2466, 4754, 5098, 5775, 6504, 6504, 6558, 3644, 683, 491, 488, 1944, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:21,422 INFO yield speech len 4.64, rtf 0.14946260328950553
+100%|██████████| 1/1 [00:00<00:00,  1.40it/s]100%|██████████| 1/1 [00:00<00:00,  1.40it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:21,443 INFO synthesis text 广告业务员就就是。
+2025-05-02 01:57:21,787 INFO llm job done, generated   70 tokens, time cost: 0.344s
+2025-05-02 01:57:21,787 DEBUG speech_tokens: len: 70  data: [1499, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 2049, 4074, 3185, 620, 890, 1856, 2098, 975, 162, 5346, 6084, 6401, 4946, 5092, 5581, 2724, 2724, 5100, 4606, 137, 3644, 4372, 4373, 4046, 4291, 3887, 218, 734, 2195, 52, 6180, 4317, 1275, 4676, 2589, 4602, 5080, 3644, 3719, 6048, 5322, 4593, 2256, 3239, 152, 224, 953, 844, 1789, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:21,882 INFO yield speech len 2.8, rtf 0.1569495030811855
+100%|██████████| 1/1 [00:00<00:00,  2.19it/s]100%|██████████| 1/1 [00:00<00:00,  2.19it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:21,908 INFO synthesis text 你，你这么理解的？
+2025-05-02 01:57:22,237 INFO llm job done, generated   67 tokens, time cost: 0.329s
+2025-05-02 01:57:22,237 DEBUG speech_tokens: len: 67  data: [1517, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 2031, 6181, 6100, 4913, 4913, 4913, 4994, 4994, 5101, 4858, 1286, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4299, 4218, 4218, 2040, 6181, 5614, 4940, 1133, 1842, 5322, 3126, 4806, 6501, 3583, 4484, 5986, 80, 1295, 5101, 2004, 4675, 5506, 62, 59, 1029, 29, 5834, 6158, 4942, 4869, 4215, 6486, 4299, 4299, 4299, 4299, 4299, 4218]
+2025-05-02 01:57:22,372 INFO yield speech len 2.68, rtf 0.17302089662694217
+100%|██████████| 1/1 [00:00<00:00,  2.06it/s]100%|██████████| 1/1 [00:00<00:00,  2.06it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:22,406 INFO synthesis text 俺就这么尝你管得着吗？
+2025-05-02 01:57:22,797 INFO llm job done, generated   84 tokens, time cost: 0.391s
+2025-05-02 01:57:22,798 DEBUG speech_tokens: len: 84  data: [3703, 4137, 4137, 1951, 1217, 1946, 1703, 1463, 2303, 3750, 1257, 2589, 5582, 5102, 3393, 1905, 1761, 5238, 4600, 4563, 2637, 6498, 1396, 326, 1689, 5163, 3105, 3402, 4141, 1946, 1946, 3503, 5693, 5938, 2456, 539, 530, 530, 287, 287, 764, 1465, 1950, 4137, 4137, 2031, 660, 5830, 3644, 3488, 3890, 3650, 3015, 3993, 315, 4563, 930, 3219, 2331, 2027, 1952, 1304, 2870, 5092, 5088, 5772, 6498, 5059, 4700, 2684, 1217, 1217, 1946, 1946, 1217, 1944, 1947, 1950, 1947, 1947, 4137, 4137, 4137, 4137]
+2025-05-02 01:57:22,938 INFO yield speech len 3.36, rtf 0.15825664713269189
+100%|██████████| 1/1 [00:00<00:00,  1.77it/s]100%|██████████| 1/1 [00:00<00:00,  1.77it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:22,963 INFO synthesis text 你说你逞能吧。
+2025-05-02 01:57:23,215 INFO llm job done, generated   47 tokens, time cost: 0.252s
+2025-05-02 01:57:23,215 DEBUG speech_tokens: len: 47  data: [1499, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2031, 5937, 6100, 512, 1106, 3673, 6049, 1161, 5093, 4529, 4155, 4994, 4602, 789, 3132, 2430, 2682, 560, 1804, 1719, 29, 533, 2051, 4315, 2163, 5024, 4780, 5590, 4860, 2673, 1215, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:23,339 INFO yield speech len 1.88, rtf 0.2002433259436425
+100%|██████████| 1/1 [00:00<00:00,  2.51it/s]100%|██████████| 1/1 [00:00<00:00,  2.51it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:23,363 INFO synthesis text 我还把他叫到门外边儿。
+2025-05-02 01:57:23,667 INFO llm job done, generated   68 tokens, time cost: 0.303s
+2025-05-02 01:57:23,667 DEBUG speech_tokens: len: 68  data: [1493, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 3616, 2915, 2783, 3170, 5832, 3649, 4463, 228, 2160, 4781, 1460, 32, 2166, 2217, 5844, 5843, 3728, 5189, 123, 2031, 5651, 4615, 4780, 468, 540, 4700, 2705, 2127, 2125, 515, 536, 3590, 6532, 5101, 5509, 4539, 4543, 4769, 1932, 1917, 2915, 2276, 3647, 3728, 3737, 3726, 2112, 4299, 4299, 4299, 4299, 6486, 6486, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:23,764 INFO yield speech len 2.72, rtf 0.14731235363904166
+100%|██████████| 1/1 [00:00<00:00,  2.37it/s]100%|██████████| 1/1 [00:00<00:00,  2.37it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:23,789 INFO synthesis text 那仿制了有多少？
+2025-05-02 01:57:24,252 INFO llm job done, generated  107 tokens, time cost: 0.463s
+2025-05-02 01:57:24,252 DEBUG speech_tokens: len: 107  data: [3680, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 3975, 3975, 3975, 3975, 3975, 3975, 4218, 4218, 3975, 3975, 3975, 3975, 4218, 4218, 3975, 4218, 3975, 4218, 4218, 3975, 4218, 4218, 4218, 3894, 3975, 4218, 4218, 4218, 3894, 2031, 2031, 2040, 3828, 4393, 6157, 2468, 6534, 6453, 326, 1220, 1238, 1885, 789, 5319, 5259, 5329, 6067, 2225, 2330, 3481, 968, 632, 867, 306, 5099, 5085, 4576, 5319, 5319, 2308, 3728, 3404, 2675, 2683, 2673, 1944, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:24,400 INFO yield speech len 4.28, rtf 0.1426856094431654
+100%|██████████| 1/1 [00:00<00:00,  1.58it/s]100%|██████████| 1/1 [00:00<00:00,  1.58it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:24,439 INFO synthesis text 你还觉着挺委屈的是吗？
+2025-05-02 01:57:25,189 INFO llm job done, generated  155 tokens, time cost: 0.750s
+2025-05-02 01:57:25,189 DEBUG speech_tokens: len: 155  data: [1490, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2049, 6180, 4885, 2699, 539, 44, 3645, 5832, 6075, 1463, 818, 4597, 402, 4920, 4119, 1940, 389, 219, 5247, 4568, 870, 2490, 4947, 2760, 566, 776, 5773, 5775, 5802, 6558, 5078, 2300, 287, 530, 1286, 1978, 2706, 5569, 6055, 1911, 5344, 240, 2259, 4484, 4619, 4646, 3159, 4215, 4218, 4218, 4218, 2031, 3648, 6021, 5319, 5319, 4518, 5340, 3134, 4068, 2125, 4865, 4871, 4871, 2682, 4218, 4299, 4299, 4299, 4218, 4218, 6405, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:25,342 INFO yield speech len 6.2, rtf 0.14557111647821241
+100%|██████████| 1/1 [00:00<00:00,  1.07it/s]100%|██████████| 1/1 [00:00<00:00,  1.06it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:25,367 INFO synthesis text 是一只小猫。
+2025-05-02 01:57:25,864 INFO llm job done, generated   90 tokens, time cost: 0.497s
+2025-05-02 01:57:25,864 DEBUG speech_tokens: len: 90  data: [1490, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2031, 3651, 5943, 5322, 5323, 2298, 4534, 4697, 4913, 5020, 2591, 1842, 4677, 3801, 5343, 4533, 4674, 5651, 2751, 116, 1946, 545, 638, 2130, 4317, 1397, 5591, 4943, 4970, 4978, 5061, 4881, 5589, 4131, 2028, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:26,007 INFO yield speech len 3.6, rtf 0.1778619156943427
+100%|██████████| 1/1 [00:00<00:00,  1.51it/s]100%|██████████| 1/1 [00:00<00:00,  1.51it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:26,031 INFO synthesis text 那再见吧。
+2025-05-02 01:57:26,539 INFO llm job done, generated  100 tokens, time cost: 0.508s
+2025-05-02 01:57:26,539 DEBUG speech_tokens: len: 100  data: [4246, 4299, 2040, 3747, 1476, 2189, 3160, 757, 4191, 6373, 2225, 2465, 474, 5651, 2310, 4822, 2201, 1801, 2049, 2157, 595, 3160, 972, 1821, 2121, 2074, 1702, 1701, 1701, 1785, 3972, 3975, 2040, 2040, 2031, 2031, 2031, 4218, 2031, 4218, 2031, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405, 6405]
+2025-05-02 01:57:26,677 INFO yield speech len 4.0, rtf 0.1616295576095581
+100%|██████████| 1/1 [00:00<00:00,  1.50it/s]100%|██████████| 1/1 [00:00<00:00,  1.50it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:26,716 INFO synthesis text 这不我又来投奔你了。
+2025-05-02 01:57:26,983 INFO llm job done, generated   48 tokens, time cost: 0.267s
+2025-05-02 01:57:26,983 DEBUG speech_tokens: len: 48  data: [1465, 2112, 5244, 3144, 4601, 1440, 2163, 5101, 5831, 2915, 596, 404, 2751, 5587, 4842, 5092, 2783, 3880, 3647, 5111, 951, 27, 4860, 511, 2906, 727, 2163, 4565, 4409, 3669, 3750, 2456, 2699, 368, 884, 1775, 3161, 4619, 5104, 3645, 1458, 1788, 2112, 4299, 4299, 6486, 6486, 4218]
+2025-05-02 01:57:27,116 INFO yield speech len 1.92, rtf 0.20865077773729962
+100%|██████████| 1/1 [00:00<00:00,  2.29it/s]100%|██████████| 1/1 [00:00<00:00,  2.29it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:27,138 INFO synthesis text 如果我们不跟他合作。
+2025-05-02 01:57:27,534 INFO llm job done, generated   82 tokens, time cost: 0.396s
+2025-05-02 01:57:27,534 DEBUG speech_tokens: len: 82  data: [1490, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 3891, 3771, 5904, 1612, 1451, 5101, 5100, 2139, 651, 3641, 2822, 5099, 5830, 6559, 5830, 2897, 488, 1881, 1881, 29, 38, 4068, 6258, 4317, 4299, 4299, 2166, 4320, 5799, 5826, 1453, 1707, 177, 2339, 3666, 4074, 297, 5832, 6075, 3890, 4700, 4860, 4860, 2673, 2673, 1261, 2018, 299, 153, 1275, 4999, 4752, 3366, 5097, 5102, 728, 2714, 2686, 1216, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218]
+2025-05-02 01:57:27,687 INFO yield speech len 3.28, rtf 0.1672611003968774
+100%|██████████| 1/1 [00:00<00:00,  1.76it/s]100%|██████████| 1/1 [00:00<00:00,  1.76it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:27,725 INFO synthesis text 谁，酒店大厨？
+2025-05-02 01:57:28,178 INFO llm job done, generated   88 tokens, time cost: 0.452s
+2025-05-02 01:57:28,178 DEBUG speech_tokens: len: 88  data: [3686, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 1950, 3888, 5940, 5967, 5238, 5238, 5238, 3051, 875, 812, 818, 926, 881, 3068, 4603, 4602, 5332, 3146, 68, 43, 1707, 1950, 1950, 1950, 1950, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 4137, 1950, 1221, 5001, 5568, 1860, 3806, 2909, 2915, 1457, 2105, 1457, 2828, 1275, 2265, 4849, 4594, 29, 748, 1806, 1272, 5023, 6400, 4136, 4133, 945, 5238, 1296, 1339, 2105, 2105, 4292, 5830, 5100, 5091, 2906, 629, 490, 1947, 1950, 4137, 4137, 4137, 4137, 4137, 4137, 4137]
+2025-05-02 01:57:28,331 INFO yield speech len 3.52, rtf 0.17208592458204788
+100%|██████████| 1/1 [00:00<00:00,  1.56it/s]100%|██████████| 1/1 [00:00<00:00,  1.56it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:28,356 INFO synthesis text 带娇娇去看她妈。
+2025-05-02 01:57:29,157 INFO llm job done, generated  160 tokens, time cost: 0.801s
+2025-05-02 01:57:29,157 DEBUG speech_tokens: len: 160  data: [1499, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4137, 2040, 6261, 5372, 5344, 3314, 887, 888, 2733, 6055, 3084, 5587, 4607, 4591, 2172, 2163, 5098, 2915, 647, 638, 629, 602, 2786, 2683, 3402, 4131, 2028, 2112, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4299, 2112, 1032, 4487, 3650, 305, 323, 2058, 4921, 2752, 2270, 5084, 4772, 1113, 4921, 5749, 2408, 4943, 5000, 5098, 3195, 2733, 5568, 3354, 887, 975, 162, 5103, 5914, 5, 1482, 1029, 5103, 6085, 6077, 1395, 4317, 659, 5591, 5672, 5672, 4708, 5598, 5346, 3888, 1944, 2112, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:29,282 INFO yield speech len 6.4, rtf 0.14475878328084946
+100%|██████████| 1/1 [00:00<00:00,  1.05it/s]100%|██████████| 1/1 [00:00<00:00,  1.05it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:29,310 INFO synthesis text 你看你。
+2025-05-02 01:57:29,392 INFO llm job done, generated   15 tokens, time cost: 0.082s
+2025-05-02 01:57:29,392 DEBUG speech_tokens: len: 15  data: [2032, 6343, 2834, 966, 327, 3168, 5437, 4536, 4378, 3666, 3913, 2699, 620, 583, 3327]
+2025-05-02 01:57:29,484 INFO yield speech len 0.6, rtf 0.2894242604573568
+100%|██████████| 1/1 [00:00<00:00,  5.04it/s]100%|██████████| 1/1 [00:00<00:00,  5.04it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:29,511 INFO synthesis text 说这种培训班特别辛苦。
+2025-05-02 01:57:29,927 INFO llm job done, generated   80 tokens, time cost: 0.416s
+2025-05-02 01:57:29,927 DEBUG speech_tokens: len: 80  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 2112, 5916, 6048, 6051, 3135, 3152, 5006, 4916, 4916, 4916, 4916, 4646, 4492, 1815, 2112, 4515, 2424, 4606, 2976, 3144, 704, 2128, 2148, 1890, 2922, 530, 2753, 4674, 4758, 2634, 5317, 4315, 2148, 1431, 4457, 5108, 5105, 4456, 2208, 5937, 3993, 2085, 27, 3159, 4743, 4842, 2567, 2163, 1696, 638, 2258, 4753, 4678, 2563, 5452, 6505, 570, 2835, 3576, 5828, 1373, 1373, 2186, 2096, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299]
+2025-05-02 01:57:30,047 INFO yield speech len 3.2, rtf 0.16745269298553467
+100%|██████████| 1/1 [00:00<00:00,  1.79it/s]100%|██████████| 1/1 [00:00<00:00,  1.79it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:30,084 INFO synthesis text 为什么不能跑来看你呢。
+2025-05-02 01:57:30,513 INFO llm job done, generated   77 tokens, time cost: 0.428s
+2025-05-02 01:57:30,513 DEBUG speech_tokens: len: 77  data: [1490, 4299, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 2041, 4292, 3643, 4600, 4579, 5074, 4417, 6048, 3138, 230, 1881, 2125, 4946, 714, 2166, 3643, 5014, 3750, 47, 2774, 5775, 2166, 5589, 5589, 5598, 2762, 1406, 1613, 734, 4544, 222, 84, 2916, 5832, 5832, 6085, 6238, 5265, 2235, 5856, 6100, 3184, 2726, 2726, 1483, 3669, 47, 245, 2684, 2684, 2687, 2696, 2693, 3421, 4215, 4299, 4299, 4299, 4299, 4299, 4218, 4218, 4218, 4218, 4218, 4218]
+2025-05-02 01:57:30,651 INFO yield speech len 3.08, rtf 0.18383984441881054
+100%|██████████| 1/1 [00:00<00:00,  1.66it/s]100%|██████████| 1/1 [00:00<00:00,  1.66it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:30,684 INFO synthesis text 我我有什么秘密？
+2025-05-02 01:57:30,905 INFO llm job done, generated   43 tokens, time cost: 0.221s
+2025-05-02 01:57:30,905 DEBUG speech_tokens: len: 43  data: [2041, 3644, 3617, 3617, 2069, 2032, 4218, 4218, 4218, 4218, 4218, 4218, 4218, 4137, 4137, 1951, 3536, 3617, 4264, 3644, 5078, 4616, 4615, 716, 1280, 6048, 5322, 766, 1881, 2125, 4970, 3339, 6258, 4561, 4992, 4858, 1884, 1643, 2834, 620, 287, 16, 735]
+2025-05-02 01:57:31,017 INFO yield speech len 1.72, rtf 0.1936188963956611
+100%|██████████| 1/1 [00:00<00:00,  2.75it/s]100%|██████████| 1/1 [00:00<00:00,  2.75it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:31,042 INFO synthesis text 想把她带走就把她带走。
+2025-05-02 01:57:31,361 INFO llm job done, generated   60 tokens, time cost: 0.318s
+2025-05-02 01:57:31,361 DEBUG speech_tokens: len: 60  data: [1735, 4488, 4755, 4918, 4921, 2751, 35, 1703, 1226, 4964, 4317, 711, 4133, 734, 1032, 2919, 2921, 1680, 54, 5269, 4543, 2573, 159, 6378, 2502, 515, 521, 602, 5054, 4978, 3489, 4215, 4299, 4299, 4299, 3435, 4759, 4857, 2576, 638, 1456, 2166, 2840, 1463, 60, 3658, 4456, 1905, 2323, 5271, 4814, 160, 4191, 2502, 245, 518, 4973, 5052, 4953, 4215]
+2025-05-02 01:57:31,473 INFO yield speech len 2.4, rtf 0.17938335736592612
+100%|██████████| 1/1 [00:00<00:00,  2.21it/s]100%|██████████| 1/1 [00:00<00:00,  2.21it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-02 01:57:31,495 INFO synthesis text 抚养权能有几年。
+2025-05-02 01:57:31,824 INFO llm job done, generated   66 tokens, time cost: 0.329s
+2025-05-02 01:57:31,825 DEBUG speech_tokens: len: 66  data: [1490, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4299, 4218, 2112, 4215, 6534, 6535, 6534, 1457, 5831, 4609, 5748, 4733, 5833, 497, 1561, 4929, 5325, 897, 881, 35, 2289, 5937, 3666, 2189, 272, 551, 5366, 5452, 3480, 3158, 2894, 4851, 1275, 4433, 2535, 2834, 620, 1808, 4157, 539, 557, 62, 8, 2192, 3666, 5208, 3984, 4299, 4299, 4299, 4299, 4299, 6486, 6486, 6486, 4299, 4218, 4218]
+2025-05-02 01:57:31,949 INFO yield speech len 2.64, rtf 0.1720857439619122
+100%|██████████| 1/1 [00:00<00:00,  2.11it/s]100%|██████████| 1/1 [00:00<00:00,  2.11it/s]
+0it [00:00, ?it/s]0it [00:00, ?it/s]
+Traceback (most recent call last):
+  File "/home/CosyVoice/sample_dpo.py", line 72, in <module>
+    asyncio.run(main())
+  File "/root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/asyncio/runners.py", line 44, in run
+    return loop.run_until_complete(main)
+  File "/root/anaconda3/envs/cosyvoice_vllm/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/CosyVoice/sample_dpo.py", line 60, in main
+    audio_data = audio_data.cpu()
+AttributeError: 'NoneType' object has no attribute 'cpu'
+[rank0]:[W502 01:57:32.068879481 ProcessGroupNCCL.cpp:1250] Warning: WARNING: process group has NOT been destroyed before we destruct ProcessGroupNCCL. On normal program exit, the application should call destroy_process_group to ensure that any pending NCCL operations have finished in this process. In rare cases this process can exit before this point and block the progress of another member of the process group. This constraint has always been present,  but this warning has only been added since PyTorch 2.4 (function operator())

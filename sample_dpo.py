@@ -1,3 +1,7 @@
+import argparse
+import os
+from pathlib import Path
+import random
 import time
 import asyncio
 import torch
@@ -5,15 +9,13 @@ import torchaudio
 
 import sys
 import json
+
 sys.path.append('third_party/Matcha-TTS')
 
 from async_cosyvoice.async_cosyvoice import AsyncCosyVoice2
 from cosyvoice.utils.file_utils import load_wav
 
 async def main():
-    prompt_text = '希望你以后能够做得比我还好哟'
-    prompt_speech_16k = load_wav('./asset/zero_shot_prompt.wav', 16000)
-
     # cosyvoice = AsyncCosyVoice2('./pretrained_models/CosyVoice2-0.5B', load_jit=False, load_trt=False, fp16=True)
     cosyvoice = AsyncCosyVoice2('/home/CosyVoice2-0.5B', load_jit=True, load_trt=True, fp16=True)
 
@@ -25,16 +27,47 @@ async def main():
         wav2text = json.load(f)
 
     # tts_text = '收到好友从远方寄来的生日礼物[breath]，那份意外的惊喜与深深的祝福[breath]让我心中充满了甜蜜的快乐，笑容如花儿般绽放。'
+    # 选择casia数据集6种情感、4个说话人，共24种音频作为参考音频
+    ref_list = []
+    combo_list = []
+    ref_dir = Path("/home/CosyVoice/examples/libritts/cosyvoice2/data/casia")
+    for entry in os.listdir(ref_dir):
+        if ".wav" in entry:
+            # 当该说话人的该情感没有收入ref_list时
+            spk = entry.split('_')[0]
+            emo = entry.split('.')[0].split('_')[-1]
+            combo = f"{spk}-{emo}"
+            if combo not in combo_list:
+                wav_path = ref_dir / entry
+                audio = load_wav(wav_path, 16000)
+                ref_list.append(audio)
+                combo_list.append(combo)
 
+    print(f"combo_list len: {len(combo_list)}")
+    # assert False
+
+    output_dir = Path("/home/CosyVoice/examples/libritts/cosyvoice2/exp/cosyvoice")
+    (output_dir / "sampling" / args.output_subdir).mkdir(parents=True, exist_ok=True)
     for k, v in wav2text.items():
-        tts_text = v.split('<|endofprompt|>')
-        chunk_num = 0
+        tts_text = v[0].split('<|endofprompt|>')[1]
+        instruct_text = v[0].split('<|endofprompt|>')[0]
+        sample = random.choices(ref_list, k=1)[0]
         audio_data: torch.Tensor = None
-        async for chunk in cosyvoice.inference_instruct2(tts_text, '用四川话说这句话', prompt_speech_16k, stream=False):
-            audio_data = torch.concat([audio_data, chunk['tts_speech']], dim=1) if audio_data is not None else chunk['tts_speech']
-            chunk_num += 1
-        torchaudio.save('instruct2_{}.wav'.format(task_id), audio_data, cosyvoice.sample_rate)
-        # print(f'任务完成，生成 {chunk_num} 个片段')
+        async for chunk in cosyvoice.inference_instruct2(tts_text, instruct_text, sample, stream=False):
+            chunk_data = chunk['tts_speech'].cpu()
+            audio_data = torch.concat([audio_data, chunk_data], dim=1) if audio_data is not None else chunk_data
+            del chunk_data
+        if audio_data != None:
+            audio_data = audio_data.cpu()
+            torchaudio.save(str(output_dir / "sampling" / args.output_subdir / f"{k}.wav"), audio_data, cosyvoice.sample_rate)
+        
+        del audio_data
+        torch.cuda.empty_cache()
+
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--output_subdir', type=str, default="")
+    args = parser.parse_args()
+
     asyncio.run(main())
