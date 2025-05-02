@@ -74,10 +74,10 @@ async def main():
             del chunk_data
         if audio_data != None:
             audio_data = audio_data.cpu()
-            torchaudio.save(str(output_dir / "sampling" / args.output_subdir / f"{k}.wav"), audio_data, cosyvoice.sample_rate)
+            torchaudio.save(str(output_dir / f"sampling_{corpus}" / args.output_subdir / f"{k}.wav"), audio_data, cosyvoice.sample_rate)
         
-        del audio_data
-        torch.cuda.empty_cache()
+        # del audio_data
+        # torch.cuda.empty_cache()
 
 
 if __name__ == "__main__":
