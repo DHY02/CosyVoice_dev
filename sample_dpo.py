@@ -15,6 +15,12 @@ sys.path.append('third_party/Matcha-TTS')
 from async_cosyvoice.async_cosyvoice import AsyncCosyVoice2
 from cosyvoice.utils.file_utils import load_wav
 
+# 训练集
+corpus = "casia"
+
+# 参考音频数据集
+ref_corpus = "m3ed/whole"
+
 async def main():
     # cosyvoice = AsyncCosyVoice2('./pretrained_models/CosyVoice2-0.5B', load_jit=False, load_trt=False, fp16=True)
     cosyvoice = AsyncCosyVoice2('/home/CosyVoice2-0.5B', load_jit=True, load_trt=True, fp16=True)
@@ -23,38 +29,47 @@ async def main():
     task_id = 0
 
     wav2text = {}
-    with open("examples/libritts/cosyvoice2/wav2text_samp.json", "r", encoding="utf-8") as f:
+    with open(f"examples/libritts/cosyvoice2/wav2text_samp_{corpus}.json", "r", encoding="utf-8") as f:
         wav2text = json.load(f)
 
-    # tts_text = '收到好友从远方寄来的生日礼物[breath]，那份意外的惊喜与深深的祝福[breath]让我心中充满了甜蜜的快乐，笑容如花儿般绽放。'
-    # 选择casia数据集6种情感、4个说话人，共24种音频作为参考音频
+    # 选择ref_corpus数据集的所有说话人的所有情感音频各一条，作为参考音频列表
     ref_list = []
     combo_list = []
-    ref_dir = Path("/home/CosyVoice/examples/libritts/cosyvoice2/data/casia")
+    ref_dir = Path(f"/home/CosyVoice/examples/libritts/cosyvoice2/data/{ref_corpus}")
     for entry in os.listdir(ref_dir):
         if ".wav" in entry:
             # 当该说话人的该情感没有收入ref_list时
-            spk = entry.split('_')[0]
-            emo = entry.split('.')[0].split('_')[-1]
+            if ref_corpus == "casia":
+                spk = entry.split('_')[0]
+                emo = entry.split('.')[0].split('_')[-1]
+            elif ref_corpus == "m3ed/whole":
+                text_path = entry.replace(".wav", ".normalized.txt")
+                spk = entry.split('_')[0] + '_' +entry.split('_')[1]
+                with open(ref_dir / text_path, "r", encoding="utf-8") as f:
+                    emo = f.readline().strip().split('<|endofprompt|>')[0]
+            else:
+                assert False, "未知的参考数据集"
+            
             combo = f"{spk}-{emo}"
-            if combo not in combo_list:
+            if combo not in combo_list and emo != "Disgust":
                 wav_path = ref_dir / entry
                 audio = load_wav(wav_path, 16000)
                 ref_list.append(audio)
                 combo_list.append(combo)
 
-    print(f"combo_list len: {len(combo_list)}")
+    print(f"combo_list of {ref_list} len: {len(combo_list)}")
     # assert False
 
     output_dir = Path("/home/CosyVoice/examples/libritts/cosyvoice2/exp/cosyvoice")
-    (output_dir / "sampling" / args.output_subdir).mkdir(parents=True, exist_ok=True)
+    (output_dir / f"sampling_{corpus}" / args.output_subdir).mkdir(parents=True, exist_ok=True)
     for k, v in wav2text.items():
         tts_text = v[0].split('<|endofprompt|>')[1]
         instruct_text = v[0].split('<|endofprompt|>')[0]
         sample = random.choices(ref_list, k=1)[0]
         audio_data: torch.Tensor = None
         async for chunk in cosyvoice.inference_instruct2(tts_text, instruct_text, sample, stream=False):
-            chunk_data = chunk['tts_speech'].cpu()
+            if chunk['tts_speech'] != None:
+                chunk_data = chunk['tts_speech'].cpu()
             audio_data = torch.concat([audio_data, chunk_data], dim=1) if audio_data is not None else chunk_data
             del chunk_data
         if audio_data != None:
