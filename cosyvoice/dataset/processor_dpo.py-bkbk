@@ -293,7 +293,7 @@ def sort(data, sort_size=500, mode='train'):
         yield x
 
 
-def static_batch(data, batch_size=4):
+def static_batch(data, batch_size=5):
     """ Static batch the data by `batch_size`
 
         Args:

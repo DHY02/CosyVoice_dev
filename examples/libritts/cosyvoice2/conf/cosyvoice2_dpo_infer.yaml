@@ -9,7 +9,7 @@ sample_rate: 24000
 llm_input_size: 896
 llm_output_size: 896
 spk_embed_dim: 192
-qwen_pretrain_path: '/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B/CosyVoice-BlankEN'
+qwen_pretrain_path: '/home/pretrained_models/CosyVoice2-0.5B/CosyVoice-BlankEN'
 token_frame_rate: 25
 token_mel_ratio: 2
 
@@ -26,14 +26,14 @@ llm: !new:cosyvoice.llm.llm_dpo2.Qwen2LM
     speech_token_size: 6561
     length_normalized_loss: True
     lsm_weight: 0
-    dpo: True
+    dpo: False
     mix_ratio: [5, 15]
     llm: !new:cosyvoice.llm.llm_dpo2.Qwen2Encoder
         pretrain_path: !ref <qwen_pretrain_path>
     sampling: !name:cosyvoice.utils.common.ras_sampling
         top_p: 0.8
         top_k: 25
-        win_size: 10
+        win_size: 10 # 10
         tau_r: 0.1
 
 flow: !new:cosyvoice.flow.flow.CausalMaskedDiffWithXvec
@@ -173,7 +173,7 @@ batch: !name:cosyvoice.dataset.processor.batch
     max_frames_in_batch: 2000
 padding: !name:cosyvoice.dataset.processor.padding
     use_spk_embedding: False # change to True during sft
-    dpo: True
+    dpo: False
 
 # dataset processor pipeline
 data_pipeline: [
@@ -211,7 +211,7 @@ train_conf:
     scheduler: constantlr # change to constantlr during sft
     scheduler_conf:
         warmup_steps: 2500
-    max_epoch: 10
+    max_epoch: 200
     grad_clip: 5
     accum_grad: 2
     log_interval: 100

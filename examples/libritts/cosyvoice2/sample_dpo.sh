@@ -2,11 +2,11 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=3
+stage=4
 stop_stage=4
 
 # data_url=www.openslr.org/resources/60
-data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data
+data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/
 pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
 
 corpus="casia"

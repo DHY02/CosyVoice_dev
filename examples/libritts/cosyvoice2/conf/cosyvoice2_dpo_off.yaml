@@ -26,7 +26,7 @@ llm: !new:cosyvoice.llm.llm_dpo2.Qwen2LM
     speech_token_size: 6561
     length_normalized_loss: True
     lsm_weight: 0
-    dpo: True
+    dpo: False
     mix_ratio: [5, 15]
     llm: !new:cosyvoice.llm.llm_dpo2.Qwen2Encoder
         pretrain_path: !ref <qwen_pretrain_path>
@@ -169,11 +169,11 @@ shuffle: !name:cosyvoice.dataset.processor.shuffle
 sort: !name:cosyvoice.dataset.processor.sort
     sort_size: 500  # sort_size should be less than shuffle_size
 batch: !name:cosyvoice.dataset.processor.batch
-    batch_type: 'static'
+    batch_type: 'dynamic'
     max_frames_in_batch: 2000
 padding: !name:cosyvoice.dataset.processor.padding
-    use_spk_embedding: False # change to True during sft
-    dpo: True
+    use_spk_embedding: True # change to True during sft
+    dpo: False
 
 # dataset processor pipeline
 data_pipeline: [
@@ -211,7 +211,7 @@ train_conf:
     scheduler: constantlr # change to constantlr during sft
     scheduler_conf:
         warmup_steps: 2500
-    max_epoch: 10
+    max_epoch: 15
     grad_clip: 5
     accum_grad: 2
     log_interval: 100

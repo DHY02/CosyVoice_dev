@@ -277,6 +277,64 @@ def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None
     return info_dict
 
 
+# def batch_evaluate(model, batch, scaler, info_dict, ser_model=None, dpo_loss=None):
+#     device = int(os.environ.get('LOCAL_RANK', 0))
+
+#     dtype = info_dict["dtype"]
+#     if dtype == "fp16":
+#         dtype = torch.float16
+#     elif dtype == "bf16":
+#         dtype = torch.bfloat16
+#     else:  # fp32
+#         dtype = torch.float32
+
+#     if info_dict['train_engine'] == 'torch_ddp':
+#         autocast = torch.cuda.amp.autocast(enabled=scaler is not None)
+#     else:
+#         autocast = torch.cuda.amp.autocast(enabled=True, dtype=dtype, cache_enabled=False)
+#     with autocast:
+#         # 输入text和prompt音频生成样本并保存
+#         text_token = batch['text_token'].to(device)
+#         text_token_len = batch['text_token_len'].to(device)
+#         prompt_text=torch.zeros(1, 0, dtype=torch.int32)
+#         llm_prompt_speech_token = torch.zeros(1, 0, dtype=torch.int32)
+#         llm_embedding = batch['spk_embedding']
+#         flow_prompt_speech_token = 
+#         flow_prompt_speech_token_len = 
+#         token_generator = model.inference(text=text_token.to(device),
+#                             text_len=text_token_len.to(device),
+#                             prompt_text=prompt_text.to(device),
+#                             prompt_text_len=torch.tensor([prompt_text.shape[1]], dtype=torch.int32).to(device),
+#                             prompt_speech_token=llm_prompt_speech_token.to(device),
+#                             prompt_speech_token_len=torch.tensor([llm_prompt_speech_token.shape[1]], dtype=torch.int32).to(device),
+#                             embedding=llm_embedding.to(device))
+        
+
+#         info_dict['loss_dict'] = model(batch, device)
+#         if ref_model and dpo_loss:
+#             chosen_logps = info_dict['loss_dict']["chosen_logps"]
+#             rejected_logps = info_dict['loss_dict']["rejected_logps"]
+#             sft_loss = info_dict['loss_dict']['loss']
+#             with torch.no_grad():
+#                 ref_model = ref_model.to(device)
+#                 ref_loss_dict = ref_model(batch, device)
+#             reference_chosen_logps = ref_loss_dict["chosen_logps"]
+#             reference_rejected_logps = ref_loss_dict["rejected_logps"]
+#             preference_loss, chosen_reward, reject_reward = dpo_loss(
+#                 chosen_logps, rejected_logps, reference_chosen_logps, reference_rejected_logps
+#             )
+#             dpo_acc = (chosen_reward > reject_reward).float().mean()
+#             info_dict['loss_dict']["loss"] = preference_loss + sft_loss
+#             info_dict['loss_dict']["sft_loss"] = sft_loss
+#             info_dict['loss_dict']["dpo_loss"] = preference_loss
+#             info_dict['loss_dict']["dpo_acc"] = dpo_acc
+#             info_dict['loss_dict']["chosen_reward"] = chosen_reward.mean()
+#             info_dict['loss_dict']["reject_reward"] = reject_reward.mean()
+#             info_dict['loss_dict'].pop("chosen_logps", None)
+#             info_dict['loss_dict'].pop("rejected_logps", None)
+#     return info_dict
+
+
 def batch_backward(model, scaler, info_dict):
     if info_dict["train_engine"] == "deepspeed":
         scaled_loss = model.backward(info_dict['loss_dict']['loss'])

@@ -22,7 +22,7 @@ import torch.distributed as dist
 
 from cosyvoice.utils.train_utils_dpo import update_parameter_and_lr, log_per_step, log_per_save, batch_forward, batch_backward, save_model, cosyvoice_join
 from cosyvoice.utils.losses_dpo import DPOLoss
-
+from funasr import AutoModel
 
 class Executor:
 
@@ -158,6 +158,9 @@ class Executor:
             assert ref_model is not None
             ref_model.eval()
         total_num_utts, total_loss_dict = 0, {}  # avoid division by 0
+
+        ser_model = AutoModel(model=f"iic/emotion2vec_base_finetuned")
+
         for batch_idx, batch_dict in enumerate(cv_data_loader):
             info_dict["tag"] = "CV"
             info_dict["step"] = self.step
@@ -170,7 +173,6 @@ class Executor:
             if self.gan is True:
                 batch_dict['turn'] = 'generator'
             info_dict = batch_forward(model, batch_dict, None, info_dict, ref_model, dpo_loss)
-
             for k, v in info_dict['loss_dict'].items():
                 if k not in total_loss_dict:
                     total_loss_dict[k] = []
@@ -182,3 +184,7 @@ class Executor:
         log_per_save(writer, info_dict)
         model_name = 'epoch_{}_whole'.format(self.epoch) if on_batch_end else 'epoch_{}_step_{}'.format(self.epoch, self.step + 1)
         save_model(model, model_name, info_dict)
+
+
+
+        

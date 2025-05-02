@@ -302,8 +302,9 @@ class Qwen2LM(TransformerLM):
         speech_token = unpad_sequence(speech_token, speech_token_len.cpu(), batch_first=True)
         text_token_emb = unpad_sequence(text_token_emb, text_token_len.cpu(), batch_first=True)
         speech_token_emb = unpad_sequence(speech_token_emb, speech_token_len.cpu(), batch_first=True)
-        reject_speech_token = unpad_sequence(reject_speech_token, reject_speech_token_len.cpu(), batch_first=True)
-        reject_speech_emb = unpad_sequence(reject_speech_emb, reject_speech_token_len.cpu(), batch_first=True)
+        if self.dpo:
+            reject_speech_token = unpad_sequence(reject_speech_token, reject_speech_token_len.cpu(), batch_first=True)
+            reject_speech_emb = unpad_sequence(reject_speech_emb, reject_speech_token_len.cpu(), batch_first=True)
         for i in range(len(text_token)):
             # bistream sequence
             # if random.random() < 0.5 and speech_token_len[i] / text_token_len[i] > self.mix_ratio[1] / self.mix_ratio[0]:
@@ -374,7 +375,9 @@ class Qwen2LM(TransformerLM):
         if self.dpo:
             reject_speech_token = batch['reject_speech_token'].to(device)
             reject_speech_token_len = batch['reject_speech_token_len'].to(device)
-
+        else:
+            reject_speech_token = None
+            reject_speech_token_len = None
         # 1. encode text_token
         text_token_emb = self.llm.model.model.embed_tokens(text_token)
 
@@ -382,7 +385,8 @@ class Qwen2LM(TransformerLM):
         speech_token_emb = self.speech_embedding(speech_token)
         if self.dpo:
             reject_speech_emb = self.speech_embedding(reject_speech_token)
-
+        else:
+            reject_speech_emb = None
         # 3. prepare llm_input/target
         lm_target, lm_input, lm_input_len = self.prepare_lm_input_target(text_token, text_token_emb, text_token_len, 
         speech_token, speech_token_emb, speech_token_len, 
