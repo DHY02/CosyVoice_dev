@@ -16,7 +16,7 @@ from async_cosyvoice.async_cosyvoice import AsyncCosyVoice2
 from cosyvoice.utils.file_utils import load_wav
 
 # 训练集
-corpus = "casia"
+corpus = "casia_ori"
 
 # 参考音频数据集
 ref_corpus = "m3ed/whole"
@@ -35,7 +35,7 @@ async def main():
     # 选择ref_corpus数据集的所有说话人的所有情感音频各一条，作为参考音频列表
     ref_list = []
     combo_list = []
-    ref_dir = Path(f"/home/CosyVoice/examples/libritts/cosyvoice2/data/{ref_corpus}")
+    ref_dir = Path(f"examples/libritts/cosyvoice2/data/{ref_corpus}")
     for entry in os.listdir(ref_dir):
         if ".wav" in entry:
             # 当该说话人的该情感没有收入ref_list时
@@ -60,7 +60,7 @@ async def main():
     print(f"combo_list of {ref_list} len: {len(combo_list)}")
     # assert False
 
-    output_dir = Path("/home/CosyVoice/examples/libritts/cosyvoice2/exp/cosyvoice")
+    output_dir = Path("examples/libritts/cosyvoice2/exp/cosyvoice")
     (output_dir / f"sampling_{corpus}" / args.output_subdir).mkdir(parents=True, exist_ok=True)
     for k, v in wav2text.items():
         tts_text = v[0].split('<|endofprompt|>')[1]

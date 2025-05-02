@@ -1,0 +1,3602 @@
+{
+  "ZhaoZuoxiang_229_happy": [
+    "happy<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "ZhaoZuoxiang_239_neutral": [
+    "neutral<|endofprompt|>工人生产手表"
+  ],
+  "liuchanhg_210_neutral": [
+    "neutral<|endofprompt|>银行拥有保安"
+  ],
+  "zhaoquanyin_208_happy": [
+    "happy<|endofprompt|>四万四块四。"
+  ],
+  "liuchanhg_203_sad": [
+    "sad<|endofprompt|>孙英开飞机。"
+  ],
+  "wangzhe_243_happy": [
+    "happy<|endofprompt|>苏梅打扫房间"
+  ],
+  "wangzhe_248_fear": [
+    "fear<|endofprompt|>股民丧失信心"
+  ],
+  "wangzhe_232_happy": [
+    "happy<|endofprompt|>噪音产生污染"
+  ],
+  "zhaoquanyin_212_happy": [
+    "happy<|endofprompt|>农民盖起厂房"
+  ],
+  "zhaoquanyin_213_fear": [
+    "fear<|endofprompt|>苏联代表世界"
+  ],
+  "ZhaoZuoxiang_205_happy": [
+    "happy<|endofprompt|>十头峡河牛。"
+  ],
+  "zhaoquanyin_209_surprise": [
+    "surprise<|endofprompt|>他们支持中国"
+  ],
+  "ZhaoZuoxiang_237_happy": [
+    "happy<|endofprompt|>厂家提供原料"
+  ],
+  "wangzhe_248_sad": [
+    "sad<|endofprompt|>股民丧失信心"
+  ],
+  "liuchanhg_233_angry": [
+    "angry<|endofprompt|>工厂增大产值"
+  ],
+  "zhaoquanyin_233_angry": [
+    "angry<|endofprompt|>工厂增大产值"
+  ],
+  "liuchanhg_250_sad": [
+    "sad<|endofprompt|>阳光使得你们温暖"
+  ],
+  "zhaoquanyin_228_angry": [
+    "angry<|endofprompt|>汽车排出尾气"
+  ],
+  "wangzhe_208_happy": [
+    "happy<|endofprompt|>四万四块四。"
+  ],
+  "wangzhe_236_fear": [
+    "fear<|endofprompt|>国际进行合作"
+  ],
+  "liuchanhg_216_surprise": [
+    "surprise<|endofprompt|>你们称呼长辈"
+  ],
+  "ZhaoZuoxiang_202_surprise": [
+    "surprise<|endofprompt|>我马上拿来。"
+  ],
+  "ZhaoZuoxiang_244_fear": [
+    "fear<|endofprompt|>天空变成蓝色"
+  ],
+  "wangzhe_220_angry": [
+    "angry<|endofprompt|>世界变得和平"
+  ],
+  "wangzhe_218_happy": [
+    "happy<|endofprompt|>他们到达这里"
+  ],
+  "wangzhe_241_sad": [
+    "sad<|endofprompt|>上海开放港口"
+  ],
+  "wangzhe_210_fear": [
+    "fear<|endofprompt|>银行拥有保安"
+  ],
+  "wangzhe_241_happy": [
+    "happy<|endofprompt|>上海开放港口"
+  ],
+  "ZhaoZuoxiang_228_surprise": [
+    "surprise<|endofprompt|>汽车排出尾气"
+  ],
+  "liuchanhg_218_fear": [
+    "fear<|endofprompt|>他们到达这里"
+  ],
+  "ZhaoZuoxiang_212_angry": [
+    "angry<|endofprompt|>农民盖起厂房"
+  ],
+  "zhaoquanyin_230_happy": [
+    "happy<|endofprompt|>竞争增加效益"
+  ],
+  "liuchanhg_235_surprise": [
+    "surprise<|endofprompt|>政府干预市场"
+  ],
+  "ZhaoZuoxiang_222_surprise": [
+    "surprise<|endofprompt|>美国垄断市场"
+  ],
+  "liuchanhg_244_neutral": [
+    "neutral<|endofprompt|>天空变成蓝色"
+  ],
+  "ZhaoZuoxiang_227_angry": [
+    "angry<|endofprompt|>国家改革企业"
+  ],
+  "zhaoquanyin_221_fear": [
+    "fear<|endofprompt|>市场制造机"
+  ],
+  "liuchanhg_235_angry": [
+    "angry<|endofprompt|>政府干预市场"
+  ],
+  "liuchanhg_245_sad": [
+    "sad<|endofprompt|>家具搬到房间"
+  ],
+  "zhaoquanyin_204_sad": [
+    "sad<|endofprompt|>国华来完成。"
+  ],
+  "liuchanhg_240_surprise": [
+    "surprise<|endofprompt|>老师教授知识"
+  ],
+  "ZhaoZuoxiang_248_fear": [
+    "fear<|endofprompt|>股民丧失信心"
+  ],
+  "zhaoquanyin_236_angry": [
+    "angry<|endofprompt|>国际进行合作"
+  ],
+  "zhaoquanyin_234_fear": [
+    "fear<|endofprompt|>居民购买房屋"
+  ],
+  "zhaoquanyin_243_angry": [
+    "angry<|endofprompt|>苏梅打扫房间"
+  ],
+  "liuchanhg_204_neutral": [
+    "neutral<|endofprompt|>国华来完成。"
+  ],
+  "zhaoquanyin_220_fear": [
+    "fear<|endofprompt|>世界变得和平"
+  ],
+  "ZhaoZuoxiang_223_angry": [
+    "angry<|endofprompt|>集团进行改革"
+  ],
+  "zhaoquanyin_225_sad": [
+    "sad<|endofprompt|>工作还有困难"
+  ],
+  "zhaoquanyin_240_angry": [
+    "angry<|endofprompt|>老师教授知识"
+  ],
+  "zhaoquanyin_245_happy": [
+    "happy<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_247_sad": [
+    "sad<|endofprompt|>职员完成 任务"
+  ],
+  "ZhaoZuoxiang_243_neutral": [
+    "neutral<|endofprompt|>苏梅打扫房间"
+  ],
+  "ZhaoZuoxiang_235_angry": [
+    "angry<|endofprompt|>政府干预市场"
+  ],
+  "liuchanhg_221_angry": [
+    "angry<|endofprompt|>市场制造机"
+  ],
+  "zhaoquanyin_225_happy": [
+    "happy<|endofprompt|>工作还有困难"
+  ],
+  "zhaoquanyin_246_angry": [
+    "angry<|endofprompt|>公司开设讲座"
+  ],
+  "ZhaoZuoxiang_247_surprise": [
+    "surprise<|endofprompt|>职员完成 任务"
+  ],
+  "wangzhe_235_angry": [
+    "angry<|endofprompt|>政府干预市场"
+  ],
+  "wangzhe_219_angry": [
+    "angry<|endofprompt|>你们殴打他们"
+  ],
+  "ZhaoZuoxiang_219_sad": [
+    "sad<|endofprompt|>你们殴打他们"
+  ],
+  "liuchanhg_227_fear": [
+    "fear<|endofprompt|>国家改革企业"
+  ],
+  "ZhaoZuoxiang_224_happy": [
+    "happy<|endofprompt|>我们需要帮助"
+  ],
+  "ZhaoZuoxiang_202_angry": [
+    "angry<|endofprompt|>我马上拿来。"
+  ],
+  "wangzhe_231_angry": [
+    "angry<|endofprompt|>团结产生力量"
+  ],
+  "zhaoquanyin_247_neutral": [
+    "neutral<|endofprompt|>职员完成 任务"
+  ],
+  "wangzhe_215_fear": [
+    "fear<|endofprompt|>下雨耽误工作"
+  ],
+  "zhaoquanyin_204_fear": [
+    "fear<|endofprompt|>国华来完成。"
+  ],
+  "ZhaoZuoxiang_229_neutral": [
+    "neutral<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "zhaoquanyin_206_neutral": [
+    "neutral<|endofprompt|>小宝逮老鼠。"
+  ],
+  "wangzhe_221_surprise": [
+    "surprise<|endofprompt|>市场制造机"
+  ],
+  "wangzhe_238_surprise": [
+    "surprise<|endofprompt|>农民种植果树"
+  ],
+  "zhaoquanyin_211_neutral": [
+    "neutral<|endofprompt|>人们保留资格"
+  ],
+  "liuchanhg_242_surprise": [
+    "surprise<|endofprompt|>北京召开奥运"
+  ],
+  "zhaoquanyin_233_sad": [
+    "sad<|endofprompt|>工厂增大产值"
+  ],
+  "wangzhe_204_surprise": [
+    "surprise<|endofprompt|>国华来完成。"
+  ],
+  "ZhaoZuoxiang_209_angry": [
+    "angry<|endofprompt|>他们支持中国"
+  ],
+  "zhaoquanyin_206_sad": [
+    "sad<|endofprompt|>小宝逮老鼠。"
+  ],
+  "liuchanhg_213_surprise": [
+    "surprise<|endofprompt|>苏联代表世界"
+  ],
+  "wangzhe_237_surprise": [
+    "surprise<|endofprompt|>厂家提供原料"
+  ],
+  "wangzhe_203_angry": [
+    "angry<|endofprompt|>孙英开飞机。"
+  ],
+  "zhaoquanyin_201_happy": [
+    "happy<|endofprompt|>就是下雨也去。"
+  ],
+  "ZhaoZuoxiang_209_happy": [
+    "happy<|endofprompt|>他们支持中国"
+  ],
+  "ZhaoZuoxiang_205_angry": [
+    "angry<|endofprompt|>十头峡河牛。"
+  ],
+  "liuchanhg_225_angry": [
+    "angry<|endofprompt|>工作还有困难"
+  ],
+  "wangzhe_237_sad": [
+    "sad<|endofprompt|>厂家提供原料"
+  ],
+  "wangzhe_230_sad": [
+    "sad<|endofprompt|>竞争增加效益"
+  ],
+  "ZhaoZuoxiang_231_surprise": [
+    "surprise<|endofprompt|>团结产生力量"
+  ],
+  "zhaoquanyin_236_neutral": [
+    "neutral<|endofprompt|>国际进行合作"
+  ],
+  "wangzhe_216_angry": [
+    "angry<|endofprompt|>你们称呼长辈"
+  ],
+  "zhaoquanyin_217_fear": [
+    "fear<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_220_happy": [
+    "happy<|endofprompt|>世界变得和平"
+  ],
+  "zhaoquanyin_231_fear": [
+    "fear<|endofprompt|>团结产生力量"
+  ],
+  "wangzhe_213_fear": [
+    "fear<|endofprompt|>苏联代表世界"
+  ],
+  "wangzhe_224_neutral": [
+    "neutral<|endofprompt|>我们需要帮助"
+  ],
+  "zhaoquanyin_215_neutral": [
+    "neutral<|endofprompt|>下雨耽误工作"
+  ],
+  "wangzhe_229_neutral": [
+    "neutral<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "ZhaoZuoxiang_201_sad": [
+    "sad<|endofprompt|>就是下雨也去。"
+  ],
+  "ZhaoZuoxiang_206_surprise": [
+    "surprise<|endofprompt|>小宝逮老鼠。"
+  ],
+  "wangzhe_233_surprise": [
+    "surprise<|endofprompt|>工厂增大产值"
+  ],
+  "wangzhe_245_surprise": [
+    "surprise<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_248_neutral": [
+    "neutral<|endofprompt|>股民丧失信心"
+  ],
+  "liuchanhg_241_neutral": [
+    "neutral<|endofprompt|>上海开放港口"
+  ],
+  "zhaoquanyin_241_sad": [
+    "sad<|endofprompt|>上海开放港口"
+  ],
+  "wangzhe_250_fear": [
+    "fear<|endofprompt|>阳光使得你们温暖"
+  ],
+  "zhaoquanyin_217_neutral": [
+    "neutral<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_233_surprise": [
+    "surprise<|endofprompt|>工厂增大产值"
+  ],
+  "ZhaoZuoxiang_212_happy": [
+    "happy<|endofprompt|>农民盖起厂房"
+  ],
+  "ZhaoZuoxiang_241_sad": [
+    "sad<|endofprompt|>上海开放港口"
+  ],
+  "zhaoquanyin_249_sad": [
+    "sad<|endofprompt|>笑话逗得大家开心"
+  ],
+  "liuchanhg_225_fear": [
+    "fear<|endofprompt|>工作还有困难"
+  ],
+  "ZhaoZuoxiang_224_fear": [
+    "fear<|endofprompt|>我们需要帮助"
+  ],
+  "liuchanhg_229_neutral": [
+    "neutral<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "zhaoquanyin_208_neutral": [
+    "neutral<|endofprompt|>四万四块四。"
+  ],
+  "zhaoquanyin_220_sad": [
+    "sad<|endofprompt|>世界变得和平"
+  ],
+  "wangzhe_224_surprise": [
+    "surprise<|endofprompt|>我们需要帮助"
+  ],
+  "liuchanhg_214_happy": [
+    "happy<|endofprompt|>台球很有意思"
+  ],
+  "liuchanhg_244_sad": [
+    "sad<|endofprompt|>天空变成蓝色"
+  ],
+  "liuchanhg_226_sad": [
+    "sad<|endofprompt|>员工询问老板"
+  ],
+  "zhaoquanyin_237_angry": [
+    "angry<|endofprompt|>厂家提供原料"
+  ],
+  "zhaoquanyin_242_neutral": [
+    "neutral<|endofprompt|>北京召开奥运"
+  ],
+  "ZhaoZuoxiang_237_neutral": [
+    "neutral<|endofprompt|>厂家提供原料"
+  ],
+  "zhaoquanyin_249_fear": [
+    "fear<|endofprompt|>笑话逗得大家开心"
+  ],
+  "liuchanhg_229_happy": [
+    "happy<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "wangzhe_213_surprise": [
+    "surprise<|endofprompt|>苏联代表世界"
+  ],
+  "wangzhe_228_surprise": [
+    "surprise<|endofprompt|>汽车排出尾气"
+  ],
+  "ZhaoZuoxiang_223_fear": [
+    "fear<|endofprompt|>集团进行改革"
+  ],
+  "zhaoquanyin_212_surprise": [
+    "surprise<|endofprompt|>农民盖起厂房"
+  ],
+  "wangzhe_243_fear": [
+    "fear<|endofprompt|>苏梅打扫房间"
+  ],
+  "liuchanhg_236_surprise": [
+    "surprise<|endofprompt|>国际进行合作"
+  ],
+  "liuchanhg_230_fear": [
+    "fear<|endofprompt|>竞争增加效益"
+  ],
+  "zhaoquanyin_239_neutral": [
+    "neutral<|endofprompt|>工人生产手表"
+  ],
+  "liuchanhg_217_angry": [
+    "angry<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_234_sad": [
+    "sad<|endofprompt|>居民购买房屋"
+  ],
+  "wangzhe_244_angry": [
+    "angry<|endofprompt|>天空变成蓝色"
+  ],
+  "ZhaoZuoxiang_205_neutral": [
+    "neutral<|endofprompt|>十头峡河牛。"
+  ],
+  "wangzhe_221_sad": [
+    "sad<|endofprompt|>市场制造机"
+  ],
+  "zhaoquanyin_237_happy": [
+    "happy<|endofprompt|>厂家提供原料"
+  ],
+  "ZhaoZuoxiang_247_fear": [
+    "fear<|endofprompt|>职员完成 任务"
+  ],
+  "wangzhe_220_fear": [
+    "fear<|endofprompt|>世界变得和平"
+  ],
+  "liuchanhg_237_neutral": [
+    "neutral<|endofprompt|>厂家提供原料"
+  ],
+  "wangzhe_248_neutral": [
+    "neutral<|endofprompt|>股民丧失信心"
+  ],
+  "ZhaoZuoxiang_236_neutral": [
+    "neutral<|endofprompt|>国际进行合作"
+  ],
+  "zhaoquanyin_233_happy": [
+    "happy<|endofprompt|>工厂增大产值"
+  ],
+  "zhaoquanyin_246_sad": [
+    "sad<|endofprompt|>公司开设讲座"
+  ],
+  "wangzhe_201_neutral": [
+    "neutral<|endofprompt|>就是下雨也去。"
+  ],
+  "wangzhe_210_angry": [
+    "angry<|endofprompt|>银行拥有保安"
+  ],
+  "ZhaoZuoxiang_231_fear": [
+    "fear<|endofprompt|>团结产生力量"
+  ],
+  "ZhaoZuoxiang_225_angry": [
+    "angry<|endofprompt|>工作还有困难"
+  ],
+  "wangzhe_240_fear": [
+    "fear<|endofprompt|>老师教授知识"
+  ],
+  "zhaoquanyin_250_angry": [
+    "angry<|endofprompt|>阳光使得你们温暖"
+  ],
+  "wangzhe_241_angry": [
+    "angry<|endofprompt|>上海开放港口"
+  ],
+  "wangzhe_224_angry": [
+    "angry<|endofprompt|>我们需要帮助"
+  ],
+  "liuchanhg_242_angry": [
+    "angry<|endofprompt|>北京召开奥运"
+  ],
+  "ZhaoZuoxiang_212_sad": [
+    "sad<|endofprompt|>农民盖起厂房"
+  ],
+  "wangzhe_249_sad": [
+    "sad<|endofprompt|>笑话逗得大家开心"
+  ],
+  "zhaoquanyin_210_surprise": [
+    "surprise<|endofprompt|>银行拥有保安"
+  ],
+  "ZhaoZuoxiang_207_happy": [
+    "happy<|endofprompt|>大岳去种菜。"
+  ],
+  "liuchanhg_221_neutral": [
+    "neutral<|endofprompt|>市场制造机"
+  ],
+  "wangzhe_231_surprise": [
+    "surprise<|endofprompt|>团结产生力量"
+  ],
+  "zhaoquanyin_243_happy": [
+    "happy<|endofprompt|>苏梅打扫房间"
+  ],
+  "wangzhe_202_sad": [
+    "sad<|endofprompt|>我马上拿来。"
+  ],
+  "liuchanhg_216_fear": [
+    "fear<|endofprompt|>你们称呼长辈"
+  ],
+  "zhaoquanyin_224_happy": [
+    "happy<|endofprompt|>我们需要帮助"
+  ],
+  "wangzhe_225_surprise": [
+    "surprise<|endofprompt|>工作还有困难"
+  ],
+  "ZhaoZuoxiang_205_sad": [
+    "sad<|endofprompt|>十头峡河牛。"
+  ],
+  "liuchanhg_249_happy": [
+    "happy<|endofprompt|>笑话逗得大家开心"
+  ],
+  "liuchanhg_225_neutral": [
+    "neutral<|endofprompt|>工作还有困难"
+  ],
+  "liuchanhg_201_neutral": [
+    "neutral<|endofprompt|>就是下雨也去。"
+  ],
+  "wangzhe_210_sad": [
+    "sad<|endofprompt|>银行拥有保安"
+  ],
+  "wangzhe_250_neutral": [
+    "neutral<|endofprompt|>阳光使得你们温暖"
+  ],
+  "zhaoquanyin_219_angry": [
+    "angry<|endofprompt|>你们殴打他们"
+  ],
+  "zhaoquanyin_214_fear": [
+    "fear<|endofprompt|>台球很有意思"
+  ],
+  "liuchanhg_212_neutral": [
+    "neutral<|endofprompt|>农民盖起厂房"
+  ],
+  "ZhaoZuoxiang_227_surprise": [
+    "surprise<|endofprompt|>国家改革企业"
+  ],
+  "wangzhe_238_sad": [
+    "sad<|endofprompt|>农民种植果树"
+  ],
+  "zhaoquanyin_236_happy": [
+    "happy<|endofprompt|>国际进行合作"
+  ],
+  "wangzhe_222_neutral": [
+    "neutral<|endofprompt|>美国垄断市场"
+  ],
+  "zhaoquanyin_201_surprise": [
+    "surprise<|endofprompt|>就是下雨也去。"
+  ],
+  "liuchanhg_243_fear": [
+    "fear<|endofprompt|>苏梅打扫房间"
+  ],
+  "wangzhe_224_happy": [
+    "happy<|endofprompt|>我们需要帮助"
+  ],
+  "zhaoquanyin_203_neutral": [
+    "neutral<|endofprompt|>孙英开飞机。"
+  ],
+  "liuchanhg_216_sad": [
+    "sad<|endofprompt|>你们称呼长辈"
+  ],
+  "wangzhe_203_happy": [
+    "happy<|endofprompt|>孙英开飞机。"
+  ],
+  "liuchanhg_205_surprise": [
+    "surprise<|endofprompt|>十头峡河牛。"
+  ],
+  "zhaoquanyin_215_fear": [
+    "fear<|endofprompt|>下雨耽误工作"
+  ],
+  "ZhaoZuoxiang_218_happy": [
+    "happy<|endofprompt|>他们到达这里"
+  ],
+  "zhaoquanyin_248_surprise": [
+    "surprise<|endofprompt|>股民丧失信心"
+  ],
+  "ZhaoZuoxiang_240_happy": [
+    "happy<|endofprompt|>老师教授知识"
+  ],
+  "ZhaoZuoxiang_212_neutral": [
+    "neutral<|endofprompt|>农民盖起厂房"
+  ],
+  "liuchanhg_247_neutral": [
+    "neutral<|endofprompt|>职员完成 任务"
+  ],
+  "liuchanhg_247_surprise": [
+    "surprise<|endofprompt|>职员完成 任务"
+  ],
+  "ZhaoZuoxiang_219_happy": [
+    "happy<|endofprompt|>你们殴打他们"
+  ],
+  "ZhaoZuoxiang_220_neutral": [
+    "neutral<|endofprompt|>世界变得和平"
+  ],
+  "liuchanhg_240_angry": [
+    "angry<|endofprompt|>老师教授知识"
+  ],
+  "liuchanhg_245_angry": [
+    "angry<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_230_angry": [
+    "angry<|endofprompt|>竞争增加效益"
+  ],
+  "zhaoquanyin_241_surprise": [
+    "surprise<|endofprompt|>上海开放港口"
+  ],
+  "liuchanhg_227_happy": [
+    "happy<|endofprompt|>国家改革企业"
+  ],
+  "liuchanhg_225_surprise": [
+    "surprise<|endofprompt|>工作还有困难"
+  ],
+  "wangzhe_239_surprise": [
+    "surprise<|endofprompt|>工人生产手表"
+  ],
+  "wangzhe_224_sad": [
+    "sad<|endofprompt|>我们需要帮助"
+  ],
+  "zhaoquanyin_222_happy": [
+    "happy<|endofprompt|>美国垄断市场"
+  ],
+  "liuchanhg_243_sad": [
+    "sad<|endofprompt|>苏梅打扫房间"
+  ],
+  "liuchanhg_216_neutral": [
+    "neutral<|endofprompt|>你们称呼长辈"
+  ],
+  "liuchanhg_221_sad": [
+    "sad<|endofprompt|>市场制造机"
+  ],
+  "zhaoquanyin_216_angry": [
+    "angry<|endofprompt|>你们称呼长辈"
+  ],
+  "ZhaoZuoxiang_247_happy": [
+    "happy<|endofprompt|>职员完成 任务"
+  ],
+  "liuchanhg_201_surprise": [
+    "surprise<|endofprompt|>就是下雨也去。"
+  ],
+  "zhaoquanyin_232_neutral": [
+    "neutral<|endofprompt|>噪音产生污染"
+  ],
+  "wangzhe_205_angry": [
+    "angry<|endofprompt|>十头峡河牛。"
+  ],
+  "ZhaoZuoxiang_238_happy": [
+    "happy<|endofprompt|>农民种植果树"
+  ],
+  "liuchanhg_223_surprise": [
+    "surprise<|endofprompt|>集团进行改革"
+  ],
+  "wangzhe_218_sad": [
+    "sad<|endofprompt|>他们到达这里"
+  ],
+  "wangzhe_248_angry": [
+    "angry<|endofprompt|>股民丧失信心"
+  ],
+  "wangzhe_219_sad": [
+    "sad<|endofprompt|>你们殴打他们"
+  ],
+  "ZhaoZuoxiang_217_happy": [
+    "happy<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_212_angry": [
+    "angry<|endofprompt|>农民盖起厂房"
+  ],
+  "liuchanhg_226_neutral": [
+    "neutral<|endofprompt|>员工询问老板"
+  ],
+  "zhaoquanyin_210_neutral": [
+    "neutral<|endofprompt|>银行拥有保安"
+  ],
+  "zhaoquanyin_223_happy": [
+    "happy<|endofprompt|>集团进行改革"
+  ],
+  "ZhaoZuoxiang_242_sad": [
+    "sad<|endofprompt|>北京召开奥运"
+  ],
+  "liuchanhg_243_happy": [
+    "happy<|endofprompt|>苏梅打扫房间"
+  ],
+  "wangzhe_241_neutral": [
+    "neutral<|endofprompt|>上海开放港口"
+  ],
+  "zhaoquanyin_234_surprise": [
+    "surprise<|endofprompt|>居民购买房屋"
+  ],
+  "liuchanhg_227_sad": [
+    "sad<|endofprompt|>国家改革企业"
+  ],
+  "liuchanhg_213_angry": [
+    "angry<|endofprompt|>苏联代表世界"
+  ],
+  "ZhaoZuoxiang_226_angry": [
+    "angry<|endofprompt|>员工询问老板"
+  ],
+  "wangzhe_228_angry": [
+    "angry<|endofprompt|>汽车排出尾气"
+  ],
+  "ZhaoZuoxiang_232_angry": [
+    "angry<|endofprompt|>噪音产生污染"
+  ],
+  "liuchanhg_208_neutral": [
+    "neutral<|endofprompt|>四万四块四。"
+  ],
+  "zhaoquanyin_212_sad": [
+    "sad<|endofprompt|>农民盖起厂房"
+  ],
+  "zhaoquanyin_236_surprise": [
+    "surprise<|endofprompt|>国际进行合作"
+  ],
+  "ZhaoZuoxiang_204_sad": [
+    "sad<|endofprompt|>国华来完成。"
+  ],
+  "zhaoquanyin_225_fear": [
+    "fear<|endofprompt|>工作还有困难"
+  ],
+  "ZhaoZuoxiang_235_fear": [
+    "fear<|endofprompt|>政府干预市场"
+  ],
+  "zhaoquanyin_202_angry": [
+    "angry<|endofprompt|>我马上拿来。"
+  ],
+  "liuchanhg_202_angry": [
+    "angry<|endofprompt|>我马上拿来。"
+  ],
+  "liuchanhg_201_sad": [
+    "sad<|endofprompt|>就是下雨也去。"
+  ],
+  "ZhaoZuoxiang_246_sad": [
+    "sad<|endofprompt|>公司开设讲座"
+  ],
+  "wangzhe_221_angry": [
+    "angry<|endofprompt|>市场制造机"
+  ],
+  "ZhaoZuoxiang_217_fear": [
+    "fear<|endofprompt|>形状成为水壶"
+  ],
+  "zhaoquanyin_209_neutral": [
+    "neutral<|endofprompt|>他们支持中国"
+  ],
+  "liuchanhg_229_sad": [
+    "sad<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "liuchanhg_221_surprise": [
+    "surprise<|endofprompt|>市场制造机"
+  ],
+  "zhaoquanyin_239_angry": [
+    "angry<|endofprompt|>工人生产手表"
+  ],
+  "zhaoquanyin_213_sad": [
+    "sad<|endofprompt|>苏联代表世界"
+  ],
+  "ZhaoZuoxiang_239_happy": [
+    "happy<|endofprompt|>工人生产手表"
+  ],
+  "wangzhe_249_fear": [
+    "fear<|endofprompt|>笑话逗得大家开心"
+  ],
+  "wangzhe_202_fear": [
+    "fear<|endofprompt|>我马上拿来。"
+  ],
+  "liuchanhg_231_angry": [
+    "angry<|endofprompt|>团结产生力量"
+  ],
+  "zhaoquanyin_235_angry": [
+    "angry<|endofprompt|>政府干预市场"
+  ],
+  "liuchanhg_215_surprise": [
+    "surprise<|endofprompt|>下雨耽误工作"
+  ],
+  "zhaoquanyin_224_fear": [
+    "fear<|endofprompt|>我们需要帮助"
+  ],
+  "wangzhe_225_angry": [
+    "angry<|endofprompt|>工作还有困难"
+  ],
+  "wangzhe_237_neutral": [
+    "neutral<|endofprompt|>厂家提供原料"
+  ],
+  "ZhaoZuoxiang_232_surprise": [
+    "surprise<|endofprompt|>噪音产生污染"
+  ],
+  "ZhaoZuoxiang_228_happy": [
+    "happy<|endofprompt|>汽车排出尾气"
+  ],
+  "ZhaoZuoxiang_213_angry": [
+    "angry<|endofprompt|>苏联代表世界"
+  ],
+  "liuchanhg_202_surprise": [
+    "surprise<|endofprompt|>我马上拿来。"
+  ],
+  "liuchanhg_239_happy": [
+    "happy<|endofprompt|>工人生产手表"
+  ],
+  "ZhaoZuoxiang_202_happy": [
+    "happy<|endofprompt|>我马上拿来。"
+  ],
+  "wangzhe_249_happy": [
+    "happy<|endofprompt|>笑话逗得大家开心"
+  ],
+  "liuchanhg_234_surprise": [
+    "surprise<|endofprompt|>居民购买房屋"
+  ],
+  "liuchanhg_206_sad": [
+    "sad<|endofprompt|>小宝逮老鼠。"
+  ],
+  "ZhaoZuoxiang_232_fear": [
+    "fear<|endofprompt|>噪音产生污染"
+  ],
+  "liuchanhg_239_angry": [
+    "angry<|endofprompt|>工人生产手表"
+  ],
+  "wangzhe_202_neutral": [
+    "neutral<|endofprompt|>我马上拿来。"
+  ],
+  "ZhaoZuoxiang_224_angry": [
+    "angry<|endofprompt|>我们需要帮助"
+  ],
+  "liuchanhg_224_happy": [
+    "happy<|endofprompt|>我们需要帮助"
+  ],
+  "wangzhe_242_surprise": [
+    "surprise<|endofprompt|>北京召开奥运"
+  ],
+  "liuchanhg_248_happy": [
+    "happy<|endofprompt|>股民丧失信心"
+  ],
+  "zhaoquanyin_208_surprise": [
+    "surprise<|endofprompt|>四万四块四。"
+  ],
+  "liuchanhg_214_sad": [
+    "sad<|endofprompt|>台球很有意思"
+  ],
+  "ZhaoZuoxiang_230_happy": [
+    "happy<|endofprompt|>竞争增加效益"
+  ],
+  "ZhaoZuoxiang_212_surprise": [
+    "surprise<|endofprompt|>农民盖起厂房"
+  ],
+  "ZhaoZuoxiang_223_neutral": [
+    "neutral<|endofprompt|>集团进行改革"
+  ],
+  "wangzhe_216_happy": [
+    "happy<|endofprompt|>你们称呼长辈"
+  ],
+  "liuchanhg_239_fear": [
+    "fear<|endofprompt|>工人生产手表"
+  ],
+  "liuchanhg_215_neutral": [
+    "neutral<|endofprompt|>下雨耽误工作"
+  ],
+  "wangzhe_215_sad": [
+    "sad<|endofprompt|>下雨耽误工作"
+  ],
+  "ZhaoZuoxiang_231_neutral": [
+    "neutral<|endofprompt|>团结产生力量"
+  ],
+  "zhaoquanyin_244_angry": [
+    "angry<|endofprompt|>天空变成蓝色"
+  ],
+  "ZhaoZuoxiang_234_sad": [
+    "sad<|endofprompt|>居民购买房屋"
+  ],
+  "liuchanhg_202_happy": [
+    "happy<|endofprompt|>我马上拿来。"
+  ],
+  "ZhaoZuoxiang_245_surprise": [
+    "surprise<|endofprompt|>家具搬到房间"
+  ],
+  "liuchanhg_220_fear": [
+    "fear<|endofprompt|>世界变得和平"
+  ],
+  "wangzhe_223_angry": [
+    "angry<|endofprompt|>集团进行改革"
+  ],
+  "wangzhe_206_sad": [
+    "sad<|endofprompt|>小宝逮老鼠。"
+  ],
+  "ZhaoZuoxiang_250_neutral": [
+    "neutral<|endofprompt|>阳光使得你们温暖"
+  ],
+  "liuchanhg_217_fear": [
+    "fear<|endofprompt|>形状成为水壶"
+  ],
+  "wangzhe_205_sad": [
+    "sad<|endofprompt|>十头峡河牛。"
+  ],
+  "zhaoquanyin_209_angry": [
+    "angry<|endofprompt|>他们支持中国"
+  ],
+  "zhaoquanyin_205_sad": [
+    "sad<|endofprompt|>十头峡河牛。"
+  ],
+  "wangzhe_243_surprise": [
+    "surprise<|endofprompt|>苏梅打扫房间"
+  ],
+  "wangzhe_234_surprise": [
+    "surprise<|endofprompt|>居民购买房屋"
+  ],
+  "zhaoquanyin_209_happy": [
+    "happy<|endofprompt|>他们支持中国"
+  ],
+  "wangzhe_233_sad": [
+    "sad<|endofprompt|>工厂增大产值"
+  ],
+  "zhaoquanyin_249_neutral": [
+    "neutral<|endofprompt|>笑话逗得大家开心"
+  ],
+  "wangzhe_206_fear": [
+    "fear<|endofprompt|>小宝逮老鼠。"
+  ],
+  "zhaoquanyin_214_angry": [
+    "angry<|endofprompt|>台球很有意思"
+  ],
+  "ZhaoZuoxiang_244_neutral": [
+    "neutral<|endofprompt|>天空变成蓝色"
+  ],
+  "wangzhe_243_neutral": [
+    "neutral<|endofprompt|>苏梅打扫房间"
+  ],
+  "ZhaoZuoxiang_241_happy": [
+    "happy<|endofprompt|>上海开放港口"
+  ],
+  "ZhaoZuoxiang_214_happy": [
+    "happy<|endofprompt|>台球很有意思"
+  ],
+  "wangzhe_205_happy": [
+    "happy<|endofprompt|>十头峡河牛。"
+  ],
+  "liuchanhg_210_happy": [
+    "happy<|endofprompt|>银行拥有保安"
+  ],
+  "ZhaoZuoxiang_249_sad": [
+    "sad<|endofprompt|>笑话逗得大家开心"
+  ],
+  "liuchanhg_204_happy": [
+    "happy<|endofprompt|>国华来完成。"
+  ],
+  "ZhaoZuoxiang_245_sad": [
+    "sad<|endofprompt|>家具搬到房间"
+  ],
+  "wangzhe_212_surprise": [
+    "surprise<|endofprompt|>农民盖起厂房"
+  ],
+  "wangzhe_228_fear": [
+    "fear<|endofprompt|>汽车排出尾气"
+  ],
+  "wangzhe_209_fear": [
+    "fear<|endofprompt|>他们支持中国"
+  ],
+  "liuchanhg_227_angry": [
+    "angry<|endofprompt|>国家改革企业"
+  ],
+  "liuchanhg_201_happy": [
+    "happy<|endofprompt|>就是下雨也去。"
+  ],
+  "zhaoquanyin_236_sad": [
+    "sad<|endofprompt|>国际进行合作"
+  ],
+  "liuchanhg_235_sad": [
+    "sad<|endofprompt|>政府干预市场"
+  ],
+  "zhaoquanyin_238_fear": [
+    "fear<|endofprompt|>农民种植果树"
+  ],
+  "wangzhe_236_sad": [
+    "sad<|endofprompt|>国际进行合作"
+  ],
+  "zhaoquanyin_219_surprise": [
+    "surprise<|endofprompt|>你们殴打他们"
+  ],
+  "wangzhe_239_sad": [
+    "sad<|endofprompt|>工人生产手表"
+  ],
+  "liuchanhg_219_fear": [
+    "fear<|endofprompt|>你们殴打他们"
+  ],
+  "zhaoquanyin_210_happy": [
+    "happy<|endofprompt|>银行拥有保安"
+  ],
+  "liuchanhg_230_neutral": [
+    "neutral<|endofprompt|>竞争增加效益"
+  ],
+  "ZhaoZuoxiang_223_surprise": [
+    "surprise<|endofprompt|>集团进行改革"
+  ],
+  "zhaoquanyin_226_sad": [
+    "sad<|endofprompt|>员工询问老板"
+  ],
+  "zhaoquanyin_222_fear": [
+    "fear<|endofprompt|>美国垄断市场"
+  ],
+  "liuchanhg_218_neutral": [
+    "neutral<|endofprompt|>他们到达这里"
+  ],
+  "wangzhe_214_surprise": [
+    "surprise<|endofprompt|>台球很有意思"
+  ],
+  "zhaoquanyin_237_sad": [
+    "sad<|endofprompt|>厂家提供原料"
+  ],
+  "wangzhe_241_surprise": [
+    "surprise<|endofprompt|>上海开放港口"
+  ],
+  "liuchanhg_237_angry": [
+    "angry<|endofprompt|>厂家提供原料"
+  ],
+  "zhaoquanyin_213_happy": [
+    "happy<|endofprompt|>苏联代表世界"
+  ],
+  "wangzhe_211_sad": [
+    "sad<|endofprompt|>人们保留资格"
+  ],
+  "ZhaoZuoxiang_242_neutral": [
+    "neutral<|endofprompt|>北京召开奥运"
+  ],
+  "zhaoquanyin_227_sad": [
+    "sad<|endofprompt|>国家改革企业"
+  ],
+  "ZhaoZuoxiang_216_sad": [
+    "sad<|endofprompt|>你们称呼长辈"
+  ],
+  "ZhaoZuoxiang_247_neutral": [
+    "neutral<|endofprompt|>职员完成 任务"
+  ],
+  "ZhaoZuoxiang_225_neutral": [
+    "neutral<|endofprompt|>工作还有困难"
+  ],
+  "liuchanhg_232_neutral": [
+    "neutral<|endofprompt|>噪音产生污染"
+  ],
+  "liuchanhg_217_sad": [
+    "sad<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_206_surprise": [
+    "surprise<|endofprompt|>小宝逮老鼠。"
+  ],
+  "zhaoquanyin_238_sad": [
+    "sad<|endofprompt|>农民种植果树"
+  ],
+  "liuchanhg_247_happy": [
+    "happy<|endofprompt|>职员完成 任务"
+  ],
+  "zhaoquanyin_241_angry": [
+    "angry<|endofprompt|>上海开放港口"
+  ],
+  "ZhaoZuoxiang_240_angry": [
+    "angry<|endofprompt|>老师教授知识"
+  ],
+  "wangzhe_217_happy": [
+    "happy<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_238_happy": [
+    "happy<|endofprompt|>农民种植果树"
+  ],
+  "zhaoquanyin_205_angry": [
+    "angry<|endofprompt|>十头峡河牛。"
+  ],
+  "wangzhe_214_happy": [
+    "happy<|endofprompt|>台球很有意思"
+  ],
+  "wangzhe_209_sad": [
+    "sad<|endofprompt|>他们支持中国"
+  ],
+  "wangzhe_217_angry": [
+    "angry<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_209_surprise": [
+    "surprise<|endofprompt|>他们支持中国"
+  ],
+  "zhaoquanyin_220_angry": [
+    "angry<|endofprompt|>世界变得和平"
+  ],
+  "wangzhe_237_angry": [
+    "angry<|endofprompt|>厂家提供原料"
+  ],
+  "zhaoquanyin_247_sad": [
+    "sad<|endofprompt|>职员完成 任务"
+  ],
+  "ZhaoZuoxiang_223_sad": [
+    "sad<|endofprompt|>集团进行改革"
+  ],
+  "zhaoquanyin_211_sad": [
+    "sad<|endofprompt|>人们保留资格"
+  ],
+  "ZhaoZuoxiang_210_angry": [
+    "angry<|endofprompt|>银行拥有保安"
+  ],
+  "zhaoquanyin_249_surprise": [
+    "surprise<|endofprompt|>笑话逗得大家开心"
+  ],
+  "liuchanhg_226_angry": [
+    "angry<|endofprompt|>员工询问老板"
+  ],
+  "liuchanhg_250_neutral": [
+    "neutral<|endofprompt|>阳光使得你们温暖"
+  ],
+  "ZhaoZuoxiang_209_sad": [
+    "sad<|endofprompt|>他们支持中国"
+  ],
+  "liuchanhg_222_angry": [
+    "angry<|endofprompt|>美国垄断市场"
+  ],
+  "wangzhe_218_surprise": [
+    "surprise<|endofprompt|>他们到达这里"
+  ],
+  "liuchanhg_238_surprise": [
+    "surprise<|endofprompt|>农民种植果树"
+  ],
+  "zhaoquanyin_202_neutral": [
+    "neutral<|endofprompt|>我马上拿来。"
+  ],
+  "wangzhe_209_angry": [
+    "angry<|endofprompt|>他们支持中国"
+  ],
+  "liuchanhg_203_neutral": [
+    "neutral<|endofprompt|>孙英开飞机。"
+  ],
+  "wangzhe_222_surprise": [
+    "surprise<|endofprompt|>美国垄断市场"
+  ],
+  "wangzhe_247_surprise": [
+    "surprise<|endofprompt|>职员完成 任务"
+  ],
+  "liuchanhg_223_sad": [
+    "sad<|endofprompt|>集团进行改革"
+  ],
+  "wangzhe_235_fear": [
+    "fear<|endofprompt|>政府干预市场"
+  ],
+  "wangzhe_250_sad": [
+    "sad<|endofprompt|>阳光使得你们温暖"
+  ],
+  "ZhaoZuoxiang_204_angry": [
+    "angry<|endofprompt|>国华来完成。"
+  ],
+  "zhaoquanyin_250_sad": [
+    "sad<|endofprompt|>阳光使得你们温暖"
+  ],
+  "ZhaoZuoxiang_210_happy": [
+    "happy<|endofprompt|>银行拥有保安"
+  ],
+  "zhaoquanyin_215_happy": [
+    "happy<|endofprompt|>下雨耽误工作"
+  ],
+  "wangzhe_231_neutral": [
+    "neutral<|endofprompt|>团结产生力量"
+  ],
+  "ZhaoZuoxiang_222_angry": [
+    "angry<|endofprompt|>美国垄断市场"
+  ],
+  "liuchanhg_209_fear": [
+    "fear<|endofprompt|>他们支持中国"
+  ],
+  "zhaoquanyin_230_angry": [
+    "angry<|endofprompt|>竞争增加效益"
+  ],
+  "zhaoquanyin_207_angry": [
+    "angry<|endofprompt|>大岳去种菜。"
+  ],
+  "liuchanhg_241_surprise": [
+    "surprise<|endofprompt|>上海开放港口"
+  ],
+  "zhaoquanyin_223_sad": [
+    "sad<|endofprompt|>集团进行改革"
+  ],
+  "ZhaoZuoxiang_202_neutral": [
+    "neutral<|endofprompt|>我马上拿来。"
+  ],
+  "wangzhe_225_neutral": [
+    "neutral<|endofprompt|>工作还有困难"
+  ],
+  "zhaoquanyin_208_fear": [
+    "fear<|endofprompt|>四万四块四。"
+  ],
+  "wangzhe_250_angry": [
+    "angry<|endofprompt|>阳光使得你们温暖"
+  ],
+  "liuchanhg_211_angry": [
+    "angry<|endofprompt|>人们保留资格"
+  ],
+  "wangzhe_209_happy": [
+    "happy<|endofprompt|>他们支持中国"
+  ],
+  "liuchanhg_240_sad": [
+    "sad<|endofprompt|>老师教授知识"
+  ],
+  "liuchanhg_230_angry": [
+    "angry<|endofprompt|>竞争增加效益"
+  ],
+  "zhaoquanyin_221_angry": [
+    "angry<|endofprompt|>市场制造机"
+  ],
+  "wangzhe_207_angry": [
+    "angry<|endofprompt|>大岳去种菜。"
+  ],
+  "ZhaoZuoxiang_247_angry": [
+    "angry<|endofprompt|>职员完成 任务"
+  ],
+  "liuchanhg_232_surprise": [
+    "surprise<|endofprompt|>噪音产生污染"
+  ],
+  "wangzhe_214_sad": [
+    "sad<|endofprompt|>台球很有意思"
+  ],
+  "ZhaoZuoxiang_201_surprise": [
+    "surprise<|endofprompt|>就是下雨也去。"
+  ],
+  "liuchanhg_208_surprise": [
+    "surprise<|endofprompt|>四万四块四。"
+  ],
+  "ZhaoZuoxiang_250_sad": [
+    "sad<|endofprompt|>阳光使得你们温暖"
+  ],
+  "wangzhe_249_angry": [
+    "angry<|endofprompt|>笑话逗得大家开心"
+  ],
+  "zhaoquanyin_244_neutral": [
+    "neutral<|endofprompt|>天空变成蓝色"
+  ],
+  "wangzhe_201_angry": [
+    "angry<|endofprompt|>就是下雨也去。"
+  ],
+  "ZhaoZuoxiang_213_sad": [
+    "sad<|endofprompt|>苏联代表世界"
+  ],
+  "liuchanhg_246_surprise": [
+    "surprise<|endofprompt|>公司开设讲座"
+  ],
+  "wangzhe_234_fear": [
+    "fear<|endofprompt|>居民购买房屋"
+  ],
+  "ZhaoZuoxiang_242_angry": [
+    "angry<|endofprompt|>北京召开奥运"
+  ],
+  "liuchanhg_213_neutral": [
+    "neutral<|endofprompt|>苏联代表世界"
+  ],
+  "ZhaoZuoxiang_205_surprise": [
+    "surprise<|endofprompt|>十头峡河牛。"
+  ],
+  "liuchanhg_250_angry": [
+    "angry<|endofprompt|>阳光使得你们温暖"
+  ],
+  "zhaoquanyin_235_sad": [
+    "sad<|endofprompt|>政府干预市场"
+  ],
+  "zhaoquanyin_218_angry": [
+    "angry<|endofprompt|>他们到达这里"
+  ],
+  "liuchanhg_237_fear": [
+    "fear<|endofprompt|>厂家提供原料"
+  ],
+  "zhaoquanyin_245_sad": [
+    "sad<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_215_happy": [
+    "happy<|endofprompt|>下雨耽误工作"
+  ],
+  "ZhaoZuoxiang_204_neutral": [
+    "neutral<|endofprompt|>国华来完成。"
+  ],
+  "liuchanhg_249_sad": [
+    "sad<|endofprompt|>笑话逗得大家开心"
+  ],
+  "zhaoquanyin_204_angry": [
+    "angry<|endofprompt|>国华来完成。"
+  ],
+  "liuchanhg_238_neutral": [
+    "neutral<|endofprompt|>农民种植果树"
+  ],
+  "wangzhe_212_angry": [
+    "angry<|endofprompt|>农民盖起厂房"
+  ],
+  "wangzhe_204_happy": [
+    "happy<|endofprompt|>国华来完成。"
+  ],
+  "zhaoquanyin_211_angry": [
+    "angry<|endofprompt|>人们保留资格"
+  ],
+  "ZhaoZuoxiang_214_surprise": [
+    "surprise<|endofprompt|>台球很有意思"
+  ],
+  "zhaoquanyin_213_neutral": [
+    "neutral<|endofprompt|>苏联代表世界"
+  ],
+  "liuchanhg_224_fear": [
+    "fear<|endofprompt|>我们需要帮助"
+  ],
+  "wangzhe_212_fear": [
+    "fear<|endofprompt|>农民盖起厂房"
+  ],
+  "wangzhe_218_angry": [
+    "angry<|endofprompt|>他们到达这里"
+  ],
+  "liuchanhg_207_fear": [
+    "fear<|endofprompt|>大岳去种菜。"
+  ],
+  "wangzhe_219_neutral": [
+    "neutral<|endofprompt|>你们殴打他们"
+  ],
+  "wangzhe_214_angry": [
+    "angry<|endofprompt|>台球很有意思"
+  ],
+  "ZhaoZuoxiang_228_neutral": [
+    "neutral<|endofprompt|>汽车排出尾气"
+  ],
+  "ZhaoZuoxiang_205_fear": [
+    "fear<|endofprompt|>十头峡河牛。"
+  ],
+  "wangzhe_219_surprise": [
+    "surprise<|endofprompt|>你们殴打他们"
+  ],
+  "liuchanhg_233_fear": [
+    "fear<|endofprompt|>工厂增大产值"
+  ],
+  "zhaoquanyin_231_neutral": [
+    "neutral<|endofprompt|>团结产生力量"
+  ],
+  "zhaoquanyin_242_fear": [
+    "fear<|endofprompt|>北京召开奥运"
+  ],
+  "ZhaoZuoxiang_249_happy": [
+    "happy<|endofprompt|>笑话逗得大家开心"
+  ],
+  "zhaoquanyin_219_sad": [
+    "sad<|endofprompt|>你们殴打他们"
+  ],
+  "wangzhe_204_sad": [
+    "sad<|endofprompt|>国华来完成。"
+  ],
+  "zhaoquanyin_217_surprise": [
+    "surprise<|endofprompt|>形状成为水壶"
+  ],
+  "wangzhe_207_surprise": [
+    "surprise<|endofprompt|>大岳去种菜。"
+  ],
+  "ZhaoZuoxiang_213_happy": [
+    "happy<|endofprompt|>苏联代表世界"
+  ],
+  "wangzhe_215_happy": [
+    "happy<|endofprompt|>下雨耽误工作"
+  ],
+  "ZhaoZuoxiang_243_angry": [
+    "angry<|endofprompt|>苏梅打扫房间"
+  ],
+  "wangzhe_236_happy": [
+    "happy<|endofprompt|>国际进行合作"
+  ],
+  "liuchanhg_223_fear": [
+    "fear<|endofprompt|>集团进行改革"
+  ],
+  "liuchanhg_236_angry": [
+    "angry<|endofprompt|>国际进行合作"
+  ],
+  "liuchanhg_250_surprise": [
+    "surprise<|endofprompt|>阳光使得你们温暖"
+  ],
+  "liuchanhg_246_fear": [
+    "fear<|endofprompt|>公司开设讲座"
+  ],
+  "zhaoquanyin_208_angry": [
+    "angry<|endofprompt|>四万四块四。"
+  ],
+  "liuchanhg_228_sad": [
+    "sad<|endofprompt|>汽车排出尾气"
+  ],
+  "zhaoquanyin_221_neutral": [
+    "neutral<|endofprompt|>市场制造机"
+  ],
+  "ZhaoZuoxiang_211_fear": [
+    "fear<|endofprompt|>人们保留资格"
+  ],
+  "zhaoquanyin_239_surprise": [
+    "surprise<|endofprompt|>工人生产手表"
+  ],
+  "wangzhe_235_neutral": [
+    "neutral<|endofprompt|>政府干预市场"
+  ],
+  "wangzhe_226_angry": [
+    "angry<|endofprompt|>员工询问老板"
+  ],
+  "zhaoquanyin_202_surprise": [
+    "surprise<|endofprompt|>我马上拿来。"
+  ],
+  "liuchanhg_249_fear": [
+    "fear<|endofprompt|>笑话逗得大家开心"
+  ],
+  "wangzhe_225_sad": [
+    "sad<|endofprompt|>工作还有困难"
+  ],
+  "liuchanhg_244_fear": [
+    "fear<|endofprompt|>天空变成蓝色"
+  ],
+  "liuchanhg_202_fear": [
+    "fear<|endofprompt|>我马上拿来。"
+  ],
+  "wangzhe_245_happy": [
+    "happy<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_221_neutral": [
+    "neutral<|endofprompt|>市场制造机"
+  ],
+  "wangzhe_222_angry": [
+    "angry<|endofprompt|>美国垄断市场"
+  ],
+  "ZhaoZuoxiang_250_fear": [
+    "fear<|endofprompt|>阳光使得你们温暖"
+  ],
+  "zhaoquanyin_239_happy": [
+    "happy<|endofprompt|>工人生产手表"
+  ],
+  "ZhaoZuoxiang_238_neutral": [
+    "neutral<|endofprompt|>农民种植果树"
+  ],
+  "wangzhe_247_happy": [
+    "happy<|endofprompt|>职员完成 任务"
+  ],
+  "zhaoquanyin_221_sad": [
+    "sad<|endofprompt|>市场制造机"
+  ],
+  "ZhaoZuoxiang_210_fear": [
+    "fear<|endofprompt|>银行拥有保安"
+  ],
+  "liuchanhg_225_sad": [
+    "sad<|endofprompt|>工作还有困难"
+  ],
+  "zhaoquanyin_239_sad": [
+    "sad<|endofprompt|>工人生产手表"
+  ],
+  "wangzhe_235_sad": [
+    "sad<|endofprompt|>政府干预市场"
+  ],
+  "zhaoquanyin_217_happy": [
+    "happy<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_201_fear": [
+    "fear<|endofprompt|>就是下雨也去。"
+  ],
+  "zhaoquanyin_227_angry": [
+    "angry<|endofprompt|>国家改革企业"
+  ],
+  "zhaoquanyin_211_fear": [
+    "fear<|endofprompt|>人们保留资格"
+  ],
+  "wangzhe_220_sad": [
+    "sad<|endofprompt|>世界变得和平"
+  ],
+  "ZhaoZuoxiang_203_sad": [
+    "sad<|endofprompt|>孙英开飞机。"
+  ],
+  "liuchanhg_218_surprise": [
+    "surprise<|endofprompt|>他们到达这里"
+  ],
+  "liuchanhg_233_neutral": [
+    "neutral<|endofprompt|>工厂增大产值"
+  ],
+  "ZhaoZuoxiang_234_surprise": [
+    "surprise<|endofprompt|>居民购买房屋"
+  ],
+  "zhaoquanyin_217_sad": [
+    "sad<|endofprompt|>形状成为水壶"
+  ],
+  "ZhaoZuoxiang_225_happy": [
+    "happy<|endofprompt|>工作还有困难"
+  ],
+  "wangzhe_215_surprise": [
+    "surprise<|endofprompt|>下雨耽误工作"
+  ],
+  "wangzhe_208_sad": [
+    "sad<|endofprompt|>四万四块四。"
+  ],
+  "wangzhe_209_neutral": [
+    "neutral<|endofprompt|>他们支持中国"
+  ],
+  "zhaoquanyin_237_fear": [
+    "fear<|endofprompt|>厂家提供原料"
+  ],
+  "zhaoquanyin_216_fear": [
+    "fear<|endofprompt|>你们称呼长辈"
+  ],
+  "ZhaoZuoxiang_227_fear": [
+    "fear<|endofprompt|>国家改革企业"
+  ],
+  "liuchanhg_210_surprise": [
+    "surprise<|endofprompt|>银行拥有保安"
+  ],
+  "wangzhe_202_happy": [
+    "happy<|endofprompt|>我马上拿来。"
+  ],
+  "wangzhe_202_angry": [
+    "angry<|endofprompt|>我马上拿来。"
+  ],
+  "liuchanhg_231_fear": [
+    "fear<|endofprompt|>团结产生力量"
+  ],
+  "zhaoquanyin_244_surprise": [
+    "surprise<|endofprompt|>天空变成蓝色"
+  ],
+  "wangzhe_234_neutral": [
+    "neutral<|endofprompt|>居民购买房屋"
+  ],
+  "liuchanhg_234_angry": [
+    "angry<|endofprompt|>居民购买房屋"
+  ],
+  "ZhaoZuoxiang_201_neutral": [
+    "neutral<|endofprompt|>就是下雨也去。"
+  ],
+  "liuchanhg_224_sad": [
+    "sad<|endofprompt|>我们需要帮助"
+  ],
+  "wangzhe_218_neutral": [
+    "neutral<|endofprompt|>他们到达这里"
+  ],
+  "ZhaoZuoxiang_225_surprise": [
+    "surprise<|endofprompt|>工作还有困难"
+  ],
+  "ZhaoZuoxiang_224_sad": [
+    "sad<|endofprompt|>我们需要帮助"
+  ],
+  "ZhaoZuoxiang_211_angry": [
+    "angry<|endofprompt|>人们保留资格"
+  ],
+  "wangzhe_233_angry": [
+    "angry<|endofprompt|>工厂增大产值"
+  ],
+  "zhaoquanyin_248_sad": [
+    "sad<|endofprompt|>股民丧失信心"
+  ],
+  "zhaoquanyin_228_sad": [
+    "sad<|endofprompt|>汽车排出尾气"
+  ],
+  "ZhaoZuoxiang_226_happy": [
+    "happy<|endofprompt|>员工询问老板"
+  ],
+  "liuchanhg_207_neutral": [
+    "neutral<|endofprompt|>大岳去种菜。"
+  ],
+  "liuchanhg_236_sad": [
+    "sad<|endofprompt|>国际进行合作"
+  ],
+  "ZhaoZuoxiang_209_surprise": [
+    "surprise<|endofprompt|>他们支持中国"
+  ],
+  "ZhaoZuoxiang_210_neutral": [
+    "neutral<|endofprompt|>银行拥有保安"
+  ],
+  "ZhaoZuoxiang_219_neutral": [
+    "neutral<|endofprompt|>你们殴打他们"
+  ],
+  "wangzhe_208_angry": [
+    "angry<|endofprompt|>四万四块四。"
+  ],
+  "ZhaoZuoxiang_240_sad": [
+    "sad<|endofprompt|>老师教授知识"
+  ],
+  "zhaoquanyin_225_angry": [
+    "angry<|endofprompt|>工作还有困难"
+  ],
+  "ZhaoZuoxiang_208_happy": [
+    "happy<|endofprompt|>四万四块四。"
+  ],
+  "ZhaoZuoxiang_220_surprise": [
+    "surprise<|endofprompt|>世界变得和平"
+  ],
+  "liuchanhg_212_happy": [
+    "happy<|endofprompt|>农民盖起厂房"
+  ],
+  "zhaoquanyin_238_angry": [
+    "angry<|endofprompt|>农民种植果树"
+  ],
+  "zhaoquanyin_229_neutral": [
+    "neutral<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "ZhaoZuoxiang_210_sad": [
+    "sad<|endofprompt|>银行拥有保安"
+  ],
+  "ZhaoZuoxiang_245_happy": [
+    "happy<|endofprompt|>家具搬到房间"
+  ],
+  "zhaoquanyin_201_neutral": [
+    "neutral<|endofprompt|>就是下雨也去。"
+  ],
+  "liuchanhg_250_happy": [
+    "happy<|endofprompt|>阳光使得你们温暖"
+  ],
+  "ZhaoZuoxiang_238_surprise": [
+    "surprise<|endofprompt|>农民种植果树"
+  ],
+  "ZhaoZuoxiang_227_neutral": [
+    "neutral<|endofprompt|>国家改革企业"
+  ],
+  "wangzhe_242_fear": [
+    "fear<|endofprompt|>北京召开奥运"
+  ],
+  "liuchanhg_229_surprise": [
+    "surprise<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "wangzhe_207_happy": [
+    "happy<|endofprompt|>大岳去种菜。"
+  ],
+  "ZhaoZuoxiang_216_happy": [
+    "happy<|endofprompt|>你们称呼长辈"
+  ],
+  "wangzhe_201_sad": [
+    "sad<|endofprompt|>就是下雨也去。"
+  ],
+  "wangzhe_244_fear": [
+    "fear<|endofprompt|>天空变成蓝色"
+  ],
+  "wangzhe_240_angry": [
+    "angry<|endofprompt|>老师教授知识"
+  ],
+  "ZhaoZuoxiang_230_fear": [
+    "fear<|endofprompt|>竞争增加效益"
+  ],
+  "wangzhe_223_happy": [
+    "happy<|endofprompt|>集团进行改革"
+  ],
+  "zhaoquanyin_246_surprise": [
+    "surprise<|endofprompt|>公司开设讲座"
+  ],
+  "ZhaoZuoxiang_223_happy": [
+    "happy<|endofprompt|>集团进行改革"
+  ],
+  "wangzhe_247_neutral": [
+    "neutral<|endofprompt|>职员完成 任务"
+  ],
+  "ZhaoZuoxiang_239_sad": [
+    "sad<|endofprompt|>工人生产手表"
+  ],
+  "wangzhe_221_fear": [
+    "fear<|endofprompt|>市场制造机"
+  ],
+  "wangzhe_234_angry": [
+    "angry<|endofprompt|>居民购买房屋"
+  ],
+  "ZhaoZuoxiang_215_sad": [
+    "sad<|endofprompt|>下雨耽误工作"
+  ],
+  "zhaoquanyin_202_happy": [
+    "happy<|endofprompt|>我马上拿来。"
+  ],
+  "wangzhe_212_happy": [
+    "happy<|endofprompt|>农民盖起厂房"
+  ],
+  "wangzhe_201_happy": [
+    "happy<|endofprompt|>就是下雨也去。"
+  ],
+  "ZhaoZuoxiang_211_sad": [
+    "sad<|endofprompt|>人们保留资格"
+  ],
+  "ZhaoZuoxiang_237_fear": [
+    "fear<|endofprompt|>厂家提供原料"
+  ],
+  "liuchanhg_220_neutral": [
+    "neutral<|endofprompt|>世界变得和平"
+  ],
+  "zhaoquanyin_206_fear": [
+    "fear<|endofprompt|>小宝逮老鼠。"
+  ],
+  "liuchanhg_203_fear": [
+    "fear<|endofprompt|>孙英开飞机。"
+  ],
+  "ZhaoZuoxiang_217_neutral": [
+    "neutral<|endofprompt|>形状成为水壶"
+  ],
+  "wangzhe_235_surprise": [
+    "surprise<|endofprompt|>政府干预市场"
+  ],
+  "liuchanhg_206_neutral": [
+    "neutral<|endofprompt|>小宝逮老鼠。"
+  ],
+  "wangzhe_207_fear": [
+    "fear<|endofprompt|>大岳去种菜。"
+  ],
+  "wangzhe_240_sad": [
+    "sad<|endofprompt|>老师教授知识"
+  ],
+  "zhaoquanyin_235_surprise": [
+    "surprise<|endofprompt|>政府干预市场"
+  ],
+  "ZhaoZuoxiang_226_surprise": [
+    "surprise<|endofprompt|>员工询问老板"
+  ],
+  "ZhaoZuoxiang_220_sad": [
+    "sad<|endofprompt|>世界变得和平"
+  ],
+  "liuchanhg_212_fear": [
+    "fear<|endofprompt|>农民盖起厂房"
+  ],
+  "zhaoquanyin_204_neutral": [
+    "neutral<|endofprompt|>国华来完成。"
+  ],
+  "liuchanhg_229_angry": [
+    "angry<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "wangzhe_227_sad": [
+    "sad<|endofprompt|>国家改革企业"
+  ],
+  "zhaoquanyin_222_surprise": [
+    "surprise<|endofprompt|>美国垄断市场"
+  ],
+  "wangzhe_229_fear": [
+    "fear<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "zhaoquanyin_233_fear": [
+    "fear<|endofprompt|>工厂增大产值"
+  ],
+  "wangzhe_248_surprise": [
+    "surprise<|endofprompt|>股民丧失信心"
+  ],
+  "liuchanhg_206_fear": [
+    "fear<|endofprompt|>小宝逮老鼠。"
+  ],
+  "zhaoquanyin_249_happy": [
+    "happy<|endofprompt|>笑话逗得大家开心"
+  ],
+  "wangzhe_223_fear": [
+    "fear<|endofprompt|>集团进行改革"
+  ],
+  "ZhaoZuoxiang_226_neutral": [
+    "neutral<|endofprompt|>员工询问老板"
+  ],
+  "liuchanhg_245_happy": [
+    "happy<|endofprompt|>家具搬到房间"
+  ],
+  "liuchanhg_231_sad": [
+    "sad<|endofprompt|>团结产生力量"
+  ],
+  "wangzhe_247_fear": [
+    "fear<|endofprompt|>职员完成 任务"
+  ],
+  "zhaoquanyin_226_angry": [
+    "angry<|endofprompt|>员工询问老板"
+  ],
+  "ZhaoZuoxiang_249_angry": [
+    "angry<|endofprompt|>笑话逗得大家开心"
+  ],
+  "ZhaoZuoxiang_206_happy": [
+    "happy<|endofprompt|>小宝逮老鼠。"
+  ],
+  "zhaoquanyin_222_angry": [
+    "angry<|endofprompt|>美国垄断市场"
+  ],
+  "wangzhe_207_neutral": [
+    "neutral<|endofprompt|>大岳去种菜。"
+  ],
+  "ZhaoZuoxiang_243_sad": [
+    "sad<|endofprompt|>苏梅打扫房间"
+  ],
+  "ZhaoZuoxiang_217_sad": [
+    "sad<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_207_happy": [
+    "happy<|endofprompt|>大岳去种菜。"
+  ],
+  "wangzhe_217_neutral": [
+    "neutral<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_228_surprise": [
+    "surprise<|endofprompt|>汽车排出尾气"
+  ],
+  "ZhaoZuoxiang_215_fear": [
+    "fear<|endofprompt|>下雨耽误工作"
+  ],
+  "liuchanhg_222_neutral": [
+    "neutral<|endofprompt|>美国垄断市场"
+  ],
+  "zhaoquanyin_227_surprise": [
+    "surprise<|endofprompt|>国家改革企业"
+  ],
+  "liuchanhg_246_sad": [
+    "sad<|endofprompt|>公司开设讲座"
+  ],
+  "liuchanhg_229_fear": [
+    "fear<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "wangzhe_211_angry": [
+    "angry<|endofprompt|>人们保留资格"
+  ],
+  "ZhaoZuoxiang_208_angry": [
+    "angry<|endofprompt|>四万四块四。"
+  ],
+  "zhaoquanyin_224_angry": [
+    "angry<|endofprompt|>我们需要帮助"
+  ],
+  "ZhaoZuoxiang_206_fear": [
+    "fear<|endofprompt|>小宝逮老鼠。"
+  ],
+  "ZhaoZuoxiang_225_sad": [
+    "sad<|endofprompt|>工作还有困难"
+  ],
+  "ZhaoZuoxiang_212_fear": [
+    "fear<|endofprompt|>农民盖起厂房"
+  ],
+  "wangzhe_239_angry": [
+    "angry<|endofprompt|>工人生产手表"
+  ],
+  "ZhaoZuoxiang_239_fear": [
+    "fear<|endofprompt|>工人生产手表"
+  ],
+  "ZhaoZuoxiang_206_angry": [
+    "angry<|endofprompt|>小宝逮老鼠。"
+  ],
+  "wangzhe_213_neutral": [
+    "neutral<|endofprompt|>苏联代表世界"
+  ],
+  "ZhaoZuoxiang_249_fear": [
+    "fear<|endofprompt|>笑话逗得大家开心"
+  ],
+  "ZhaoZuoxiang_215_neutral": [
+    "neutral<|endofprompt|>下雨耽误工作"
+  ],
+  "ZhaoZuoxiang_202_sad": [
+    "sad<|endofprompt|>我马上拿来。"
+  ],
+  "wangzhe_202_surprise": [
+    "surprise<|endofprompt|>我马上拿来。"
+  ],
+  "zhaoquanyin_205_happy": [
+    "happy<|endofprompt|>十头峡河牛。"
+  ],
+  "wangzhe_203_fear": [
+    "fear<|endofprompt|>孙英开飞机。"
+  ],
+  "liuchanhg_222_sad": [
+    "sad<|endofprompt|>美国垄断市场"
+  ],
+  "ZhaoZuoxiang_204_happy": [
+    "happy<|endofprompt|>国华来完成。"
+  ],
+  "wangzhe_203_neutral": [
+    "neutral<|endofprompt|>孙英开飞机。"
+  ],
+  "wangzhe_231_fear": [
+    "fear<|endofprompt|>团结产生力量"
+  ],
+  "liuchanhg_226_surprise": [
+    "surprise<|endofprompt|>员工询问老板"
+  ],
+  "ZhaoZuoxiang_248_sad": [
+    "sad<|endofprompt|>股民丧失信心"
+  ],
+  "ZhaoZuoxiang_206_sad": [
+    "sad<|endofprompt|>小宝逮老鼠。"
+  ],
+  "liuchanhg_246_angry": [
+    "angry<|endofprompt|>公司开设讲座"
+  ],
+  "wangzhe_212_sad": [
+    "sad<|endofprompt|>农民盖起厂房"
+  ],
+  "zhaoquanyin_214_neutral": [
+    "neutral<|endofprompt|>台球很有意思"
+  ],
+  "zhaoquanyin_240_sad": [
+    "sad<|endofprompt|>老师教授知识"
+  ],
+  "ZhaoZuoxiang_219_fear": [
+    "fear<|endofprompt|>你们殴打他们"
+  ],
+  "liuchanhg_242_sad": [
+    "sad<|endofprompt|>北京召开奥运"
+  ],
+  "zhaoquanyin_209_sad": [
+    "sad<|endofprompt|>他们支持中国"
+  ],
+  "liuchanhg_248_angry": [
+    "angry<|endofprompt|>股民丧失信心"
+  ],
+  "zhaoquanyin_230_sad": [
+    "sad<|endofprompt|>竞争增加效益"
+  ],
+  "zhaoquanyin_243_sad": [
+    "sad<|endofprompt|>苏梅打扫房间"
+  ],
+  "ZhaoZuoxiang_201_angry": [
+    "angry<|endofprompt|>就是下雨也去。"
+  ],
+  "wangzhe_243_angry": [
+    "angry<|endofprompt|>苏梅打扫房间"
+  ],
+  "liuchanhg_237_surprise": [
+    "surprise<|endofprompt|>厂家提供原料"
+  ],
+  "zhaoquanyin_233_surprise": [
+    "surprise<|endofprompt|>工厂增大产值"
+  ],
+  "wangzhe_207_sad": [
+    "sad<|endofprompt|>大岳去种菜。"
+  ],
+  "liuchanhg_246_happy": [
+    "happy<|endofprompt|>公司开设讲座"
+  ],
+  "wangzhe_227_happy": [
+    "happy<|endofprompt|>国家改革企业"
+  ],
+  "wangzhe_241_fear": [
+    "fear<|endofprompt|>上海开放港口"
+  ],
+  "zhaoquanyin_227_neutral": [
+    "neutral<|endofprompt|>国家改革企业"
+  ],
+  "zhaoquanyin_233_neutral": [
+    "neutral<|endofprompt|>工厂增大产值"
+  ],
+  "liuchanhg_215_fear": [
+    "fear<|endofprompt|>下雨耽误工作"
+  ],
+  "wangzhe_230_fear": [
+    "fear<|endofprompt|>竞争增加效益"
+  ],
+  "wangzhe_205_fear": [
+    "fear<|endofprompt|>十头峡河牛。"
+  ],
+  "wangzhe_246_sad": [
+    "sad<|endofprompt|>公司开设讲座"
+  ],
+  "zhaoquanyin_245_neutral": [
+    "neutral<|endofprompt|>家具搬到房间"
+  ],
+  "liuchanhg_223_angry": [
+    "angry<|endofprompt|>集团进行改革"
+  ],
+  "zhaoquanyin_234_happy": [
+    "happy<|endofprompt|>居民购买房屋"
+  ],
+  "zhaoquanyin_229_happy": [
+    "happy<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "wangzhe_242_neutral": [
+    "neutral<|endofprompt|>北京召开奥运"
+  ],
+  "wangzhe_236_angry": [
+    "angry<|endofprompt|>国际进行合作"
+  ],
+  "ZhaoZuoxiang_249_neutral": [
+    "neutral<|endofprompt|>笑话逗得大家开心"
+  ],
+  "zhaoquanyin_248_neutral": [
+    "neutral<|endofprompt|>股民丧失信心"
+  ],
+  "wangzhe_214_fear": [
+    "fear<|endofprompt|>台球很有意思"
+  ],
+  "zhaoquanyin_212_angry": [
+    "angry<|endofprompt|>农民盖起厂房"
+  ],
+  "wangzhe_232_sad": [
+    "sad<|endofprompt|>噪音产生污染"
+  ],
+  "liuchanhg_213_happy": [
+    "happy<|endofprompt|>苏联代表世界"
+  ],
+  "wangzhe_238_neutral": [
+    "neutral<|endofprompt|>农民种植果树"
+  ],
+  "zhaoquanyin_232_surprise": [
+    "surprise<|endofprompt|>噪音产生污染"
+  ],
+  "wangzhe_242_angry": [
+    "angry<|endofprompt|>北京召开奥运"
+  ],
+  "zhaoquanyin_244_happy": [
+    "happy<|endofprompt|>天空变成蓝色"
+  ],
+  "zhaoquanyin_229_fear": [
+    "fear<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "wangzhe_233_happy": [
+    "happy<|endofprompt|>工厂增大产值"
+  ],
+  "liuchanhg_215_sad": [
+    "sad<|endofprompt|>下雨耽误工作"
+  ],
+  "wangzhe_203_surprise": [
+    "surprise<|endofprompt|>孙英开飞机。"
+  ],
+  "zhaoquanyin_223_angry": [
+    "angry<|endofprompt|>集团进行改革"
+  ],
+  "liuchanhg_248_surprise": [
+    "surprise<|endofprompt|>股民丧失信心"
+  ],
+  "liuchanhg_218_angry": [
+    "angry<|endofprompt|>他们到达这里"
+  ],
+  "liuchanhg_240_neutral": [
+    "neutral<|endofprompt|>老师教授知识"
+  ],
+  "ZhaoZuoxiang_231_happy": [
+    "happy<|endofprompt|>团结产生力量"
+  ],
+  "zhaoquanyin_205_surprise": [
+    "surprise<|endofprompt|>十头峡河牛。"
+  ],
+  "liuchanhg_210_fear": [
+    "fear<|endofprompt|>银行拥有保安"
+  ],
+  "wangzhe_243_sad": [
+    "sad<|endofprompt|>苏梅打扫房间"
+  ],
+  "zhaoquanyin_226_surprise": [
+    "surprise<|endofprompt|>员工询问老板"
+  ],
+  "ZhaoZuoxiang_201_fear": [
+    "fear<|endofprompt|>就是下雨也去。"
+  ],
+  "zhaoquanyin_210_sad": [
+    "sad<|endofprompt|>银行拥有保安"
+  ],
+  "ZhaoZuoxiang_239_angry": [
+    "angry<|endofprompt|>工人生产手表"
+  ],
+  "zhaoquanyin_245_angry": [
+    "angry<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_234_neutral": [
+    "neutral<|endofprompt|>居民购买房屋"
+  ],
+  "liuchanhg_236_happy": [
+    "happy<|endofprompt|>国际进行合作"
+  ],
+  "zhaoquanyin_216_sad": [
+    "sad<|endofprompt|>你们称呼长辈"
+  ],
+  "liuchanhg_244_surprise": [
+    "surprise<|endofprompt|>天空变成蓝色"
+  ],
+  "wangzhe_245_sad": [
+    "sad<|endofprompt|>家具搬到房间"
+  ],
+  "liuchanhg_233_happy": [
+    "happy<|endofprompt|>工厂增大产值"
+  ],
+  "zhaoquanyin_212_fear": [
+    "fear<|endofprompt|>农民盖起厂房"
+  ],
+  "zhaoquanyin_249_angry": [
+    "angry<|endofprompt|>笑话逗得大家开心"
+  ],
+  "zhaoquanyin_210_angry": [
+    "angry<|endofprompt|>银行拥有保安"
+  ],
+  "liuchanhg_235_happy": [
+    "happy<|endofprompt|>政府干预市场"
+  ],
+  "ZhaoZuoxiang_221_surprise": [
+    "surprise<|endofprompt|>市场制造机"
+  ],
+  "zhaoquanyin_219_neutral": [
+    "neutral<|endofprompt|>你们殴打他们"
+  ],
+  "ZhaoZuoxiang_229_sad": [
+    "sad<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "zhaoquanyin_234_neutral": [
+    "neutral<|endofprompt|>居民购买房屋"
+  ],
+  "wangzhe_225_fear": [
+    "fear<|endofprompt|>工作还有困难"
+  ],
+  "zhaoquanyin_226_happy": [
+    "happy<|endofprompt|>员工询问老板"
+  ],
+  "liuchanhg_232_angry": [
+    "angry<|endofprompt|>噪音产生污染"
+  ],
+  "zhaoquanyin_220_surprise": [
+    "surprise<|endofprompt|>世界变得和平"
+  ],
+  "liuchanhg_218_sad": [
+    "sad<|endofprompt|>他们到达这里"
+  ],
+  "zhaoquanyin_203_surprise": [
+    "surprise<|endofprompt|>孙英开飞机。"
+  ],
+  "zhaoquanyin_236_fear": [
+    "fear<|endofprompt|>国际进行合作"
+  ],
+  "wangzhe_230_happy": [
+    "happy<|endofprompt|>竞争增加效益"
+  ],
+  "wangzhe_210_happy": [
+    "happy<|endofprompt|>银行拥有保安"
+  ],
+  "ZhaoZuoxiang_246_happy": [
+    "happy<|endofprompt|>公司开设讲座"
+  ],
+  "zhaoquanyin_235_happy": [
+    "happy<|endofprompt|>政府干预市场"
+  ],
+  "wangzhe_217_surprise": [
+    "surprise<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_219_angry": [
+    "angry<|endofprompt|>你们殴打他们"
+  ],
+  "ZhaoZuoxiang_231_sad": [
+    "sad<|endofprompt|>团结产生力量"
+  ],
+  "zhaoquanyin_229_angry": [
+    "angry<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "wangzhe_217_sad": [
+    "sad<|endofprompt|>形状成为水壶"
+  ],
+  "wangzhe_246_angry": [
+    "angry<|endofprompt|>公司开设讲座"
+  ],
+  "liuchanhg_217_neutral": [
+    "neutral<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_214_fear": [
+    "fear<|endofprompt|>台球很有意思"
+  ],
+  "ZhaoZuoxiang_242_happy": [
+    "happy<|endofprompt|>北京召开奥运"
+  ],
+  "liuchanhg_211_surprise": [
+    "surprise<|endofprompt|>人们保留资格"
+  ],
+  "liuchanhg_231_neutral": [
+    "neutral<|endofprompt|>团结产生力量"
+  ],
+  "wangzhe_232_neutral": [
+    "neutral<|endofprompt|>噪音产生污染"
+  ],
+  "zhaoquanyin_201_fear": [
+    "fear<|endofprompt|>就是下雨也去。"
+  ],
+  "wangzhe_231_sad": [
+    "sad<|endofprompt|>团结产生力量"
+  ],
+  "wangzhe_234_sad": [
+    "sad<|endofprompt|>居民购买房屋"
+  ],
+  "zhaoquanyin_247_angry": [
+    "angry<|endofprompt|>职员完成 任务"
+  ],
+  "liuchanhg_214_surprise": [
+    "surprise<|endofprompt|>台球很有意思"
+  ],
+  "wangzhe_226_surprise": [
+    "surprise<|endofprompt|>员工询问老板"
+  ],
+  "zhaoquanyin_241_happy": [
+    "happy<|endofprompt|>上海开放港口"
+  ],
+  "ZhaoZuoxiang_209_neutral": [
+    "neutral<|endofprompt|>他们支持中国"
+  ],
+  "zhaoquanyin_242_surprise": [
+    "surprise<|endofprompt|>北京召开奥运"
+  ],
+  "zhaoquanyin_206_angry": [
+    "angry<|endofprompt|>小宝逮老鼠。"
+  ],
+  "zhaoquanyin_218_neutral": [
+    "neutral<|endofprompt|>他们到达这里"
+  ],
+  "ZhaoZuoxiang_221_happy": [
+    "happy<|endofprompt|>市场制造机"
+  ],
+  "wangzhe_233_neutral": [
+    "neutral<|endofprompt|>工厂增大产值"
+  ],
+  "ZhaoZuoxiang_214_angry": [
+    "angry<|endofprompt|>台球很有意思"
+  ],
+  "zhaoquanyin_231_surprise": [
+    "surprise<|endofprompt|>团结产生力量"
+  ],
+  "liuchanhg_237_sad": [
+    "sad<|endofprompt|>厂家提供原料"
+  ],
+  "ZhaoZuoxiang_222_fear": [
+    "fear<|endofprompt|>美国垄断市场"
+  ],
+  "wangzhe_242_sad": [
+    "sad<|endofprompt|>北京召开奥运"
+  ],
+  "wangzhe_221_neutral": [
+    "neutral<|endofprompt|>市场制造机"
+  ],
+  "ZhaoZuoxiang_215_surprise": [
+    "surprise<|endofprompt|>下雨耽误工作"
+  ],
+  "liuchanhg_227_neutral": [
+    "neutral<|endofprompt|>国家改革企业"
+  ],
+  "ZhaoZuoxiang_213_surprise": [
+    "surprise<|endofprompt|>苏联代表世界"
+  ],
+  "zhaoquanyin_204_surprise": [
+    "surprise<|endofprompt|>国华来完成。"
+  ],
+  "wangzhe_235_happy": [
+    "happy<|endofprompt|>政府干预市场"
+  ],
+  "wangzhe_227_angry": [
+    "angry<|endofprompt|>国家改革企业"
+  ],
+  "wangzhe_236_neutral": [
+    "neutral<|endofprompt|>国际进行合作"
+  ],
+  "ZhaoZuoxiang_233_neutral": [
+    "neutral<|endofprompt|>工厂增大产值"
+  ],
+  "liuchanhg_228_angry": [
+    "angry<|endofprompt|>汽车排出尾气"
+  ],
+  "wangzhe_222_sad": [
+    "sad<|endofprompt|>美国垄断市场"
+  ],
+  "zhaoquanyin_225_surprise": [
+    "surprise<|endofprompt|>工作还有困难"
+  ],
+  "ZhaoZuoxiang_208_fear": [
+    "fear<|endofprompt|>四万四块四。"
+  ],
+  "ZhaoZuoxiang_241_angry": [
+    "angry<|endofprompt|>上海开放港口"
+  ],
+  "ZhaoZuoxiang_233_surprise": [
+    "surprise<|endofprompt|>工厂增大产值"
+  ],
+  "wangzhe_231_happy": [
+    "happy<|endofprompt|>团结产生力量"
+  ],
+  "zhaoquanyin_250_neutral": [
+    "neutral<|endofprompt|>阳光使得你们温暖"
+  ],
+  "zhaoquanyin_235_neutral": [
+    "neutral<|endofprompt|>政府干预市场"
+  ],
+  "zhaoquanyin_243_fear": [
+    "fear<|endofprompt|>苏梅打扫房间"
+  ],
+  "wangzhe_211_surprise": [
+    "surprise<|endofprompt|>人们保留资格"
+  ],
+  "ZhaoZuoxiang_233_fear": [
+    "fear<|endofprompt|>工厂增大产值"
+  ],
+  "zhaoquanyin_216_happy": [
+    "happy<|endofprompt|>你们称呼长辈"
+  ],
+  "zhaoquanyin_238_surprise": [
+    "surprise<|endofprompt|>农民种植果树"
+  ],
+  "ZhaoZuoxiang_250_happy": [
+    "happy<|endofprompt|>阳光使得你们温暖"
+  ],
+  "zhaoquanyin_244_fear": [
+    "fear<|endofprompt|>天空变成蓝色"
+  ],
+  "wangzhe_206_happy": [
+    "happy<|endofprompt|>小宝逮老鼠。"
+  ],
+  "liuchanhg_222_fear": [
+    "fear<|endofprompt|>美国垄断市场"
+  ],
+  "wangzhe_234_happy": [
+    "happy<|endofprompt|>居民购买房屋"
+  ],
+  "liuchanhg_215_angry": [
+    "angry<|endofprompt|>下雨耽误工作"
+  ],
+  "liuchanhg_223_neutral": [
+    "neutral<|endofprompt|>集团进行改革"
+  ],
+  "wangzhe_219_fear": [
+    "fear<|endofprompt|>你们殴打他们"
+  ],
+  "liuchanhg_241_angry": [
+    "angry<|endofprompt|>上海开放港口"
+  ],
+  "liuchanhg_223_happy": [
+    "happy<|endofprompt|>集团进行改革"
+  ],
+  "zhaoquanyin_232_angry": [
+    "angry<|endofprompt|>噪音产生污染"
+  ],
+  "ZhaoZuoxiang_245_fear": [
+    "fear<|endofprompt|>家具搬到房间"
+  ],
+  "zhaoquanyin_214_surprise": [
+    "surprise<|endofprompt|>台球很有意思"
+  ],
+  "zhaoquanyin_218_happy": [
+    "happy<|endofprompt|>他们到达这里"
+  ],
+  "zhaoquanyin_248_fear": [
+    "fear<|endofprompt|>股民丧失信心"
+  ],
+  "zhaoquanyin_230_neutral": [
+    "neutral<|endofprompt|>竞争增加效益"
+  ],
+  "wangzhe_215_angry": [
+    "angry<|endofprompt|>下雨耽误工作"
+  ],
+  "liuchanhg_206_happy": [
+    "happy<|endofprompt|>小宝逮老鼠。"
+  ],
+  "wangzhe_201_surprise": [
+    "surprise<|endofprompt|>就是下雨也去。"
+  ],
+  "wangzhe_222_happy": [
+    "happy<|endofprompt|>美国垄断市场"
+  ],
+  "liuchanhg_241_happy": [
+    "happy<|endofprompt|>上海开放港口"
+  ],
+  "ZhaoZuoxiang_243_happy": [
+    "happy<|endofprompt|>苏梅打扫房间"
+  ],
+  "ZhaoZuoxiang_216_neutral": [
+    "neutral<|endofprompt|>你们称呼长辈"
+  ],
+  "ZhaoZuoxiang_249_surprise": [
+    "surprise<|endofprompt|>笑话逗得大家开心"
+  ],
+  "ZhaoZuoxiang_228_fear": [
+    "fear<|endofprompt|>汽车排出尾气"
+  ],
+  "liuchanhg_210_sad": [
+    "sad<|endofprompt|>银行拥有保安"
+  ],
+  "wangzhe_245_fear": [
+    "fear<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_237_sad": [
+    "sad<|endofprompt|>厂家提供原料"
+  ],
+  "wangzhe_233_fear": [
+    "fear<|endofprompt|>工厂增大产值"
+  ],
+  "liuchanhg_239_neutral": [
+    "neutral<|endofprompt|>工人生产手表"
+  ],
+  "ZhaoZuoxiang_219_angry": [
+    "angry<|endofprompt|>你们殴打他们"
+  ],
+  "ZhaoZuoxiang_225_fear": [
+    "fear<|endofprompt|>工作还有困难"
+  ],
+  "liuchanhg_220_angry": [
+    "angry<|endofprompt|>世界变得和平"
+  ],
+  "zhaoquanyin_211_surprise": [
+    "surprise<|endofprompt|>人们保留资格"
+  ],
+  "wangzhe_216_fear": [
+    "fear<|endofprompt|>你们称呼长辈"
+  ],
+  "zhaoquanyin_215_sad": [
+    "sad<|endofprompt|>下雨耽误工作"
+  ],
+  "zhaoquanyin_218_surprise": [
+    "surprise<|endofprompt|>他们到达这里"
+  ],
+  "liuchanhg_248_neutral": [
+    "neutral<|endofprompt|>股民丧失信心"
+  ],
+  "ZhaoZuoxiang_207_sad": [
+    "sad<|endofprompt|>大岳去种菜。"
+  ],
+  "ZhaoZuoxiang_236_surprise": [
+    "surprise<|endofprompt|>国际进行合作"
+  ],
+  "wangzhe_215_neutral": [
+    "neutral<|endofprompt|>下雨耽误工作"
+  ],
+  "liuchanhg_217_surprise": [
+    "surprise<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_234_neutral": [
+    "neutral<|endofprompt|>居民购买房屋"
+  ],
+  "wangzhe_226_neutral": [
+    "neutral<|endofprompt|>员工询问老板"
+  ],
+  "ZhaoZuoxiang_208_surprise": [
+    "surprise<|endofprompt|>四万四块四。"
+  ],
+  "ZhaoZuoxiang_214_fear": [
+    "fear<|endofprompt|>台球很有意思"
+  ],
+  "wangzhe_220_surprise": [
+    "surprise<|endofprompt|>世界变得和平"
+  ],
+  "ZhaoZuoxiang_220_happy": [
+    "happy<|endofprompt|>世界变得和平"
+  ],
+  "zhaoquanyin_203_sad": [
+    "sad<|endofprompt|>孙英开飞机。"
+  ],
+  "liuchanhg_207_sad": [
+    "sad<|endofprompt|>大岳去种菜。"
+  ],
+  "ZhaoZuoxiang_207_surprise": [
+    "surprise<|endofprompt|>大岳去种菜。"
+  ],
+  "liuchanhg_241_fear": [
+    "fear<|endofprompt|>上海开放港口"
+  ],
+  "liuchanhg_238_angry": [
+    "angry<|endofprompt|>农民种植果树"
+  ],
+  "wangzhe_239_happy": [
+    "happy<|endofprompt|>工人生产手表"
+  ],
+  "zhaoquanyin_247_happy": [
+    "happy<|endofprompt|>职员完成 任务"
+  ],
+  "zhaoquanyin_248_angry": [
+    "angry<|endofprompt|>股民丧失信心"
+  ],
+  "liuchanhg_238_fear": [
+    "fear<|endofprompt|>农民种植果树"
+  ],
+  "ZhaoZuoxiang_229_angry": [
+    "angry<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "wangzhe_232_fear": [
+    "fear<|endofprompt|>噪音产生污染"
+  ],
+  "ZhaoZuoxiang_245_neutral": [
+    "neutral<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_221_sad": [
+    "sad<|endofprompt|>市场制造机"
+  ],
+  "zhaoquanyin_245_fear": [
+    "fear<|endofprompt|>家具搬到房间"
+  ],
+  "wangzhe_205_neutral": [
+    "neutral<|endofprompt|>十头峡河牛。"
+  ],
+  "zhaoquanyin_205_neutral": [
+    "neutral<|endofprompt|>十头峡河牛。"
+  ],
+  "wangzhe_203_sad": [
+    "sad<|endofprompt|>孙英开飞机。"
+  ],
+  "zhaoquanyin_207_neutral": [
+    "neutral<|endofprompt|>大岳去种菜。"
+  ],
+  "liuchanhg_208_fear": [
+    "fear<|endofprompt|>四万四块四。"
+  ],
+  "liuchanhg_224_surprise": [
+    "surprise<|endofprompt|>我们需要帮助"
+  ],
+  "ZhaoZuoxiang_238_angry": [
+    "angry<|endofprompt|>农民种植果树"
+  ],
+  "ZhaoZuoxiang_226_sad": [
+    "sad<|endofprompt|>员工询问老板"
+  ],
+  "zhaoquanyin_207_sad": [
+    "sad<|endofprompt|>大岳去种菜。"
+  ],
+  "ZhaoZuoxiang_243_surprise": [
+    "surprise<|endofprompt|>苏梅打扫房间"
+  ],
+  "liuchanhg_244_angry": [
+    "angry<|endofprompt|>天空变成蓝色"
+  ],
+  "wangzhe_224_fear": [
+    "fear<|endofprompt|>我们需要帮助"
+  ],
+  "ZhaoZuoxiang_219_surprise": [
+    "surprise<|endofprompt|>你们殴打他们"
+  ],
+  "ZhaoZuoxiang_235_happy": [
+    "happy<|endofprompt|>政府干预市场"
+  ],
+  "liuchanhg_211_sad": [
+    "sad<|endofprompt|>人们保留资格"
+  ],
+  "zhaoquanyin_228_happy": [
+    "happy<|endofprompt|>汽车排出尾气"
+  ],
+  "zhaoquanyin_218_sad": [
+    "sad<|endofprompt|>他们到达这里"
+  ],
+  "zhaoquanyin_241_neutral": [
+    "neutral<|endofprompt|>上海开放港口"
+  ],
+  "ZhaoZuoxiang_237_surprise": [
+    "surprise<|endofprompt|>厂家提供原料"
+  ],
+  "zhaoquanyin_223_fear": [
+    "fear<|endofprompt|>集团进行改革"
+  ],
+  "zhaoquanyin_207_surprise": [
+    "surprise<|endofprompt|>大岳去种菜。"
+  ],
+  "wangzhe_227_surprise": [
+    "surprise<|endofprompt|>国家改革企业"
+  ],
+  "liuchanhg_208_happy": [
+    "happy<|endofprompt|>四万四块四。"
+  ],
+  "wangzhe_211_neutral": [
+    "neutral<|endofprompt|>人们保留资格"
+  ],
+  "liuchanhg_231_surprise": [
+    "surprise<|endofprompt|>团结产生力量"
+  ],
+  "ZhaoZuoxiang_246_neutral": [
+    "neutral<|endofprompt|>公司开设讲座"
+  ],
+  "liuchanhg_240_happy": [
+    "happy<|endofprompt|>老师教授知识"
+  ],
+  "ZhaoZuoxiang_221_angry": [
+    "angry<|endofprompt|>市场制造机"
+  ],
+  "liuchanhg_201_angry": [
+    "angry<|endofprompt|>就是下雨也去。"
+  ],
+  "ZhaoZuoxiang_243_fear": [
+    "fear<|endofprompt|>苏梅打扫房间"
+  ],
+  "liuchanhg_228_happy": [
+    "happy<|endofprompt|>汽车排出尾气"
+  ],
+  "wangzhe_208_neutral": [
+    "neutral<|endofprompt|>四万四块四。"
+  ],
+  "liuchanhg_244_happy": [
+    "happy<|endofprompt|>天空变成蓝色"
+  ],
+  "ZhaoZuoxiang_237_angry": [
+    "angry<|endofprompt|>厂家提供原料"
+  ],
+  "ZhaoZuoxiang_240_fear": [
+    "fear<|endofprompt|>老师教授知识"
+  ],
+  "wangzhe_225_happy": [
+    "happy<|endofprompt|>工作还有困难"
+  ],
+  "liuchanhg_249_surprise": [
+    "surprise<|endofprompt|>笑话逗得大家开心"
+  ],
+  "ZhaoZuoxiang_241_neutral": [
+    "neutral<|endofprompt|>上海开放港口"
+  ],
+  "zhaoquanyin_210_fear": [
+    "fear<|endofprompt|>银行拥有保安"
+  ],
+  "zhaoquanyin_242_sad": [
+    "sad<|endofprompt|>北京召开奥运"
+  ],
+  "ZhaoZuoxiang_246_fear": [
+    "fear<|endofprompt|>公司开设讲座"
+  ],
+  "ZhaoZuoxiang_228_angry": [
+    "angry<|endofprompt|>汽车排出尾气"
+  ],
+  "ZhaoZuoxiang_239_surprise": [
+    "surprise<|endofprompt|>工人生产手表"
+  ],
+  "liuchanhg_217_happy": [
+    "happy<|endofprompt|>形状成为水壶"
+  ],
+  "ZhaoZuoxiang_211_neutral": [
+    "neutral<|endofprompt|>人们保留资格"
+  ],
+  "ZhaoZuoxiang_230_surprise": [
+    "surprise<|endofprompt|>竞争增加效益"
+  ],
+  "zhaoquanyin_214_sad": [
+    "sad<|endofprompt|>台球很有意思"
+  ],
+  "liuchanhg_204_angry": [
+    "angry<|endofprompt|>国华来完成。"
+  ],
+  "ZhaoZuoxiang_241_fear": [
+    "fear<|endofprompt|>上海开放港口"
+  ],
+  "zhaoquanyin_207_happy": [
+    "happy<|endofprompt|>大岳去种菜。"
+  ],
+  "liuchanhg_207_angry": [
+    "angry<|endofprompt|>大岳去种菜。"
+  ],
+  "liuchanhg_205_neutral": [
+    "neutral<|endofprompt|>十头峡河牛。"
+  ],
+  "ZhaoZuoxiang_248_surprise": [
+    "surprise<|endofprompt|>股民丧失信心"
+  ],
+  "zhaoquanyin_228_neutral": [
+    "neutral<|endofprompt|>汽车排出尾气"
+  ],
+  "wangzhe_217_fear": [
+    "fear<|endofprompt|>形状成为水壶"
+  ],
+  "wangzhe_221_happy": [
+    "happy<|endofprompt|>市场制造机"
+  ],
+  "liuchanhg_224_neutral": [
+    "neutral<|endofprompt|>我们需要帮助"
+  ],
+  "ZhaoZuoxiang_211_surprise": [
+    "surprise<|endofprompt|>人们保留资格"
+  ],
+  "zhaoquanyin_213_angry": [
+    "angry<|endofprompt|>苏联代表世界"
+  ],
+  "liuchanhg_227_surprise": [
+    "surprise<|endofprompt|>国家改革企业"
+  ],
+  "wangzhe_249_neutral": [
+    "neutral<|endofprompt|>笑话逗得大家开心"
+  ],
+  "wangzhe_248_happy": [
+    "happy<|endofprompt|>股民丧失信心"
+  ],
+  "zhaoquanyin_201_sad": [
+    "sad<|endofprompt|>就是下雨也去。"
+  ],
+  "ZhaoZuoxiang_236_fear": [
+    "fear<|endofprompt|>国际进行合作"
+  ],
+  "zhaoquanyin_224_surprise": [
+    "surprise<|endofprompt|>我们需要帮助"
+  ],
+  "wangzhe_229_happy": [
+    "happy<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "ZhaoZuoxiang_246_angry": [
+    "angry<|endofprompt|>公司开设讲座"
+  ],
+  "ZhaoZuoxiang_221_fear": [
+    "fear<|endofprompt|>市场制造机"
+  ],
+  "wangzhe_244_surprise": [
+    "surprise<|endofprompt|>天空变成蓝色"
+  ],
+  "liuchanhg_239_sad": [
+    "sad<|endofprompt|>工人生产手表"
+  ],
+  "wangzhe_208_surprise": [
+    "surprise<|endofprompt|>四万四块四。"
+  ],
+  "wangzhe_228_happy": [
+    "happy<|endofprompt|>汽车排出尾气"
+  ],
+  "ZhaoZuoxiang_227_happy": [
+    "happy<|endofprompt|>国家改革企业"
+  ],
+  "wangzhe_226_sad": [
+    "sad<|endofprompt|>员工询问老板"
+  ],
+  "liuchanhg_228_fear": [
+    "fear<|endofprompt|>汽车排出尾气"
+  ],
+  "ZhaoZuoxiang_218_surprise": [
+    "surprise<|endofprompt|>他们到达这里"
+  ],
+  "zhaoquanyin_229_surprise": [
+    "surprise<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "zhaoquanyin_232_sad": [
+    "sad<|endofprompt|>噪音产生污染"
+  ],
+  "ZhaoZuoxiang_238_fear": [
+    "fear<|endofprompt|>农民种植果树"
+  ],
+  "zhaoquanyin_219_happy": [
+    "happy<|endofprompt|>你们殴打他们"
+  ],
+  "zhaoquanyin_224_neutral": [
+    "neutral<|endofprompt|>我们需要帮助"
+  ],
+  "wangzhe_204_angry": [
+    "angry<|endofprompt|>国华来完成。"
+  ],
+  "zhaoquanyin_203_fear": [
+    "fear<|endofprompt|>孙英开飞机。"
+  ],
+  "zhaoquanyin_250_surprise": [
+    "surprise<|endofprompt|>阳光使得你们温暖"
+  ],
+  "liuchanhg_228_neutral": [
+    "neutral<|endofprompt|>汽车排出尾气"
+  ],
+  "wangzhe_201_fear": [
+    "fear<|endofprompt|>就是下雨也去。"
+  ],
+  "ZhaoZuoxiang_250_surprise": [
+    "surprise<|endofprompt|>阳光使得你们温暖"
+  ],
+  "liuchanhg_211_happy": [
+    "happy<|endofprompt|>人们保留资格"
+  ],
+  "liuchanhg_209_neutral": [
+    "neutral<|endofprompt|>他们支持中国"
+  ],
+  "zhaoquanyin_223_surprise": [
+    "surprise<|endofprompt|>集团进行改革"
+  ],
+  "wangzhe_218_fear": [
+    "fear<|endofprompt|>他们到达这里"
+  ],
+  "liuchanhg_242_happy": [
+    "happy<|endofprompt|>北京召开奥运"
+  ],
+  "ZhaoZuoxiang_235_surprise": [
+    "surprise<|endofprompt|>政府干预市场"
+  ],
+  "liuchanhg_205_sad": [
+    "sad<|endofprompt|>十头峡河牛。"
+  ],
+  "liuchanhg_220_sad": [
+    "sad<|endofprompt|>世界变得和平"
+  ],
+  "zhaoquanyin_228_surprise": [
+    "surprise<|endofprompt|>汽车排出尾气"
+  ],
+  "liuchanhg_211_fear": [
+    "fear<|endofprompt|>人们保留资格"
+  ],
+  "liuchanhg_247_angry": [
+    "angry<|endofprompt|>职员完成 任务"
+  ],
+  "wangzhe_240_neutral": [
+    "neutral<|endofprompt|>老师教授知识"
+  ],
+  "zhaoquanyin_234_angry": [
+    "angry<|endofprompt|>居民购买房屋"
+  ],
+  "wangzhe_210_neutral": [
+    "neutral<|endofprompt|>银行拥有保安"
+  ],
+  "ZhaoZuoxiang_207_neutral": [
+    "neutral<|endofprompt|>大岳去种菜。"
+  ],
+  "wangzhe_208_fear": [
+    "fear<|endofprompt|>四万四块四。"
+  ],
+  "zhaoquanyin_246_fear": [
+    "fear<|endofprompt|>公司开设讲座"
+  ],
+  "liuchanhg_232_fear": [
+    "fear<|endofprompt|>噪音产生污染"
+  ],
+  "ZhaoZuoxiang_232_happy": [
+    "happy<|endofprompt|>噪音产生污染"
+  ],
+  "liuchanhg_230_happy": [
+    "happy<|endofprompt|>竞争增加效益"
+  ],
+  "liuchanhg_249_neutral": [
+    "neutral<|endofprompt|>笑话逗得大家开心"
+  ],
+  "liuchanhg_214_angry": [
+    "angry<|endofprompt|>台球很有意思"
+  ],
+  "wangzhe_227_neutral": [
+    "neutral<|endofprompt|>国家改革企业"
+  ],
+  "ZhaoZuoxiang_244_surprise": [
+    "surprise<|endofprompt|>天空变成蓝色"
+  ],
+  "ZhaoZuoxiang_233_angry": [
+    "angry<|endofprompt|>工厂增大产值"
+  ],
+  "ZhaoZuoxiang_220_fear": [
+    "fear<|endofprompt|>世界变得和平"
+  ],
+  "wangzhe_223_neutral": [
+    "neutral<|endofprompt|>集团进行改革"
+  ],
+  "liuchanhg_226_fear": [
+    "fear<|endofprompt|>员工询问老板"
+  ],
+  "ZhaoZuoxiang_248_happy": [
+    "happy<|endofprompt|>股民丧失信心"
+  ],
+  "ZhaoZuoxiang_229_surprise": [
+    "surprise<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "liuchanhg_236_neutral": [
+    "neutral<|endofprompt|>国际进行合作"
+  ],
+  "zhaoquanyin_247_fear": [
+    "fear<|endofprompt|>职员完成 任务"
+  ],
+  "wangzhe_213_sad": [
+    "sad<|endofprompt|>苏联代表世界"
+  ],
+  "ZhaoZuoxiang_211_happy": [
+    "happy<|endofprompt|>人们保留资格"
+  ],
+  "ZhaoZuoxiang_217_angry": [
+    "angry<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_209_happy": [
+    "happy<|endofprompt|>他们支持中国"
+  ],
+  "zhaoquanyin_234_sad": [
+    "sad<|endofprompt|>居民购买房屋"
+  ],
+  "liuchanhg_202_neutral": [
+    "neutral<|endofprompt|>我马上拿来。"
+  ],
+  "zhaoquanyin_228_fear": [
+    "fear<|endofprompt|>汽车排出尾气"
+  ],
+  "liuchanhg_239_surprise": [
+    "surprise<|endofprompt|>工人生产手表"
+  ],
+  "zhaoquanyin_222_sad": [
+    "sad<|endofprompt|>美国垄断市场"
+  ],
+  "wangzhe_210_surprise": [
+    "surprise<|endofprompt|>银行拥有保安"
+  ],
+  "zhaoquanyin_202_fear": [
+    "fear<|endofprompt|>我马上拿来。"
+  ],
+  "liuchanhg_204_fear": [
+    "fear<|endofprompt|>国华来完成。"
+  ],
+  "liuchanhg_213_sad": [
+    "sad<|endofprompt|>苏联代表世界"
+  ],
+  "zhaoquanyin_205_fear": [
+    "fear<|endofprompt|>十头峡河牛。"
+  ],
+  "zhaoquanyin_246_happy": [
+    "happy<|endofprompt|>公司开设讲座"
+  ],
+  "zhaoquanyin_204_happy": [
+    "happy<|endofprompt|>国华来完成。"
+  ],
+  "ZhaoZuoxiang_216_surprise": [
+    "surprise<|endofprompt|>你们称呼长辈"
+  ],
+  "wangzhe_226_happy": [
+    "happy<|endofprompt|>员工询问老板"
+  ],
+  "wangzhe_220_neutral": [
+    "neutral<|endofprompt|>世界变得和平"
+  ],
+  "zhaoquanyin_239_fear": [
+    "fear<|endofprompt|>工人生产手表"
+  ],
+  "zhaoquanyin_226_fear": [
+    "fear<|endofprompt|>员工询问老板"
+  ],
+  "ZhaoZuoxiang_222_happy": [
+    "happy<|endofprompt|>美国垄断市场"
+  ],
+  "zhaoquanyin_203_happy": [
+    "happy<|endofprompt|>孙英开飞机。"
+  ],
+  "ZhaoZuoxiang_236_angry": [
+    "angry<|endofprompt|>国际进行合作"
+  ],
+  "liuchanhg_224_angry": [
+    "angry<|endofprompt|>我们需要帮助"
+  ],
+  "liuchanhg_219_surprise": [
+    "surprise<|endofprompt|>你们殴打他们"
+  ],
+  "wangzhe_211_fear": [
+    "fear<|endofprompt|>人们保留资格"
+  ],
+  "liuchanhg_241_sad": [
+    "sad<|endofprompt|>上海开放港口"
+  ],
+  "ZhaoZuoxiang_234_happy": [
+    "happy<|endofprompt|>居民购买房屋"
+  ],
+  "liuchanhg_219_sad": [
+    "sad<|endofprompt|>你们殴打他们"
+  ],
+  "liuchanhg_240_fear": [
+    "fear<|endofprompt|>老师教授知识"
+  ],
+  "wangzhe_228_sad": [
+    "sad<|endofprompt|>汽车排出尾气"
+  ],
+  "zhaoquanyin_227_fear": [
+    "fear<|endofprompt|>国家改革企业"
+  ],
+  "liuchanhg_248_fear": [
+    "fear<|endofprompt|>股民丧失信心"
+  ],
+  "liuchanhg_221_fear": [
+    "fear<|endofprompt|>市场制造机"
+  ],
+  "zhaoquanyin_216_neutral": [
+    "neutral<|endofprompt|>你们称呼长辈"
+  ],
+  "zhaoquanyin_240_happy": [
+    "happy<|endofprompt|>老师教授知识"
+  ],
+  "wangzhe_246_neutral": [
+    "neutral<|endofprompt|>公司开设讲座"
+  ],
+  "liuchanhg_212_sad": [
+    "sad<|endofprompt|>农民盖起厂房"
+  ],
+  "zhaoquanyin_240_surprise": [
+    "surprise<|endofprompt|>老师教授知识"
+  ],
+  "zhaoquanyin_243_surprise": [
+    "surprise<|endofprompt|>苏梅打扫房间"
+  ],
+  "zhaoquanyin_248_happy": [
+    "happy<|endofprompt|>股民丧失信心"
+  ],
+  "ZhaoZuoxiang_241_surprise": [
+    "surprise<|endofprompt|>上海开放港口"
+  ],
+  "wangzhe_204_fear": [
+    "fear<|endofprompt|>国华来完成。"
+  ],
+  "zhaoquanyin_212_neutral": [
+    "neutral<|endofprompt|>农民盖起厂房"
+  ],
+  "wangzhe_240_surprise": [
+    "surprise<|endofprompt|>老师教授知识"
+  ],
+  "zhaoquanyin_250_fear": [
+    "fear<|endofprompt|>阳光使得你们温暖"
+  ],
+  "wangzhe_242_happy": [
+    "happy<|endofprompt|>北京召开奥运"
+  ],
+  "wangzhe_216_sad": [
+    "sad<|endofprompt|>你们称呼长辈"
+  ],
+  "wangzhe_250_surprise": [
+    "surprise<|endofprompt|>阳光使得你们温暖"
+  ],
+  "wangzhe_209_surprise": [
+    "surprise<|endofprompt|>他们支持中国"
+  ],
+  "liuchanhg_219_neutral": [
+    "neutral<|endofprompt|>你们殴打他们"
+  ],
+  "liuchanhg_247_sad": [
+    "sad<|endofprompt|>职员完成 任务"
+  ],
+  "ZhaoZuoxiang_214_neutral": [
+    "neutral<|endofprompt|>台球很有意思"
+  ],
+  "wangzhe_229_angry": [
+    "angry<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "zhaoquanyin_215_surprise": [
+    "surprise<|endofprompt|>下雨耽误工作"
+  ],
+  "liuchanhg_232_sad": [
+    "sad<|endofprompt|>噪音产生污染"
+  ],
+  "liuchanhg_246_neutral": [
+    "neutral<|endofprompt|>公司开设讲座"
+  ],
+  "zhaoquanyin_242_happy": [
+    "happy<|endofprompt|>北京召开奥运"
+  ],
+  "ZhaoZuoxiang_203_angry": [
+    "angry<|endofprompt|>孙英开飞机。"
+  ],
+  "zhaoquanyin_237_neutral": [
+    "neutral<|endofprompt|>厂家提供原料"
+  ],
+  "ZhaoZuoxiang_248_angry": [
+    "angry<|endofprompt|>股民丧失信心"
+  ],
+  "zhaoquanyin_230_surprise": [
+    "surprise<|endofprompt|>竞争增加效益"
+  ],
+  "wangzhe_223_sad": [
+    "sad<|endofprompt|>集团进行改革"
+  ],
+  "liuchanhg_208_sad": [
+    "sad<|endofprompt|>四万四块四。"
+  ],
+  "zhaoquanyin_206_surprise": [
+    "surprise<|endofprompt|>小宝逮老鼠。"
+  ],
+  "liuchanhg_242_neutral": [
+    "neutral<|endofprompt|>北京召开奥运"
+  ],
+  "liuchanhg_225_happy": [
+    "happy<|endofprompt|>工作还有困难"
+  ],
+  "wangzhe_247_angry": [
+    "angry<|endofprompt|>职员完成 任务"
+  ],
+  "liuchanhg_202_sad": [
+    "sad<|endofprompt|>我马上拿来。"
+  ],
+  "liuchanhg_245_neutral": [
+    "neutral<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_250_angry": [
+    "angry<|endofprompt|>阳光使得你们温暖"
+  ],
+  "zhaoquanyin_206_happy": [
+    "happy<|endofprompt|>小宝逮老鼠。"
+  ],
+  "ZhaoZuoxiang_235_sad": [
+    "sad<|endofprompt|>政府干预市场"
+  ],
+  "ZhaoZuoxiang_244_happy": [
+    "happy<|endofprompt|>天空变成蓝色"
+  ],
+  "ZhaoZuoxiang_230_neutral": [
+    "neutral<|endofprompt|>竞争增加效益"
+  ],
+  "liuchanhg_214_neutral": [
+    "neutral<|endofprompt|>台球很有意思"
+  ],
+  "wangzhe_227_fear": [
+    "fear<|endofprompt|>国家改革企业"
+  ],
+  "liuchanhg_245_surprise": [
+    "surprise<|endofprompt|>家具搬到房间"
+  ],
+  "liuchanhg_206_angry": [
+    "angry<|endofprompt|>小宝逮老鼠。"
+  ],
+  "liuchanhg_226_happy": [
+    "happy<|endofprompt|>员工询问老板"
+  ],
+  "zhaoquanyin_216_surprise": [
+    "surprise<|endofprompt|>你们称呼长辈"
+  ],
+  "zhaoquanyin_232_fear": [
+    "fear<|endofprompt|>噪音产生污染"
+  ],
+  "zhaoquanyin_223_neutral": [
+    "neutral<|endofprompt|>集团进行改革"
+  ],
+  "ZhaoZuoxiang_213_neutral": [
+    "neutral<|endofprompt|>苏联代表世界"
+  ],
+  "liuchanhg_216_happy": [
+    "happy<|endofprompt|>你们称呼长辈"
+  ],
+  "ZhaoZuoxiang_234_fear": [
+    "fear<|endofprompt|>居民购买房屋"
+  ],
+  "zhaoquanyin_238_happy": [
+    "happy<|endofprompt|>农民种植果树"
+  ],
+  "ZhaoZuoxiang_203_neutral": [
+    "neutral<|endofprompt|>孙英开飞机。"
+  ],
+  "ZhaoZuoxiang_210_surprise": [
+    "surprise<|endofprompt|>银行拥有保安"
+  ],
+  "ZhaoZuoxiang_236_happy": [
+    "happy<|endofprompt|>国际进行合作"
+  ],
+  "wangzhe_237_happy": [
+    "happy<|endofprompt|>厂家提供原料"
+  ],
+  "liuchanhg_243_angry": [
+    "angry<|endofprompt|>苏梅打扫房间"
+  ],
+  "wangzhe_232_angry": [
+    "angry<|endofprompt|>噪音产生污染"
+  ],
+  "zhaoquanyin_224_sad": [
+    "sad<|endofprompt|>我们需要帮助"
+  ],
+  "ZhaoZuoxiang_209_fear": [
+    "fear<|endofprompt|>他们支持中国"
+  ],
+  "zhaoquanyin_222_neutral": [
+    "neutral<|endofprompt|>美国垄断市场"
+  ],
+  "ZhaoZuoxiang_216_fear": [
+    "fear<|endofprompt|>你们称呼长辈"
+  ],
+  "liuchanhg_216_angry": [
+    "angry<|endofprompt|>你们称呼长辈"
+  ],
+  "ZhaoZuoxiang_218_neutral": [
+    "neutral<|endofprompt|>他们到达这里"
+  ],
+  "ZhaoZuoxiang_244_angry": [
+    "angry<|endofprompt|>天空变成蓝色"
+  ],
+  "ZhaoZuoxiang_227_sad": [
+    "sad<|endofprompt|>国家改革企业"
+  ],
+  "wangzhe_246_fear": [
+    "fear<|endofprompt|>公司开设讲座"
+  ],
+  "ZhaoZuoxiang_207_fear": [
+    "fear<|endofprompt|>大岳去种菜。"
+  ],
+  "liuchanhg_234_fear": [
+    "fear<|endofprompt|>居民购买房屋"
+  ],
+  "ZhaoZuoxiang_232_sad": [
+    "sad<|endofprompt|>噪音产生污染"
+  ],
+  "ZhaoZuoxiang_229_fear": [
+    "fear<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "wangzhe_213_angry": [
+    "angry<|endofprompt|>苏联代表世界"
+  ],
+  "zhaoquanyin_220_happy": [
+    "happy<|endofprompt|>世界变得和平"
+  ],
+  "liuchanhg_213_fear": [
+    "fear<|endofprompt|>苏联代表世界"
+  ],
+  "zhaoquanyin_244_sad": [
+    "sad<|endofprompt|>天空变成蓝色"
+  ],
+  "wangzhe_220_happy": [
+    "happy<|endofprompt|>世界变得和平"
+  ],
+  "ZhaoZuoxiang_226_fear": [
+    "fear<|endofprompt|>员工询问老板"
+  ],
+  "wangzhe_206_angry": [
+    "angry<|endofprompt|>小宝逮老鼠。"
+  ],
+  "zhaoquanyin_202_sad": [
+    "sad<|endofprompt|>我马上拿来。"
+  ],
+  "liuchanhg_207_surprise": [
+    "surprise<|endofprompt|>大岳去种菜。"
+  ],
+  "wangzhe_245_neutral": [
+    "neutral<|endofprompt|>家具搬到房间"
+  ],
+  "wangzhe_229_surprise": [
+    "surprise<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "liuchanhg_248_sad": [
+    "sad<|endofprompt|>股民丧失信心"
+  ],
+  "liuchanhg_208_angry": [
+    "angry<|endofprompt|>四万四块四。"
+  ],
+  "wangzhe_229_sad": [
+    "sad<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "ZhaoZuoxiang_242_fear": [
+    "fear<|endofprompt|>北京召开奥运"
+  ],
+  "zhaoquanyin_247_surprise": [
+    "surprise<|endofprompt|>职员完成 任务"
+  ],
+  "wangzhe_246_surprise": [
+    "surprise<|endofprompt|>公司开设讲座"
+  ],
+  "ZhaoZuoxiang_220_angry": [
+    "angry<|endofprompt|>世界变得和平"
+  ],
+  "liuchanhg_205_happy": [
+    "happy<|endofprompt|>十头峡河牛。"
+  ],
+  "liuchanhg_245_fear": [
+    "fear<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_234_angry": [
+    "angry<|endofprompt|>居民购买房屋"
+  ],
+  "wangzhe_230_neutral": [
+    "neutral<|endofprompt|>竞争增加效益"
+  ],
+  "ZhaoZuoxiang_204_fear": [
+    "fear<|endofprompt|>国华来完成。"
+  ],
+  "liuchanhg_233_sad": [
+    "sad<|endofprompt|>工厂增大产值"
+  ],
+  "wangzhe_247_sad": [
+    "sad<|endofprompt|>职员完成 任务"
+  ],
+  "liuchanhg_204_sad": [
+    "sad<|endofprompt|>国华来完成。"
+  ],
+  "ZhaoZuoxiang_240_neutral": [
+    "neutral<|endofprompt|>老师教授知识"
+  ],
+  "ZhaoZuoxiang_224_surprise": [
+    "surprise<|endofprompt|>我们需要帮助"
+  ],
+  "ZhaoZuoxiang_233_sad": [
+    "sad<|endofprompt|>工厂增大产值"
+  ],
+  "liuchanhg_231_happy": [
+    "happy<|endofprompt|>团结产生力量"
+  ],
+  "wangzhe_236_surprise": [
+    "surprise<|endofprompt|>国际进行合作"
+  ],
+  "ZhaoZuoxiang_233_happy": [
+    "happy<|endofprompt|>工厂增大产值"
+  ],
+  "wangzhe_249_surprise": [
+    "surprise<|endofprompt|>笑话逗得大家开心"
+  ],
+  "wangzhe_244_happy": [
+    "happy<|endofprompt|>天空变成蓝色"
+  ],
+  "ZhaoZuoxiang_222_neutral": [
+    "neutral<|endofprompt|>美国垄断市场"
+  ],
+  "zhaoquanyin_231_happy": [
+    "happy<|endofprompt|>团结产生力量"
+  ],
+  "wangzhe_216_surprise": [
+    "surprise<|endofprompt|>你们称呼长辈"
+  ],
+  "ZhaoZuoxiang_203_surprise": [
+    "surprise<|endofprompt|>孙英开飞机。"
+  ],
+  "ZhaoZuoxiang_230_sad": [
+    "sad<|endofprompt|>竞争增加效益"
+  ],
+  "zhaoquanyin_219_fear": [
+    "fear<|endofprompt|>你们殴打他们"
+  ],
+  "zhaoquanyin_209_fear": [
+    "fear<|endofprompt|>他们支持中国"
+  ],
+  "ZhaoZuoxiang_203_fear": [
+    "fear<|endofprompt|>孙英开飞机。"
+  ],
+  "wangzhe_239_neutral": [
+    "neutral<|endofprompt|>工人生产手表"
+  ],
+  "wangzhe_240_happy": [
+    "happy<|endofprompt|>老师教授知识"
+  ],
+  "ZhaoZuoxiang_201_happy": [
+    "happy<|endofprompt|>就是下雨也去。"
+  ],
+  "zhaoquanyin_208_sad": [
+    "sad<|endofprompt|>四万四块四。"
+  ],
+  "wangzhe_211_happy": [
+    "happy<|endofprompt|>人们保留资格"
+  ],
+  "zhaoquanyin_229_sad": [
+    "sad<|endofprompt|>烟囱冒出浓烟"
+  ],
+  "wangzhe_228_neutral": [
+    "neutral<|endofprompt|>汽车排出尾气"
+  ],
+  "liuchanhg_247_fear": [
+    "fear<|endofprompt|>职员完成 任务"
+  ],
+  "zhaoquanyin_227_happy": [
+    "happy<|endofprompt|>国家改革企业"
+  ],
+  "wangzhe_222_fear": [
+    "fear<|endofprompt|>美国垄断市场"
+  ],
+  "ZhaoZuoxiang_218_sad": [
+    "sad<|endofprompt|>他们到达这里"
+  ],
+  "wangzhe_214_neutral": [
+    "neutral<|endofprompt|>台球很有意思"
+  ],
+  "zhaoquanyin_225_neutral": [
+    "neutral<|endofprompt|>工作还有困难"
+  ],
+  "wangzhe_230_angry": [
+    "angry<|endofprompt|>竞争增加效益"
+  ],
+  "zhaoquanyin_230_fear": [
+    "fear<|endofprompt|>竞争增加效益"
+  ],
+  "zhaoquanyin_238_neutral": [
+    "neutral<|endofprompt|>农民种植果树"
+  ],
+  "wangzhe_232_surprise": [
+    "surprise<|endofprompt|>噪音产生污染"
+  ],
+  "wangzhe_245_angry": [
+    "angry<|endofprompt|>家具搬到房间"
+  ],
+  "wangzhe_205_surprise": [
+    "surprise<|endofprompt|>十头峡河牛。"
+  ],
+  "liuchanhg_230_sad": [
+    "sad<|endofprompt|>竞争增加效益"
+  ],
+  "wangzhe_223_surprise": [
+    "surprise<|endofprompt|>集团进行改革"
+  ],
+  "liuchanhg_204_surprise": [
+    "surprise<|endofprompt|>国华来完成。"
+  ],
+  "liuchanhg_243_surprise": [
+    "surprise<|endofprompt|>苏梅打扫房间"
+  ],
+  "liuchanhg_205_angry": [
+    "angry<|endofprompt|>十头峡河牛。"
+  ],
+  "ZhaoZuoxiang_236_sad": [
+    "sad<|endofprompt|>国际进行合作"
+  ],
+  "liuchanhg_203_angry": [
+    "angry<|endofprompt|>孙英开飞机。"
+  ],
+  "liuchanhg_234_happy": [
+    "happy<|endofprompt|>居民购买房屋"
+  ],
+  "liuchanhg_222_happy": [
+    "happy<|endofprompt|>美国垄断市场"
+  ],
+  "liuchanhg_221_happy": [
+    "happy<|endofprompt|>市场制造机"
+  ],
+  "zhaoquanyin_232_happy": [
+    "happy<|endofprompt|>噪音产生污染"
+  ],
+  "liuchanhg_230_surprise": [
+    "surprise<|endofprompt|>竞争增加效益"
+  ],
+  "ZhaoZuoxiang_218_fear": [
+    "fear<|endofprompt|>他们到达这里"
+  ],
+  "wangzhe_212_neutral": [
+    "neutral<|endofprompt|>农民盖起厂房"
+  ],
+  "liuchanhg_237_happy": [
+    "happy<|endofprompt|>厂家提供原料"
+  ],
+  "liuchanhg_209_angry": [
+    "angry<|endofprompt|>他们支持中国"
+  ],
+  "ZhaoZuoxiang_217_surprise": [
+    "surprise<|endofprompt|>形状成为水壶"
+  ],
+  "zhaoquanyin_215_angry": [
+    "angry<|endofprompt|>下雨耽误工作"
+  ],
+  "zhaoquanyin_217_angry": [
+    "angry<|endofprompt|>形状成为水壶"
+  ],
+  "liuchanhg_203_surprise": [
+    "surprise<|endofprompt|>孙英开飞机。"
+  ],
+  "liuchanhg_212_surprise": [
+    "surprise<|endofprompt|>农民盖起厂房"
+  ],
+  "wangzhe_239_fear": [
+    "fear<|endofprompt|>工人生产手表"
+  ],
+  "zhaoquanyin_240_fear": [
+    "fear<|endofprompt|>老师教授知识"
+  ],
+  "wangzhe_204_neutral": [
+    "neutral<|endofprompt|>国华来完成。"
+  ],
+  "ZhaoZuoxiang_232_neutral": [
+    "neutral<|endofprompt|>噪音产生污染"
+  ],
+  "liuchanhg_215_happy": [
+    "happy<|endofprompt|>下雨耽误工作"
+  ],
+  "ZhaoZuoxiang_203_happy": [
+    "happy<|endofprompt|>孙英开飞机。"
+  ],
+  "liuchanhg_205_fear": [
+    "fear<|endofprompt|>十头峡河牛。"
+  ],
+  "zhaoquanyin_240_neutral": [
+    "neutral<|endofprompt|>老师教授知识"
+  ],
+  "ZhaoZuoxiang_202_fear": [
+    "fear<|endofprompt|>我马上拿来。"
+  ],
+  "ZhaoZuoxiang_228_sad": [
+    "sad<|endofprompt|>汽车排出尾气"
+  ],
+  "ZhaoZuoxiang_240_surprise": [
+    "surprise<|endofprompt|>老师教授知识"
+  ],
+  "zhaoquanyin_243_neutral": [
+    "neutral<|endofprompt|>苏梅打扫房间"
+  ],
+  "zhaoquanyin_203_angry": [
+    "angry<|endofprompt|>孙英开飞机。"
+  ],
+  "liuchanhg_242_fear": [
+    "fear<|endofprompt|>北京召开奥运"
+  ],
+  "zhaoquanyin_211_happy": [
+    "happy<|endofprompt|>人们保留资格"
+  ],
+  "liuchanhg_210_angry": [
+    "angry<|endofprompt|>银行拥有保安"
+  ],
+  "wangzhe_213_happy": [
+    "happy<|endofprompt|>苏联代表世界"
+  ],
+  "ZhaoZuoxiang_213_fear": [
+    "fear<|endofprompt|>苏联代表世界"
+  ],
+  "liuchanhg_209_sad": [
+    "sad<|endofprompt|>他们支持中国"
+  ],
+  "wangzhe_216_neutral": [
+    "neutral<|endofprompt|>你们称呼长辈"
+  ],
+  "zhaoquanyin_221_surprise": [
+    "surprise<|endofprompt|>市场制造机"
+  ],
+  "wangzhe_230_surprise": [
+    "surprise<|endofprompt|>竞争增加效益"
+  ],
+  "zhaoquanyin_242_angry": [
+    "angry<|endofprompt|>北京召开奥运"
+  ],
+  "zhaoquanyin_246_neutral": [
+    "neutral<|endofprompt|>公司开设讲座"
+  ],
+  "ZhaoZuoxiang_224_neutral": [
+    "neutral<|endofprompt|>我们需要帮助"
+  ],
+  "liuchanhg_219_happy": [
+    "happy<|endofprompt|>你们殴打他们"
+  ],
+  "wangzhe_238_fear": [
+    "fear<|endofprompt|>农民种植果树"
+  ],
+  "zhaoquanyin_218_fear": [
+    "fear<|endofprompt|>他们到达这里"
+  ],
+  "ZhaoZuoxiang_214_sad": [
+    "sad<|endofprompt|>台球很有意思"
+  ],
+  "zhaoquanyin_207_fear": [
+    "fear<|endofprompt|>大岳去种菜。"
+  ],
+  "liuchanhg_211_neutral": [
+    "neutral<|endofprompt|>人们保留资格"
+  ],
+  "wangzhe_246_happy": [
+    "happy<|endofprompt|>公司开设讲座"
+  ],
+  "wangzhe_206_surprise": [
+    "surprise<|endofprompt|>小宝逮老鼠。"
+  ],
+  "wangzhe_206_neutral": [
+    "neutral<|endofprompt|>小宝逮老鼠。"
+  ],
+  "liuchanhg_249_angry": [
+    "angry<|endofprompt|>笑话逗得大家开心"
+  ],
+  "liuchanhg_222_surprise": [
+    "surprise<|endofprompt|>美国垄断市场"
+  ],
+  "zhaoquanyin_235_fear": [
+    "fear<|endofprompt|>政府干预市场"
+  ],
+  "wangzhe_219_happy": [
+    "happy<|endofprompt|>你们殴打他们"
+  ],
+  "zhaoquanyin_226_neutral": [
+    "neutral<|endofprompt|>员工询问老板"
+  ],
+  "zhaoquanyin_221_happy": [
+    "happy<|endofprompt|>市场制造机"
+  ],
+  "wangzhe_244_neutral": [
+    "neutral<|endofprompt|>天空变成蓝色"
+  ],
+  "zhaoquanyin_241_fear": [
+    "fear<|endofprompt|>上海开放港口"
+  ],
+  "wangzhe_238_happy": [
+    "happy<|endofprompt|>农民种植果树"
+  ],
+  "zhaoquanyin_237_surprise": [
+    "surprise<|endofprompt|>厂家提供原料"
+  ],
+  "liuchanhg_235_neutral": [
+    "neutral<|endofprompt|>政府干预市场"
+  ],
+  "ZhaoZuoxiang_208_sad": [
+    "sad<|endofprompt|>四万四块四。"
+  ],
+  "zhaoquanyin_231_angry": [
+    "angry<|endofprompt|>团结产生力量"
+  ],
+  "liuchanhg_250_fear": [
+    "fear<|endofprompt|>阳光使得你们温暖"
+  ],
+  "zhaoquanyin_213_surprise": [
+    "surprise<|endofprompt|>苏联代表世界"
+  ],
+  "ZhaoZuoxiang_231_angry": [
+    "angry<|endofprompt|>团结产生力量"
+  ],
+  "liuchanhg_218_happy": [
+    "happy<|endofprompt|>他们到达这里"
+  ],
+  "liuchanhg_203_happy": [
+    "happy<|endofprompt|>孙英开飞机。"
+  ],
+  "wangzhe_226_fear": [
+    "fear<|endofprompt|>员工询问老板"
+  ],
+  "ZhaoZuoxiang_246_surprise": [
+    "surprise<|endofprompt|>公司开设讲座"
+  ],
+  "ZhaoZuoxiang_244_sad": [
+    "sad<|endofprompt|>天空变成蓝色"
+  ],
+  "zhaoquanyin_214_happy": [
+    "happy<|endofprompt|>台球很有意思"
+  ],
+  "wangzhe_244_sad": [
+    "sad<|endofprompt|>天空变成蓝色"
+  ],
+  "ZhaoZuoxiang_204_surprise": [
+    "surprise<|endofprompt|>国华来完成。"
+  ],
+  "ZhaoZuoxiang_216_angry": [
+    "angry<|endofprompt|>你们称呼长辈"
+  ],
+  "liuchanhg_235_fear": [
+    "fear<|endofprompt|>政府干预市场"
+  ],
+  "wangzhe_250_happy": [
+    "happy<|endofprompt|>阳光使得你们温暖"
+  ],
+  "ZhaoZuoxiang_238_sad": [
+    "sad<|endofprompt|>农民种植果树"
+  ],
+  "ZhaoZuoxiang_242_surprise": [
+    "surprise<|endofprompt|>北京召开奥运"
+  ],
+  "zhaoquanyin_245_surprise": [
+    "surprise<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_207_angry": [
+    "angry<|endofprompt|>大岳去种菜。"
+  ],
+  "ZhaoZuoxiang_215_angry": [
+    "angry<|endofprompt|>下雨耽误工作"
+  ],
+  "ZhaoZuoxiang_235_neutral": [
+    "neutral<|endofprompt|>政府干预市场"
+  ],
+  "liuchanhg_220_surprise": [
+    "surprise<|endofprompt|>世界变得和平"
+  ],
+  "ZhaoZuoxiang_245_angry": [
+    "angry<|endofprompt|>家具搬到房间"
+  ],
+  "ZhaoZuoxiang_218_angry": [
+    "angry<|endofprompt|>他们到达这里"
+  ],
+  "ZhaoZuoxiang_222_sad": [
+    "sad<|endofprompt|>美国垄断市场"
+  ],
+  "ZhaoZuoxiang_206_neutral": [
+    "neutral<|endofprompt|>小宝逮老鼠。"
+  ],
+  "zhaoquanyin_250_happy": [
+    "happy<|endofprompt|>阳光使得你们温暖"
+  ],
+  "liuchanhg_236_fear": [
+    "fear<|endofprompt|>国际进行合作"
+  ],
+  "zhaoquanyin_201_angry": [
+    "angry<|endofprompt|>就是下雨也去。"
+  ],
+  "wangzhe_237_fear": [
+    "fear<|endofprompt|>厂家提供原料"
+  ],
+  "wangzhe_238_angry": [
+    "angry<|endofprompt|>农民种植果树"
+  ],
+  "ZhaoZuoxiang_208_neutral": [
+    "neutral<|endofprompt|>四万四块四。"
+  ],
+  "liuchanhg_243_neutral": [
+    "neutral<|endofprompt|>苏梅打扫房间"
+  ],
+  "zhaoquanyin_220_neutral": [
+    "neutral<|endofprompt|>世界变得和平"
+  ],
+  "liuchanhg_232_happy": [
+    "happy<|endofprompt|>噪音产生污染"
+  ],
+  "liuchanhg_238_sad": [
+    "sad<|endofprompt|>农民种植果树"
+  ],
+  "zhaoquanyin_231_sad": [
+    "sad<|endofprompt|>团结产生力量"
+  ]
+}
