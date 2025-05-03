@@ -159,8 +159,6 @@ class Executor:
             ref_model.eval()
         total_num_utts, total_loss_dict = 0, {}  # avoid division by 0
 
-        ser_model = AutoModel(model=f"iic/emotion2vec_base_finetuned")
-
         for batch_idx, batch_dict in enumerate(cv_data_loader):
             info_dict["tag"] = "CV"
             info_dict["step"] = self.step

@@ -1,0 +1,1172 @@
+{
+  "liuchanhg_220_angry": [
+    "Neutral<|endofprompt|>这不找着了嘛"
+  ],
+  "ZhaoZuoxiang_221_neutral": [
+    "Neutral<|endofprompt|>让社会也平衡发展一下"
+  ],
+  "liuchanhg_229_happy": [
+    "Surprise<|endofprompt|>妈为什么要反悔呀？"
+  ],
+  "zhaoquanyin_227_angry": [
+    "Neutral<|endofprompt|>车没事了？"
+  ],
+  "ZhaoZuoxiang_242_sad": [
+    "Sad<|endofprompt|>让佳倩把这个孩子做掉"
+  ],
+  "liuchanhg_244_angry": [
+    "Fear<|endofprompt|>手机也不开，真急死我了"
+  ],
+  "ZhaoZuoxiang_206_sad": [
+    "Sad<|endofprompt|>根本就没别的事情可做"
+  ],
+  "liuchanhg_244_fear": [
+    "Anger<|endofprompt|>那我怎么办啊"
+  ],
+  "zhaoquanyin_233_fear": [
+    "Neutral<|endofprompt|>你一个女孩子很危险诶！"
+  ],
+  "liuchanhg_216_fear": [
+    "Neutral<|endofprompt|>没为什么"
+  ],
+  "zhaoquanyin_208_happy": [
+    "Neutral<|endofprompt|>小曲今天早上刚给我发了短信"
+  ],
+  "liuchanhg_204_sad": [
+    "Anger<|endofprompt|>你才应该好好的"
+  ],
+  "liuchanhg_248_surprise": [
+    "Neutral<|endofprompt|>这回考试电解质那块"
+  ],
+  "zhaoquanyin_240_surprise": [
+    "Anger<|endofprompt|>咱们嚼她们的舌根去！"
+  ],
+  "wangzhe_218_surprise": [
+    "Sad<|endofprompt|>我没，我没溜"
+  ],
+  "zhaoquanyin_225_happy": [
+    "Happy<|endofprompt|>我没那么想"
+  ],
+  "liuchanhg_249_angry": [
+    "Neutral<|endofprompt|>你将来"
+  ],
+  "zhaoquanyin_232_neutral": [
+    "Anger<|endofprompt|>行了吧！"
+  ],
+  "wangzhe_236_sad": [
+    "Neutral<|endofprompt|>他都未必会走"
+  ],
+  "wangzhe_229_sad": [
+    "Neutral<|endofprompt|>到那儿可以吃牛肉面"
+  ],
+  "wangzhe_245_sad": [
+    "Neutral<|endofprompt|>所以我就想说"
+  ],
+  "liuchanhg_218_sad": [
+    "Neutral<|endofprompt|>我在花园的另一个角落"
+  ],
+  "liuchanhg_232_fear": [
+    "Neutral<|endofprompt|>不会让你走得太落单的"
+  ],
+  "liuchanhg_243_fear": [
+    "Anger<|endofprompt|>如果我真的去留学"
+  ],
+  "zhaoquanyin_214_angry": [
+    "Anger<|endofprompt|>江达琳，"
+  ],
+  "ZhaoZuoxiang_212_sad": [
+    "Neutral<|endofprompt|>磊儿，我给你算笔账啊"
+  ],
+  "wangzhe_238_happy": [
+    "Anger<|endofprompt|>那是之前"
+  ],
+  "ZhaoZuoxiang_227_fear": [
+    "Neutral<|endofprompt|>在他卧室里面看过你们合照"
+  ],
+  "ZhaoZuoxiang_241_happy": [
+    "Sad<|endofprompt|>这好好一个女孩子"
+  ],
+  "ZhaoZuoxiang_223_neutral": [
+    "Anger<|endofprompt|>如果我真的跟范美"
+  ],
+  "wangzhe_250_happy": [
+    "Anger<|endofprompt|>你不要想一出是一出是不是"
+  ],
+  "zhaoquanyin_250_neutral": [
+    "Anger<|endofprompt|>她在马路上"
+  ],
+  "zhaoquanyin_242_happy": [
+    "Surprise<|endofprompt|>什么？你爸贪污了"
+  ],
+  "wangzhe_215_neutral": [
+    "Neutral<|endofprompt|>好像还唱了什么，你是我的小苹果"
+  ],
+  "liuchanhg_237_fear": [
+    "Neutral<|endofprompt|>永远都这么漂亮啦！"
+  ],
+  "zhaoquanyin_233_angry": [
+    "Neutral<|endofprompt|>我就告诉你我为什么郁闷"
+  ],
+  "ZhaoZuoxiang_206_neutral": [
+    "Anger<|endofprompt|>我挺浪漫的呀"
+  ],
+  "liuchanhg_238_fear": [
+    "Neutral<|endofprompt|>知道吗？"
+  ],
+  "ZhaoZuoxiang_249_neutral": [
+    "Sad<|endofprompt|>也不成那万一他拒不交待呢？"
+  ],
+  "zhaoquanyin_217_happy": [
+    "Neutral<|endofprompt|>下个季度的钱也不交了"
+  ],
+  "liuchanhg_231_angry": [
+    "Neutral<|endofprompt|>如果没有你的话"
+  ],
+  "wangzhe_244_happy": [
+    "Neutral<|endofprompt|>好像是好汉歌"
+  ],
+  "zhaoquanyin_204_neutral": [
+    "Sad<|endofprompt|>我们孤男寡女的"
+  ],
+  "ZhaoZuoxiang_206_fear": [
+    "Neutral<|endofprompt|>等我复读个十次"
+  ],
+  "liuchanhg_245_angry": [
+    "Neutral<|endofprompt|>为什么还这么瘦"
+  ],
+  "zhaoquanyin_205_neutral": [
+    "Surprise<|endofprompt|>我这不也跟你一块看见的吗！"
+  ],
+  "zhaoquanyin_246_angry": [
+    "Happy<|endofprompt|>到底是开开还是关上？"
+  ],
+  "liuchanhg_214_angry": [
+    "Sad<|endofprompt|>你说这要在大马路上"
+  ],
+  "wangzhe_204_fear": [
+    "Neutral<|endofprompt|>还会痛吗？"
+  ],
+  "zhaoquanyin_223_neutral": [
+    "Neutral<|endofprompt|>调到他那边工作"
+  ],
+  "liuchanhg_224_surprise": [
+    "Surprise<|endofprompt|>就得买双鞋？"
+  ],
+  "wangzhe_224_neutral": [
+    "Surprise<|endofprompt|>都能让你主动反思了，啊？"
+  ],
+  "liuchanhg_250_angry": [
+    "Happy<|endofprompt|>好"
+  ],
+  "ZhaoZuoxiang_248_fear": [
+    "Fear<|endofprompt|>我不懂您说什么"
+  ],
+  "ZhaoZuoxiang_236_neutral": [
+    "Neutral<|endofprompt|>我是你以前教过的学生"
+  ],
+  "wangzhe_249_happy": [
+    "Neutral<|endofprompt|>没有什么问题需要解决"
+  ],
+  "zhaoquanyin_203_angry": [
+    "Sad<|endofprompt|>来吃喝玩乐啊"
+  ],
+  "ZhaoZuoxiang_238_surprise": [
+    "Sad<|endofprompt|>怎么挑呀？"
+  ],
+  "wangzhe_219_angry": [
+    "Sad<|endofprompt|>都快成型了"
+  ],
+  "ZhaoZuoxiang_226_fear": [
+    "Neutral<|endofprompt|>通风也要两个月"
+  ],
+  "liuchanhg_242_happy": [
+    "Neutral<|endofprompt|>几点了？"
+  ],
+  "liuchanhg_207_sad": [
+    "Sad<|endofprompt|>这个人有什么问题吧？"
+  ],
+  "zhaoquanyin_229_angry": [
+    "Anger<|endofprompt|>姥姥有多少钱呐？"
+  ],
+  "wangzhe_211_surprise": [
+    "Neutral<|endofprompt|>然后到冰箱拿了什么饮料"
+  ],
+  "ZhaoZuoxiang_210_surprise": [
+    "Happy<|endofprompt|>我快爽疯掉了"
+  ],
+  "wangzhe_213_angry": [
+    "Neutral<|endofprompt|>你孩子几年级呀？"
+  ],
+  "ZhaoZuoxiang_229_surprise": [
+    "Neutral<|endofprompt|>多看两本书"
+  ],
+  "ZhaoZuoxiang_223_surprise": [
+    "Surprise<|endofprompt|>我记得这座椅原来是记忆座椅啊"
+  ],
+  "zhaoquanyin_228_fear": [
+    "Sad<|endofprompt|>我一定要替他打"
+  ],
+  "wangzhe_226_angry": [
+    "Anger<|endofprompt|>他现在谈恋爱那就是自毁前程"
+  ],
+  "ZhaoZuoxiang_220_neutral": [
+    "Anger<|endofprompt|>你怎么可以把那个烂东西"
+  ],
+  "ZhaoZuoxiang_204_neutral": [
+    "Anger<|endofprompt|>你该不会相信这世上"
+  ],
+  "zhaoquanyin_238_sad": [
+    "Anger<|endofprompt|>你凭什么说是我砸的呀！"
+  ],
+  "zhaoquanyin_240_sad": [
+    "Neutral<|endofprompt|>好啊，什么事？"
+  ],
+  "ZhaoZuoxiang_243_neutral": [
+    "Sad<|endofprompt|>要不是因为这套房子"
+  ],
+  "zhaoquanyin_222_sad": [
+    "Anger<|endofprompt|>干点活怎么着累死他呀？"
+  ],
+  "zhaoquanyin_244_neutral": [
+    "Happy<|endofprompt|>让我还有点不适应"
+  ],
+  "liuchanhg_220_neutral": [
+    "Neutral<|endofprompt|>你刚刚在看什么"
+  ],
+  "liuchanhg_243_surprise": [
+    "Neutral<|endofprompt|>你社会关系广"
+  ],
+  "wangzhe_245_neutral": [
+    "Fear<|endofprompt|>我。。。我"
+  ],
+  "ZhaoZuoxiang_237_fear": [
+    "Neutral<|endofprompt|>我们现在如果强迫她就医的话"
+  ],
+  "ZhaoZuoxiang_242_fear": [
+    "Neutral<|endofprompt|>今天的日子喔"
+  ],
+  "ZhaoZuoxiang_204_surprise": [
+    "Happy<|endofprompt|>你是不是对那个江达琳"
+  ],
+  "zhaoquanyin_235_sad": [
+    "Sad<|endofprompt|>气血有点亏，就掉头发"
+  ],
+  "liuchanhg_239_angry": [
+    "Anger<|endofprompt|>当然是因为你！"
+  ],
+  "wangzhe_217_sad": [
+    "Neutral<|endofprompt|>你还记得阿嬷家在哪里吗？"
+  ],
+  "ZhaoZuoxiang_227_surprise": [
+    "Anger<|endofprompt|>我已经决定不去了"
+  ],
+  "wangzhe_220_neutral": [
+    "Sad<|endofprompt|>白的呀"
+  ],
+  "liuchanhg_226_happy": [
+    "Neutral<|endofprompt|>我是不合适"
+  ],
+  "ZhaoZuoxiang_207_happy": [
+    "Sad<|endofprompt|>真的，你听我说一下好不好？"
+  ],
+  "wangzhe_232_sad": [
+    "Neutral<|endofprompt|>说得头头是道的"
+  ],
+  "wangzhe_207_angry": [
+    "Neutral<|endofprompt|>就是"
+  ],
+  "wangzhe_219_sad": [
+    "Neutral<|endofprompt|>这里头说的好啊"
+  ],
+  "ZhaoZuoxiang_237_angry": [
+    "Neutral<|endofprompt|>千真万确呀"
+  ],
+  "ZhaoZuoxiang_219_fear": [
+    "Neutral<|endofprompt|>请让我的表哥"
+  ],
+  "liuchanhg_207_surprise": [
+    "Anger<|endofprompt|>又要我给还回去"
+  ],
+  "zhaoquanyin_218_fear": [
+    "Anger<|endofprompt|>没有谁我！我，我告诉你，我！"
+  ],
+  "zhaoquanyin_230_surprise": [
+    "Surprise<|endofprompt|>什么小骆驼？"
+  ],
+  "zhaoquanyin_228_surprise": [
+    "Neutral<|endofprompt|>我给你安排"
+  ],
+  "ZhaoZuoxiang_231_neutral": [
+    "Sad<|endofprompt|>我还能再等吗？我肚子大得都走不动了"
+  ],
+  "zhaoquanyin_247_fear": [
+    "Neutral<|endofprompt|>那巧了"
+  ],
+  "ZhaoZuoxiang_211_sad": [
+    "Anger<|endofprompt|>我改变主意了"
+  ],
+  "ZhaoZuoxiang_241_surprise": [
+    "Neutral<|endofprompt|>怎么的，找人哪？"
+  ],
+  "wangzhe_241_neutral": [
+    "Neutral<|endofprompt|>当然是真的"
+  ],
+  "zhaoquanyin_216_fear": [
+    "Anger<|endofprompt|>邦尼"
+  ],
+  "liuchanhg_231_surprise": [
+    "Sad<|endofprompt|>门口围着一堆记者呢"
+  ],
+  "zhaoquanyin_249_angry": [
+    "Surprise<|endofprompt|>那个头发是你掉的吗？"
+  ],
+  "wangzhe_247_happy": [
+    "Neutral<|endofprompt|>放心吧"
+  ],
+  "zhaoquanyin_203_fear": [
+    "Neutral<|endofprompt|>关关，小蚯蚓"
+  ],
+  "ZhaoZuoxiang_203_neutral": [
+    "Anger<|endofprompt|>我知道我说不过你"
+  ],
+  "ZhaoZuoxiang_225_happy": [
+    "Anger<|endofprompt|>我怎么感觉你讲话好像在兜圈子？"
+  ],
+  "zhaoquanyin_214_happy": [
+    "Sad<|endofprompt|>你到时候拿什么钱"
+  ],
+  "ZhaoZuoxiang_236_sad": [
+    "Happy<|endofprompt|>还光着屁股"
+  ],
+  "wangzhe_241_fear": [
+    "Sad<|endofprompt|>我都不能让莹莹就这样搬出去"
+  ],
+  "zhaoquanyin_224_happy": [
+    "Neutral<|endofprompt|>公关费一百二十万"
+  ],
+  "ZhaoZuoxiang_224_surprise": [
+    "Sad<|endofprompt|>再说了我也不想让我爸"
+  ],
+  "zhaoquanyin_245_neutral": [
+    "Happy<|endofprompt|>知道您不会害我"
+  ],
+  "ZhaoZuoxiang_231_fear": [
+    "Sad<|endofprompt|>领导别人哪？"
+  ],
+  "wangzhe_210_happy": [
+    "Neutral<|endofprompt|>可是表哥"
+  ],
+  "zhaoquanyin_234_surprise": [
+    "Neutral<|endofprompt|>你已经考到了81分了"
+  ],
+  "ZhaoZuoxiang_240_fear": [
+    "Neutral<|endofprompt|>你学妹如果在那家公司"
+  ],
+  "zhaoquanyin_216_sad": [
+    "Neutral<|endofprompt|>谈欧阳"
+  ],
+  "ZhaoZuoxiang_222_surprise": [
+    "Sad<|endofprompt|>我菜场上买根葱我还挑三栋四的呢"
+  ],
+  "zhaoquanyin_246_fear": [
+    "Surprise<|endofprompt|>不可能方一凡"
+  ],
+  "ZhaoZuoxiang_221_sad": [
+    "Surprise<|endofprompt|>海洋馆的工作人员找你干什么呀？"
+  ],
+  "liuchanhg_242_angry": [
+    "Neutral<|endofprompt|>开心"
+  ],
+  "wangzhe_216_neutral": [
+    "Neutral<|endofprompt|>办法？要不然你就大义灭亲"
+  ],
+  "liuchanhg_232_happy": [
+    "Neutral<|endofprompt|>都是你现在这样的"
+  ],
+  "wangzhe_237_neutral": [
+    "Neutral<|endofprompt|>那我找别人"
+  ],
+  "liuchanhg_208_surprise": [
+    "Neutral<|endofprompt|>骆佳明跟我求婚"
+  ],
+  "zhaoquanyin_249_happy": [
+    "Neutral<|endofprompt|>不到二十四小时"
+  ],
+  "liuchanhg_248_sad": [
+    "Anger<|endofprompt|>我小心眼！"
+  ],
+  "ZhaoZuoxiang_213_sad": [
+    "Neutral<|endofprompt|>把它做成标本"
+  ],
+  "wangzhe_223_angry": [
+    "Sad<|endofprompt|>先照顾好自己的家吧"
+  ],
+  "liuchanhg_236_happy": [
+    "Neutral<|endofprompt|>不至于"
+  ],
+  "zhaoquanyin_225_fear": [
+    "Neutral<|endofprompt|>是的"
+  ],
+  "ZhaoZuoxiang_216_neutral": [
+    "Sad<|endofprompt|>算是吧"
+  ],
+  "zhaoquanyin_203_happy": [
+    "Anger<|endofprompt|>那我们愿意被拖去"
+  ],
+  "liuchanhg_215_happy": [
+    "Sad<|endofprompt|>那么晚你不睡觉啊"
+  ],
+  "liuchanhg_248_happy": [
+    "Sad<|endofprompt|>他们两个才是一家人"
+  ],
+  "wangzhe_226_surprise": [
+    "Anger<|endofprompt|>学门手艺"
+  ],
+  "wangzhe_222_angry": [
+    "Sad<|endofprompt|>这是过劳肥"
+  ],
+  "wangzhe_218_neutral": [
+    "Happy<|endofprompt|>但是曲筱绡不用担心"
+  ],
+  "wangzhe_214_sad": [
+    "Happy<|endofprompt|>不是老板"
+  ],
+  "wangzhe_236_surprise": [
+    "Anger<|endofprompt|>我不交赞助费"
+  ],
+  "zhaoquanyin_205_angry": [
+    "Surprise<|endofprompt|>不是说好咱就说说吗？！"
+  ],
+  "ZhaoZuoxiang_240_neutral": [
+    "Anger<|endofprompt|>我没事喜欢在家砸自己电脑玩？"
+  ],
+  "zhaoquanyin_206_sad": [
+    "Fear<|endofprompt|>游来游去的小鱼小虾吃掉"
+  ],
+  "zhaoquanyin_240_neutral": [
+    "Surprise<|endofprompt|>昨天不是出去过了吗？还出去"
+  ],
+  "liuchanhg_202_angry": [
+    "Happy<|endofprompt|>要是是别人我不知道啊"
+  ],
+  "wangzhe_240_sad": [
+    "Sad<|endofprompt|>她肯定就能听话"
+  ],
+  "liuchanhg_202_sad": [
+    "Happy<|endofprompt|>我免费给你看"
+  ],
+  "zhaoquanyin_228_neutral": [
+    "Happy<|endofprompt|>你是李子维啊"
+  ],
+  "wangzhe_217_neutral": [
+    "Anger<|endofprompt|>你如果真的爱它"
+  ],
+  "ZhaoZuoxiang_203_angry": [
+    "Anger<|endofprompt|>你说实话"
+  ],
+  "liuchanhg_208_sad": [
+    "Anger<|endofprompt|>如果是要做手术，"
+  ],
+  "zhaoquanyin_205_fear": [
+    "Surprise<|endofprompt|>如果纸条不是你传的那。。。"
+  ],
+  "liuchanhg_232_surprise": [
+    "Surprise<|endofprompt|>而且什么"
+  ],
+  "liuchanhg_235_angry": [
+    "Sad<|endofprompt|>郁闷呐"
+  ],
+  "zhaoquanyin_207_angry": [
+    "Surprise<|endofprompt|>你疯了"
+  ],
+  "ZhaoZuoxiang_222_sad": [
+    "Happy<|endofprompt|>我说呢这么年轻"
+  ],
+  "ZhaoZuoxiang_202_sad": [
+    "Sad<|endofprompt|>哪怕请最好的律师，花再多的钱"
+  ],
+  "liuchanhg_245_happy": [
+    "Anger<|endofprompt|>她的戏份已经比我还要多了！"
+  ],
+  "zhaoquanyin_225_surprise": [
+    "Sad<|endofprompt|>我以为出什么事了呢"
+  ],
+  "wangzhe_227_happy": [
+    "Sad<|endofprompt|>我的家庭"
+  ],
+  "zhaoquanyin_250_sad": [
+    "Happy<|endofprompt|>老爸我爱死你了"
+  ],
+  "wangzhe_230_sad": [
+    "Anger<|endofprompt|>你不会早知道了吧？"
+  ],
+  "zhaoquanyin_228_sad": [
+    "Anger<|endofprompt|>呵，大步流星，快步如飞"
+  ],
+  "ZhaoZuoxiang_202_angry": [
+    "Anger<|endofprompt|>商场求婚怎么了？"
+  ],
+  "ZhaoZuoxiang_244_sad": [
+    "Sad<|endofprompt|>我付出了太多了"
+  ],
+  "wangzhe_236_happy": [
+    "Anger<|endofprompt|>你多流氓啊！"
+  ],
+  "wangzhe_229_angry": [
+    "Sad<|endofprompt|>我的台灯"
+  ],
+  "wangzhe_209_fear": [
+    "Sad<|endofprompt|>那不成他再怎么说也是我爸"
+  ],
+  "wangzhe_248_happy": [
+    "Sad<|endofprompt|>把所有的财产全部给了"
+  ],
+  "zhaoquanyin_239_fear": [
+    "Sad<|endofprompt|>我只是觉得"
+  ],
+  "liuchanhg_222_sad": [
+    "Sad<|endofprompt|>你说我今后我怎么去"
+  ],
+  "ZhaoZuoxiang_208_happy": [
+    "Anger<|endofprompt|>我才不打你呢"
+  ],
+  "ZhaoZuoxiang_236_fear": [
+    "Sad<|endofprompt|>您最近身体怎么样了呢？"
+  ],
+  "wangzhe_249_sad": [
+    "Sad<|endofprompt|>我要知道上哪儿那叫私奔吗？"
+  ],
+  "wangzhe_242_sad": [
+    "Anger<|endofprompt|>不然呢"
+  ],
+  "liuchanhg_231_happy": [
+    "Anger<|endofprompt|>又当太太又享清福的呀？"
+  ],
+  "liuchanhg_204_happy": [
+    "Happy<|endofprompt|>让您"
+  ],
+  "liuchanhg_227_sad": [
+    "Anger<|endofprompt|>我问你"
+  ],
+  "ZhaoZuoxiang_205_sad": [
+    "Anger<|endofprompt|>你干吗说那些"
+  ],
+  "zhaoquanyin_209_happy": [
+    "Sad<|endofprompt|>可她一这样一弄啊"
+  ],
+  "wangzhe_201_surprise": [
+    "Sad<|endofprompt|>你说人家孩子都好几个了"
+  ],
+  "liuchanhg_222_angry": [
+    "Anger<|endofprompt|>一出现"
+  ],
+  "liuchanhg_211_fear": [
+    "Fear<|endofprompt|>出现的那个女孩子吗？"
+  ],
+  "ZhaoZuoxiang_240_surprise": [
+    "Surprise<|endofprompt|>怎么还掉这么多头发"
+  ],
+  "wangzhe_211_neutral": [
+    "Anger<|endofprompt|>还是请她再演得称职一点"
+  ],
+  "zhaoquanyin_250_happy": [
+    "Sad<|endofprompt|>我才对你有所隐瞒"
+  ],
+  "ZhaoZuoxiang_206_angry": [
+    "Anger<|endofprompt|>想归想啊"
+  ],
+  "ZhaoZuoxiang_237_sad": [
+    "Anger<|endofprompt|>他怎么上高中？"
+  ],
+  "liuchanhg_245_surprise": [
+    "Sad<|endofprompt|>因为这件事情来学校"
+  ],
+  "ZhaoZuoxiang_222_angry": [
+    "Surprise<|endofprompt|>哥哥它不动了耶"
+  ],
+  "ZhaoZuoxiang_219_angry": [
+    "Anger<|endofprompt|>你没错，"
+  ],
+  "wangzhe_240_fear": [
+    "Sad<|endofprompt|>比不上那个王永正"
+  ],
+  "zhaoquanyin_207_fear": [
+    "Sad<|endofprompt|>妈"
+  ],
+  "wangzhe_231_fear": [
+    "Anger<|endofprompt|>连自己都不信的话呀"
+  ],
+  "wangzhe_247_fear": [
+    "Sad<|endofprompt|>不难受了啊"
+  ],
+  "zhaoquanyin_224_neutral": [
+    "Anger<|endofprompt|>还问我吃几个荷包蛋呢"
+  ],
+  "wangzhe_207_fear": [
+    "Sad<|endofprompt|>哎哟，今天不是个好时机"
+  ],
+  "zhaoquanyin_223_sad": [
+    "Sad<|endofprompt|>海藻你跟我说实话"
+  ],
+  "zhaoquanyin_246_sad": [
+    "Anger<|endofprompt|>说走就走弄得我们家"
+  ],
+  "wangzhe_231_angry": [
+    "Happy<|endofprompt|>也没什么时间去看他女儿的成长"
+  ],
+  "liuchanhg_212_sad": [
+    "Happy<|endofprompt|>耗子吃了花椒麻了爪了吧"
+  ],
+  "wangzhe_224_sad": [
+    "Surprise<|endofprompt|>陈韵如你怎么在这边？"
+  ],
+  "zhaoquanyin_223_happy": [
+    "Anger<|endofprompt|>当时咱家没钱"
+  ],
+  "wangzhe_233_happy": [
+    "Surprise<|endofprompt|>是你啊"
+  ],
+  "wangzhe_244_angry": [
+    "Happy<|endofprompt|>这个嘛，99分吧"
+  ],
+  "liuchanhg_240_angry": [
+    "Anger<|endofprompt|>这怎么就不靠谱啊"
+  ],
+  "wangzhe_231_neutral": [
+    "Anger<|endofprompt|>它还这么小"
+  ],
+  "wangzhe_205_happy": [
+    "Happy<|endofprompt|>你，我加上这只小的"
+  ],
+  "wangzhe_227_fear": [
+    "Sad<|endofprompt|>我一会儿跟你一块儿回去"
+  ],
+  "wangzhe_209_angry": [
+    "Surprise<|endofprompt|>想跑个第一？"
+  ],
+  "liuchanhg_241_happy": [
+    "Sad<|endofprompt|>行吗？"
+  ],
+  "liuchanhg_222_neutral": [
+    "Happy<|endofprompt|>而且美好的开始"
+  ],
+  "ZhaoZuoxiang_217_neutral": [
+    "Anger<|endofprompt|>你讲点儿理好不好！"
+  ],
+  "zhaoquanyin_239_happy": [
+    "Fear<|endofprompt|>我没有啊"
+  ],
+  "liuchanhg_234_angry": [
+    "Sad<|endofprompt|>我心烦，不想接"
+  ],
+  "wangzhe_236_neutral": [
+    "Sad<|endofprompt|>你说我在单位我大小是个领导"
+  ],
+  "ZhaoZuoxiang_250_fear": [
+    "Sad<|endofprompt|>她要是碰到小曲不是更糟吗？"
+  ],
+  "zhaoquanyin_239_angry": [
+    "Sad<|endofprompt|>我这身上的债是越来越多了"
+  ],
+  "ZhaoZuoxiang_232_surprise": [
+    "Sad<|endofprompt|>白主管这次做得这么绝"
+  ],
+  "liuchanhg_234_fear": [
+    "Sad<|endofprompt|>好事吧？"
+  ],
+  "wangzhe_244_neutral": [
+    "Anger<|endofprompt|>所以"
+  ],
+  "zhaoquanyin_204_angry": [
+    "Sad<|endofprompt|>我没见过她"
+  ],
+  "liuchanhg_236_fear": [
+    "Happy<|endofprompt|>妈知道你一直特别努力特别用功"
+  ],
+  "wangzhe_226_happy": [
+    "Happy<|endofprompt|>我对你有意思"
+  ],
+  "wangzhe_211_happy": [
+    "Happy<|endofprompt|>有意思啊？"
+  ],
+  "liuchanhg_224_happy": [
+    "Happy<|endofprompt|>我很喜欢海藻这个名字"
+  ],
+  "ZhaoZuoxiang_239_fear": [
+    "Happy<|endofprompt|>当然"
+  ],
+  "zhaoquanyin_215_surprise": [
+    "Sad<|endofprompt|>东西都没了"
+  ],
+  "ZhaoZuoxiang_205_surprise": [
+    "Sad<|endofprompt|>骗身骗心还不可怕呀"
+  ],
+  "ZhaoZuoxiang_208_surprise": [
+    "Anger<|endofprompt|>我一直顺着你才是疯了"
+  ],
+  "ZhaoZuoxiang_228_neutral": [
+    "Sad<|endofprompt|>我就寝食难安"
+  ],
+  "wangzhe_209_neutral": [
+    "Anger<|endofprompt|>还想犯一次？"
+  ],
+  "liuchanhg_217_fear": [
+    "Anger<|endofprompt|>家政阿姨"
+  ],
+  "liuchanhg_216_angry": [
+    "Sad<|endofprompt|>说要跟她男朋友吧"
+  ],
+  "ZhaoZuoxiang_213_happy": [
+    "Sad<|endofprompt|>我只是在反思"
+  ],
+  "liuchanhg_202_surprise": [
+    "Surprise<|endofprompt|>你们是什么时候"
+  ],
+  "ZhaoZuoxiang_224_happy": [
+    "Sad<|endofprompt|>也要还他个清白"
+  ],
+  "zhaoquanyin_228_happy": [
+    "Anger<|endofprompt|>您还不如直接把钱给我"
+  ],
+  "ZhaoZuoxiang_204_fear": [
+    "Happy<|endofprompt|>叫，莫叽？呵呵"
+  ],
+  "liuchanhg_229_sad": [
+    "Surprise<|endofprompt|>你就这么安慰我"
+  ],
+  "wangzhe_204_happy": [
+    "Anger<|endofprompt|>为什么就买不起房子呢？"
+  ],
+  "wangzhe_216_happy": [
+    "Anger<|endofprompt|>我回来不是跟你说了吗"
+  ],
+  "zhaoquanyin_241_surprise": [
+    "Anger<|endofprompt|>你再说我就扣你考勤了"
+  ],
+  "wangzhe_235_sad": [
+    "Anger<|endofprompt|>她走之前"
+  ],
+  "ZhaoZuoxiang_204_angry": [
+    "Anger<|endofprompt|>还是她是女一号啊！"
+  ],
+  "wangzhe_240_angry": [
+    "Happy<|endofprompt|>我帮别人画图挣的"
+  ],
+  "liuchanhg_228_sad": [
+    "Happy<|endofprompt|>来，，吃点东西"
+  ],
+  "liuchanhg_229_surprise": [
+    "Surprise<|endofprompt|>所以你就因为那个烂肚脐"
+  ],
+  "zhaoquanyin_220_fear": [
+    "Surprise<|endofprompt|>啊？您都不问我要借多少就答应啊"
+  ],
+  "zhaoquanyin_201_fear": [
+    "Happy<|endofprompt|>谢谢"
+  ],
+  "zhaoquanyin_233_surprise": [
+    "Surprise<|endofprompt|>英子，是，是英子！"
+  ],
+  "liuchanhg_220_sad": [
+    "Surprise<|endofprompt|>吓死我了！"
+  ],
+  "wangzhe_222_neutral": [
+    "Surprise<|endofprompt|>摇滚青年？"
+  ],
+  "ZhaoZuoxiang_209_sad": [
+    "Surprise<|endofprompt|>那个女生是谁啊？"
+  ],
+  "wangzhe_247_sad": [
+    "Happy<|endofprompt|>来一辆红色甲壳虫跑车"
+  ],
+  "wangzhe_203_happy": [
+    "Surprise<|endofprompt|>送我花？"
+  ],
+  "wangzhe_248_surprise": [
+    "Happy<|endofprompt|>谢谢"
+  ],
+  "ZhaoZuoxiang_214_neutral": [
+    "Fear<|endofprompt|>不是我"
+  ],
+  "liuchanhg_209_fear": [
+    "Surprise<|endofprompt|>我合适吗？"
+  ],
+  "zhaoquanyin_209_angry": [
+    "Surprise<|endofprompt|>百分制啊！"
+  ],
+  "ZhaoZuoxiang_213_surprise": [
+    "Happy<|endofprompt|>切，"
+  ],
+  "zhaoquanyin_206_angry": [
+    "Happy<|endofprompt|>表哥来了"
+  ],
+  "wangzhe_234_happy": [
+    "Happy<|endofprompt|>对对对，就是那个"
+  ],
+  "liuchanhg_230_happy": [
+    "Happy<|endofprompt|>你那点小心眼儿，我还不知道"
+  ],
+  "wangzhe_228_surprise": [
+    "Happy<|endofprompt|>其实也没那么烦"
+  ],
+  "zhaoquanyin_234_angry": [
+    "Surprise<|endofprompt|>那得多少钱呢？"
+  ],
+  "ZhaoZuoxiang_211_happy": [
+    "Happy<|endofprompt|>不辛苦生病才辛苦呢"
+  ],
+  "ZhaoZuoxiang_201_neutral": [
+    "Happy<|endofprompt|>有没有"
+  ],
+  "zhaoquanyin_220_angry": [
+    "Happy<|endofprompt|>有时候我觉得她们几个"
+  ],
+  "ZhaoZuoxiang_237_neutral": [
+    "Happy<|endofprompt|>要花束"
+  ],
+  "liuchanhg_201_sad": [
+    "Happy<|endofprompt|>您的身体没事我就放心了"
+  ],
+  "liuchanhg_223_sad": [
+    "Fear<|endofprompt|>你先不要哭你先不要哭"
+  ],
+  "liuchanhg_239_happy": [
+    "Surprise<|endofprompt|>为什么要诅咒？"
+  ],
+  "wangzhe_243_angry": [
+    "Surprise<|endofprompt|>更年期综合征掉这么多头发"
+  ],
+  "ZhaoZuoxiang_205_happy": [
+    "Happy<|endofprompt|>又胖了该减肥了"
+  ],
+  "ZhaoZuoxiang_211_surprise": [
+    "Surprise<|endofprompt|>你疯了吧你啊"
+  ],
+  "zhaoquanyin_223_fear": [
+    "Happy<|endofprompt|>呃，收到了"
+  ],
+  "ZhaoZuoxiang_239_angry": [
+    "Happy<|endofprompt|>送给我的惊喜"
+  ],
+  "zhaoquanyin_241_neutral": [
+    "Happy<|endofprompt|>当然了我就你这么一个儿子"
+  ],
+  "wangzhe_206_happy": [
+    "Surprise<|endofprompt|>你就说啊"
+  ],
+  "zhaoquanyin_210_surprise": [
+    "Happy<|endofprompt|>您就扔给我一块蛋糕"
+  ],
+  "zhaoquanyin_205_happy": [
+    "Happy<|endofprompt|>哈！"
+  ],
+  "ZhaoZuoxiang_201_angry": [
+    "Happy<|endofprompt|>你看阿姨气色怎么样？"
+  ],
+  "ZhaoZuoxiang_226_happy": [
+    "Happy<|endofprompt|>谈恋爱的模式"
+  ],
+  "liuchanhg_216_neutral": [
+    "Surprise<|endofprompt|>招桃花呀"
+  ],
+  "zhaoquanyin_217_sad": [
+    "Surprise<|endofprompt|>让你想到谈婚论嫁？"
+  ],
+  "liuchanhg_221_angry": [
+    "Happy<|endofprompt|>那一会儿开会的时候"
+  ],
+  "wangzhe_221_angry": [
+    "Surprise<|endofprompt|>什么私事儿啊？"
+  ],
+  "ZhaoZuoxiang_212_surprise": [
+    "Happy<|endofprompt|>也就樊姐你能跟她比一比了"
+  ],
+  "liuchanhg_216_happy": [
+    "Happy<|endofprompt|>就你们俩呀"
+  ],
+  "liuchanhg_241_neutral": [
+    "Fear<|endofprompt|>当然不认识啊"
+  ],
+  "liuchanhg_247_sad": [
+    "Happy<|endofprompt|>对待我了"
+  ],
+  "wangzhe_208_surprise": [
+    "Surprise<|endofprompt|>我知道啊，"
+  ],
+  "wangzhe_235_fear": [
+    "Surprise<|endofprompt|>三班啊？"
+  ],
+  "liuchanhg_210_neutral": [
+    "Happy<|endofprompt|>好那就这样"
+  ],
+  "liuchanhg_221_fear": [
+    "Happy<|endofprompt|>因为您是我爸爸呀"
+  ],
+  "zhaoquanyin_227_sad": [
+    "Happy<|endofprompt|>妈，我爱您"
+  ],
+  "wangzhe_202_sad": [
+    "Happy<|endofprompt|>老师，你记性真好耶"
+  ],
+  "liuchanhg_215_angry": [
+    "Happy<|endofprompt|>你挺像这个房子的女主人"
+  ],
+  "ZhaoZuoxiang_222_neutral": [
+    "Happy<|endofprompt|>不给爸爸一个浪漫的拥抱？"
+  ],
+  "wangzhe_212_sad": [
+    "Happy<|endofprompt|>请到你这尊大神呀？"
+  ],
+  "zhaoquanyin_222_happy": [
+    "Happy<|endofprompt|>好啊，"
+  ],
+  "zhaoquanyin_243_sad": [
+    "Surprise<|endofprompt|>真的？"
+  ],
+  "liuchanhg_249_fear": [
+    "Surprise<|endofprompt|>啊？"
+  ],
+  "wangzhe_243_fear": [
+    "Happy<|endofprompt|>我等您"
+  ],
+  "zhaoquanyin_241_fear": [
+    "Happy<|endofprompt|>我本来就很有情调嘛"
+  ],
+  "zhaoquanyin_213_fear": [
+    "Surprise<|endofprompt|>刘星居然和一个"
+  ],
+  "wangzhe_230_happy": [
+    "Happy<|endofprompt|>简直是出人意料对吗？"
+  ],
+  "wangzhe_245_happy": [
+    "Surprise<|endofprompt|>留校的名单已经出来了"
+  ],
+  "ZhaoZuoxiang_220_sad": [
+    "Fear<|endofprompt|>我主要是怕把你妈给逼急了"
+  ],
+  "liuchanhg_209_neutral": [
+    "Surprise<|endofprompt|>搬公司"
+  ],
+  "ZhaoZuoxiang_201_fear": [
+    "Surprise<|endofprompt|>今天的日子，为什么啊"
+  ],
+  "zhaoquanyin_216_neutral": [
+    "Fear<|endofprompt|>我。。"
+  ],
+  "liuchanhg_205_neutral": [
+    "Fear<|endofprompt|>总觉得有人在跟着我"
+  ],
+  "ZhaoZuoxiang_215_neutral": [
+    "Surprise<|endofprompt|>我们不是约了三点半吗？"
+  ],
+  "ZhaoZuoxiang_234_neutral": [
+    "Surprise<|endofprompt|>这么快就搞定了？"
+  ],
+  "wangzhe_232_fear": [
+    "Fear<|endofprompt|>然后被江里"
+  ],
+  "ZhaoZuoxiang_234_fear": [
+    "Surprise<|endofprompt|>没有啊"
+  ],
+  "ZhaoZuoxiang_228_surprise": [
+    "Surprise<|endofprompt|>啊？"
+  ],
+  "wangzhe_221_sad": [
+    "Surprise<|endofprompt|>都夜不归宿了"
+  ],
+  "wangzhe_232_happy": [
+    "Surprise<|endofprompt|>怎么没记住我的位置啊？"
+  ],
+  "wangzhe_208_neutral": [
+    "Fear<|endofprompt|>然后变成化石"
+  ],
+  "ZhaoZuoxiang_226_sad": [
+    "Surprise<|endofprompt|>我的天哪"
+  ],
+  "zhaoquanyin_240_angry": [
+    "Surprise<|endofprompt|>我做了什么"
+  ],
+  "zhaoquanyin_220_sad": [
+    "Surprise<|endofprompt|>晚上？"
+  ],
+  "ZhaoZuoxiang_230_happy": [
+    "Surprise<|endofprompt|>他们才认识多长时间？"
+  ],
+  "zhaoquanyin_213_happy": [
+    "Surprise<|endofprompt|>什么意思你还得离开我点儿？"
+  ],
+  "liuchanhg_228_surprise": [
+    "Surprise<|endofprompt|>你拿它们出去卖吗？"
+  ],
+  "wangzhe_232_neutral": [
+    "Surprise<|endofprompt|>七千二"
+  ],
+  "ZhaoZuoxiang_239_sad": [
+    "Fear<|endofprompt|>也不是那个"
+  ],
+  "ZhaoZuoxiang_233_happy": [
+    "Surprise<|endofprompt|>我怎么不知道啊"
+  ],
+  "wangzhe_220_fear": [
+    "Surprise<|endofprompt|>就你在啊"
+  ],
+  "liuchanhg_238_surprise": [
+    "Fear<|endofprompt|>那要邻居看见了呢？"
+  ],
+  "wangzhe_250_neutral": [
+    "Surprise<|endofprompt|>多少？"
+  ],
+  "ZhaoZuoxiang_246_happy": [
+    "Surprise<|endofprompt|>99呐！为什么？"
+  ],
+  "ZhaoZuoxiang_219_happy": [
+    "Surprise<|endofprompt|>你是？"
+  ],
+  "liuchanhg_246_happy": [
+    "Fear<|endofprompt|>死，会很痛吗？"
+  ],
+  "wangzhe_229_fear": [
+    "Fear<|endofprompt|>这么光天化日地抱在一起"
+  ],
+  "ZhaoZuoxiang_207_angry": [
+    "Fear<|endofprompt|>加上今天已经好几次了"
+  ],
+  "liuchanhg_201_fear": [
+    "Fear<|endofprompt|>哎哎，你关门干什么呀？"
+  ],
+  "wangzhe_249_angry": [
+    "Fear<|endofprompt|>她不是你梦里面"
+  ],
+  "zhaoquanyin_245_fear": [
+    "Fear<|endofprompt|>哎呀，我找不着她了"
+  ],
+  "liuchanhg_210_sad": [
+    "Fear<|endofprompt|>我就说你麻爪了"
+  ],
+  "wangzhe_208_fear": [
+    "Fear<|endofprompt|>行行行你别别别"
+  ],
+  "wangzhe_212_neutral": [
+    "Fear<|endofprompt|>你可回来了"
+  ],
+  "ZhaoZuoxiang_220_fear": [
+    "Fear<|endofprompt|>看见我们家云云了吗？"
+  ],
+  "liuchanhg_208_angry": [
+    "Fear<|endofprompt|>不是，我没说你是耗子"
+  ],
+  "zhaoquanyin_248_angry": [
+    "Fear<|endofprompt|>我也觉得奇怪"
+  ],
+  "wangzhe_248_sad": [
+    "Fear<|endofprompt|>那现实生活中我怎么可能认识她"
+  ],
+  "wangzhe_211_sad": [
+    "Fear<|endofprompt|>那怎么办嘛？"
+  ],
+  "ZhaoZuoxiang_250_angry": [
+    "Fear<|endofprompt|>我们是不是会沉下去"
+  ],
+  "zhaoquanyin_230_happy": [
+    "Fear<|endofprompt|>我刚刚一出门倒垃圾"
+  ],
+  "wangzhe_232_surprise": [
+    "Fear<|endofprompt|>我当初说这个想法的时候"
+  ],
+  "zhaoquanyin_224_fear": [
+    "Fear<|endofprompt|>对啊"
+  ],
+  "wangzhe_246_angry": [
+    "Fear<|endofprompt|>詹妮，是不是我被"
+  ],
+  "wangzhe_236_fear": [
+    "Fear<|endofprompt|>好好好好好"
+  ],
+  "zhaoquanyin_212_sad": [
+    "Fear<|endofprompt|>一回头，又什么都没有"
+  ],
+  "wangzhe_235_surprise": [
+    "Fear<|endofprompt|>在楼下，我俩都急疯了"
+  ],
+  "ZhaoZuoxiang_241_fear": [
+    "Fear<|endofprompt|>那还是关上吧"
+  ],
+  "ZhaoZuoxiang_211_fear": [
+    "Fear<|endofprompt|>你以为我想啊"
+  ],
+  "zhaoquanyin_224_angry": [
+    "Fear<|endofprompt|>还是？"
+  ],
+  "ZhaoZuoxiang_237_happy": [
+    "Fear<|endofprompt|>怎么了吗"
+  ],
+  "zhaoquanyin_238_angry": [
+    "Fear<|endofprompt|>老板，，我没有谈恋爱"
+  ],
+  "zhaoquanyin_203_neutral": [
+    "Fear<|endofprompt|>我不知道"
+  ],
+  "liuchanhg_215_fear": [
+    "Fear<|endofprompt|>你说"
+  ],
+  "ZhaoZuoxiang_225_sad": [
+    "Fear<|endofprompt|>其实就是那么一说"
+  ],
+  "wangzhe_227_neutral": [
+    "Fear<|endofprompt|>毕竟那是人家电视剧里的桥段"
+  ],
+  "zhaoquanyin_226_angry": [
+    "Fear<|endofprompt|>刘梅呀，我问你"
+  ],
+  "zhaoquanyin_234_sad": [
+    "Fear<|endofprompt|>咱这么做合适吗你觉着？"
+  ],
+  "zhaoquanyin_204_sad": [
+    "Fear<|endofprompt|>我没打了我没打了"
+  ],
+  "ZhaoZuoxiang_224_neutral": [
+    "Fear<|endofprompt|>我忘了"
+  ],
+  "ZhaoZuoxiang_236_happy": [
+    "Fear<|endofprompt|>那你快把门打开"
+  ],
+  "zhaoquanyin_237_surprise": [
+    "Fear<|endofprompt|>说实在的是有一点"
+  ],
+  "liuchanhg_203_fear": [
+    "Fear<|endofprompt|>学长拒绝的事"
+  ],
+  "ZhaoZuoxiang_218_surprise": [
+    "Fear<|endofprompt|>我没想你还真要这么做"
+  ],
+  "liuchanhg_247_angry": [
+    "Fear<|endofprompt|>我一出门就碰上他们了"
+  ],
+  "ZhaoZuoxiang_230_surprise": [
+    "Fear<|endofprompt|>我也不知道"
+  ],
+  "wangzhe_235_happy": [
+    "Fear<|endofprompt|>会不会是我自己的幻觉"
+  ],
+  "ZhaoZuoxiang_250_happy": [
+    "Fear<|endofprompt|>您这不会是欲搞故纵吧？"
+  ],
+  "ZhaoZuoxiang_203_fear": [
+    "Fear<|endofprompt|>谈宋，我还不想死"
+  ],
+  "liuchanhg_248_angry": [
+    "Fear<|endofprompt|>传遍全校了"
+  ],
+  "zhaoquanyin_236_surprise": [
+    "Fear<|endofprompt|>总觉得有人在跟着我"
+  ],
+  "wangzhe_213_surprise": [
+    "Fear<|endofprompt|>变成石头，变成沙子啊"
+  ],
+  "wangzhe_224_surprise": [
+    "Fear<|endofprompt|>不尴尬呀？"
+  ],
+  "liuchanhg_219_neutral": [
+    "Fear<|endofprompt|>他要撞了树上怎么办呐？"
+  ]
+}

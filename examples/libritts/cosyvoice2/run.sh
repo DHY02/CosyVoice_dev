@@ -2,7 +2,7 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=0
+stage=5
 stop_stage=5
 
 # 训练数据集
@@ -70,23 +70,23 @@ if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
 fi
 
 # inference
-# if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
-#   echo "Run inference. Please make sure utt in tts_text is in prompt_data"
-#   # TODO consider remove bin/inference.py, or use similar initilization method as in readme
-#   for mode in instruct; do
-#     python cosyvoice/bin/inference.py --mode $mode \
-#       --gpu 0 \
-#       --config conf/cosyvoice2_dpo_infer.yaml \
-#       --prompt_data data/casia/parquet/data.list \
-#       --prompt_utt2data data/casia/parquet/utt2data.list \
-#       --tts_text `pwd`/wav2tts_text_dpo_1200_test.json \
-#       --qwen_pretrain_path $pretrained_model_dir/CosyVoice-BlankEN \
-#       --llm_model $pretrained_model_dir/llm_sft_dpo_1.pt \
-#       --flow_model $pretrained_model_dir/flow.pt \
-#       --hifigan_model $pretrained_model_dir/hift.pt \
-#       --result_dir `pwd`/exp/cosyvoice/test_dpo_1200_DPO/$mode
-#   done
-# fi
+if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
+  echo "Run inference. Please make sure utt in tts_text is in prompt_data"
+  # TODO consider remove bin/inference.py, or use similar initilization method as in readme
+  for mode in instruct; do
+    python cosyvoice/bin/inference.py --mode $mode \
+      --gpu 0 \
+      --config conf/cosyvoice2_dpo_infer.yaml \
+      --prompt_data data/casia/parquet/data.list \
+      --prompt_utt2data data/casia/parquet/utt2data.list \
+      --tts_text `pwd`/wav2tts_text_dpo_1200_test.json \
+      --qwen_pretrain_path $pretrained_model_dir/CosyVoice-BlankEN \
+      --llm_model $pretrained_model_dir/llm_sft_dpo_1.pt \
+      --flow_model $pretrained_model_dir/flow.pt \
+      --hifigan_model $pretrained_model_dir/hift.pt \
+      --result_dir `pwd`/exp/cosyvoice/test_dpo_1200_DPO/$mode
+  done
+fi
 
 # train llm
 export CUDA_VISIBLE_DEVICES="0"
