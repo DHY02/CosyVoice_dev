@@ -1,0 +1,22 @@
+submitit ERROR (2025-05-03 20:49:58,341) - Submitted job triggered an exception
+2025-05-03 20:49 ERROR 2985:submitit - Submitted job triggered an exception
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/submitit/core/_submit.py", line 11, in <module>
+    submitit_main()
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/submitit/core/submission.py", line 76, in submitit_main
+    process_job(args.folder)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/submitit/core/submission.py", line 69, in process_job
+    raise error
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/submitit/core/submission.py", line 55, in process_job
+    result = delayed.result()
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/submitit/core/utils.py", line 137, in result
+    self._result = self.function(*self.args, **self.kwargs)
+  File "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/eva_model/stopes/stopes/core/stopes_module.py", line 98, in __call__
+    res = self.run(iteration_value=iteration_value, iteration_index=iteration_index)
+  File "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/eva_model/stopes/stopes/modules/evaluation/compare_audio_module.py", line 96, in run
+    with open(input_file, "r", encoding="utf-8") as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'input.tsv'

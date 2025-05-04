@@ -1,0 +1,6 @@
+anger acc: 0.484375
+fear acc: 0.015625
+happy acc: 0.5846153846153846
+neutral acc: 0.578125
+sad acc: 0.2153846153846154
+surprise acc: 0.27692307692307694

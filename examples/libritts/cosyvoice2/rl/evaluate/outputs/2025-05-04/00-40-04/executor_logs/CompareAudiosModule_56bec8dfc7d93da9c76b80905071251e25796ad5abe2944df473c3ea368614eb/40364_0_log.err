@@ -1,0 +1,29 @@
+2025-05-04 00:40 INFO 40365:stopes.utils.web - AutoPCP_multilingual_v2 already downloaded
+2025-05-04 00:40 INFO 40365:stopes.eval.auto_pcp.audio_comparator - Loading vectorizer
+/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/huggingface_hub/file_download.py:896: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of Wav2Vec2Model were not initialized from the model checkpoint at facebook/wav2vec2-large-xlsr-53 and are newly initialized: ['wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0', 'wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-05-04 00:40 INFO 40365:stopes.eval.auto_pcp.audio_comparator - Sequential(
+  (0): Dropout(p=0.1, inplace=False)
+  (1): Linear(in_features=4096, out_features=2048, bias=True)
+  (2): Tanh()
+  (3): Dropout(p=0.1, inplace=False)
+  (4): Linear(in_features=2048, out_features=1024, bias=True)
+  (5): Tanh()
+  (6): Dropout(p=0.1, inplace=False)
+  (7): Linear(in_features=1024, out_features=512, bias=True)
+  (8): Tanh()
+  (9): Dropout(p=0.1, inplace=False)
+  (10): Linear(in_features=512, out_features=5, bias=True)
+)
+2025-05-04 00:40 INFO 40365:stopes.eval.auto_pcp.audio_comparator - model loaded from /root/.cache/stopes/AutoPCP_multilingual_v2/model.pt
+2025-05-04 00:40 INFO 40365:stopes.eval.auto_pcp.audio_comparator - Embedding source
+  0%|          | 0/387 [00:00<?, ?it/s]2025-05-04 00:40 WARNING 40365:stopes.speech.utils - Audio has sample rate 24000. Resample to 16000
+  4%|▍         | 16/387 [00:00<00:11, 32.08it/s]  8%|▊         | 32/387 [00:00<00:06, 57.29it/s] 12%|█▏        | 48/387 [00:00<00:04, 80.49it/s] 17%|█▋        | 64/387 [00:00<00:03, 89.78it/s] 21%|██        | 80/387 [00:00<00:02, 105.23it/s] 25%|██▍       | 96/387 [00:01<00:02, 110.72it/s] 29%|██▉       | 112/387 [00:01<00:02, 117.17it/s] 33%|███▎      | 128/387 [00:01<00:02, 120.09it/s] 37%|███▋      | 144/387 [00:01<00:01, 122.46it/s] 41%|████▏     | 160/387 [00:01<00:01, 126.91it/s] 45%|████▌     | 176/387 [00:01<00:01, 134.24it/s] 50%|████▉     | 192/387 [00:01<00:01, 140.45it/s] 54%|█████▎    | 208/387 [00:01<00:01, 134.86it/s] 58%|█████▊    | 224/387 [00:02<00:01, 139.74it/s] 62%|██████▏   | 240/387 [00:02<00:01, 144.13it/s] 66%|██████▋   | 257/387 [00:02<00:00, 151.17it/s] 73%|███████▎  | 282/387 [00:02<00:00, 178.71it/s] 78%|███████▊  | 301/387 [00:02<00:00, 178.85it/s] 83%|████████▎ | 320/387 [00:02<00:00, 148.49it/s] 87%|████████▋ | 336/387 [00:02<00:00, 146.57it/s] 91%|█████████ | 352/387 [00:02<00:00, 147.22it/s] 98%|█████████▊| 381/387 [00:02<00:00, 184.68it/s]100%|██████████| 387/387 [00:03<00:00, 126.68it/s]
+2025-05-04 00:40 INFO 40365:stopes.eval.auto_pcp.audio_comparator - Embedding target
+  0%|          | 0/387 [00:00<?, ?it/s]  8%|▊         | 32/387 [00:00<00:01, 215.42it/s] 17%|█▋        | 64/387 [00:00<00:01, 222.53it/s] 25%|██▍       | 96/387 [00:00<00:01, 247.82it/s] 33%|███▎      | 128/387 [00:00<00:01, 205.06it/s] 41%|████▏     | 160/387 [00:00<00:01, 220.93it/s] 50%|████▉     | 192/387 [00:00<00:00, 228.56it/s] 58%|█████▊    | 224/387 [00:00<00:00, 228.44it/s] 66%|██████▌   | 256/387 [00:01<00:00, 237.23it/s] 74%|███████▍  | 288/387 [00:01<00:00, 239.56it/s] 83%|████████▎ | 320/387 [00:01<00:00, 254.85it/s] 91%|█████████ | 352/387 [00:01<00:00, 254.44it/s] 99%|█████████▉| 384/387 [00:01<00:00, 268.26it/s]100%|██████████| 387/387 [00:01<00:00, 243.68it/s]
+2025-05-04 00:40 INFO 40365:stopes.eval.auto_pcp.audio_comparator - Comparing source and target embedding
+2025-05-04 00:40 INFO 40365:stopes.cache - written cache for CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb:0
+2025-05-04 00:40 INFO 40365:submitit - Job completed successfully
+2025-05-04 00:40 INFO 40365:submitit - Exiting after successful completion

@@ -1,0 +1,81 @@
+2025-05-04 00:20 INFO 19377:stopes.utils.web - AutoPCP_multilingual_v2 already downloaded
+2025-05-04 00:20 INFO 19377:stopes.eval.auto_pcp.audio_comparator - Loading vectorizer
+/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/huggingface_hub/file_download.py:896: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+submitit ERROR (2025-05-04 00:21:00,516) - Submitted job triggered an exception
+2025-05-04 00:21 ERROR 19377:submitit - Submitted job triggered an exception
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/connection.py", line 198, in _new_conn
+    sock = connection.create_connection(
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/util/connection.py", line 85, in create_connection
+    raise err
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/connection.py", line 704, in connect
+    self.sock = sock = self._new_conn()
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/connection.py", line 207, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x7fe07657a6e0>, 'Connection to huggingface.co timed out. (connect timeout=10)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /facebook/wav2vec2-large-xlsr-53/resolve/main/model.safetensors (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fe07657a6e0>, 'Connection to huggingface.co timed out. (connect timeout=10)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/submitit/core/_submit.py", line 11, in <module>
+    submitit_main()
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/submitit/core/submission.py", line 76, in submitit_main
+    process_job(args.folder)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/submitit/core/submission.py", line 69, in process_job
+    raise error
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/submitit/core/submission.py", line 55, in process_job
+    result = delayed.result()
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/submitit/core/utils.py", line 137, in result
+    self._result = self.function(*self.args, **self.kwargs)
+  File "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/eva_model/stopes/stopes/core/stopes_module.py", line 98, in __call__
+    res = self.run(iteration_value=iteration_value, iteration_index=iteration_index)
+  File "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/eva_model/stopes/stopes/modules/evaluation/compare_audio_module.py", line 114, in run
+    results = compare_audio_pairs(
+  File "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/eva_model/stopes/stopes/eval/auto_pcp/audio_comparator.py", line 371, in compare_audio_pairs
+    encoder = Wav2Vec2Model.from_pretrained(encoder_path)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3370, in from_pretrained
+    if not has_file(pretrained_model_name_or_path, safe_weights_name, **has_file_kwargs):
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/transformers/utils/hub.py", line 627, in has_file
+    r = requests.head(url, headers=headers, allow_redirects=False, proxies=proxies, timeout=10)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/requests/api.py", line 100, in head
+    return request("head", url, **kwargs)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/requests/adapters.py", line 688, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='huggingface.co', port=443): Max retries exceeded with url: /facebook/wav2vec2-large-xlsr-53/resolve/main/model.safetensors (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x7fe07657a6e0>, 'Connection to huggingface.co timed out. (connect timeout=10)'))

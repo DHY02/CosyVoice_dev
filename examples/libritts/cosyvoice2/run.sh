@@ -2,21 +2,21 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=5
-stop_stage=5
+stage=3
+stop_stage=3
 
 # 训练数据集
 train_corpus="casia"
 
 # 训练方法
-method="dpo"
+method="emo_dpo"
 
-data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}_${method}
+data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}_dpo
 pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
 
 
 datasets="train valid"
-dpo_datasets="receive reject"
+dpo_datasets="receive reject emo_dpo_reject"
 
 # 参数
 beta=0.01
@@ -52,6 +52,7 @@ if [ ${stage} -le 2 ] && [ ${stop_stage} -ge 2 ]; then
         --onnx_path $pretrained_model_dir/speech_tokenizer_v2.onnx
     done
     cp $data_dir/$x/reject/utt2speech_token.pt $data_dir/$x/receive/utt2reject_speech_token.pt
+    cp $data_dir/$x/emo_dpo_reject/utt2speech_token.pt $data_dir/$x/receive/utt2emo_dpo_reject_speech_token.pt
   done
 fi
 
@@ -65,7 +66,8 @@ if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
       --num_processes 10 \
       --src_dir $data_dir/$x/receive \
       --des_dir $data_dir/$x/receive/parquet \
-      --dpo
+      --dpo \
+      --emo_dpo
   done
 fi
 
@@ -114,7 +116,7 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
       --train_data $data_dir/train.data.list \
       --cv_data $data_dir/dev.data.list \
       --model $model \
-      --checkpoint $pretrained_model_dir/${model}_ori.pt \
+      --checkpoint $pretrained_model_dir/${model}_init.pt \
       --model_dir `pwd`/exp/cosyvoice2/$model/$train_engine/$exp_name \
       --tensorboard_dir `pwd`/tensorboard/cosyvoice2/$model/$train_engine/$exp_name \
       --ddp.dist_backend $dist_backend \
@@ -125,7 +127,9 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
       --deepspeed_config ./conf/ds_stage2.json \
       --deepspeed.save_states model+optimizer \
       --dpo \
-      --beta ${beta}
+      --beta ${beta} \
+      --emo_dpo \
+      --emo_dpo_epoch 6
   done
 fi
 

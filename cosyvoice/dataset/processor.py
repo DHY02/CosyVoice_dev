@@ -293,7 +293,7 @@ def sort(data, sort_size=500, mode='train'):
         yield x
 
 
-def static_batch(data, batch_size=3):
+def static_batch(data, batch_size=7):
     """ Static batch the data by `batch_size`
 
         Args:
@@ -356,7 +356,7 @@ def batch(data, batch_type='static', batch_size=3, max_frames_in_batch=18000, mo
             logging.fatal('Unsupported batch type {}'.format(batch_type))
 
 
-def padding(data, use_spk_embedding, mode='train', gan=False, dpo=False):
+def padding(data, use_spk_embedding, mode='train', gan=False, dpo=False, emo_dpo=False):
     """ Padding the data into training data
 
         Args:
@@ -417,6 +417,18 @@ def padding(data, use_spk_embedding, mode='train', gan=False, dpo=False):
                                                 padding_value=0)
             batch['reject_speech_token'] = reject_speech_token
             batch['reject_speech_token_len'] = reject_speech_token_len
+            if emo_dpo:
+                valid_samples = [i for i in order if 'emo_dpo_reject_speech_token' in sample[i]]
+                if len(valid_samples) == 0:
+                    logging.warning("DPO: 跳过缺失emo_dpo_reject_speech_token的batch")
+                    continue
+                emo_dpo_reject_speech_token = [torch.tensor(sample[i]['emo_dpo_reject_speech_token']) for i in order]
+                emo_dpo_reject_speech_token_len = torch.tensor([i.size(0) for i in emo_dpo_reject_speech_token], dtype=torch.int32)
+                emo_dpo_reject_speech_token = pad_sequence(emo_dpo_reject_speech_token,
+                                                    batch_first=True,
+                                                    padding_value=0)
+                batch['emo_dpo_reject_speech_token'] = emo_dpo_reject_speech_token
+                batch['emo_dpo_reject_speech_token_len'] = emo_dpo_reject_speech_token_len
         if gan is True:
             # in gan train, we need pitch_feat
             pitch_feat = [sample[i]['pitch_feat'] for i in order]

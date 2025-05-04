@@ -1,0 +1,29 @@
+2025-05-04 00:33 INFO 27582:stopes.utils.web - AutoPCP_multilingual_v2 already downloaded
+2025-05-04 00:33 INFO 27582:stopes.eval.auto_pcp.audio_comparator - Loading vectorizer
+/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/huggingface_hub/file_download.py:896: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of Wav2Vec2Model were not initialized from the model checkpoint at facebook/wav2vec2-large-xlsr-53 and are newly initialized: ['wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0', 'wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-05-04 00:33 INFO 27582:stopes.eval.auto_pcp.audio_comparator - Sequential(
+  (0): Dropout(p=0.1, inplace=False)
+  (1): Linear(in_features=4096, out_features=2048, bias=True)
+  (2): Tanh()
+  (3): Dropout(p=0.1, inplace=False)
+  (4): Linear(in_features=2048, out_features=1024, bias=True)
+  (5): Tanh()
+  (6): Dropout(p=0.1, inplace=False)
+  (7): Linear(in_features=1024, out_features=512, bias=True)
+  (8): Tanh()
+  (9): Dropout(p=0.1, inplace=False)
+  (10): Linear(in_features=512, out_features=5, bias=True)
+)
+2025-05-04 00:33 INFO 27582:stopes.eval.auto_pcp.audio_comparator - model loaded from /root/.cache/stopes/AutoPCP_multilingual_v2/model.pt
+2025-05-04 00:33 INFO 27582:stopes.eval.auto_pcp.audio_comparator - Embedding source
+  0%|          | 0/387 [00:00<?, ?it/s]2025-05-04 00:33 WARNING 27582:stopes.speech.utils - Audio has sample rate 24000. Resample to 16000
+  4%|▍         | 16/387 [00:00<00:11, 33.32it/s]  8%|▊         | 32/387 [00:00<00:06, 58.71it/s] 12%|█▏        | 48/387 [00:00<00:04, 79.33it/s] 17%|█▋        | 64/387 [00:00<00:03, 89.85it/s] 21%|██        | 80/387 [00:00<00:03, 101.73it/s] 25%|██▍       | 96/387 [00:01<00:02, 108.83it/s] 29%|██▉       | 112/387 [00:01<00:02, 113.28it/s] 33%|███▎      | 128/387 [00:01<00:02, 119.78it/s] 37%|███▋      | 144/387 [00:01<00:02, 120.55it/s] 41%|████▏     | 160/387 [00:01<00:01, 126.43it/s] 45%|████▌     | 176/387 [00:01<00:01, 128.54it/s] 50%|████▉     | 192/387 [00:01<00:01, 127.51it/s] 54%|█████▎    | 208/387 [00:02<00:01, 102.21it/s] 58%|█████▊    | 224/387 [00:02<00:01, 108.01it/s] 62%|██████▏   | 240/387 [00:02<00:01, 119.64it/s] 66%|██████▌   | 256/387 [00:02<00:01, 128.70it/s] 70%|███████   | 272/387 [00:02<00:00, 132.47it/s] 74%|███████▍  | 288/387 [00:02<00:00, 134.18it/s] 79%|███████▊  | 304/387 [00:02<00:00, 136.94it/s] 83%|████████▎ | 320/387 [00:02<00:00, 134.53it/s] 87%|████████▋ | 336/387 [00:02<00:00, 136.43it/s] 91%|█████████ | 352/387 [00:03<00:00, 140.85it/s] 95%|█████████▌| 368/387 [00:03<00:00, 146.01it/s] 99%|█████████▉| 384/387 [00:03<00:00, 133.98it/s]100%|██████████| 387/387 [00:03<00:00, 115.79it/s]
+2025-05-04 00:33 INFO 27582:stopes.eval.auto_pcp.audio_comparator - Embedding target
+  0%|          | 0/387 [00:00<?, ?it/s]  8%|▊         | 32/387 [00:00<00:01, 201.22it/s] 17%|█▋        | 64/387 [00:00<00:01, 207.71it/s] 25%|██▍       | 96/387 [00:00<00:01, 235.34it/s] 33%|███▎      | 128/387 [00:00<00:01, 246.25it/s] 40%|███▉      | 154/387 [00:00<00:01, 220.96it/s] 47%|████▋     | 181/387 [00:00<00:00, 234.29it/s] 54%|█████▎    | 208/387 [00:00<00:00, 220.58it/s] 62%|██████▏   | 240/387 [00:01<00:00, 221.91it/s] 70%|███████   | 272/387 [00:01<00:00, 232.85it/s] 82%|████████▏ | 319/387 [00:01<00:00, 293.47it/s] 90%|█████████ | 350/387 [00:01<00:00, 279.40it/s] 98%|█████████▊| 379/387 [00:01<00:00, 274.39it/s]100%|██████████| 387/387 [00:01<00:00, 244.79it/s]
+2025-05-04 00:33 INFO 27582:stopes.eval.auto_pcp.audio_comparator - Comparing source and target embedding
+2025-05-04 00:33 INFO 27582:stopes.cache - written cache for CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb:0
+2025-05-04 00:33 INFO 27582:submitit - Job completed successfully
+2025-05-04 00:33 INFO 27582:submitit - Exiting after successful completion

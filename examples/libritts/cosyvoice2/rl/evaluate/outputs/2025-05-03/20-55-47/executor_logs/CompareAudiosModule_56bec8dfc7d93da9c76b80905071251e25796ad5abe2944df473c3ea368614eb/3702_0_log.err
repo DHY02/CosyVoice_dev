@@ -1,0 +1,30 @@
+2025-05-03 20:55 INFO 3703:stopes.utils.web - Downloading AutoPCP_multilingual_v2...
+  0%|          | 0.00/40.7M [00:00<?, ?B/s]  0%|          | 17.4k/40.7M [00:00<06:24, 106kB/s]  0%|          | 33.8k/40.7M [00:00<06:03, 112kB/s]  0%|          | 60.4k/40.7M [00:00<04:32, 149kB/s]  0%|          | 102k/40.7M [00:00<03:25, 198kB/s]   0%|          | 123k/40.7M [00:00<04:06, 165kB/s]  0%|          | 190k/40.7M [00:00<02:25, 278kB/s]  1%|          | 250k/40.7M [00:01<01:58, 341kB/s]  1%|          | 311k/40.7M [00:01<01:38, 409kB/s]  1%|          | 382k/40.7M [00:01<01:24, 475kB/s]  1%|          | 485k/40.7M [00:01<01:04, 623kB/s]  2%|▏         | 614k/40.7M [00:01<00:49, 805kB/s]  2%|▏         | 783k/40.7M [00:01<00:38, 1.04MB/s]  2%|▏         | 972k/40.7M [00:01<00:31, 1.27MB/s]  3%|▎         | 1.21M/40.7M [00:01<00:25, 1.58MB/s]  4%|▍         | 1.53M/40.7M [00:01<00:19, 2.06MB/s]  5%|▍         | 1.94M/40.7M [00:01<00:14, 2.63MB/s]  5%|▌         | 2.21M/40.7M [00:02<00:29, 1.31MB/s] 13%|█▎        | 5.34M/40.7M [00:02<00:07, 4.73MB/s] 16%|█▋        | 6.66M/40.7M [00:03<00:09, 3.71MB/s] 17%|█▋        | 7.05M/40.7M [00:03<00:12, 2.70MB/s] 24%|██▍       | 9.79M/40.7M [00:03<00:07, 4.40MB/s] 26%|██▋       | 10.8M/40.7M [00:04<00:05, 5.00MB/s] 28%|██▊       | 11.5M/40.7M [00:04<00:08, 3.47MB/s] 33%|███▎      | 13.4M/40.7M [00:04<00:06, 4.43MB/s] 36%|███▌      | 14.7M/40.7M [00:04<00:04, 5.42MB/s] 38%|███▊      | 15.4M/40.7M [00:05<00:05, 4.79MB/s] 39%|███▉      | 16.1M/40.7M [00:05<00:07, 3.37MB/s] 46%|████▌     | 18.5M/40.7M [00:05<00:04, 4.84MB/s] 48%|████▊     | 19.6M/40.7M [00:05<00:03, 5.58MB/s] 50%|████▉     | 20.4M/40.7M [00:06<00:05, 3.85MB/s] 52%|█████▏    | 21.3M/40.7M [00:06<00:04, 4.53MB/s] 54%|█████▍    | 22.0M/40.7M [00:06<00:04, 4.43MB/s] 57%|█████▋    | 23.0M/40.7M [00:06<00:03, 5.26MB/s] 58%|█████▊    | 23.7M/40.7M [00:06<00:03, 4.79MB/s] 61%|██████    | 24.7M/40.7M [00:07<00:02, 5.67MB/s] 63%|██████▎   | 25.6M/40.7M [00:07<00:02, 6.50MB/s] 65%|██████▌   | 26.6M/40.7M [00:07<00:01, 7.22MB/s] 67%|██████▋   | 27.4M/40.7M [00:07<00:03, 3.89MB/s] 70%|██████▉   | 28.4M/40.7M [00:07<00:02, 4.81MB/s] 75%|███████▍  | 30.4M/40.7M [00:08<00:01, 5.48MB/s] 76%|███████▋  | 31.1M/40.7M [00:08<00:02, 3.73MB/s] 83%|████████▎ | 33.8M/40.7M [00:08<00:01, 5.26MB/s] 85%|████████▌ | 34.7M/40.7M [00:09<00:01, 5.78MB/s] 88%|████████▊ | 35.7M/40.7M [00:09<00:00, 6.44MB/s] 90%|████████▉ | 36.6M/40.7M [00:09<00:00, 6.90MB/s] 92%|█████████▏| 37.5M/40.7M [00:09<00:00, 4.30MB/s] 98%|█████████▊| 40.0M/40.7M [00:09<00:00, 5.74MB/s]100%|██████████| 40.7M/40.7M [00:09<00:00, 4.08MB/s]
+2025-05-03 20:56 INFO 3703:stopes.eval.auto_pcp.audio_comparator - Loading vectorizer
+/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/huggingface_hub/file_download.py:896: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of Wav2Vec2Model were not initialized from the model checkpoint at facebook/wav2vec2-large-xlsr-53 and are newly initialized: ['wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0', 'wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-05-03 20:56 INFO 3703:stopes.eval.auto_pcp.audio_comparator - Sequential(
+  (0): Dropout(p=0.1, inplace=False)
+  (1): Linear(in_features=4096, out_features=2048, bias=True)
+  (2): Tanh()
+  (3): Dropout(p=0.1, inplace=False)
+  (4): Linear(in_features=2048, out_features=1024, bias=True)
+  (5): Tanh()
+  (6): Dropout(p=0.1, inplace=False)
+  (7): Linear(in_features=1024, out_features=512, bias=True)
+  (8): Tanh()
+  (9): Dropout(p=0.1, inplace=False)
+  (10): Linear(in_features=512, out_features=5, bias=True)
+)
+2025-05-03 20:56 INFO 3703:stopes.eval.auto_pcp.audio_comparator - model loaded from /root/.cache/stopes/AutoPCP_multilingual_v2/model.pt
+2025-05-03 20:56 INFO 3703:stopes.eval.auto_pcp.audio_comparator - Embedding source
+  0%|          | 0/1 [00:00<?, ?it/s]2025-05-03 20:56 WARNING 3703:stopes.speech.utils - Audio has sample rate 24000. Resample to 16000
+100%|██████████| 1/1 [00:00<00:00, 201.84it/s]
+2025-05-03 20:56 INFO 3703:stopes.eval.auto_pcp.audio_comparator - Embedding target
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [00:00<00:00, 859.49it/s]
+2025-05-03 20:56 INFO 3703:stopes.eval.auto_pcp.audio_comparator - Comparing source and target embedding
+2025-05-03 20:56 INFO 3703:stopes.cache - written cache for CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb:0
+2025-05-03 20:56 INFO 3703:submitit - Job completed successfully
+2025-05-03 20:56 INFO 3703:submitit - Exiting after successful completion

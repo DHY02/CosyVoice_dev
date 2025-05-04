@@ -22,11 +22,18 @@ import torch.distributed as dist
 
 from cosyvoice.utils.train_utils_dpo import update_parameter_and_lr, log_per_step, log_per_save, batch_forward, batch_backward, save_model, cosyvoice_join
 from cosyvoice.utils.losses_dpo import DPOLoss
-from funasr import AutoModel
 
 class Executor:
 
-    def __init__(self, gan: bool = False, dpo: bool = False, beta: float = 0.01, label_smoothing: float = 0.0, ipo: bool = False):
+    def __init__(
+        self, gan: bool = False, 
+        dpo: bool = False, 
+        beta: float = 0.01, 
+        label_smoothing: float = 0.0, 
+        ipo: bool = False,
+        use_emo_dpo: bool = False,
+        emo_dpo_epoch: int = 6
+    ):
         self.gan = gan
         self.step = 0
         self.epoch = 0
@@ -34,7 +41,10 @@ class Executor:
         self.device = torch.device('cuda:{}'.format(self.rank))
         self.dpo = dpo
         if self.dpo:
-            self.dpo_loss = DPOLoss(beta, label_smoothing, ipo)
+            if not use_emo_dpo:
+                self.dpo_loss = DPOLoss(beta, label_smoothing, ipo)
+            else:
+                self.dpo_loss = DPOLoss(beta, label_smoothing, ipo, use_emo_dpo, emo_dpo_epoch)
         else:
             self.dpo_loss = None
 
@@ -74,7 +84,7 @@ class Executor:
                     context = nullcontext
 
                 with context():
-                    info_dict = batch_forward(model, batch_dict, scaler, info_dict, ref_model, self.dpo_loss)
+                    info_dict = batch_forward(model, batch_dict, scaler, info_dict, ref_model, self.dpo_loss, self.epoch)
                     info_dict = batch_backward(model, scaler, info_dict)
 
                 info_dict = update_parameter_and_lr(model, optimizer, scheduler, scaler, info_dict)

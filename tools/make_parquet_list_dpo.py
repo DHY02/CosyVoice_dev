@@ -37,7 +37,8 @@ def job(utt_list, parquet_file, utt2parquet_file, spk2parquet_file):
     speech_token_list = [utt2speech_token[utt] for utt in utt_list]
     if utt2reject_speech_token:
         reject_speech_token_list = [utt2reject_speech_token[utt] for utt in utt_list]
-
+    if utt2emo_dpo_reject_speech_token:
+        utt2emo_dpo_reject_speech_token_list = [utt2emo_dpo_reject_speech_token[utt] for utt in utt_list]
     # 保存到parquet,utt2parquet_file,spk2parquet_file
     df = pd.DataFrame()
     df['utt'] = utt_list
@@ -50,6 +51,9 @@ def job(utt_list, parquet_file, utt2parquet_file, spk2parquet_file):
     df['speech_token'] = speech_token_list
     if utt2reject_speech_token:
         df['reject_speech_token'] = reject_speech_token_list
+    if utt2emo_dpo_reject_speech_token:
+        print("emo_dpo_reject_speech_token已保存")
+        df['emo_dpo_reject_speech_token'] = utt2emo_dpo_reject_speech_token_list
     df.to_parquet(parquet_file)
     with open(utt2parquet_file, 'w') as f:
         json.dump({k: parquet_file for k in utt_list}, f, ensure_ascii=False, indent=2)
@@ -76,6 +80,10 @@ if __name__ == "__main__":
                         action='store_true',
                         default=False,
                         help='Use Direct Preference Optimization')
+    parser.add_argument('--emo_dpo',
+                        action='store_true',
+                        default=False,
+                        help='Use Emo-dpo')
     args = parser.parse_args()
 
     utt2wav, utt2text, utt2spk = {}, {}, {}
@@ -96,8 +104,15 @@ if __name__ == "__main__":
     utt2speech_token = torch.load('{}/utt2speech_token.pt'.format(args.src_dir))
     if args.dpo:
         utt2reject_speech_token = torch.load('{}/utt2reject_speech_token.pt'.format(args.src_dir))
+        print(f"utt2reject_speech_token: {utt2reject_speech_token}")
+        if args.emo_dpo:
+            utt2emo_dpo_reject_speech_token = torch.load('{}/utt2emo_dpo_reject_speech_token.pt'.format(args.src_dir)) 
+            print(f"utt2emo_dpo_reject_speech_token: {utt2emo_dpo_reject_speech_token}")
+        else:
+            utt2emo_dpo_reject_speech_token = None
     else:
         utt2reject_speech_token = None
+        utt2emo_dpo_reject_speech_token = None
     utts = list(utt2wav.keys())
 
     # Using process pool to speedup

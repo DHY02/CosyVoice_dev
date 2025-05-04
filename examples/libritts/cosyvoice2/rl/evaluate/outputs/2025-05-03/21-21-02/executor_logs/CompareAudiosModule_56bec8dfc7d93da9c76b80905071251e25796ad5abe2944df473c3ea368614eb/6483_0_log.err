@@ -1,0 +1,29 @@
+2025-05-03 21:21 INFO 6488:stopes.utils.web - AutoPCP_multilingual_v2 already downloaded
+2025-05-03 21:21 INFO 6488:stopes.eval.auto_pcp.audio_comparator - Loading vectorizer
+/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/huggingface_hub/file_download.py:896: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of Wav2Vec2Model were not initialized from the model checkpoint at facebook/wav2vec2-large-xlsr-53 and are newly initialized: ['wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0', 'wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-05-03 21:21 INFO 6488:stopes.eval.auto_pcp.audio_comparator - Sequential(
+  (0): Dropout(p=0.1, inplace=False)
+  (1): Linear(in_features=4096, out_features=2048, bias=True)
+  (2): Tanh()
+  (3): Dropout(p=0.1, inplace=False)
+  (4): Linear(in_features=2048, out_features=1024, bias=True)
+  (5): Tanh()
+  (6): Dropout(p=0.1, inplace=False)
+  (7): Linear(in_features=1024, out_features=512, bias=True)
+  (8): Tanh()
+  (9): Dropout(p=0.1, inplace=False)
+  (10): Linear(in_features=512, out_features=5, bias=True)
+)
+2025-05-03 21:21 INFO 6488:stopes.eval.auto_pcp.audio_comparator - model loaded from /root/.cache/stopes/AutoPCP_multilingual_v2/model.pt
+2025-05-03 21:21 INFO 6488:stopes.eval.auto_pcp.audio_comparator - Embedding source
+  0%|          | 0/387 [00:00<?, ?it/s]2025-05-03 21:21 WARNING 6488:stopes.speech.utils - Audio has sample rate 24000. Resample to 16000
+  4%|▍         | 16/387 [00:00<00:11, 31.29it/s]  8%|▊         | 32/387 [00:00<00:06, 53.48it/s] 12%|█▏        | 48/387 [00:00<00:04, 75.00it/s] 17%|█▋        | 64/387 [00:00<00:03, 88.67it/s] 21%|██        | 80/387 [00:01<00:02, 104.25it/s] 25%|██▍       | 96/387 [00:01<00:02, 117.48it/s] 29%|██▉       | 114/387 [00:01<00:02, 133.61it/s] 34%|███▎      | 130/387 [00:01<00:01, 139.65it/s] 38%|███▊      | 146/387 [00:01<00:01, 133.20it/s] 42%|████▏     | 161/387 [00:01<00:01, 133.54it/s] 48%|████▊     | 185/387 [00:01<00:01, 162.19it/s] 52%|█████▏    | 203/387 [00:01<00:01, 157.33it/s] 57%|█████▋    | 220/387 [00:01<00:01, 156.74it/s] 61%|██████▏   | 238/387 [00:01<00:00, 162.84it/s] 66%|██████▌   | 256/387 [00:02<00:00, 146.27it/s] 70%|███████   | 272/387 [00:02<00:00, 138.72it/s] 77%|███████▋  | 298/387 [00:02<00:00, 169.55it/s] 82%|████████▏ | 316/387 [00:02<00:00, 167.99it/s] 87%|████████▋ | 335/387 [00:02<00:00, 173.69it/s] 91%|█████████ | 353/387 [00:02<00:00, 142.91it/s] 95%|█████████▌| 369/387 [00:02<00:00, 136.70it/s] 99%|█████████▉| 384/387 [00:03<00:00, 96.90it/s] 100%|██████████| 387/387 [00:03<00:00, 121.48it/s]
+2025-05-03 21:21 INFO 6488:stopes.eval.auto_pcp.audio_comparator - Embedding target
+  0%|          | 0/387 [00:00<?, ?it/s]  8%|▊         | 32/387 [00:00<00:01, 201.86it/s] 17%|█▋        | 64/387 [00:00<00:01, 208.62it/s] 25%|██▍       | 96/387 [00:00<00:01, 227.56it/s] 33%|███▎      | 128/387 [00:00<00:01, 236.41it/s] 39%|███▉      | 152/387 [00:00<00:01, 202.38it/s] 45%|████▌     | 176/387 [00:00<00:01, 199.04it/s] 54%|█████▎    | 208/387 [00:01<00:00, 201.16it/s] 62%|██████▏   | 240/387 [00:01<00:00, 206.25it/s] 70%|███████   | 272/387 [00:01<00:00, 217.01it/s] 79%|███████▊  | 304/387 [00:01<00:00, 240.28it/s] 87%|████████▋ | 336/387 [00:01<00:00, 240.19it/s] 95%|█████████▌| 368/387 [00:01<00:00, 246.13it/s]100%|██████████| 387/387 [00:01<00:00, 226.50it/s]
+2025-05-03 21:21 INFO 6488:stopes.eval.auto_pcp.audio_comparator - Comparing source and target embedding
+2025-05-03 21:21 INFO 6488:stopes.cache - written cache for CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb:0
+2025-05-03 21:21 INFO 6488:submitit - Job completed successfully
+2025-05-03 21:21 INFO 6488:submitit - Exiting after successful completion

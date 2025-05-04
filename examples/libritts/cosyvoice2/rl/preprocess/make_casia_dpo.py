@@ -1,5 +1,6 @@
 from pathlib import Path
 import os
+import random
 
 import shutil
 
@@ -337,13 +338,53 @@ def make_dpo_corpus_2(model):
     print("done!")
 
 
+# 在已经有dpo数据集的情况下，获得emo-dpo的reject音频，向附近选的14个相同text音频中随机选一个不是该情感的音频作为emo_dpo_reject
+def make_emo_dpo_corpus():
+    random.seed(42)
+    corpus_dir = Path("/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/casia_dpo")
+    # 获得receive样本列表并排序
+    for subdir in ["train", "valid"]:
+        src_dir = corpus_dir / subdir / "receive"
+        receives = [entry for entry in os.listdir(src_dir) if entry.endswith('.wav')]
+        receives.sort()
+        # receive id: reject id
+        reject_dict = {}
+        for i, wav in enumerate(receives):
+            emotion = wav.split('.')[0].split('_')[-1].strip()
+            audio_id = "_".join(wav.split('.')[0].split('_')[:-1])
+            delta_s = -14
+            delta_e = 14
+            sample_list = []
+            for j in range(max(i + delta_s, 0), min(i + delta_e, len(receives) - 1)):
+                print(receives[j])
+                emo_j = receives[j].split('.')[0].split('_')[-1].strip()
+                audio_id_j = "_".join(receives[j].split('.')[0].split('_')[:-1])
+                if emo_j != emotion and audio_id_j == audio_id:
+                    sample_list.append(receives[j])
+            if sample_list:  # 确保列表不为空
+                selected_reject = random.choice(sample_list)
+                reject_dict[wav] = selected_reject
+            else:
+                print(wav)
+                raise Exception
+        target_dir = corpus_dir / subdir / "emo_dpo_reject"
+        for k, v in reject_dict.items():
+            os.makedirs(target_dir, exist_ok=True)
+            text_name = "_".join(k.split('.')[:-1]) + ".normalized.txt"
+            # wav
+            shutil.copy(src_dir / v, target_dir / k)
+            # text
+            shutil.copy(src_dir / text_name, target_dir / text_name)
+    print("Make_emo_dpo_corpus done!")
+
 
 if __name__ == '__main__':
     # config = utils.parse_opt()
     # model = models.load(config)
-    model_name = "emotion2vec_base_finetuned"
-    model = AutoModel(model=f"iic/{model_name}")
-    tts_texts = {}
-    with open(wav2text_path, "r", encoding="utf-8") as f:
-        tts_texts = json.load(f)
-    make_dpo_corpus_2(model)
+    # model_name = "emotion2vec_base_finetuned"
+    # model = AutoModel(model=f"iic/{model_name}")
+    # tts_texts = {}
+    # with open(wav2text_path, "r", encoding="utf-8") as f:
+    #     tts_texts = json.load(f)
+    # make_dpo_corpus_2(model)
+    make_emo_dpo_corpus()

@@ -1,0 +1,29 @@
+2025-05-03 21:26 INFO 7063:stopes.utils.web - AutoPCP_multilingual_v2 already downloaded
+2025-05-03 21:26 INFO 7063:stopes.eval.auto_pcp.audio_comparator - Loading vectorizer
+/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/huggingface_hub/file_download.py:896: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of Wav2Vec2Model were not initialized from the model checkpoint at facebook/wav2vec2-large-xlsr-53 and are newly initialized: ['wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0', 'wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-05-03 21:26 INFO 7063:stopes.eval.auto_pcp.audio_comparator - Sequential(
+  (0): Dropout(p=0.1, inplace=False)
+  (1): Linear(in_features=4096, out_features=2048, bias=True)
+  (2): Tanh()
+  (3): Dropout(p=0.1, inplace=False)
+  (4): Linear(in_features=2048, out_features=1024, bias=True)
+  (5): Tanh()
+  (6): Dropout(p=0.1, inplace=False)
+  (7): Linear(in_features=1024, out_features=512, bias=True)
+  (8): Tanh()
+  (9): Dropout(p=0.1, inplace=False)
+  (10): Linear(in_features=512, out_features=5, bias=True)
+)
+2025-05-03 21:26 INFO 7063:stopes.eval.auto_pcp.audio_comparator - model loaded from /root/.cache/stopes/AutoPCP_multilingual_v2/model.pt
+2025-05-03 21:26 INFO 7063:stopes.eval.auto_pcp.audio_comparator - Embedding source
+  0%|          | 0/774 [00:00<?, ?it/s]2025-05-03 21:26 WARNING 7063:stopes.speech.utils - Audio has sample rate 24000. Resample to 16000
+  2%|▏         | 16/774 [00:00<00:20, 37.31it/s]  4%|▍         | 32/774 [00:00<00:11, 62.11it/s]  6%|▌         | 48/774 [00:00<00:08, 85.66it/s]  8%|▊         | 64/774 [00:00<00:07, 98.76it/s] 11%|█         | 86/774 [00:00<00:05, 129.66it/s] 14%|█▎        | 106/774 [00:00<00:04, 148.57it/s] 17%|█▋        | 128/774 [00:01<00:04, 143.13it/s] 19%|█▊        | 144/774 [00:01<00:04, 137.96it/s] 21%|██        | 160/774 [00:01<00:04, 140.56it/s] 24%|██▍       | 188/774 [00:01<00:03, 176.11it/s] 27%|██▋       | 207/774 [00:01<00:03, 171.26it/s] 29%|██▉       | 225/774 [00:01<00:03, 143.43it/s] 32%|███▏      | 248/774 [00:01<00:03, 164.06it/s] 35%|███▌      | 272/774 [00:02<00:03, 147.03it/s] 39%|███▉      | 301/774 [00:02<00:02, 178.71it/s] 41%|████▏     | 321/774 [00:02<00:02, 155.80it/s] 44%|████▍     | 339/774 [00:02<00:02, 158.70it/s] 47%|████▋     | 361/774 [00:02<00:02, 173.31it/s] 49%|████▉     | 380/774 [00:02<00:02, 165.19it/s] 51%|█████▏    | 398/774 [00:02<00:03, 114.89it/s] 53%|█████▎    | 413/774 [00:03<00:03, 114.11it/s] 55%|█████▌    | 427/774 [00:03<00:02, 116.95it/s] 58%|█████▊    | 447/774 [00:03<00:02, 135.42it/s] 60%|█████▉    | 463/774 [00:03<00:02, 132.29it/s] 62%|██████▏   | 480/774 [00:03<00:02, 119.66it/s] 64%|██████▍   | 496/774 [00:03<00:02, 125.29it/s] 66%|██████▌   | 512/774 [00:03<00:02, 127.47it/s] 68%|██████▊   | 528/774 [00:03<00:01, 134.43it/s] 70%|███████   | 544/774 [00:04<00:01, 139.18it/s] 72%|███████▏  | 560/774 [00:04<00:01, 132.13it/s] 75%|███████▍  | 577/774 [00:04<00:01, 141.70it/s] 76%|███████▋  | 592/774 [00:04<00:01, 102.36it/s] 79%|███████▊  | 608/774 [00:04<00:01, 108.10it/s] 81%|████████  | 624/774 [00:04<00:01, 117.99it/s] 83%|████████▎ | 640/774 [00:04<00:01, 127.93it/s] 85%|████████▍ | 656/774 [00:05<00:00, 126.70it/s] 87%|████████▋ | 672/774 [00:05<00:00, 133.13it/s] 89%|████████▉ | 689/774 [00:05<00:00, 142.27it/s] 91%|█████████ | 704/774 [00:05<00:00, 142.75it/s] 93%|█████████▎| 723/774 [00:05<00:00, 155.82it/s] 97%|█████████▋| 752/774 [00:05<00:00, 164.53it/s] 99%|█████████▉| 769/774 [00:05<00:00, 160.80it/s]100%|██████████| 774/774 [00:05<00:00, 135.19it/s]
+2025-05-03 21:26 INFO 7063:stopes.eval.auto_pcp.audio_comparator - Embedding target
+  0%|          | 0/774 [00:00<?, ?it/s]  4%|▍         | 32/774 [00:00<00:03, 204.70it/s]  8%|▊         | 64/774 [00:00<00:03, 211.41it/s] 12%|█▏        | 96/774 [00:00<00:02, 240.46it/s] 17%|█▋        | 128/774 [00:00<00:02, 250.87it/s] 20%|█▉        | 154/774 [00:00<00:02, 221.98it/s] 24%|██▍       | 185/774 [00:00<00:02, 246.16it/s] 27%|██▋       | 211/774 [00:00<00:02, 222.05it/s] 31%|███       | 240/774 [00:01<00:02, 217.25it/s] 35%|███▌      | 272/774 [00:01<00:02, 228.46it/s] 40%|███▉      | 306/774 [00:01<00:01, 256.79it/s] 43%|████▎     | 336/774 [00:01<00:01, 250.35it/s] 48%|████▊     | 368/774 [00:01<00:01, 261.04it/s] 52%|█████▏    | 400/774 [00:01<00:01, 264.06it/s] 56%|█████▌    | 432/774 [00:01<00:01, 263.63it/s] 60%|█████▉    | 464/774 [00:01<00:01, 259.01it/s] 64%|██████▍   | 496/774 [00:02<00:01, 251.98it/s] 68%|██████▊   | 528/774 [00:02<00:00, 247.38it/s] 72%|███████▏  | 560/774 [00:02<00:00, 227.85it/s] 76%|███████▋  | 592/774 [00:02<00:00, 242.72it/s] 81%|████████  | 624/774 [00:02<00:00, 210.60it/s] 85%|████████▍ | 656/774 [00:02<00:00, 216.22it/s] 89%|████████▉ | 688/774 [00:02<00:00, 222.39it/s] 93%|█████████▎| 720/774 [00:03<00:00, 232.75it/s] 97%|█████████▋| 752/774 [00:03<00:00, 241.18it/s]100%|██████████| 774/774 [00:03<00:00, 240.40it/s]
+2025-05-03 21:26 INFO 7063:stopes.eval.auto_pcp.audio_comparator - Comparing source and target embedding
+2025-05-03 21:26 INFO 7063:stopes.cache - written cache for CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb:0
+2025-05-03 21:26 INFO 7063:submitit - Job completed successfully
+2025-05-03 21:26 INFO 7063:submitit - Exiting after successful completion

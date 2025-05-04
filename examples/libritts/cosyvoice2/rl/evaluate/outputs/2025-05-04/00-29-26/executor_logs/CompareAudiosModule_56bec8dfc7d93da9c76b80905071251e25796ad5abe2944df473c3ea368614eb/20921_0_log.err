@@ -1,0 +1,29 @@
+2025-05-04 00:29 INFO 20922:stopes.utils.web - AutoPCP_multilingual_v2 already downloaded
+2025-05-04 00:29 INFO 20922:stopes.eval.auto_pcp.audio_comparator - Loading vectorizer
+/root/miniconda3/envs/cosyvoice/lib/python3.10/site-packages/huggingface_hub/file_download.py:896: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Some weights of Wav2Vec2Model were not initialized from the model checkpoint at facebook/wav2vec2-large-xlsr-53 and are newly initialized: ['wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0', 'wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+2025-05-04 00:29 INFO 20922:stopes.eval.auto_pcp.audio_comparator - Sequential(
+  (0): Dropout(p=0.1, inplace=False)
+  (1): Linear(in_features=4096, out_features=2048, bias=True)
+  (2): Tanh()
+  (3): Dropout(p=0.1, inplace=False)
+  (4): Linear(in_features=2048, out_features=1024, bias=True)
+  (5): Tanh()
+  (6): Dropout(p=0.1, inplace=False)
+  (7): Linear(in_features=1024, out_features=512, bias=True)
+  (8): Tanh()
+  (9): Dropout(p=0.1, inplace=False)
+  (10): Linear(in_features=512, out_features=5, bias=True)
+)
+2025-05-04 00:29 INFO 20922:stopes.eval.auto_pcp.audio_comparator - model loaded from /root/.cache/stopes/AutoPCP_multilingual_v2/model.pt
+2025-05-04 00:29 INFO 20922:stopes.eval.auto_pcp.audio_comparator - Embedding source
+  0%|          | 0/177 [00:00<?, ?it/s]2025-05-04 00:29 WARNING 20922:stopes.speech.utils - Audio has sample rate 24000. Resample to 16000
+  9%|▉         | 16/177 [00:00<00:04, 33.87it/s] 18%|█▊        | 32/177 [00:00<00:02, 61.22it/s] 27%|██▋       | 48/177 [00:00<00:01, 84.97it/s] 36%|███▌      | 64/177 [00:00<00:01, 99.56it/s] 45%|████▌     | 80/177 [00:00<00:00, 109.20it/s] 54%|█████▍    | 96/177 [00:01<00:00, 109.16it/s] 63%|██████▎   | 112/177 [00:01<00:00, 121.37it/s] 72%|███████▏  | 128/177 [00:01<00:00, 124.70it/s] 81%|████████▏ | 144/177 [00:01<00:00, 125.28it/s] 90%|█████████ | 160/177 [00:01<00:00, 132.53it/s] 99%|█████████▉| 176/177 [00:01<00:00, 130.12it/s]100%|██████████| 177/177 [00:01<00:00, 106.76it/s]
+2025-05-04 00:29 INFO 20922:stopes.eval.auto_pcp.audio_comparator - Embedding target
+  0%|          | 0/177 [00:00<?, ?it/s] 18%|█▊        | 32/177 [00:00<00:00, 187.57it/s] 36%|███▌      | 64/177 [00:00<00:00, 192.58it/s] 54%|█████▍    | 96/177 [00:00<00:00, 226.95it/s] 72%|███████▏  | 128/177 [00:00<00:00, 194.12it/s] 90%|█████████ | 160/177 [00:00<00:00, 218.17it/s]100%|██████████| 177/177 [00:00<00:00, 218.42it/s]
+2025-05-04 00:29 INFO 20922:stopes.eval.auto_pcp.audio_comparator - Comparing source and target embedding
+2025-05-04 00:29 INFO 20922:stopes.cache - written cache for CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb:0
+2025-05-04 00:29 INFO 20922:submitit - Job completed successfully
+2025-05-04 00:29 INFO 20922:submitit - Exiting after successful completion

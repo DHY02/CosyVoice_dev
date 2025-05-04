@@ -1,0 +1,7 @@
+- +compare_audios=AutoPCP_multilingual_v2
+- +compare_audios.input_file=/root/autodl-tmp/CosyVoice_dev/input.tsv
+- ++compare_audios.src_audio_column=src_audio
+- ++compare_audios.tgt_audio_column=tgt_audio
+- +compare_audios.named_columns=true
+- +compare_audios.output_file=/root/autodl-tmp/CosyVoice_dev/output.txt
+- launcher=local

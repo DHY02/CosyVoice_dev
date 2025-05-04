@@ -1,0 +1,9 @@
+INPUT_TSV="$(pwd)/input.tsv"
+OUTPUT_TXT="$(pwd)/output.txt"
+python -m stopes.modules +compare_audios=AutoPCP_multilingual_v2 \
+    +compare_audios.input_file=$INPUT_TSV \
+    ++compare_audios.src_audio_column=src_audio \
+    ++compare_audios.tgt_audio_column=tgt_audio \
+    +compare_audios.named_columns=true \
+    +compare_audios.output_file=$OUTPUT_TXT \
+    launcher=local

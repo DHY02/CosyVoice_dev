@@ -1,0 +1,4 @@
+[2025-05-04 00:28:57,738][stopes.cache][INFO] - removing cache for CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb:0
+[2025-05-04 00:28:57,815][stopes.launcher][INFO] - submitted single job for CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb: 20765
+[2025-05-04 00:28:57,815][stopes.launcher][INFO] - Logs at: /root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/outputs/2025-05-04/00-28-55/executor_logs/CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb/20765_0_log.err
+[2025-05-04 00:29:09,831][stopes.launcher][INFO] - CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb done after full execution

@@ -235,7 +235,7 @@ def cosyvoice_join(group_join, info_dict):
         return False
 
 
-def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None):
+def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None, cur_epoch=None):
     device = int(os.environ.get('LOCAL_RANK', 0))
 
 
@@ -252,6 +252,11 @@ def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None
     else:
         autocast = torch.cuda.amp.autocast(enabled=True, dtype=dtype, cache_enabled=False)
     with autocast:
+        if ref_model and dpo_loss and dpo_loss.use_emp_dpo:
+            if cur_epoch >= dpo_loss.emo_dpo_epoch:
+                logging.info(f'Current epoch is {cur_epoch}, use emo-dpo now!')
+                batch["reject_speech_token"] = batch["emo_dpo_reject_speech_token"]
+                batch["reject_speech_token_len"] = batch["emo_dpo_reject_speech_token_len"]
         info_dict['loss_dict'] = model(batch, device)
         if ref_model and dpo_loss:
             chosen_logps = info_dict['loss_dict']["chosen_logps"]

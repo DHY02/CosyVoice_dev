@@ -9,9 +9,6 @@ pwd = Path(__file__)
 
 dataset="m3ed"
 
-
-
-
 cosyvoice2_dir = pwd.parent.parent.parent
 # cosyvoice data文件夹
 data_dir = cosyvoice2_dir / "data"
@@ -19,19 +16,24 @@ data_dir = cosyvoice2_dir / "data"
 dataset_dir = data_dir / dataset
 
 
-
+# 生成测试集的wav2text以及对应的promtwav2refwav，
+# wav2text中的wav是其他数据集的prompt音频，text是测试集的text
+# promtwav2refwav中refwav是text对应的ground truth
 def make_infer_text(emo_cnt, mode):
-    target_json_path = cosyvoice2_dir / f"wav2text_{dataset}_test.json"
+    # 测试集的wav2text
+    target_json_path_1 = cosyvoice2_dir / f"wav2text_{dataset}_test.json"
+
+    # promtwav2refwav：记录prompt音频和ref音频路径的映射
+    target_json_path_2 = cosyvoice2_dir / f"promtwav2refwav_{dataset}_test.json"
+
     print(f"数据集中最少情感数为{emo_cnt}，以此设为测试集中每个情感的数量")
     trans_list = []
     num_emo = {}
     # text数据集
     corpus_dir = dataset_dir / mode
 
-
-
-    # 参考音频数据集
-    ref_dir = data_dir / "casia"
+    # prompt音频数据集
+    prompt_dir = data_dir / "casia"
 
     # 划分测试集后的text总数
     cnt = 0
@@ -42,6 +44,8 @@ def make_infer_text(emo_cnt, mode):
             with open(corpus_dir / entry, "r", encoding="utf-8") as f:
                 trans = f.readline()
             emotion = trans.split('<|endofprompt|>')[0]
+            ref_wav_path = entry.split('.')[0] + ".wav"
+            trans = (trans, ref_wav_path)
             # 排除Disgust
             if emotion != "Disgust":
                 if emotion not in num_emo:
@@ -55,20 +59,22 @@ def make_infer_text(emo_cnt, mode):
     print("trans_list len:")
     print(len(trans_list))
     # 随机提取出的和测试集数量相同的casia音频
-    all_wav_files = [f.split('.')[0] for f in os.listdir(ref_dir) if f.endswith(".wav") and os.path.isfile(os.path.join(ref_dir, f))]
+    all_wav_files = [f.split('.')[0] for f in os.listdir(prompt_dir) if f.endswith(".wav") and os.path.isfile(os.path.join(prompt_dir, f))]
     random.shuffle(all_wav_files)
-    selected_ref = all_wav_files[:cnt]
+    selected_prom = all_wav_files[:cnt]
 
-    # print("all_wav_files len:")
-    # print(len(all_wav_files))
     # 将抽取的名称和转录文本一一映射写入json
-    out_dict = {}
-    for i, trans in enumerate(trans_list):
-        ref_name = selected_ref[i]
-        out_dict[ref_name] = [trans]
+    wav2text_dict = {}
+    promtwav2refwav_dict = {}
+    for i, (trans, ref_path) in enumerate(trans_list):
+        prompt_name = selected_prom[i]
+        wav2text_dict[prompt_name] = [trans]
+        promtwav2refwav_dict[prompt_name] = ref_path
 
-    with open(target_json_path, "w", encoding="utf-8") as f:
-        json.dump(out_dict, f, ensure_ascii=False, indent=2)
+    with open(target_json_path_1, "w", encoding="utf-8") as f:
+        json.dump(wav2text_dict, f, ensure_ascii=False, indent=2)
+    with open(target_json_path_2, "w", encoding="utf-8") as f:
+        json.dump(promtwav2refwav_dict, f, ensure_ascii=False, indent=2)
 
 
 # 统计数据集中情感分类及其数量，返回最小数量
@@ -111,6 +117,6 @@ def make_train_valid_wav2text():
 
 
 if __name__ == "__main__":
-    # emo_cnt = emo_status("test")
-    # make_infer_text(emo_cnt, "test")
-    make_train_valid_wav2text()
+    emo_cnt = emo_status("test")
+    make_infer_text(emo_cnt, "test")
+    # make_train_valid_wav2text()

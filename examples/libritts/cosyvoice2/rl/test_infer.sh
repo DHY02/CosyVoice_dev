@@ -8,21 +8,41 @@ stage=4
 stop_stage=4
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-root_dir="$(dirname "$(dirname "$(dirname "$script_dir")")")"
+root_dir=${1:-"$(dirname "$(dirname "$(dirname "$script_dir")")")"}
 
 cosyvoice2_dir="${root_dir}/examples/libritts/cosyvoice2"
 data_dir="${cosyvoice2_dir}/data"
 pretrained_model_dir="${root_dir}/pretrained_models/CosyVoice2-0.5B"
+echo "root: ${root_dir}"
+echo "pretrained_model_dir: ${pretrained_model_dir}"
 checkpoint_model_dir="${cosyvoice2_dir}/exp/cosyvoice2/llm/torch_ddp/casia_dpo_0.01"
+
 wav2text_name="wav2text_m3ed_test.json"
+
+
+# 修改llm_model_path和result_dir_name来切换推理模型
+
+num_epoch=9
+llm_name="epoch_${num_epoch}_whole.pt"
+llm_model_path=${2:-"${checkpoint_model_dir}/${llm_name}"}
+
 # llm_name="llm_init.pt"
-llm_name="epoch_9_whole.pt"
-result_dir_name="test_dpo"
+# llm_model_path="${pretrained_model_dir}/${llm_name}"
 
 
+# result_dir_name="test_init"
+result_dir_name=${3:-"test_dpo_epoch_${num_epoch}"}
+
+# 修改test来修改测试集的目录，修改ref指定prompt音频数据集
 test="m3ed/test"
 ref="casia"
 datasets="${test}"
+
+# 检查是否为空
+if [ -z "$result_dir_name" ]; then
+    echo "错误: 必须指定 result_dir_name 参数"
+    exit 1
+fi
 
 if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ]; then
   echo "Data preparation, prepare wav.scp/text/utt2spk/spk2utt"
@@ -83,7 +103,7 @@ if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
       --prompt_utt2data data/casia/parquet/utt2data.list \
       --tts_text `pwd`/${wav2text_name} \
       --qwen_pretrain_path $pretrained_model_dir/CosyVoice-BlankEN \
-      --llm_model $pretrained_model_dir/${llm_name} \
+      --llm_model $llm_model_path \
       --flow_model $pretrained_model_dir/flow.pt \
       --hifigan_model $pretrained_model_dir/hift.pt \
       --result_dir `pwd`/exp/cosyvoice/${result_dir_name}/$mode

@@ -9,7 +9,7 @@ sample_rate: 24000
 llm_input_size: 896
 llm_output_size: 896
 spk_embed_dim: 192
-qwen_pretrain_path: '/home/pretrained_models/CosyVoice2-0.5B/CosyVoice-BlankEN'
+qwen_pretrain_path: '/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B/CosyVoice-BlankEN'
 token_frame_rate: 25
 token_mel_ratio: 2
 

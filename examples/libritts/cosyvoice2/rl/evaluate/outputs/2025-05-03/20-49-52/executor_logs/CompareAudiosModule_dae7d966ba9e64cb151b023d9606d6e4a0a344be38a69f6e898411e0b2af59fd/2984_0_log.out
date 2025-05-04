@@ -1,0 +1,3 @@
+submitit INFO (2025-05-03 20:49:55,464) - Starting with JobEnvironment(job_id=2984, hostname=autodl-container-c5d44faf3d-eaa4b247, local_rank=0(1), node=0(1), global_rank=0(1))
+submitit INFO (2025-05-03 20:49:55,464) - Loading pickle: /root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/outputs/2025-05-03/20-49-52/executor_logs/CompareAudiosModule_dae7d966ba9e64cb151b023d9606d6e4a0a344be38a69f6e898411e0b2af59fd/2984_submitted.pkl
+submitit ERROR (2025-05-03 20:49:58,341) - Submitted job triggered an exception

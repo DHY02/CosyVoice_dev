@@ -1,0 +1,27 @@
+launcher:
+  cache:
+    _target_: stopes.core.FileCache
+    caching_dir: /tmp/stopes_cache
+  _target_: stopes.core.Launcher
+  log_folder: executor_logs
+  cluster: local
+  partition: null
+  max_jobarray_jobs: 1000
+dry_run: false
+compare_audios:
+  _target_: stopes.modules.evaluation.compare_audio_module.CompareAudiosModule
+  input_file: input.tsv
+  input_files: null
+  output_file: output.txt
+  comparator_path: ???
+  src_audio_column: src_audio
+  tgt_audio_column: tgt_audio
+  encoder_path: facebook/wav2vec2-large-xlsr-53
+  pick_layer: 9
+  use_cuda: true
+  batch_size: 16
+  num_process: 1
+  symmetrize: true
+  comparator_url: https://dl.fbaipublicfiles.com/speech_expressivity_evaluation/AutoPCP-multilingual-v2.zip
+  comparator_save_name: AutoPCP_multilingual_v2
+  named_columns: true

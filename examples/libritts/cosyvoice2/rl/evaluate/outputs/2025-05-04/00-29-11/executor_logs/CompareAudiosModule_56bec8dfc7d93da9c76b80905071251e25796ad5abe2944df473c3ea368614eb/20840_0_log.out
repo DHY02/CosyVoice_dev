@@ -1,0 +1,4 @@
+submitit INFO (2025-05-04 00:29:14,189) - Starting with JobEnvironment(job_id=20840, hostname=autodl-container-c5d44faf3d-eaa4b247, local_rank=0(1), node=0(1), global_rank=0(1))
+submitit INFO (2025-05-04 00:29:14,190) - Loading pickle: /root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/outputs/2025-05-04/00-29-11/executor_logs/CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb/20840_submitted.pkl
+submitit INFO (2025-05-04 00:29:24,959) - Job completed successfully
+submitit INFO (2025-05-04 00:29:24,959) - Exiting after successful completion

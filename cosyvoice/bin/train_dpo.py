@@ -85,6 +85,15 @@ def get_args():
                         action='store_true',
                         default=False,
                         help='Use Direct Preference Optimization')
+    parser.add_argument('--emo_dpo',
+                        action='store_true',
+                        default=False,
+                        help='Use EMO-DPO with dpo')
+    parser.add_argument('--emo_dpo_epoch',
+                        type=int,
+                        default=6,
+                        help='Epoch to start EMO-DPO, followed by num of emo_dpo_epoch vanilla DPO.'
+                        'Only useful when emo_dpo is True')
     parser.add_argument('--beta',
                         default=0.01,
                         type=float,
@@ -127,8 +136,13 @@ def main():
     # load checkpoint
     model = configs[args.model]
     ref_model = None
+
+    assert not (args.emo_dpo and not args.dpo), "It's not allowed when dpo is False and emo-dpo is True"
+
     if args.dpo:
         logging.debug('Using DPO to train.')
+        if args.emo_dpo:
+            logging.debug('Using Emo-DPO to train.')
         ref_model = deepcopy(model)
     start_step, start_epoch = 0, -1
     if args.checkpoint is not None:
@@ -159,12 +173,13 @@ def main():
 
     # Save init checkpoints
     info_dict = deepcopy(configs['train_conf'])
+    assert info_dict['max_epoch'] - 1 >= args.emo_dpo_epoch, "Can't reach the epoch to use emo-dpo."
     info_dict['step'] = start_step
     info_dict['epoch'] = start_epoch
     save_model(model, 'init', info_dict)
 
     # Get executor
-    executor = Executor(gan=gan, dpo=args.dpo, beta=args.beta)
+    executor = Executor(gan=gan, dpo=args.dpo, beta=args.beta, use_emo_dpo=args.emo_dpo, emo_dpo_epoch=args.emo_dpo_epoch)
     executor.step = start_step
 
     # Init scaler, used for pytorch amp mixed precision training
