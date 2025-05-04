@@ -136,6 +136,7 @@ class TransformerLM(torch.nn.Module):
         logits = self.llm_decoder(lm_output)
         loss = self.criterion_ce(logits, lm_target)
         acc = th_accuracy(logits.view(-1, self.speech_token_size + 1), lm_target, ignore_label=IGNORE_ID)
+
         return {'loss': loss, 'acc': acc}
 
     def sampling_ids(
