@@ -175,7 +175,7 @@ if __name__ == '__main__':
     
     subdir_list = []
     for i in range(1, 10, 2):
-        subdir = f"test_dpo_wosft_epoch_{i}"
+        subdir = f"test_emo_dpo_epoch_{i}"
         if os.path.exists(test_root_dir / subdir / method):
             subdir_list.append(subdir)
     print(f"对以下目录音频做评估：{subdir_list}")

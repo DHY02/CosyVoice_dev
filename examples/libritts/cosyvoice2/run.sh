@@ -9,14 +9,14 @@ stop_stage=5
 train_corpus="casia"
 
 # 训练方法
-method="emo_dpo"
+method="dpo"
 
 data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}-emo-dpo
 pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
 
 
 datasets="train valid"
-dpo_datasets="receive reject emo_dpo_reject"
+dpo_datasets="receive reject"
 
 # 参数
 beta=0.01
@@ -127,9 +127,9 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
       --deepspeed_config ./conf/ds_stage2.json \
       --deepspeed.save_states model+optimizer \
       --dpo \
-      --beta ${beta} \
-      --emo_dpo \
-      --emo_dpo_epoch 6
+      --beta ${beta} 
+      # --emo_dpo \
+      # --emo_dpo_epoch 6
   done
 fi
 
