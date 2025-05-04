@@ -6,7 +6,12 @@ echo $root_dir
 cosyvoice2_dir="${root_dir}/examples/libritts/cosyvoice2"
 data_dir="${cosyvoice2_dir}/data"
 pretrained_model_dir="${root_dir}/pretrained_models/CosyVoice2-0.5B"
-checkpoint_model_dir="${cosyvoice2_dir}/exp/cosyvoice2/llm/torch_ddp/casia_dpo_0.01"
+
+# 需要设置的参数
+checkpoint_model_dir="${cosyvoice2_dir}/exp/cosyvoice2/llm/torch_ddp/casia_emo_dpo_0.01"
+
+method="emo_dpo"
+
 
 # 创建包含1到9的奇数epoch的模型路径数组
 llm_model_paths=()
@@ -31,7 +36,7 @@ for model_path in "${llm_model_paths[@]}"; do
     # 设置结果目录名称
     if [[ "${model_path}" == *"epoch_"* ]]; then
         epoch_num=$(echo "${model_path}" | grep -oP 'epoch_\K\d+')
-        result_dir_name="test_dpo_epoch_${epoch_num}"
+        result_dir_name="test_${method}_epoch_${epoch_num}"
     else
         echo "不接受的模型名称"
         exit 1;

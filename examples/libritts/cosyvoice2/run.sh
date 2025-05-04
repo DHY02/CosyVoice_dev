@@ -2,8 +2,8 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=3
-stop_stage=3
+stage=5
+stop_stage=5
 
 # 训练数据集
 train_corpus="casia"
@@ -11,7 +11,7 @@ train_corpus="casia"
 # 训练方法
 method="emo_dpo"
 
-data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}_dpo
+data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}-emo-dpo
 pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
 
 

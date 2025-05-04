@@ -254,7 +254,6 @@ def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None
     with autocast:
         if ref_model and dpo_loss and dpo_loss.use_emp_dpo:
             if cur_epoch >= dpo_loss.emo_dpo_epoch:
-                logging.info(f'Current epoch is {cur_epoch}, use emo-dpo now!')
                 batch["reject_speech_token"] = batch["emo_dpo_reject_speech_token"]
                 batch["reject_speech_token_len"] = batch["emo_dpo_reject_speech_token_len"]
         info_dict['loss_dict'] = model(batch, device)

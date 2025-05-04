@@ -104,10 +104,10 @@ if __name__ == "__main__":
     utt2speech_token = torch.load('{}/utt2speech_token.pt'.format(args.src_dir))
     if args.dpo:
         utt2reject_speech_token = torch.load('{}/utt2reject_speech_token.pt'.format(args.src_dir))
-        print(f"utt2reject_speech_token: {utt2reject_speech_token}")
+        # print(f"utt2reject_speech_token: {utt2reject_speech_token}")
         if args.emo_dpo:
             utt2emo_dpo_reject_speech_token = torch.load('{}/utt2emo_dpo_reject_speech_token.pt'.format(args.src_dir)) 
-            print(f"utt2emo_dpo_reject_speech_token: {utt2emo_dpo_reject_speech_token}")
+            # print(f"utt2emo_dpo_reject_speech_token: {utt2emo_dpo_reject_speech_token}")
         else:
             utt2emo_dpo_reject_speech_token = None
     else:

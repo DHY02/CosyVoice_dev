@@ -67,6 +67,6 @@ class DPOLoss(torch.nn.Module):
 
         return loss, chosen_rewards, rejected_rewards
 
-    def get_jsd(cho_ratio, rej_ratio):
+    def get_jsd(self, cho_ratio, rej_ratio):
         return torch.log1p(torch.exp(cho_ratio)) - torch.log1p(torch.exp(rej_ratio))
 

@@ -338,10 +338,10 @@ def make_dpo_corpus_2(model):
     print("done!")
 
 
-# 在已经有dpo数据集的情况下，获得emo-dpo的reject音频，向附近选的14个相同text音频中随机选一个不是该情感的音频作为emo_dpo_reject
-def make_emo_dpo_corpus():
+# 获得emo-dpo的emo_dpo_reject音频，向附近选的14个相同text音频中随机选一个不是该情感的音频作为emo_dpo_reject
+def make_emo_dpo_reject_corpus():
     random.seed(42)
-    corpus_dir = Path("/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/casia_dpo")
+    corpus_dir = Path("/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/casia-emo-dpo")
     # 获得receive样本列表并排序
     for subdir in ["train", "valid"]:
         src_dir = corpus_dir / subdir / "receive"
@@ -356,7 +356,7 @@ def make_emo_dpo_corpus():
             delta_e = 14
             sample_list = []
             for j in range(max(i + delta_s, 0), min(i + delta_e, len(receives) - 1)):
-                print(receives[j])
+                # print(receives[j])
                 emo_j = receives[j].split('.')[0].split('_')[-1].strip()
                 audio_id_j = "_".join(receives[j].split('.')[0].split('_')[:-1])
                 if emo_j != emotion and audio_id_j == audio_id:
@@ -365,7 +365,7 @@ def make_emo_dpo_corpus():
                 selected_reject = random.choice(sample_list)
                 reject_dict[wav] = selected_reject
             else:
-                print(wav)
+                # print(wav)
                 raise Exception
         target_dir = corpus_dir / subdir / "emo_dpo_reject"
         for k, v in reject_dict.items():
@@ -378,6 +378,36 @@ def make_emo_dpo_corpus():
     print("Make_emo_dpo_corpus done!")
 
 
+# 转移receive到casia-emo-dpo
+def move_from_dpo2emo_dpo():
+    src_dir = Path("/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/casia_dpo")
+    tgt_dir = Path("/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/casia-emo-dpo")
+    
+    # 存id: path
+    receive_id2path = {}
+    reject_id2path = {}
+    for i in ["train", "valid", "test"]:
+        for j in ["receive", "reject"]:
+            os.makedirs(tgt_dir / i / j, exist_ok=True)
+            for entry in os.listdir(src_dir / i / j):
+                if entry.endswith(".wav"):
+                    audio_id = "_".join(entry.split('.')[:-1])
+                    if j == "receive":
+                        receive_id2path[audio_id] = (src_dir / i / j / entry, src_dir / i / j / (audio_id + ".normalized.txt"))
+                    elif j == "reject":
+                        reject_id2path[audio_id] = (src_dir / i / j / entry, src_dir / i / j / (audio_id + ".normalized.txt"))
+    # 对于receive中的id，从id对应的reject 的 path复制到目标reject目录下
+    for i in ["train", "valid", "test"]:
+        for entry in os.listdir(tgt_dir / i / "receive"):
+            if entry.endswith(".wav"):
+                audio_id = "_".join(entry.split('.')[:-1])
+                rej_wav = reject_id2path[audio_id][0]
+                rej_txt = reject_id2path[audio_id][1]
+                shutil.copy(rej_wav, tgt_dir / i / "reject" / (audio_id + ".wav"))
+                shutil.copy(rej_txt, tgt_dir / i / "reject" / (audio_id + ".normalized.txt"))
+    print("move_from_dpo2emo_dpo is done!")
+
+
 if __name__ == '__main__':
     # config = utils.parse_opt()
     # model = models.load(config)
@@ -387,4 +417,5 @@ if __name__ == '__main__':
     # with open(wav2text_path, "r", encoding="utf-8") as f:
     #     tts_texts = json.load(f)
     # make_dpo_corpus_2(model)
-    make_emo_dpo_corpus()
+    move_from_dpo2emo_dpo()
+    # make_emo_dpo_reject_corpus()

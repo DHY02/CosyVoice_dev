@@ -180,7 +180,7 @@ class Executor:
 
             if self.gan is True:
                 batch_dict['turn'] = 'generator'
-            info_dict = batch_forward(model, batch_dict, None, info_dict, ref_model, dpo_loss)
+            info_dict = batch_forward(model, batch_dict, None, info_dict, ref_model, dpo_loss, self.epoch)
             for k, v in info_dict['loss_dict'].items():
                 if k not in total_loss_dict:
                     total_loss_dict[k] = []
