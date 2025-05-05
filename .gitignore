@@ -58,3 +58,4 @@ examples/libritts/cosyvoice2/rl/evaluate/eva_model/*
 outputs/*
 eva_model/*
 old_models/*
+async_cosyvoice/*

@@ -14,12 +14,31 @@ sys.path.append('third_party/Matcha-TTS')
 
 from async_cosyvoice.async_cosyvoice import AsyncCosyVoice2
 from cosyvoice.utils.file_utils import load_wav
+import random
+import numpy as np
+import torch
 
 # 训练集
 corpus = "casia_ori"
 
 # 参考音频数据集
 ref_corpus = "m3ed/whole"
+
+def set_seeds(base_seed):
+    """设置所有随机种子"""
+    random.seed(base_seed)
+    np.random.seed(base_seed)
+    torch.manual_seed(base_seed)
+    torch.cuda.manual_seed_all(base_seed)
+    # 为了确保可复现性，添加以下设置
+    # torch.backends.cudnn.deterministic = True
+    # torch.backends.cudnn.benchmark = False
+
+def get_dynamic_seed(base_seed=1986):
+    """获取动态种子"""
+    # 使用当前小时数作为偏移量 (0-23)
+    hour_offset = int(time.strftime("%S"))  
+    return base_seed + hour_offset
 
 async def main():
     # # cosyvoice = AsyncCosyVoice2('./pretrained_models/CosyVoice2-0.5B', load_jit=False, load_trt=False, fp16=True)
@@ -80,13 +99,22 @@ async def main():
         # torch.cuda.empty_cache()
     prompt_text = '希望你以后能够做得比我还好哟'
     prompt_speech_16k = load_wav('./asset/zero_shot_prompt.wav', 16000)
-
+    tts_text = "收到好友从远方寄来的生日礼物，真是太好了"
+    tgt_dir = "test_vllm_wavs"
+    os.makedirs(tgt_dir, exist_ok=True)
     # cosyvoice = AsyncCosyVoice2('./pretrained_models/CosyVoice2-0.5B', load_jit=False, load_trt=False, fp16=True)
     cosyvoice = AsyncCosyVoice2('./pretrained_models/CosyVoice2-0.5B', load_jit=True, load_trt=False, fp16=True)
-    i = 0
-    async for j in cosyvoice.inference_sft('收到好友从远方寄来的生日礼物，那份意外的惊喜与深深的祝福让我心中充满了甜蜜的快乐，笑容如花儿般绽放。', spk_id='xiaohe', stream=False):
-        torchaudio.save('sft_{}.wav'.format(i), j['tts_speech'], cosyvoice.sample_rate)
-        i += 1
+    for i in range(20):
+        set_seeds(i)
+        audio_data: torch.Tensor = None
+        async for chunk in cosyvoice.inference_instruct2(tts_text, 'angry', prompt_speech_16k, stream=False):
+            if chunk['tts_speech'] != None:
+                chunk_data = chunk['tts_speech'].cpu()
+            audio_data = torch.concat([audio_data, chunk_data], dim=1) if audio_data is not None else chunk_data
+            if audio_data != None:
+                audio_data = audio_data.cpu()
+        torchaudio.save('instruct2_{}.wav'.format(i), audio_data, cosyvoice.sample_rate)
+
 
         
 if __name__ == "__main__":
