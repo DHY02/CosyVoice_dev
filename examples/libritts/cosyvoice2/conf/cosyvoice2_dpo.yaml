@@ -174,7 +174,7 @@ batch: !name:cosyvoice.dataset.processor.batch
 padding: !name:cosyvoice.dataset.processor.padding
     use_spk_embedding: False # change to True during sft
     dpo: True
-    emo_dpo: True
+    emo_dpo: False
 
 # dataset processor pipeline
 data_pipeline: [

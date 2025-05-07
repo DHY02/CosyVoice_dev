@@ -1,3 +1,4 @@
+import logging
 import torch
 import torch.nn.functional as F
 from typing import Tuple
@@ -70,3 +71,73 @@ class DPOLoss(torch.nn.Module):
     def get_jsd(self, cho_ratio, rej_ratio):
         return torch.log1p(torch.exp(cho_ratio)) - torch.log1p(torch.exp(rej_ratio))
 
+
+class GRPOLoss(torch.nn.Module):
+    """
+    GRPO Loss
+    """
+
+    def __init__(
+        self, 
+        beta: float = 0.04, 
+        grpo_clip: float = 0.2,
+    ) -> None:
+        super().__init__()
+        self.beta = beta
+        self.grpo_clip = grpo_clip
+
+    def forward(
+        self,
+        reference_logps: torch.Tensor,
+        active_logps: torch.Tensor,
+        advantages: torch.Tensor,
+        mask: torch.Tensor
+    ) -> Tuple[torch.Tensor]:
+        """
+            reference_logps: shape (B, G, L)
+            active_logps: shape (B, G, L)
+            advantages: shape (B, G),
+            mask: shape (B, G, L)
+        """
+        # 计算优势函数，shape: (B, G)
+        group_mean_advantages = advantages.mean(dim=1, keepdim=True)
+        group_std_advantages = advantages.std(dim=1, keepdim=True)
+        advantages = (advantages - group_mean_advantages) / (group_std_advantages + 1e-4)
+        # shape:(B, G, 1)
+        advantages = advantages.unsqueeze(2)
+        # logging.debug(f"Active_logps: {active_logps}")
+        # logging.debug(f"Reference_logps: {reference_logps}")
+
+        # 计算KL散度
+        per_token_kl = self.grpo_kl(reference_logps, active_logps)
+        # logging.debug(f"per_token_kl: {per_token_kl}")
+
+        # 计算ratio
+        coef_1 = torch.exp(active_logps - reference_logps)
+        coef_2 = torch.clamp(coef_1, 1 - self.grpo_clip, 1 + self.grpo_clip)
+        # logging.debug(f"coef_1: {coef_1}")
+        # 被clip样本的比例，越高代表参考策略和当前策略差异越大，或优势函数估计不稳定，或超参数 grpo_clip 设置不合理
+        is_low_clipped = (coef_1 < 1 - self.grpo_clip) & (advantages < 0)
+        is_high_clipped = (coef_1 > 1 + self.grpo_clip) & (advantages > 0)
+        clip_ratio = (is_low_clipped | is_high_clipped).float().mean()
+        mean_kl = per_token_kl.mean()
+
+        # 计算总损失
+        per_token_loss1 = coef_1 * advantages
+        per_token_loss2 = coef_2 * advantages
+        per_token_loss = -torch.min(per_token_loss1, per_token_loss2) + self.beta * per_token_kl
+        loss =  ((per_token_loss * mask).sum(-1) / mask.sum(-1).clamp(min=1.0)).mean()
+        metrics = {
+            "kl": mean_kl.detach(),
+            "clip_ratio": clip_ratio.detach(),
+            "clip_ratio/low": is_low_clipped.float().mean().detach(),
+            "clip_ratio/high": is_high_clipped.float().mean().detach(),
+        }
+        return loss, metrics
+        
+    def grpo_kl(
+        self,         
+        reference_logps: torch.Tensor,
+        active_logps: torch.Tensor,
+    ):
+        return torch.exp(reference_logps - active_logps) - (reference_logps - active_logps) - 1

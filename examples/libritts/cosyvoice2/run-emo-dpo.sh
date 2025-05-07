@@ -19,10 +19,12 @@ datasets="train valid"
 dpo_datasets="receive reject"
 
 # 参数
-beta=0.01
+beta=0.1
 
 # 实验名称（保存目录）
-exp_name="${train_corpus}_${method}_${beta}"
+exp_name="${train_corpus}_${method}_b${beta}"
+
+# 训练前：先修改第三步参数并运行，跑完第三步后再开始训练
 
 if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ]; then
   echo "Data preparation, prepare wav.scp/text/utt2spk/spk2utt"
@@ -62,7 +64,7 @@ if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
   echo "Prepare required parquet format data, you should have prepared wav.scp/text/utt2spk/spk2utt/utt2embedding.pt/spk2embedding.pt/utt2speech_token.pt"
   for x in ${datasets}; do
     mkdir -p $data_dir/$x/receive/parquet
-    tools/make_parquet_list_dpo.py --num_utts_per_parquet 1000 \
+    tools/make_parquet_list_rl.py --num_utts_per_parquet 1000 \
       --num_processes 10 \
       --src_dir $data_dir/$x/receive \
       --des_dir $data_dir/$x/receive/parquet \
@@ -112,11 +114,11 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
         --rdzv_id=$job_id --rdzv_backend="c10d" --rdzv_endpoint="localhost:1234" \
       cosyvoice/bin/train_dpo.py \
       --train_engine $train_engine \
-      --config conf/cosyvoice2_dpo.yaml \
+      --config conf/cosyvoice2_emo-dpo.yaml \
       --train_data $data_dir/train.data.list \
       --cv_data $data_dir/dev.data.list \
       --model $model \
-      --checkpoint $pretrained_model_dir/${model}_init.pt \
+      --checkpoint $pretrained_model_dir/${model}.pt \
       --model_dir `pwd`/exp/cosyvoice2/$model/$train_engine/$exp_name \
       --tensorboard_dir `pwd`/tensorboard/cosyvoice2/$model/$train_engine/$exp_name \
       --ddp.dist_backend $dist_backend \
@@ -126,10 +128,9 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
       --use_amp \
       --deepspeed_config ./conf/ds_stage2.json \
       --deepspeed.save_states model+optimizer \
-      --dpo \
-      --beta ${beta} 
-      # --emo_dpo \
-      # --emo_dpo_epoch 6
+      --dpo --dpo_beta $beta \
+      --emo_dpo \
+      --emo_dpo_epoch 6
   done
 fi
 

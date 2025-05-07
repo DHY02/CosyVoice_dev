@@ -228,8 +228,12 @@ class Qwen2Encoder(torch.nn.Module):
         super().__init__()
         self.model = Qwen2ForCausalLM.from_pretrained(pretrain_path)
 
+    # xs_lens：(B,), 每个样本的非padding长度
     def forward(self, xs: torch.Tensor, xs_lens: torch.Tensor):
+        # L
         T = xs.size(1)
+
+        # padding的mask，shape: (B, max(xs_lens))
         masks = ~make_pad_mask(xs_lens, T)
         outs = self.model(
             inputs_embeds=xs,
@@ -237,6 +241,7 @@ class Qwen2Encoder(torch.nn.Module):
             output_hidden_states=True,
             return_dict=True,
         )
+        # (B, L, hidden_dim)
         return outs.hidden_states[-1], masks.unsqueeze(1)
 
     def forward_one_step(self, xs, masks, cache=None):
@@ -266,6 +271,7 @@ class Qwen2LM(TransformerLM):
             lsm_weight: float = 0.0,
             mix_ratio: List[int] = [5, 15],
             dpo: bool = False,
+            grpo: bool = False
     ):
         torch.nn.Module.__init__(self)
         self.llm_input_size = llm_input_size
@@ -295,8 +301,18 @@ class Qwen2LM(TransformerLM):
         self.mix_ratio = mix_ratio
         # 5. [Optional] set dpo
         self.dpo = dpo
+        self.grpo = grpo
 
-    def prepare_lm_input_target(self, text_token, text_token_emb, text_token_len, speech_token, speech_token_emb, speech_token_len, reject_speech_token, reject_speech_emb, reject_speech_token_len):
+    # 对于GRPO：speech token的batch_size维扩大G倍
+    def prepare_lm_input_target(self, text_token, text_token_emb, text_token_len, speech_token, speech_token_emb, speech_token_len,
+                                 reject_speech_token, reject_speech_emb, reject_speech_token_len,
+                                 reject_speech_token_list, reject_speech_embs_list, reject_speech_token_len_list):
+        """
+            GRPO:
+                reject_speech_token_list: (B , G-1, L)
+                reject_speech_embs_list: (B , G-1, L, D)
+                reject_speech_token_len_list: (B, G-1)
+        """
         lm_target, reject_target, lm_input, reject_input = [], [], [], []
         text_token = unpad_sequence(text_token, text_token_len.cpu(), batch_first=True)
         speech_token = unpad_sequence(speech_token, speech_token_len.cpu(), batch_first=True)
@@ -305,6 +321,23 @@ class Qwen2LM(TransformerLM):
         if self.dpo:
             reject_speech_token = unpad_sequence(reject_speech_token, reject_speech_token_len.cpu(), batch_first=True)
             reject_speech_emb = unpad_sequence(reject_speech_emb, reject_speech_token_len.cpu(), batch_first=True)
+        if self.grpo:
+            B, G_minus_1, L = reject_speech_token_list.shape
+            
+            # 展平为 (B*(G-1), L)
+            flat_tokens = reject_speech_token_list.reshape(B * G_minus_1, L)
+            flat_embs = reject_speech_embs_list.reshape(B * G_minus_1, L, -1)
+            flat_lengths = reject_speech_token_len_list.reshape(-1)  # (B*(G-1),)
+            
+            # unpad，(B*(G-1), L*)
+            reject_speech_token_list = unpad_sequence(flat_tokens, flat_lengths.cpu(), batch_first=True)
+            reject_speech_embs_list = unpad_sequence(flat_embs, flat_lengths.cpu(), batch_first=True)
+            assert len(reject_speech_token_list) == B * G_minus_1, "解压后数量错误"
+
+            # 恢复为 List[List[Tensor]]，外层是 batch，内层是 group
+            reject_speech_token_list = [reject_speech_token_list[i*G_minus_1:(i+1)*G_minus_1] for i in range(B)]
+            reject_speech_embs_list = [reject_speech_embs_list[i*G_minus_1:(i+1)*G_minus_1] for i in range(B)]
+
         for i in range(len(text_token)):
             # bistream sequence
             # if random.random() < 0.5 and speech_token_len[i] / text_token_len[i] > self.mix_ratio[1] / self.mix_ratio[0]:
@@ -332,24 +365,35 @@ class Qwen2LM(TransformerLM):
             # # unistream sequence
             # else:
             this_lm_target = torch.tensor([IGNORE_ID] * (1 + text_token_len[i]) + speech_token[i].tolist() + [self.speech_token_size])
-
+            this_lm_input = torch.concat([self.llm_embedding.weight[self.sos_eos].reshape(1, -1), text_token_emb[i],
+                                                        self.llm_embedding.weight[self.task_id].reshape(1, -1), speech_token_emb[i]], dim=0)
+            assert not (self.dpo and self.grpo), "Can't be all of them are on!"
             if self.dpo:
                 this_reject_target = torch.tensor([IGNORE_ID] * (1 + text_token_len[i]) + reject_speech_token[i].tolist() + [self.speech_token_size])
                 reject_target.append(this_reject_target)
-            this_lm_input = torch.concat([self.llm_embedding.weight[self.sos_eos].reshape(1, -1), text_token_emb[i],
-                                            self.llm_embedding.weight[self.task_id].reshape(1, -1), speech_token_emb[i]], dim=0)
-            if self.dpo:
                 this_reject_input = torch.concat([self.llm_embedding.weight[self.sos_eos].reshape(1, -1), text_token_emb[i],
                                               self.llm_embedding.weight[self.task_id].reshape(1, -1), reject_speech_emb[i]], dim=0)                             
                 reject_input.append(this_reject_input)
-            lm_target.append(this_lm_target)
 
+            # 对于GRPO：每个text对应G-1个负样本：
+            if self.grpo:
+                len_negative = len(reject_speech_token_list[0])
+                for j in range(len_negative):
+                    this_reject_input = torch.concat([self.llm_embedding.weight[self.sos_eos].reshape(1, -1), text_token_emb[i],
+                                              self.llm_embedding.weight[self.task_id].reshape(1, -1), reject_speech_embs_list[i][j]], dim=0)                    
+                    reject_input.append(this_reject_input)
+                    this_reject_target = torch.tensor([IGNORE_ID] * (1 + text_token_len[i]) + reject_speech_token_list[i][j].tolist() + [self.speech_token_size])
+                    reject_target.append(this_reject_target)
+            
+            lm_target.append(this_lm_target)
             lm_input.append(this_lm_input)
-        if self.dpo:
+
+        if self.dpo or self.grpo:
             lm_input.extend(reject_input)
             lm_target.extend(reject_target)
-
+        
         lm_input_len = torch.tensor([i.size(0) for i in lm_input], dtype=torch.int32)
+
         lm_input = pad_sequence(lm_input, batch_first=True, padding_value=IGNORE_ID)
 
         lm_target = pad_sequence(lm_target, batch_first=True, padding_value=IGNORE_ID)
@@ -378,6 +422,12 @@ class Qwen2LM(TransformerLM):
         else:
             reject_speech_token = None
             reject_speech_token_len = None
+        if self.grpo:
+            reject_speech_token_list = batch['reject_speech_token_list'].to(device)
+            reject_speech_token_len_list = batch['reject_speech_token_len_list'].to(device)
+        else:
+            reject_speech_token_list = None
+            reject_speech_token_len_list = None
         # 1. encode text_token
         text_token_emb = self.llm.model.model.embed_tokens(text_token)
 
@@ -387,25 +437,36 @@ class Qwen2LM(TransformerLM):
             reject_speech_emb = self.speech_embedding(reject_speech_token)
         else:
             reject_speech_emb = None
+
+        if self.grpo:
+            # 对每个负样本生成 embedding
+            reject_speech_emb_list = self.speech_embedding(reject_speech_token_list)  # (B, (G-1), L, D)
+        else:
+            reject_speech_emb_list = None
+
         # 3. prepare llm_input/target
+        # 如果是GRPO，输出lm_target为1:G-1的正负样本比，先全是正，后全是负
         lm_target, lm_input, lm_input_len = self.prepare_lm_input_target(text_token, text_token_emb, text_token_len, 
-        speech_token, speech_token_emb, speech_token_len, 
-        reject_speech_token, reject_speech_emb, reject_speech_token_len)
+                                                    speech_token, speech_token_emb, speech_token_len, 
+                                                    reject_speech_token, reject_speech_emb, reject_speech_token_len,
+                                                    reject_speech_token_list, reject_speech_emb_list, reject_speech_token_len_list)
         lm_target = lm_target.to(device)
 
         # 4. run lm forward, lm_output is hidden_states[-1]
         lm_output, lm_output_mask = self.llm(lm_input, lm_input_len.to(device))
+
+        # shape: (B, max(lm_input_len))
         lm_output_mask = lm_output_mask.squeeze(1)
+
+        # (B, L, vocab_size)
         logits = self.llm_decoder(lm_output)
 
         # 取正样本计算交叉熵损失
         loss = self.criterion_ce(logits[: speech_token.size(0)], lm_target[: speech_token.size(0)].to(device))
         acc = th_accuracy(logits[: speech_token.size(0)].view(-1, self.speech_token_size + 3), lm_target[: speech_token.size(0)], ignore_label=IGNORE_ID)
-        if not self.dpo:
-            return {'loss': loss, 'acc': acc}
-        else:
-            all_logps_sum, all_logps_mean = self.get_batch_logps(
-                logits, lm_target, lm_output_mask, text_token_len, average_log_prob=False, ignore_id=IGNORE_ID
+        if self.dpo:
+            all_logps_sum, all_logps_mean, per_token_logps, loss_masks = self.get_batch_logps_old(
+                logits, lm_target, lm_output_mask, text_token_len, ignore_id=IGNORE_ID
             )
             chosen_logps = all_logps_sum[: speech_token.shape[0]]
             rejected_logps = all_logps_sum[speech_token.shape[0]:]
@@ -413,46 +474,132 @@ class Qwen2LM(TransformerLM):
                 "loss": loss,
                 "acc": acc,
                 "chosen_logps": chosen_logps,
-                "rejected_logps": rejected_logps
+                "rejected_logps": rejected_logps,
+                "chosen_loss_masks": loss_masks[: speech_token.shape[0]],
+                "reject_loss_masks": loss_masks[speech_token.shape[0]:]
             }
+        elif self.grpo:
+            all_logps_sum, all_logps_mean, per_token_logps, loss_masks = self.get_batch_logps_old(
+                logits, lm_target, lm_output_mask, text_token_len, ignore_id=IGNORE_ID
+            )
+            chosen_logps = per_token_logps[: speech_token.shape[0]]
+            rejected_logps = per_token_logps[speech_token.shape[0]:]
+            return {
+                "loss": loss,
+                "acc": acc,
+                "chosen_logps": chosen_logps,
+                "rejected_logps": rejected_logps,
+                "chosen_loss_masks": loss_masks[: speech_token.shape[0]],
+                "reject_loss_masks": loss_masks[speech_token.shape[0]:]
+            }
+        else:
+            return {'loss': loss, 'acc': acc}
+
 
     def get_batch_logps(
-            self,
-            logits: torch.FloatTensor,
-            labels: torch.LongTensor,
-            attention_mask,
-            prompt_token_lens,
-            average_log_prob: bool = False,
-            ignore_id: int = -1,
+                self,
+                logits: torch.FloatTensor,
+                labels: torch.LongTensor,
+                attention_mask,
+                prompt_token_lens,
+                ignore_id: int = -1,
         ) -> torch.FloatTensor:
             """Compute the log probabilities of the given labels under the given logits.
 
             Args:
                 logits: Logits of the model (unnormalized). Shape: (batch_size, sequence_length, vocab_size)
-                labels: Labels for which to compute the log probabilities. Label tokens with a value of -100 are ignored. Shape: (batch_size, sequence_length)
-                average_log_prob: If True, return the average log probability per (non-masked) token. Otherwise, return the sum of the log probabilities of the (non-masked) tokens.
-
+                labels: Labels for which to compute the log probabilities. Label tokens with a value of -1 are ignored. Shape: (batch_size, sequence_length)
             Returns:
-                A tensor of shape (batch_size,) containing the average/sum log probabilities of the given labels under the given logits.
+                logprobs_sums, logprobs_means, per_token_logps, loss_masks
             """
-            assert average_log_prob == False
             assert logits.shape[:-1] == labels.shape
-            labels = labels[:, 1:].clone()
-            logits = logits[:, :-1, :]
-            loss_masks = attention_mask.clone().bool()
+            # 要得到per_token_logps，就是要得到logits是speech token（包括EOS）的所有位置的后验概率
+            # 计算softmax得到后验概率tensor[(B, L, V)]，再用target:[(B, L)]对应的token_id作为index得到目标标签的后验概率:[(B, L)]
 
+            # shape: (B, max(lm_input_len)), max(lm_input_len) = L
+            input_padding_masks = attention_mask.clone().bool()
+            # print(f"input_padding_masks.shape:{input_padding_masks.shape}")
+            # print(f"第一个样本的第一个正样本的: input_padding_masks：{input_padding_masks[0]}")
             # mask prompts
-            for mask, text_token_len in zip(loss_masks, prompt_token_lens):
+            # prompt_token_lens: (B,)
+            # 相当于input_padding_masks中每个样本从sos 到text_token (task_id之前) 全部设为False
+            for mask, text_token_len in zip(input_padding_masks, prompt_token_lens):
                 mask[:text_token_len + 1] = False
-            loss_masks = loss_masks[:, 1:]
+ 
+            ignore_masks = labels != ignore_id
+            # print(f"ignore_masks.shape:{ignore_masks.shape}")
+            # print(f"第一个样本的第一个正样本的: ignore_masks {ignore_masks[0]}")
+            loss_masks = input_padding_masks & ignore_masks
+
+            # print(f"loss_masks.shape:{loss_masks.shape}")
+            # print(f"第一个样本的第一个正样本的: loss_masks {loss_masks[0]}")
+            # breakpoint()
+
             labels[loss_masks == False] = 0
-            # dummy token; we'll ignore the losses on these tokens later
             ignore = labels == ignore_id
             labels = labels.masked_fill(ignore, 0)  # avoid -1 index
-            per_token_logps = torch.gather(logits.log_softmax(-1), dim=2, index=labels.unsqueeze(2)).squeeze(2)   # (bs, time,)
-            logprobs_sums = (per_token_logps * loss_masks).sum(-1)
-            logprobs_means = (per_token_logps * loss_masks).sum(-1) / loss_masks.sum(-1)
-            return logprobs_sums, logprobs_means
+
+            # shape: (B, L), labels: (B, L), logits: (B, L, V)
+            per_token_logps = torch.gather(logits.log_softmax(-1), dim=2, index=labels.unsqueeze(2)).squeeze(2) 
+            per_token_logps *= loss_masks
+
+            logprobs_sums = per_token_logps.sum(-1)
+            assert (loss_masks.sum(-1) > 0).all()
+            logprobs_means = logprobs_sums / loss_masks.sum(-1)
+            return logprobs_sums, logprobs_means, per_token_logps, loss_masks
+
+    def get_batch_logps_old(
+                self,
+                logits: torch.FloatTensor,
+                labels: torch.LongTensor,
+                attention_mask,
+                prompt_token_lens,
+                average_log_prob: bool = False,
+                ignore_id: int = -1,
+            ) -> torch.FloatTensor:
+                """Compute the log probabilities of the given labels under the given logits.
+
+                Args:
+                    logits: Logits of the model (unnormalized). Shape: (batch_size, sequence_length, vocab_size)
+                    labels: Labels for which to compute the log probabilities. Label tokens with a value of -1 are ignored. Shape: (batch_size, sequence_length)
+                    average_log_prob: If True, return the average log probability per (non-masked) token. Otherwise, return the sum of the log probabilities of the (non-masked) tokens.
+
+                Returns:
+                    A tensor of shape (batch_size,) containing the average/sum log probabilities of the given labels under the given logits.
+                """
+                assert average_log_prob == False
+                assert logits.shape[:-1] == labels.shape
+
+                # label从第一个text token开始
+                labels = labels[:, 1:].clone()
+
+                # logits去掉eos
+                logits = logits[:, :-1, :]
+
+                # (B, L)
+                loss_masks = attention_mask.clone().bool()
+
+                # mask prompts
+                # prompt_token_lens: (B,)
+                # 相当于loss_masks中每个样本从第一个ignore token 到所有的text token (speech token之前)全部设为False
+                for mask, text_token_len in zip(loss_masks, prompt_token_lens):
+                    mask[:text_token_len + 1] = False
+                # 从text token开始取loss_masks
+                loss_masks = loss_masks[:, 1:]
+
+                ignore_masks = labels != ignore_id
+                loss_masks = loss_masks & ignore_masks
+                labels[loss_masks == False] = 0
+                # dummy token; we'll ignore the losses on these tokens later
+                ignore = labels == ignore_id
+                labels = labels.masked_fill(ignore, 0)  # avoid -1 index
+
+                # gather：根据labels中的token_id（即index）拿到logits.log_softmax(-1)中的对数后验概率
+                per_token_logps = torch.gather(logits.log_softmax(-1), dim=2, index=labels.unsqueeze(2)).squeeze(2)   # (bs, time,)
+                logprobs_sums = (per_token_logps * loss_masks).sum(-1)
+                logprobs_means = (per_token_logps * loss_masks).sum(-1) / loss_masks.sum(-1)
+                return logprobs_sums, logprobs_means, per_token_logps * loss_masks, loss_masks
+
 
     @torch.inference_mode()
     def inference(

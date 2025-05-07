@@ -16,14 +16,19 @@ import argparse
 import logging
 import os
 import json
+from pathlib import Path
 from tqdm import tqdm
 import pandas as pd
 import multiprocessing
 import time
 import torch
-
+import numpy as np
 
 def job(utt_list, parquet_file, utt2parquet_file, spk2parquet_file):
+    global utt2wav, utt2text, utt2spk
+    global utt2embedding, spk2embedding, utt2speech_token
+    global utt2reject_speech_token, utt2emo_dpo_reject_speech_token
+    global utt2advs_dict, utt2reject_speech_token_dict
     start_time = time.time()
     data_list = []
     for utt in tqdm(utt_list):
@@ -35,12 +40,22 @@ def job(utt_list, parquet_file, utt2parquet_file, spk2parquet_file):
     uttembedding_list = [utt2embedding[utt] for utt in utt_list]
     spkembedding_list = [spk2embedding[utt2spk[utt]] for utt in utt_list]
     speech_token_list = [utt2speech_token[utt] for utt in utt_list]
+
     if utt2reject_speech_token:
         reject_speech_token_list = [utt2reject_speech_token[utt] for utt in utt_list]
+
     if utt2emo_dpo_reject_speech_token:
         utt2emo_dpo_reject_speech_token_list = [utt2emo_dpo_reject_speech_token[utt] for utt in utt_list]
+
+    if utt2reject_speech_token_dict:
+        reject_speech_tokens_dict_list = [utt2reject_speech_token_dict[utt] for utt in utt_list]
+    if utt2advs_dict:
+        advantages_dict_list = [utt2advs_dict[utt] for utt in utt_list]
+
     # 保存到parquet,utt2parquet_file,spk2parquet_file
     df = pd.DataFrame()
+
+    # df的每一列是一种数据，每一行是一个样本
     df['utt'] = utt_list
     df['wav'] = wav_list
     df['audio_data'] = data_list
@@ -54,12 +69,25 @@ def job(utt_list, parquet_file, utt2parquet_file, spk2parquet_file):
     if utt2emo_dpo_reject_speech_token:
         print("emo_dpo_reject_speech_token已保存")
         df['emo_dpo_reject_speech_token'] = utt2emo_dpo_reject_speech_token_list
+    if utt2reject_speech_token_dict:
+        print("grpo reject_speech_tokens_dict已保存")
+        df['reject_speech_tokens_dict'] = reject_speech_tokens_dict_list
+    if utt2advs_dict:
+        print("grpo advantages_dict_list已保存")
+        df['advantages_dict'] = advantages_dict_list
+   
     df.to_parquet(parquet_file)
     with open(utt2parquet_file, 'w') as f:
         json.dump({k: parquet_file for k in utt_list}, f, ensure_ascii=False, indent=2)
     with open(spk2parquet_file, 'w') as f:
         json.dump({k: parquet_file for k in list(set(spk_list))}, f, ensure_ascii=False, indent=2)
     logging.info('spend time {}'.format(time.time() - start_time))
+
+
+
+def error_cb(e):
+    print(f"子进程报错: {repr(e)}")
+
 
 
 if __name__ == "__main__":
@@ -84,8 +112,11 @@ if __name__ == "__main__":
                         action='store_true',
                         default=False,
                         help='Use Emo-dpo')
+    parser.add_argument('--grpo',
+                        action='store_true',
+                        default=False,
+                        help='Use GRPO')
     args = parser.parse_args()
-
     utt2wav, utt2text, utt2spk = {}, {}, {}
     with open('{}/wav.scp'.format(args.src_dir)) as f:
         for l in f:
@@ -113,6 +144,26 @@ if __name__ == "__main__":
     else:
         utt2reject_speech_token = None
         utt2emo_dpo_reject_speech_token = None
+
+    if args.grpo:
+        # 要得到List[reject_speech_tokens_dict]: [{samp_i: reject_speech_tokens_i}]作为df新的一列，只需拿到嵌套的字典utt: reject_speech_tokens_dict即可
+        # 遍历utt2reject_speech_token{1,2,3…}.pt，得到嵌套字典
+        utt2reject_speech_token_dict = {}
+        for entry in os.listdir(args.src_dir):
+            if "utt2reject_speech_token" in entry and entry != "utt2reject_speech_token.pt":
+                group_id = entry.split('.')[0][-1]
+                utt2reject_speech_token = torch.load(f'{args.src_dir}/{entry}')
+                for utt, tokens in utt2reject_speech_token.items():
+                    if utt not in utt2reject_speech_token_dict:
+                        utt2reject_speech_token_dict[utt] = {}
+                    utt2reject_speech_token_dict[utt][group_id] = tokens
+
+        # 要得到List[advantages_dict]: [{{1: adv}, {2: adv}, …}]作为df新的一列，只需要拿到嵌套的字典utt: {{1: adv}, {2: adv}, …}
+        utt2advs_dict = torch.load('{}/utt2advs_dict.pt'.format(args.src_dir))
+
+    else:
+        utt2reject_speech_token_dict = None
+        utt2advs_dict = None
     utts = list(utt2wav.keys())
 
     # Using process pool to speedup
@@ -125,7 +176,7 @@ if __name__ == "__main__":
         parquet_list.append(parquet_file)
         utt2parquet_list.append(utt2parquet_file)
         spk2parquet_list.append(spk2parquet_file)
-        pool.apply_async(job, (utts[j: j + args.num_utts_per_parquet], parquet_file, utt2parquet_file, spk2parquet_file))
+        pool.apply_async(job, (utts[j: j + args.num_utts_per_parquet], parquet_file, utt2parquet_file, spk2parquet_file), error_callback=error_cb)
     pool.close()
     pool.join()
 

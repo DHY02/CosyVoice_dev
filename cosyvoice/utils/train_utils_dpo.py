@@ -16,6 +16,8 @@
 
 import logging
 import os
+import random
+from statistics import mean, stdev
 import torch
 import json
 import re
@@ -34,6 +36,8 @@ from deepspeed.runtime.zero.stage_1_and_2 import estimate_zero2_model_states_mem
 
 from cosyvoice.dataset.dataset import Dataset
 from cosyvoice.utils.scheduler import WarmupLR, NoamHoldAnnealing, ConstantLR
+import numpy as np
+
 
 
 def init_distributed(args):
@@ -235,10 +239,21 @@ def cosyvoice_join(group_join, info_dict):
         return False
 
 
-def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None, cur_epoch=None):
+def recover_default_seeds():
+    """恢复默认种子"""
+    random.seed(1986)
+    np.random.seed(1986)
+    torch.manual_seed(1986)
+    torch.cuda.manual_seed_all(1986)
+
+
+def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None, grpo_loss=None, 
+        cur_epoch=None):
     device = int(os.environ.get('LOCAL_RANK', 0))
-
-
+    # print("advantages")
+    # print(batch["advantages"])
+    # print("reject_speech_token_list")
+    # print(batch["reject_speech_token_list"])
     dtype = info_dict["dtype"]
     if dtype == "fp16":
         dtype = torch.float16
@@ -256,7 +271,9 @@ def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None
             if cur_epoch >= dpo_loss.emo_dpo_epoch:
                 batch["reject_speech_token"] = batch["emo_dpo_reject_speech_token"]
                 batch["reject_speech_token_len"] = batch["emo_dpo_reject_speech_token_len"]
+
         info_dict['loss_dict'] = model(batch, device)
+
         if ref_model and dpo_loss:
             chosen_logps = info_dict['loss_dict']["chosen_logps"]
             rejected_logps = info_dict['loss_dict']["rejected_logps"]
@@ -278,65 +295,97 @@ def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None
             info_dict['loss_dict']["reject_reward"] = reject_reward.mean()
             info_dict['loss_dict'].pop("chosen_logps", None)
             info_dict['loss_dict'].pop("rejected_logps", None)
+            
+        if ref_model and grpo_loss:
+            # shape: (B, L)
+            chosen_logps = info_dict['loss_dict']["chosen_logps"]
+            # shape: (B * (G-1), L)
+            rejected_logps = info_dict['loss_dict']["rejected_logps"]
+                  
+            # shape: (B, G)，其中每一个batch的第一个advantage为正样本的advantages
+            advantages = batch["advantages"].to(chosen_logps.device)
+            # shape: (B, L)
+            chosen_loss_masks = info_dict['loss_dict']["chosen_loss_masks"]
+            # shape: (B*(G-1), L)
+            reject_loss_masks = info_dict['loss_dict']["reject_loss_masks"]
+            reject_loss_masks = reject_loss_masks.view(advantages.size(0), advantages.size(1) - 1, -1)
+            # 合并为(B, G, L)的loss_masks
+            loss_masks = torch.concat([chosen_loss_masks.unsqueeze(1), reject_loss_masks], dim=1)
+            
+            # 合并为(B, G, L)的active logps
+            # 对于每个batch的正样本，把其对应的G-1个负样本和它一起放入一个batch
+            rejected_logps = rejected_logps.view(advantages.size(0), advantages.size(1) - 1, -1)
+            active_logps = torch.concat([chosen_logps.unsqueeze(1), rejected_logps], dim=1)
+
+
+
+            sft_loss = info_dict['loss_dict']['loss']
+
+
+            with torch.no_grad():
+                ref_model = ref_model.to(device)
+                ref_loss_dict = ref_model(batch, device)
+            reference_chosen_logps = ref_loss_dict["chosen_logps"]
+            reference_rejected_logps = ref_loss_dict["rejected_logps"]
+
+            reference_rejected_logps = reference_rejected_logps.view(advantages.size(0), advantages.size(1) - 1, -1)
+            reference_logps = torch.concat([reference_chosen_logps.unsqueeze(1), reference_rejected_logps], dim=1)
+
+            GRPO_loss, grpo_metrics = grpo_loss(reference_logps, active_logps, advantages, loss_masks)
+            info_dict['loss_dict']["loss"] = GRPO_loss + sft_loss
+            info_dict['loss_dict']["sft_loss"] = sft_loss
+            info_dict['loss_dict']["grpo_loss"] = GRPO_loss
+            info_dict['loss_dict'].update(grpo_metrics)
+            info_dict['loss_dict'].pop("chosen_logps", None)
+            info_dict['loss_dict'].pop("rejected_logps", None)
+            info_dict['loss_dict'].pop("chosen_loss_masks", None)
+            info_dict['loss_dict'].pop("reject_loss_masks", None)
+    # print(info_dict['loss_dict'])
     return info_dict
 
 
-# def batch_evaluate(model, batch, scaler, info_dict, ser_model=None, dpo_loss=None):
-#     device = int(os.environ.get('LOCAL_RANK', 0))
+# GRPO vllm_online_infer: abondoned
+# async def vllm_infer(batch, vllm_ref, prompt_list, ser_model):
+#     """
+#         vllm_ref: 参考模型的vllm实例
+#         prompt_list: prompt音频列表，用于采样
+#     """
+#     assert batch and vllm_ref and prompt_list, "Can't be None!"
+#     model_output_emo_list = ['anger', 'disgusted', 'fear', 'happy', 'neutral', 'other', 'sad', 'surprise', '<unk>']
 
-#     dtype = info_dict["dtype"]
-#     if dtype == "fp16":
-#         dtype = torch.float16
-#     elif dtype == "bf16":
-#         dtype = torch.bfloat16
-#     else:  # fp32
-#         dtype = torch.float32
+#     # 提取batch中列表text
+#     text_list = batch['text']
+#     # 提取每个列表元素的tts_text和instruct_text
+#     pairs = [(i.split('<|endofprompt|>')[0], i.split('<|endofprompt|>')[1]) for i in text_list]
+#     # 随机选择一个prompt_speech_16k
+#     rewards = {}
+#     # 推理
+#     for i, (instruct_text, tts_text) in enumerate(pairs):
+#         random.seed()
+#         random_prompt = random.choice(prompt_list)
+#         audio_data: torch.Tensor = None
+#         async for chunk in vllm_ref.inference_instruct2(tts_text, instruct_text, random_prompt, stream=False):
+#             if chunk['tts_speech'] != None:
+#                 chunk_data = chunk['tts_speech'].cpu()
+#             audio_data = torch.concat([audio_data, chunk_data], dim=1) if audio_data is not None else chunk_data
+#             if audio_data != None:
+#                 audio_data = audio_data.cpu()
+#         # 放弃推理输出为空的音频，减少组数
+#         if audio_data == None:
+#             continue
+#         emotion = instruct_text.strip().lower()
+#         ser_res = ser_model.generate(audio_data, granularity="utterance", extract_embedding=True)
+#         scores = ser_res[0]['scores']
+#         s_index = model_output_emo_list.index(emotion)
+#         rewards[i] = scores[s_index]
 
-#     if info_dict['train_engine'] == 'torch_ddp':
-#         autocast = torch.cuda.amp.autocast(enabled=scaler is not None)
-#     else:
-#         autocast = torch.cuda.amp.autocast(enabled=True, dtype=dtype, cache_enabled=False)
-#     with autocast:
-#         # 输入text和prompt音频生成样本并保存
-#         text_token = batch['text_token'].to(device)
-#         text_token_len = batch['text_token_len'].to(device)
-#         prompt_text=torch.zeros(1, 0, dtype=torch.int32)
-#         llm_prompt_speech_token = torch.zeros(1, 0, dtype=torch.int32)
-#         llm_embedding = batch['spk_embedding']
-#         flow_prompt_speech_token = 
-#         flow_prompt_speech_token_len = 
-#         token_generator = model.inference(text=text_token.to(device),
-#                             text_len=text_token_len.to(device),
-#                             prompt_text=prompt_text.to(device),
-#                             prompt_text_len=torch.tensor([prompt_text.shape[1]], dtype=torch.int32).to(device),
-#                             prompt_speech_token=llm_prompt_speech_token.to(device),
-#                             prompt_speech_token_len=torch.tensor([llm_prompt_speech_token.shape[1]], dtype=torch.int32).to(device),
-#                             embedding=llm_embedding.to(device))
-        
-
-#         info_dict['loss_dict'] = model(batch, device)
-#         if ref_model and dpo_loss:
-#             chosen_logps = info_dict['loss_dict']["chosen_logps"]
-#             rejected_logps = info_dict['loss_dict']["rejected_logps"]
-#             sft_loss = info_dict['loss_dict']['loss']
-#             with torch.no_grad():
-#                 ref_model = ref_model.to(device)
-#                 ref_loss_dict = ref_model(batch, device)
-#             reference_chosen_logps = ref_loss_dict["chosen_logps"]
-#             reference_rejected_logps = ref_loss_dict["rejected_logps"]
-#             preference_loss, chosen_reward, reject_reward = dpo_loss(
-#                 chosen_logps, rejected_logps, reference_chosen_logps, reference_rejected_logps
-#             )
-#             dpo_acc = (chosen_reward > reject_reward).float().mean()
-#             info_dict['loss_dict']["loss"] = preference_loss + sft_loss
-#             info_dict['loss_dict']["sft_loss"] = sft_loss
-#             info_dict['loss_dict']["dpo_loss"] = preference_loss
-#             info_dict['loss_dict']["dpo_acc"] = dpo_acc
-#             info_dict['loss_dict']["chosen_reward"] = chosen_reward.mean()
-#             info_dict['loss_dict']["reject_reward"] = reject_reward.mean()
-#             info_dict['loss_dict'].pop("chosen_logps", None)
-#             info_dict['loss_dict'].pop("rejected_logps", None)
-#     return info_dict
+#     if not rewards:
+#         return {}
+#     mean_grouped_rewards = mean(rewards.values())
+#     std_grouped_rewards = stdev(rewards.values())
+#     advantages = {k: (v - mean_grouped_rewards) / (std_grouped_rewards + 1e-4) for k, v in rewards.items()}
+#     recover_default_seeds()
+#     return advantages
 
 
 def batch_backward(model, scaler, info_dict):

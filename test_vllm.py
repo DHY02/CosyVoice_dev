@@ -98,13 +98,13 @@ async def main():
         # del audio_data
         # torch.cuda.empty_cache()
     prompt_text = '希望你以后能够做得比我还好哟'
-    prompt_speech_16k = load_wav('./asset/zero_shot_prompt.wav', 16000)
+    prompt_speech_16k = load_wav('/root/autodl-tmp/CosyVoice_dev/asset/zero_shot_prompt.wav', 16000)
     tts_text = "收到好友从远方寄来的生日礼物，真是太好了"
     tgt_dir = "test_vllm_wavs"
     os.makedirs(tgt_dir, exist_ok=True)
     # cosyvoice = AsyncCosyVoice2('./pretrained_models/CosyVoice2-0.5B', load_jit=False, load_trt=False, fp16=True)
-    cosyvoice = AsyncCosyVoice2('./pretrained_models/CosyVoice2-0.5B', load_jit=True, load_trt=False, fp16=True)
-    for i in range(20):
+    cosyvoice = AsyncCosyVoice2('/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B', load_jit=True, load_trt=False, fp16=True)
+    for i in range(10):
         set_seeds(i)
         audio_data: torch.Tensor = None
         async for chunk in cosyvoice.inference_instruct2(tts_text, 'angry', prompt_speech_16k, stream=False):
@@ -113,7 +113,7 @@ async def main():
             audio_data = torch.concat([audio_data, chunk_data], dim=1) if audio_data is not None else chunk_data
             if audio_data != None:
                 audio_data = audio_data.cpu()
-        torchaudio.save('instruct2_{}.wav'.format(i), audio_data, cosyvoice.sample_rate)
+        torchaudio.save(f'{tgt_dir}/instruct2_{i}.wav', audio_data, cosyvoice.sample_rate)
 
 
         

@@ -1,0 +1,74 @@
+2025-05-06 13:53 INFO 47382:stopes.utils.web - Downloading AutoPCP_multilingual_v2...
+  0%|          | 0.00/40.7M [00:00<?, ?B/s]  0%|          | 17.4k/40.7M [00:00<06:49, 99.4kB/s]  0%|          | 69.6k/40.7M [00:00<03:00, 226kB/s]   0%|          | 174k/40.7M [00:00<01:37, 417kB/s]   1%|          | 366k/40.7M [00:00<00:55, 722kB/s]  2%|▏         | 766k/40.7M [00:00<00:25, 1.56MB/s]  3%|▎         | 1.14M/40.7M [00:00<00:18, 2.16MB/s]  4%|▍         | 1.60M/40.7M [00:00<00:14, 2.66MB/s]  8%|▊         | 3.24M/40.7M [00:01<00:06, 5.44MB/s] 15%|█▌        | 6.20M/40.7M [00:01<00:04, 8.37MB/s] 18%|█▊        | 7.52M/40.7M [00:01<00:03, 9.36MB/s] 25%|██▌       | 10.2M/40.7M [00:01<00:02, 12.3MB/s] 34%|███▍      | 13.7M/40.7M [00:01<00:01, 17.5MB/s] 38%|███▊      | 15.7M/40.7M [00:01<00:01, 17.7MB/s] 43%|████▎     | 17.7M/40.7M [00:01<00:01, 16.9MB/s] 48%|████▊     | 19.5M/40.7M [00:02<00:01, 13.7MB/s] 52%|█████▏    | 21.0M/40.7M [00:02<00:01, 12.9MB/s] 59%|█████▉    | 24.0M/40.7M [00:02<00:00, 16.8MB/s] 67%|██████▋   | 27.3M/40.7M [00:02<00:00, 20.7MB/s] 73%|███████▎  | 29.5M/40.7M [00:02<00:00, 19.0MB/s] 78%|███████▊  | 31.6M/40.7M [00:02<00:00, 15.1MB/s] 87%|████████▋ | 35.4M/40.7M [00:02<00:00, 20.1MB/s] 93%|█████████▎| 37.8M/40.7M [00:03<00:00, 18.6MB/s] 98%|█████████▊| 40.1M/40.7M [00:03<00:00, 17.6MB/s]100%|██████████| 40.7M/40.7M [00:03<00:00, 12.4MB/s]
+2025-05-06 13:54 INFO 47382:stopes.eval.auto_pcp.audio_comparator - Loading vectorizer
+Traceback (most recent call last):
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/urllib3/response.py", line 754, in _error_catcher
+    yield
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/urllib3/response.py", line 879, in _raw_read
+    data = self._fp_read(amt, read1=read1) if not fp_closed else b""
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/urllib3/response.py", line 862, in _fp_read
+    return self._fp.read(amt) if amt is not None else self._fp.read()
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/http/client.py", line 466, in read
+    s = self.fp.read(amt)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/socket.py", line 717, in readinto
+    return self._sock.recv_into(b)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/ssl.py", line 1307, in recv_into
+    return self.read(nbytes, buffer)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/ssl.py", line 1163, in read
+    return self._sslobj.read(len, buffer)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/submitit/core/_submit.py", line 11, in <module>
+    submitit_main()
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/submitit/core/submission.py", line 76, in submitit_main
+    process_job(args.folder)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/submitit/core/submission.py", line 55, in process_job
+    result = delayed.result()
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/submitit/core/utils.py", line 137, in result
+    self._result = self.function(*self.args, **self.kwargs)
+  File "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/eva_model/stopes/stopes/core/stopes_module.py", line 98, in __call__
+    res = self.run(iteration_value=iteration_value, iteration_index=iteration_index)
+  File "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/eva_model/stopes/stopes/modules/evaluation/compare_audio_module.py", line 114, in run
+    results = compare_audio_pairs(
+  File "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/eva_model/stopes/stopes/eval/auto_pcp/audio_comparator.py", line 371, in compare_audio_pairs
+    encoder = Wav2Vec2Model.from_pretrained(encoder_path)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/transformers/modeling_utils.py", line 279, in _wrapper
+    return func(*args, **kwargs)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/transformers/modeling_utils.py", line 4260, in from_pretrained
+    checkpoint_files, sharded_metadata = _get_resolved_checkpoint_files(
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/transformers/modeling_utils.py", line 1026, in _get_resolved_checkpoint_files
+    resolved_archive_file = cached_file(
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/transformers/utils/hub.py", line 266, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/transformers/utils/hub.py", line 424, in cached_files
+    hf_hub_download(
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+    return fn(*args, **kwargs)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 961, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1112, in _hf_hub_download_to_cache_dir
+    _download_to_tmp_and_move(
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 1675, in _download_to_tmp_and_move
+    http_get(
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/huggingface_hub/file_download.py", line 449, in http_get
+    for chunk in r.iter_content(chunk_size=constants.DOWNLOAD_CHUNK_SIZE):
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/requests/models.py", line 820, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/urllib3/response.py", line 1066, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/urllib3/response.py", line 955, in read
+    data = self._raw_read(amt)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/urllib3/response.py", line 878, in _raw_read
+    with self._error_catcher():
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/contextlib.py", line 153, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/root/autodl-tmp/miniconda3/envs/cosyvoice2/lib/python3.10/site-packages/urllib3/response.py", line 780, in _error_catcher
+    except (HTTPException, OSError) as e:
+KeyboardInterrupt

@@ -89,15 +89,27 @@ def get_args():
                         action='store_true',
                         default=False,
                         help='Use EMO-DPO with dpo')
+    parser.add_argument('--grpo',
+                        action='store_true',
+                        default=False,
+                        help='Use GRPO')
     parser.add_argument('--emo_dpo_epoch',
                         type=int,
                         default=6,
                         help='Epoch to start EMO-DPO, followed by num of emo_dpo_epoch vanilla DPO.'
                         'Only useful when emo_dpo is True')
-    parser.add_argument('--beta',
+    parser.add_argument('--dpo_beta',
                         default=0.01,
                         type=float,
                         help='beta of dpo training')
+    parser.add_argument('--grpo_beta',
+                        default=0.04,
+                        type=float,
+                        help='beta of grpo training')
+    parser.add_argument('--grpo_clip',
+                        default=0.2,
+                        type=float,
+                        help='epsilon of grpo training')
     parser = deepspeed.add_config_arguments(parser)
     args = parser.parse_args()
     return args
@@ -144,12 +156,16 @@ def main():
         if args.emo_dpo:
             logging.debug('Using Emo-DPO to train.')
         ref_model = deepcopy(model)
+    if args.grpo:
+        logging.debug('Using GRPO to train.')
+        ref_model = deepcopy(model)
+
     start_step, start_epoch = 0, -1
     if args.checkpoint is not None:
         if os.path.exists(args.checkpoint):
             state_dict = torch.load(args.checkpoint, map_location='cpu')
             model.load_state_dict(state_dict, strict=False)
-            if args.dpo:
+            if args.dpo or args.grpo:
                 ref_model.load_state_dict(state_dict, strict=False)
             if 'step' in state_dict:
                 start_step = state_dict['step']
@@ -160,12 +176,12 @@ def main():
 
     # Dispatch model from cpu to gpu
     model = wrap_cuda_model(args, model)
-    if args.dpo:
+    if args.dpo or args.grpo:
         ref_model = wrap_cuda_model(args, ref_model)
 
     # Get optimizer & scheduler
     model, optimizer, scheduler, optimizer_d, scheduler_d = init_optimizer_and_scheduler(args, configs, model, gan)
-    if args.dpo:
+    if args.dpo or args.grpo:
         ref_model, _, _, _, _ = init_optimizer_and_scheduler(args, configs, ref_model, gan)
     scheduler.set_step(start_step)
     if scheduler_d is not None:
@@ -173,13 +189,14 @@ def main():
 
     # Save init checkpoints
     info_dict = deepcopy(configs['train_conf'])
-    assert info_dict['max_epoch'] - 1 >= args.emo_dpo_epoch, "Can't reach the epoch to use emo-dpo."
+    assert not (args.emo_dpo and info_dict['max_epoch'] - 1 < args.emo_dpo_epoch), "Can't reach the epoch to use emo-dpo."
     info_dict['step'] = start_step
     info_dict['epoch'] = start_epoch
     save_model(model, 'init', info_dict)
 
     # Get executor
-    executor = Executor(gan=gan, dpo=args.dpo, beta=args.beta, use_emo_dpo=args.emo_dpo, emo_dpo_epoch=args.emo_dpo_epoch)
+    executor = Executor(gan=gan, dpo=args.dpo, dpo_beta=args.dpo_beta, use_emo_dpo=args.emo_dpo, emo_dpo_epoch=args.emo_dpo_epoch,
+        grpo=args.grpo, grpo_beta=args.grpo_beta, grpo_clip=args.grpo_clip)
     executor.step = start_step
 
     # Init scaler, used for pytorch amp mixed precision training

@@ -21,18 +21,21 @@ import torch
 import torch.distributed as dist
 
 from cosyvoice.utils.train_utils_dpo import update_parameter_and_lr, log_per_step, log_per_save, batch_forward, batch_backward, save_model, cosyvoice_join
-from cosyvoice.utils.losses_dpo import DPOLoss
+from cosyvoice.utils.losses_dpo import DPOLoss, GRPOLoss
 
 class Executor:
 
     def __init__(
         self, gan: bool = False, 
         dpo: bool = False, 
-        beta: float = 0.01, 
+        dpo_beta: float = 0.01, 
         label_smoothing: float = 0.0, 
         ipo: bool = False,
         use_emo_dpo: bool = False,
-        emo_dpo_epoch: int = 6
+        emo_dpo_epoch: int = 6, 
+        grpo: bool = False,
+        grpo_beta: float = 0.01,
+        grpo_clip: float = 0.2
     ):
         self.gan = gan
         self.step = 0
@@ -42,11 +45,17 @@ class Executor:
         self.dpo = dpo
         if self.dpo:
             if not use_emo_dpo:
-                self.dpo_loss = DPOLoss(beta, label_smoothing, ipo)
+                self.dpo_loss = DPOLoss(dpo_beta, label_smoothing, ipo)
             else:
-                self.dpo_loss = DPOLoss(beta, label_smoothing, ipo, use_emo_dpo, emo_dpo_epoch)
+                self.dpo_loss = DPOLoss(dpo_beta, label_smoothing, ipo, use_emo_dpo, emo_dpo_epoch)
         else:
             self.dpo_loss = None
+        
+        self.grpo = grpo
+        if self.grpo:
+            self.grpo_loss = GRPOLoss(grpo_beta, grpo_clip)
+        else:
+            self.grpo_loss = None
 
     def train_one_epoc(self, model, optimizer, scheduler, train_data_loader, cv_data_loader, writer, info_dict, scaler, group_join, ref_model=None):
         ''' Train one epoch
@@ -60,7 +69,7 @@ class Executor:
         # torch.nn.parallel.DistributedDataParallel to be able to train
         # with uneven inputs across participating processes.
         model.train()
-        if self.dpo:
+        if self.dpo or self.grpo:
             assert ref_model is not None
             ref_model.eval()
         model_context = model.join if info_dict['train_engine'] == 'torch_ddp' else nullcontext
@@ -84,7 +93,8 @@ class Executor:
                     context = nullcontext
 
                 with context():
-                    info_dict = batch_forward(model, batch_dict, scaler, info_dict, ref_model, self.dpo_loss, self.epoch)
+                    info_dict = batch_forward(model, batch_dict, scaler, info_dict, ref_model, self.dpo_loss, self.grpo_loss, self.epoch)
+
                     info_dict = batch_backward(model, scaler, info_dict)
 
                 info_dict = update_parameter_and_lr(model, optimizer, scheduler, scaler, info_dict)
@@ -93,12 +103,12 @@ class Executor:
                 if info_dict['save_per_step'] > 0 and (self.step + 1) % info_dict['save_per_step'] == 0 and \
                    (batch_idx + 1) % info_dict["accum_grad"] == 0:
                     dist.barrier()
-                    self.cv(model, cv_data_loader, writer, info_dict, on_batch_end=False, ref_model=ref_model, dpo_loss=self.dpo_loss)
+                    self.cv(model, cv_data_loader, writer, info_dict, on_batch_end=False, ref_model=ref_model, dpo_loss=self.dpo_loss, grpo_loss=self.grpo_loss)
                     model.train()
                 if (batch_idx + 1) % info_dict["accum_grad"] == 0:
                     self.step += 1
         dist.barrier()
-        self.cv(model, cv_data_loader, writer, info_dict, on_batch_end=True, ref_model=ref_model, dpo_loss=self.dpo_loss)
+        self.cv(model, cv_data_loader, writer, info_dict, on_batch_end=True, ref_model=ref_model, dpo_loss=self.dpo_loss, grpo_loss=self.grpo_loss)
 
     def train_one_epoc_gan(self, model, optimizer, scheduler, optimizer_d, scheduler_d, train_data_loader, cv_data_loader,
                            writer, info_dict, scaler, group_join):
@@ -159,12 +169,12 @@ class Executor:
         self.cv(model, cv_data_loader, writer, info_dict, on_batch_end=True)
 
     @torch.inference_mode()
-    def cv(self, model, cv_data_loader, writer, info_dict, on_batch_end=True, ref_model=None, dpo_loss=None):
+    def cv(self, model, cv_data_loader, writer, info_dict, on_batch_end=True, ref_model=None, dpo_loss=None, grpo_loss=None):
         ''' Cross validation on
         '''
         logging.info('Epoch {} Step {} on_batch_end {} CV rank {}'.format(self.epoch, self.step + 1, on_batch_end, self.rank))
         model.eval()
-        if self.dpo:
+        if self.dpo or self.grpo:
             assert ref_model is not None
             ref_model.eval()
         total_num_utts, total_loss_dict = 0, {}  # avoid division by 0
@@ -180,7 +190,7 @@ class Executor:
 
             if self.gan is True:
                 batch_dict['turn'] = 'generator'
-            info_dict = batch_forward(model, batch_dict, None, info_dict, ref_model, dpo_loss, self.epoch)
+            info_dict = batch_forward(model, batch_dict, None, info_dict, ref_model, dpo_loss, grpo_loss, self.epoch)
             for k, v in info_dict['loss_dict'].items():
                 if k not in total_loss_dict:
                     total_loss_dict[k] = []

@@ -21,7 +21,7 @@ import torchaudio
 from torch.nn.utils.rnn import pad_sequence
 import torch.nn.functional as F
 import pyworld as pw
-
+import numpy as np
 
 AUDIO_FORMAT_SETS = {'flac', 'mp3', 'm4a', 'ogg', 'opus', 'wav', 'wma'}
 
@@ -342,7 +342,7 @@ def dynamic_batch(data, max_frames_in_batch=12000, mode='train'):
         yield buf
 
 
-def batch(data, batch_type='static', batch_size=3, max_frames_in_batch=18000, mode='train'):
+def batch(data, batch_type='static', batch_size=4, max_frames_in_batch=18000, mode='train'):
     """ Wrapper for static/dynamic batch
     """
     if mode == 'inference':
@@ -356,7 +356,7 @@ def batch(data, batch_type='static', batch_size=3, max_frames_in_batch=18000, mo
             logging.fatal('Unsupported batch type {}'.format(batch_type))
 
 
-def padding(data, use_spk_embedding, mode='train', gan=False, dpo=False, emo_dpo=False):
+def padding(data, use_spk_embedding, mode='train', gan=False, dpo=False, emo_dpo=False, grpo=False):
     """ Padding the data into training data
 
         Args:
@@ -365,12 +365,15 @@ def padding(data, use_spk_embedding, mode='train', gan=False, dpo=False, emo_dpo
         Returns:
             Iterable[Tuple(keys, feats, labels, feats lengths, label lengths)]
     """
+    # sample: List[{key, feat, label}], 即一个batch
     for sample in data:
         assert isinstance(sample, list)
         speech_feat_len = torch.tensor([x['speech_feat'].size(1) for x in sample],
                                        dtype=torch.int32)
+        # 索引列表
         order = torch.argsort(speech_feat_len, descending=True)
 
+        # sample[i]
         utts = [sample[i]['utt'] for i in order]
         speech = [sample[i]['speech'].squeeze(dim=0) for i in order]
         speech_len = torch.tensor([i.size(0) for i in speech], dtype=torch.int32)
@@ -407,9 +410,7 @@ def padding(data, use_spk_embedding, mode='train', gan=False, dpo=False, emo_dpo
         }
         if dpo:
             valid_samples = [i for i in order if 'reject_speech_token' in sample[i]]
-            if len(valid_samples) == 0:
-                logging.warning("DPO: 跳过缺失reject_speech_token的batch")
-                continue
+            assert len(valid_samples) != 0, print("dpo: 无法跳过缺失reject_speech_token的batch")
             reject_speech_token = [torch.tensor(sample[i]['reject_speech_token']) for i in order]
             reject_speech_token_len = torch.tensor([i.size(0) for i in reject_speech_token], dtype=torch.int32)
             reject_speech_token = pad_sequence(reject_speech_token,
@@ -419,9 +420,8 @@ def padding(data, use_spk_embedding, mode='train', gan=False, dpo=False, emo_dpo
             batch['reject_speech_token_len'] = reject_speech_token_len
             if emo_dpo:
                 valid_samples = [i for i in order if 'emo_dpo_reject_speech_token' in sample[i]]
-                if len(valid_samples) == 0:
-                    logging.warning("DPO: 跳过缺失emo_dpo_reject_speech_token的batch")
-                    continue
+                assert len(valid_samples) != 0, print("emo_dpo: 无法跳过缺失emo_dpo_reject_speech_token的batch")
+                    
                 emo_dpo_reject_speech_token = [torch.tensor(sample[i]['emo_dpo_reject_speech_token']) for i in order]
                 emo_dpo_reject_speech_token_len = torch.tensor([i.size(0) for i in emo_dpo_reject_speech_token], dtype=torch.int32)
                 emo_dpo_reject_speech_token = pad_sequence(emo_dpo_reject_speech_token,
@@ -429,6 +429,59 @@ def padding(data, use_spk_embedding, mode='train', gan=False, dpo=False, emo_dpo
                                                     padding_value=0)
                 batch['emo_dpo_reject_speech_token'] = emo_dpo_reject_speech_token
                 batch['emo_dpo_reject_speech_token_len'] = emo_dpo_reject_speech_token_len
+
+        if grpo:
+            valid_samples = [i for i in order if 'reject_speech_tokens_dict' in sample[i]]
+            assert len(valid_samples) != 0, print("GRPO: 无法跳过缺失reject_speech_tokens_dict的batch")
+            # 从每个样本中提取reject_speech_tokens_dict: {"1": tokens, "2": tokens, ...}, i.e. sample[i]['reject_speech_tokens_dict']
+            # 和优势函数dict
+            # 转为batch中键值对，包括：
+            # reject_speech_token_list: List[[reject_token_from_samp1, reject_token_from_samp2, ...], ...], shape: (B, G-1, L*)，其中L*表示该维长度不固定
+            # advantages: List[[adv_from_receive, adv_from_samp1, ...], ...], shape: (B, G)
+
+            # 1. reject_speech_token_list
+            # shape：(B, (G-1) , L*)
+            reject_speech_token_list = [
+                [torch.from_numpy(np.copy(sample[i]['reject_speech_tokens_dict'][k])) for k in sorted(sample[i]['reject_speech_tokens_dict'].keys(), key=lambda x: int(x))]
+                for i in order
+            ]
+
+            # 检查 (B, (G-1) , L*)第二维的一致性
+            group_shapes = [len(samp) for samp in reject_speech_token_list]
+            assert len(set(group_shapes)) == 1, f"不同样本的reject_speech_token的group维度不一致: {group_shapes}"
+
+            B = len(reject_speech_token_list)
+            G_minus_1 = len(reject_speech_token_list[0])
+
+            # shape: (B, G-1)
+            reject_speech_token_len_list = [
+                [len(tokens) for tokens in samp]  
+                for samp in reject_speech_token_list  
+            ]
+            reject_speech_token_len_list = torch.tensor(reject_speech_token_len_list, dtype=torch.int32)
+
+            # shape: (B * (G-1), L)
+            flat_reject_speech_token_list = [tokens for samp in reject_speech_token_list for tokens in samp]
+            # shape: (B * (G-1), L)
+            reject_speech_token_list = pad_sequence(flat_reject_speech_token_list, batch_first=True, padding_value=0)
+
+            reject_speech_token_list = reject_speech_token_list.view(B, G_minus_1, -1)  # shape: (B, G-1, L)
+
+            batch['reject_speech_token_list'] = reject_speech_token_list
+            batch['reject_speech_token_len_list'] = reject_speech_token_len_list
+
+            # 2. advantages: List[[adv_from_receive, adv_from_samp1, ...], ...], shape: (B, G)
+            advantages = [
+                [sample[i]['advantages_dict'][k] for k in sorted(sample[i]['advantages_dict'].keys(), key=lambda x: int(x))]
+                for i in order
+            ]
+            advantages = torch.tensor(advantages, dtype=torch.float32)
+            # 检查维度一致性 (B, G)
+            advantage_shapes = [adv.shape for adv in advantages]
+            assert len(set(advantage_shapes)) == 1, f"不同样本的advantages维度不一致: {advantage_shapes}"
+            
+            batch['advantages'] = advantages
+          
         if gan is True:
             # in gan train, we need pitch_feat
             pitch_feat = [sample[i]['pitch_feat'] for i in order]

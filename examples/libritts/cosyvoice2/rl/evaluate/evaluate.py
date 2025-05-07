@@ -14,17 +14,16 @@ import pandas as pd
 """
 
 
-# 已经使用的推理得到测试集文本对应音频的方法
-method = "instruct"
-
 pwd = Path(__file__).parent
 cosyvoice2_dir = pwd.parent.parent
+# 测试集名称
+test_corpus = "m3ed"
 
 # 设置wav2text，来获取ground truth的情感label
-wav2text_path = cosyvoice2_dir / "wav2text_m3ed_test.json"
+wav2text_path = cosyvoice2_dir / f"wav2text_{test_corpus}_test.json"
 
 # GT音频目录
-prompt2ref_path = cosyvoice2_dir / "promtwav2refwav_m3ed_test.json"
+prompt2ref_path = cosyvoice2_dir / f"promtwav2refwav_{test_corpus}_test.json"
 
 # 模型的输出标签
 model_output_emo_list = ['anger', 'disgusted', 'fear', 'happy', 'neutral', 'other', 'sad', 'surprise', '<unk>']
@@ -33,20 +32,36 @@ model_output_emo_list = ['anger', 'disgusted', 'fear', 'happy', 'neutral', 'othe
 test_root_dir = cosyvoice2_dir / "exp/cosyvoice"
 
 # 测试集文本参考音频目录
-ref_corpus_dir = cosyvoice2_dir / "data/m3ed/test"
+ref_corpus_dir = cosyvoice2_dir / f"data/{test_corpus}/test"
 
 script_path = Path(__file__)
 
 # 评测结果文件夹
 result_dir_path = script_path.parent / "result"
 
+# 评估结果命名方法：
+"""
+    内容：
+    anger acc: 0.375
+    fear acc: 0.015625
+    happy acc: 0.384615
+    neutral acc: 0.40625
+    sad acc: 0.5538461538461539
+    surprise acc: 0.323076
+    EMO SIM: 0.499060
+    Prosody SIM: 2.0
+    WER: 0.28940568475452194
+"""
 
 
 
 # 各个指标评估
 def evaluate(subdir, ser_model=None, asr_model=None):
-    test_dir = test_root_dir / subdir / method
-
+    test_dir = test_root_dir / subdir / "instruct"
+    # 实验目录命名：test_方法|参数_epoch_数字
+    methodAndhyp = subdir.split('_')[1]
+    num_epoch = subdir.split('_')[3]
+    result_txt_name = f"{test_corpus}_{methodAndhyp}_epoch_{num_epoch}"
     emo_acc_total = {}
     emo_cnt = {}
 
@@ -71,7 +86,8 @@ def evaluate(subdir, ser_model=None, asr_model=None):
         if ".wav" in wav:
             samp_wav_path = os.path.join(test_dir, wav)
             
-            prompt_name = wav.split('.')[0].strip()[:-2]
+            # prompt_name = wav.split('.')[0].strip()[:-2]
+            prompt_name = wav.split('.')[0].strip()
             if prompt_name not in trans_dict:
                 continue
             gt_wav_path = os.path.join(ref_corpus_dir, prompt2ref[prompt_name])
@@ -133,22 +149,22 @@ def evaluate(subdir, ser_model=None, asr_model=None):
             avg_acc_result[k] = avg_acc
             print(f"***根据该情感{emo_cnt[k]}个样本的统计，{k} 情感的平均acc为{avg_acc}")
         avg_acc_result = sort_dict(avg_acc_result)
-        with open(result_dir_path / f"eva_accuracy_{subdir}.txt", "w", encoding="utf-8") as f:
+        with open(result_dir_path / result_txt_name, "a", encoding="utf-8") as f:
             for k, v in avg_acc_result.items():
                 f.write(f"{k} acc: {v}\n")
     
         # EMO SIM
         emo_sim_result = emo_sim_total / utt_cnt 
         print(f"EMO SIM: {emo_sim_result}")
-        with open(result_dir_path / f"eva_emoSIM_{subdir}.txt", "w", encoding="utf-8") as f:
-            f.write(f"EMO SIM: {emo_sim_result}")
+        with open(result_dir_path / result_txt_name, "a", encoding="utf-8") as f:
+            f.write(f"EMO SIM: {emo_sim_result}\n")
     
     # WER
     if asr_model:
         wer_result = wer_total / utt_cnt
         print(f"WER: {wer_result}")
-        with open(result_dir_path / f"eva_wer_{subdir}.txt", "w", encoding="utf-8") as f:
-            f.write(f"WER: {wer_result}")
+        with open(result_dir_path / result_txt_name, "a", encoding="utf-8") as f:
+            f.write(f"WER: {wer_result}\n")
     
     # AutoPCP
     df = pd.DataFrame({"src_audio": src_audio, "tgt_audio": tgt_audio})
@@ -164,20 +180,23 @@ def evaluate(subdir, ser_model=None, asr_model=None):
             prosody_sim += l_sim
     prosody_sim = prosody_sim / utt_cnt
     print(f"prosody_sim: {prosody_sim}")
-    with open(result_dir_path / f"eva_proSIM_{subdir}.txt", "w", encoding="utf-8") as f:
-        f.write(f"Prosody SIM: {prosody_sim}")
+    with open(result_dir_path / result_txt_name, "a", encoding="utf-8") as f:
+        f.write(f"Prosody SIM: {prosody_sim}\n")
 
 if __name__ == '__main__':
     ser_model_name = "emotion2vec_base_finetuned"
     ser_model = AutoModel(model=f"iic/{ser_model_name}")
     asr_model_size = "large-v3"
     asr_model = WhisperModel(asr_model_size, device="cuda", compute_type="float16", download_root=str(pwd / "eva_model/models"), local_files_only=True)
-    
-    subdir_list = []
-    for i in range(1, 10, 2):
-        subdir = f"test_emo_dpo_epoch_{i}"
-        if os.path.exists(test_root_dir / subdir / method):
-            subdir_list.append(subdir)
+    # assert False
+
+    # 实验目录命名：test_方法|参数_epoch_数字
+    subdir_list = ['test_EmoDPO|beta0.1_epoch_9']
+    # for i in range(1, 10, 2):
+    #     subdir = f"test_emo_dpo_epoch_{i}"
+    #     if os.path.exists(test_root_dir / subdir / method):
+    #         subdir_list.append(subdir)
     print(f"对以下目录音频做评估：{subdir_list}")
+    
     for subdir in subdir_list:
         evaluate(subdir, ser_model=ser_model, asr_model=asr_model)

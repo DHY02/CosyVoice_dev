@@ -1,0 +1,31 @@
+2025-05-06 14:02 INFO 56244:stopes.utils.web - AutoPCP_multilingual_v2 already downloaded
+2025-05-06 14:02 INFO 56244:stopes.eval.auto_pcp.audio_comparator - Loading vectorizer
+/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/eva_model/stopes/stopes/eval/auto_pcp/audio_comparator.py:143: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  model_config = torch.load(config_path)
+2025-05-06 14:03 INFO 56244:stopes.eval.auto_pcp.audio_comparator - Sequential(
+  (0): Dropout(p=0.1, inplace=False)
+  (1): Linear(in_features=4096, out_features=2048, bias=True)
+  (2): Tanh()
+  (3): Dropout(p=0.1, inplace=False)
+  (4): Linear(in_features=2048, out_features=1024, bias=True)
+  (5): Tanh()
+  (6): Dropout(p=0.1, inplace=False)
+  (7): Linear(in_features=1024, out_features=512, bias=True)
+  (8): Tanh()
+  (9): Dropout(p=0.1, inplace=False)
+  (10): Linear(in_features=512, out_features=5, bias=True)
+)
+/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate/eva_model/stopes/stopes/eval/auto_pcp/audio_comparator.py:149: FutureWarning: You are using `torch.load` with `weights_only=False` (the current default value), which uses the default pickle module implicitly. It is possible to construct malicious pickle data which will execute arbitrary code during unpickling (See https://github.com/pytorch/pytorch/blob/main/SECURITY.md#untrusted-models for more details). In a future release, the default value for `weights_only` will be flipped to `True`. This limits the functions that could be executed during unpickling. Arbitrary objects will no longer be allowed to be loaded via this mode unless they are explicitly allowlisted by the user via `torch.serialization.add_safe_globals`. We recommend you start setting `weights_only=True` for any use case where you don't have full control of the loaded file. Please open an issue on GitHub for any issues related to this experimental feature.
+  ckpt = torch.load(ckpt_path, map_location=lambda storage, loc: storage)
+2025-05-06 14:03 INFO 56244:stopes.eval.auto_pcp.audio_comparator - model loaded from /root/.cache/stopes/AutoPCP_multilingual_v2/model.pt
+2025-05-06 14:03 INFO 56244:stopes.eval.auto_pcp.audio_comparator - Embedding source
+  0%|          | 0/390 [00:00<?, ?it/s]2025-05-06 14:03 WARNING 56244:stopes.speech.utils - Audio has sample rate 24000. Resample to 16000
+  4%|▍         | 16/390 [00:00<00:09, 38.33it/s]  8%|▊         | 32/390 [00:00<00:05, 63.41it/s] 12%|█▏        | 48/390 [00:00<00:04, 85.25it/s] 18%|█▊        | 72/390 [00:00<00:02, 124.85it/s] 24%|██▎       | 92/390 [00:00<00:02, 144.65it/s] 29%|██▊       | 112/390 [00:01<00:01, 143.70it/s] 35%|███▍      | 136/390 [00:01<00:01, 168.77it/s] 41%|████      | 160/390 [00:01<00:01, 162.30it/s] 46%|████▌     | 178/390 [00:01<00:01, 165.54it/s] 51%|█████     | 199/390 [00:01<00:01, 176.70it/s] 57%|█████▋    | 224/390 [00:01<00:01, 165.22it/s] 64%|██████▍   | 251/390 [00:01<00:00, 190.69it/s] 70%|██████▉   | 272/390 [00:01<00:00, 173.56it/s] 78%|███████▊  | 304/390 [00:02<00:00, 189.48it/s] 86%|████████▌ | 336/390 [00:02<00:00, 196.91it/s] 94%|█████████▍| 366/390 [00:02<00:00, 221.06it/s]100%|██████████| 390/390 [00:02<00:00, 200.01it/s]100%|██████████| 390/390 [00:02<00:00, 160.08it/s]
+2025-05-06 14:03 INFO 56244:stopes.eval.auto_pcp.audio_comparator - Embedding target
+  0%|          | 0/390 [00:00<?, ?it/s] 10%|█         | 40/390 [00:00<00:00, 399.15it/s] 21%|██        | 80/390 [00:00<00:01, 303.82it/s] 30%|██▉       | 116/390 [00:00<00:00, 325.44it/s] 38%|███▊      | 150/390 [00:00<00:00, 329.83it/s] 47%|████▋     | 184/390 [00:00<00:00, 323.10it/s] 56%|█████▌    | 217/390 [00:00<00:00, 308.41it/s] 64%|██████▍   | 249/390 [00:00<00:00, 309.97it/s] 72%|███████▏  | 281/390 [00:01<00:00, 227.39it/s] 79%|███████▊  | 307/390 [00:01<00:00, 216.09it/s] 87%|████████▋ | 340/390 [00:01<00:00, 243.01it/s] 94%|█████████▍| 368/390 [00:01<00:00, 234.92it/s]100%|██████████| 390/390 [00:01<00:00, 270.89it/s]
+2025-05-06 14:03 INFO 56244:stopes.eval.auto_pcp.audio_comparator - Comparing source and target embedding
+2025-05-06 14:03 INFO 56244:stopes.cache - written cache for CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb:0
+2025-05-06 14:03 INFO 56244:submitit - Job completed successfully
+2025-05-06 14:03 INFO 56244:submitit - Exiting after successful completion
+Exception ignored in sys.unraisablehook: <built-in function unraisablehook>
+KeyboardInterrupt

@@ -29,9 +29,11 @@ llm_model_path=${2:-"${checkpoint_model_dir}/${llm_name}"}
 # llm_name="llm_init.pt"
 # llm_model_path="${pretrained_model_dir}/${llm_name}"
 
-
+hyp="beta0.01"
 # result_dir_name="test_init"
-result_dir_name=${3:-"test_dpo_epoch_${num_epoch}"}
+
+# 实验目录命名：test_方法|参数_epoch_数字
+result_dir_name=${3:-"test_dpo|${hyp}_epoch_${num_epoch}"}
 
 # 修改test来修改测试集的目录，修改ref指定prompt音频数据集
 test="m3ed/test"
