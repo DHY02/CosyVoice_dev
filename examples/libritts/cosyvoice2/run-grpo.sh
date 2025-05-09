@@ -2,14 +2,14 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=5
+stage=3
 stop_stage=5
 
 # 训练数据集
 train_corpus="casia"
 
 # 训练方法
-method="grpo"
+method="grpoPS2-nlnl"
 
 data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}-grpo
 pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
@@ -22,9 +22,10 @@ grpo_datasets="receive samp_1 samp_2 samp_3 samp_4"
 # 参数
 beta=0.04
 clip=0.2
+use_grpo_new_loss=true
 
 # 实验名称（保存目录）
-exp_name="${train_corpus}_${method}_b${beta}_c${clip}"
+exp_name="${train_corpus}_${method}|b${beta}c${clip}"
 
 if [ ${stage} -le 0 ] && [ ${stop_stage} -ge 0 ]; then
   echo "Data preparation, prepare wav.scp/text/utt2spk/spk2utt"
@@ -67,7 +68,8 @@ if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
     python rl/preprocess/prepare_advs.py \
       --src_dir "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/casia-grpo/${x}" \
       --tgt_dir "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/casia-grpo/${x}/receive" \
-      --wav2text_path "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/wav2tts_text_dpo_ori.json"
+      --wav2text_path "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/wav2tts_text_dpo_ori.json" \
+      --new_loss
   done
 fi
 
@@ -79,7 +81,8 @@ if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
       --num_processes 10 \
       --src_dir $data_dir/$x/receive \
       --des_dir $data_dir/$x/receive/parquet \
-      --grpo
+      --grpo \
+      --use_grpo_new_loss $use_grpo_new_loss
   done
 fi
 

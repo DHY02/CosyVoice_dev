@@ -9,6 +9,7 @@ from faster_whisper import WhisperModel
 from jiwer import wer
 from utils import remove_punctuation, cosine_similarity, run_autoPCP, sort_dict
 import pandas as pd
+import argparse
 """
     使用测试集做评估
 """
@@ -34,10 +35,8 @@ test_root_dir = cosyvoice2_dir / "exp/cosyvoice"
 # 测试集文本参考音频目录
 ref_corpus_dir = cosyvoice2_dir / f"data/{test_corpus}/test"
 
-script_path = Path(__file__)
-
 # 评测结果文件夹
-result_dir_path = script_path.parent / "result"
+result_dir_path = pwd / "result"
 
 # 评估结果命名方法：
 """
@@ -149,41 +148,45 @@ def evaluate(subdir, ser_model=None, asr_model=None):
             avg_acc_result[k] = avg_acc
             print(f"***根据该情感{emo_cnt[k]}个样本的统计，{k} 情感的平均acc为{avg_acc}")
         avg_acc_result = sort_dict(avg_acc_result)
-        with open(result_dir_path / result_txt_name, "a", encoding="utf-8") as f:
-            for k, v in avg_acc_result.items():
-                f.write(f"{k} acc: {v}\n")
     
         # EMO SIM
         emo_sim_result = emo_sim_total / utt_cnt 
         print(f"EMO SIM: {emo_sim_result}")
-        with open(result_dir_path / result_txt_name, "a", encoding="utf-8") as f:
-            f.write(f"EMO SIM: {emo_sim_result}\n")
     
     # WER
     if asr_model:
         wer_result = wer_total / utt_cnt
         print(f"WER: {wer_result}")
-        with open(result_dir_path / result_txt_name, "a", encoding="utf-8") as f:
-            f.write(f"WER: {wer_result}\n")
     
     # AutoPCP
     df = pd.DataFrame({"src_audio": src_audio, "tgt_audio": tgt_audio})
 
-    df.to_csv("input.tsv", sep="\t", index=False, encoding='utf-8')
-    if os.path.exists("output.txt"):
-        os.remove("output.txt")
+    df.to_csv(pwd / "input.tsv", sep="\t", index=False, encoding='utf-8')
+    if os.path.exists(pwd / "output.txt"):
+        os.remove(pwd / "output.txt")
     run_autoPCP()
     prosody_sim = 0
-    with open("output.txt", "r", encoding="utf-8") as f:
+    with open(pwd / "output.txt", "r", encoding="utf-8") as f:
         for line in f:
             l_sim = float(line.strip())
             prosody_sim += l_sim
     prosody_sim = prosody_sim / utt_cnt
     print(f"prosody_sim: {prosody_sim}")
-    with open(result_dir_path / result_txt_name, "a", encoding="utf-8") as f:
+
+    with open(result_dir_path / result_txt_name, "w", encoding="utf-8") as f:
+        for k, v in avg_acc_result.items():
+            f.write(f"{k} acc: {v}\n")
+
+        f.write(f"EMO SIM: {emo_sim_result}\n")
+        f.write(f"WER: {wer_result}\n")
         f.write(f"Prosody SIM: {prosody_sim}\n")
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Calculate advantage functions for audio files.")
+    parser.add_argument("--num_epoch", required=True, help="epoch number")
+    parser.add_argument("--method", required=True, help="method")
+    args = parser.parse_args()
+    
     ser_model_name = "emotion2vec_base_finetuned"
     ser_model = AutoModel(model=f"iic/{ser_model_name}")
     asr_model_size = "large-v3"
@@ -191,7 +194,7 @@ if __name__ == '__main__':
     # assert False
 
     # 实验目录命名：test_方法|参数_epoch_数字
-    subdir_list = ['test_EmoDPO|beta0.1_epoch_9']
+    subdir_list = [f'test_{args.method}_epoch_{args.num_epoch}']
     # for i in range(1, 10, 2):
     #     subdir = f"test_emo_dpo_epoch_{i}"
     #     if os.path.exists(test_root_dir / subdir / method):

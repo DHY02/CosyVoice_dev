@@ -2,27 +2,28 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=5
+stage=3
 stop_stage=5
 
 # 训练数据集
 train_corpus="casia"
 
 # 训练方法
-method="dpo"
+method="emo-dpo"
 
 data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}-emo-dpo
 pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
 
 
 datasets="train valid"
-dpo_datasets="receive reject"
+dpo_datasets="receive emo_dpo_reject"
 
 # 参数
-beta=0.1
+beta=0.01
+start_epoch=4
 
 # 实验名称（保存目录）
-exp_name="${train_corpus}_${method}_b${beta}"
+exp_name="${train_corpus}_${method}|b${beta}s${start_epoch}"
 
 # 训练前：先修改第三步参数并运行，跑完第三步后再开始训练
 
@@ -73,24 +74,24 @@ if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
   done
 fi
 
-# inference
-if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
-  echo "Run inference. Please make sure utt in tts_text is in prompt_data"
-  # TODO consider remove bin/inference.py, or use similar initilization method as in readme
-  for mode in instruct; do
-    python cosyvoice/bin/inference.py --mode $mode \
-      --gpu 0 \
-      --config conf/cosyvoice2_dpo_infer.yaml \
-      --prompt_data data/casia/parquet/data.list \
-      --prompt_utt2data data/casia/parquet/utt2data.list \
-      --tts_text `pwd`/wav2tts_text_dpo_1200_test.json \
-      --qwen_pretrain_path $pretrained_model_dir/CosyVoice-BlankEN \
-      --llm_model $pretrained_model_dir/llm_sft_dpo_1.pt \
-      --flow_model $pretrained_model_dir/flow.pt \
-      --hifigan_model $pretrained_model_dir/hift.pt \
-      --result_dir `pwd`/exp/cosyvoice/test_dpo_1200_DPO/$mode
-  done
-fi
+# # inference
+# if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
+#   echo "Run inference. Please make sure utt in tts_text is in prompt_data"
+#   # TODO consider remove bin/inference.py, or use similar initilization method as in readme
+#   for mode in instruct; do
+#     python cosyvoice/bin/inference.py --mode $mode \
+#       --gpu 0 \
+#       --config conf/cosyvoice2_dpo_infer.yaml \
+#       --prompt_data data/casia/parquet/data.list \
+#       --prompt_utt2data data/casia/parquet/utt2data.list \
+#       --tts_text `pwd`/wav2tts_text_dpo_1200_test.json \
+#       --qwen_pretrain_path $pretrained_model_dir/CosyVoice-BlankEN \
+#       --llm_model $pretrained_model_dir/llm_sft_dpo_1.pt \
+#       --flow_model $pretrained_model_dir/flow.pt \
+#       --hifigan_model $pretrained_model_dir/hift.pt \
+#       --result_dir `pwd`/exp/cosyvoice/test_dpo_1200_DPO/$mode
+#   done
+# fi
 
 # train llm
 export CUDA_VISIBLE_DEVICES="0"
@@ -118,7 +119,7 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
       --train_data $data_dir/train.data.list \
       --cv_data $data_dir/dev.data.list \
       --model $model \
-      --checkpoint $pretrained_model_dir/${model}.pt \
+      --checkpoint $pretrained_model_dir/${model}_init.pt \
       --model_dir `pwd`/exp/cosyvoice2/$model/$train_engine/$exp_name \
       --tensorboard_dir `pwd`/tensorboard/cosyvoice2/$model/$train_engine/$exp_name \
       --ddp.dist_backend $dist_backend \
@@ -130,7 +131,7 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
       --deepspeed.save_states model+optimizer \
       --dpo --dpo_beta $beta \
       --emo_dpo \
-      --emo_dpo_epoch 6
+      --emo_dpo_epoch ${start_epoch}
   done
 fi
 

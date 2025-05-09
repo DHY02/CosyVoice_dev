@@ -308,6 +308,7 @@ def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None
             chosen_loss_masks = info_dict['loss_dict']["chosen_loss_masks"]
             # shape: (B*(G-1), L)
             reject_loss_masks = info_dict['loss_dict']["reject_loss_masks"]
+
             reject_loss_masks = reject_loss_masks.view(advantages.size(0), advantages.size(1) - 1, -1)
             # 合并为(B, G, L)的loss_masks
             loss_masks = torch.concat([chosen_loss_masks.unsqueeze(1), reject_loss_masks], dim=1)

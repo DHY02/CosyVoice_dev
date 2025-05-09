@@ -16,20 +16,18 @@ sys.path.append('/root/autodl-tmp/CosyVoice_dev')
 from async_cosyvoice.async_cosyvoice import AsyncCosyVoice2
 from cosyvoice.utils.file_utils import load_wav
 random.seed(1)
-cosyvoice_dir = Path("/root/autodl-tmp/CosyVoice_dev/")
+cosyvoice_dir = Path("/root/autodl-tmp/CosyVoice_dev")
 # 测试集
 corpus = "m3ed/whole"
 
 # 参考音频数据集
 ref_corpus = "casia"
-method = "GRPO"
-num_epoch = "1"
-hyp="b0.04c0.2"
-result_exp_name=f"test_{method}|{hyp}_epoch_{num_epoch}"
 
-async def main():
+
+async def main(method, num_epoch):
+    result_exp_name=f"test_{method}_epoch_{num_epoch}"
     # cosyvoice = AsyncCosyVoice2('./pretrained_models/CosyVoice2-0.5B', load_jit=False, load_trt=False, fp16=True)
-    cosyvoice = AsyncCosyVoice2(cosyvoice_dir / 'root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B', load_jit=True, load_trt=False, fp16=True)
+    cosyvoice = AsyncCosyVoice2(str(cosyvoice_dir / 'pretrained_models/CosyVoice2-0.5B'), load_jit=True, load_trt=False, fp16=True)
 
     # instruct 不能使用 Generater 模式传入text
     task_id = 0
@@ -87,4 +85,9 @@ async def main():
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    parser = argparse.ArgumentParser(description="Calculate advantage functions for audio files.")
+    parser.add_argument("--num_epoch", required=True, help="epoch number")
+    parser.add_argument("--method", required=True, help="method")
+    args = parser.parse_args()
+    
+    asyncio.run(main(args.method, args.num_epoch))

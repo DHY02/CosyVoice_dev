@@ -474,12 +474,10 @@ class Qwen2LM(TransformerLM):
                 "loss": loss,
                 "acc": acc,
                 "chosen_logps": chosen_logps,
-                "rejected_logps": rejected_logps,
-                "chosen_loss_masks": loss_masks[: speech_token.shape[0]],
-                "reject_loss_masks": loss_masks[speech_token.shape[0]:]
+                "rejected_logps": rejected_logps
             }
         elif self.grpo:
-            all_logps_sum, all_logps_mean, per_token_logps, loss_masks = self.get_batch_logps_old(
+            all_logps_sum, all_logps_mean, per_token_logps, loss_masks = self.get_batch_logps(
                 logits, lm_target, lm_output_mask, text_token_len, ignore_id=IGNORE_ID
             )
             chosen_logps = per_token_logps[: speech_token.shape[0]]

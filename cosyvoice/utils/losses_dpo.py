@@ -105,17 +105,14 @@ class GRPOLoss(torch.nn.Module):
         advantages = (advantages - group_mean_advantages) / (group_std_advantages + 1e-4)
         # shape:(B, G, 1)
         advantages = advantages.unsqueeze(2)
-        # logging.debug(f"Active_logps: {active_logps}")
-        # logging.debug(f"Reference_logps: {reference_logps}")
 
         # 计算KL散度
         per_token_kl = self.grpo_kl(reference_logps, active_logps)
-        # logging.debug(f"per_token_kl: {per_token_kl}")
 
         # 计算ratio
         coef_1 = torch.exp(active_logps - reference_logps)
         coef_2 = torch.clamp(coef_1, 1 - self.grpo_clip, 1 + self.grpo_clip)
-        # logging.debug(f"coef_1: {coef_1}")
+
         # 被clip样本的比例，越高代表参考策略和当前策略差异越大，或优势函数估计不稳定，或超参数 grpo_clip 设置不合理
         is_low_clipped = (coef_1 < 1 - self.grpo_clip) & (advantages < 0)
         is_high_clipped = (coef_1 > 1 + self.grpo_clip) & (advantages > 0)

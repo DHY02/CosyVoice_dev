@@ -33,8 +33,8 @@ def sort_dict(x):
     return {k: x[k] for k in sorted(x)}
 
 def run_autoPCP():
-    # 获取当前工作目录
-    current_dir = os.getcwd()
+    # 获取当前脚本目录
+    current_dir = os.path.dirname(os.path.abspath(__file__))
     # 设置输入输出文件路径
     input_tsv = os.path.join(current_dir, "input.tsv")
     output_txt = os.path.join(current_dir, "output.txt")

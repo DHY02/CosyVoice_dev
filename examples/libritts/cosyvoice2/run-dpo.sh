@@ -22,7 +22,7 @@ dpo_datasets="receive reject"
 beta=0.1
 
 # 实验名称（保存目录）
-exp_name="${train_corpus}_${method}_b${beta}"
+exp_name="${train_corpus}_${method}|b${beta}"
 
 # 训练前：先修改第三步参数并运行，跑完第三步后再开始训练
 

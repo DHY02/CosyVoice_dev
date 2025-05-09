@@ -116,6 +116,9 @@ if __name__ == "__main__":
                         action='store_true',
                         default=False,
                         help='Use GRPO')
+    parser.add_argument('--use_grpo_new_loss',
+                        default=False,
+                        help='Use grpo_new_loss')
     args = parser.parse_args()
     utt2wav, utt2text, utt2spk = {}, {}, {}
     with open('{}/wav.scp'.format(args.src_dir)) as f:
@@ -159,7 +162,10 @@ if __name__ == "__main__":
                     utt2reject_speech_token_dict[utt][group_id] = tokens
 
         # 要得到List[advantages_dict]: [{{1: adv}, {2: adv}, …}]作为df新的一列，只需要拿到嵌套的字典utt: {{1: adv}, {2: adv}, …}
-        utt2advs_dict = torch.load('{}/utt2advs_dict.pt'.format(args.src_dir))
+        if args.use_grpo_new_loss:
+            utt2advs_dict = torch.load('{}/utt2emo-grpoadvs_dict.pt'.format(args.src_dir))
+        else:
+            utt2advs_dict = torch.load('{}/utt2advs_dict.pt'.format(args.src_dir))
 
     else:
         utt2reject_speech_token_dict = None
