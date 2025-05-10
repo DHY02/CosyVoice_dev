@@ -4,10 +4,10 @@ import pathlib
 import shutil
 from pathlib import Path
 
+corpus = "esd"
+src_path = Path(f"/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/{corpus}")
 
-src_path = Path("/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/casia-emo-dpo")
-
-sample_dir = Path("/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/sampling_casia_ori")
+sample_dir = Path(f"/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/sampling_{corpus}")
 if __name__ == "__main__":
     for corpus in ["train", "valid"]:
         # 打开训练集，找到所有的文件名称，找到对应的几个采样文件夹，复制其下相同名称的文件到目标目录

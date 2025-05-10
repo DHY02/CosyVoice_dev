@@ -2,14 +2,14 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=5
+stage=0
 stop_stage=5
 
 # 训练数据集
-train_corpus="casia"
+train_corpus="esd"
 
 # 训练方法
-method="grpoPS2-nlnl"
+method="grpo"
 
 data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}-grpo
 pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
@@ -66,9 +66,9 @@ if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
   echo "Prepare advantages"
   for x in ${datasets}; do
     python rl/preprocess/prepare_advs.py \
-      --src_dir "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/casia-grpo/${x}" \
-      --tgt_dir "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/casia-grpo/${x}/receive" \
-      --wav2text_path "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/wav2tts_text_dpo_ori.json" \
+      --src_dir "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}/${x}" \
+      --tgt_dir "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}/${x}/receive" \
+      --wav2text_path "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}/wav2tts_text_samp_esd.json" \
       --new_loss
   done
 fi

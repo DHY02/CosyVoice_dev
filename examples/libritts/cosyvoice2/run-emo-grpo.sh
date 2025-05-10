@@ -6,7 +6,7 @@ stage=3
 stop_stage=5
 
 # 训练数据集
-train_corpus="casia"
+train_corpus="esd"
 
 # 训练方法
 method="emo-grpo"

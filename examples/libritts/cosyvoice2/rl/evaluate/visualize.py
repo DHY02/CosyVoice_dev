@@ -171,7 +171,7 @@ def visualize_epoch():
                     data[metric][method] = {}
                 data[metric][method][epoch] = float(value)
 
-    # 1. 绘制折线图
+    # 绘制折线图
     for metric in data:
         plt.figure(figsize=(10, 6))
         plt.title(metric.replace("_", " ").title())
@@ -179,12 +179,16 @@ def visualize_epoch():
         plt.ylabel("Value")
         all_epochs = sorted({int(e) for method in data[metric].values() for e in method.keys()})
 
-        for idx, method in enumerate(data[metric].keys()):
+        # 排除
+        data[metric] = {k.replace("PS2", "").replace("nlnl", "r2").split('|')[0]: v for k, v in data[metric].items() 
+                        if "DPO|beta0.01" not in k and "EmoDPO|beta0.1" not in k
+                        and "olnl" not in k}
+        sorted_methods = sorted(data[metric].keys())
+        for idx, method in enumerate(sorted_methods):
            # 获取当前方法的所有 epoch（转换为整数并排序）
             method_epochs = sorted(map(int, data[metric][method].keys()))
             method_values = [data[metric][method][str(e)] for e in method_epochs]
-            if "emo-dpo" not in method:
-                continue
+
             if len(method_epochs) == 1:
                 plt.axhline(y=method_values[0], color=colors[idx], linestyle='--', label=method, alpha=0.7)
                 plt.scatter(method_epochs, method_values, color=colors[idx], s=100, zorder=3)
