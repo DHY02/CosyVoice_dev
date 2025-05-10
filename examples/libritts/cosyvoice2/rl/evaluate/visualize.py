@@ -183,7 +183,8 @@ def visualize_epoch():
            # 获取当前方法的所有 epoch（转换为整数并排序）
             method_epochs = sorted(map(int, data[metric][method].keys()))
             method_values = [data[metric][method][str(e)] for e in method_epochs]
-            
+            if "emo-dpo" not in method:
+                continue
             if len(method_epochs) == 1:
                 plt.axhline(y=method_values[0], color=colors[idx], linestyle='--', label=method, alpha=0.7)
                 plt.scatter(method_epochs, method_values, color=colors[idx], s=100, zorder=3)

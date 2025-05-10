@@ -3,14 +3,15 @@
 # 基础路径
 COSYVOICE_DIR="/root/autodl-tmp/CosyVoice_dev"
 TRAIN_CORPUS="casia"
-METHOD="emo-grpo-olnl|b0.04c0.2s3l1e-5"
+METHOD="emo-dpo|b0.01s4"
 MODEL_SRC_DIR="${COSYVOICE_DIR}/examples/libritts/cosyvoice2/exp/cosyvoice2/llm/torch_ddp/${TRAIN_CORPUS}_${METHOD}"
 MODEL_DEST_DIR="${COSYVOICE_DIR}/pretrained_models/CosyVoice2-0.5B"
 INFER_SCRIPT="${COSYVOICE_DIR}/examples/libritts/cosyvoice2/rl/test_vllm_infer.py"
 
-start_epoch=4
-stop_epoch=8
+start_epoch=0
+stop_epoch=9
 epoch_interval=1
+
 stage=1
 stop_stage=3
 
@@ -23,7 +24,7 @@ if [ ${stage} -le 1 ] && [ ${stop_stage} -ge 1 ]; then
         # 1. 复制模型文件
         cp "${MODEL_SRC_DIR}/epoch_${i}_whole.pt" "${MODEL_DEST_DIR}/llm.pt" || exit 1
         # 2. 执行Python脚本
-        python "${INFER_SCRIPT}" --num_epoch "${i}" --method "${METHOD}"
+        python "${INFER_SCRIPT}" --num_epoch "${i}" --method "${METHOD}" || exit 1
         
         echo "epoch ${i} 推理完成"
         echo "----------------------------------"
@@ -36,7 +37,7 @@ if [ ${stage} -le 2 ] && [ ${stop_stage} -ge 2 ]; then
         echo "正在评估 ${METHOD} epoch ${i}..."
         
         # 2. 执行Python脚本
-        python evaluate/evaluate.py --num_epoch "${i}" --method "${METHOD}"
+        python evaluate/evaluate.py --num_epoch "${i}" --method "${METHOD}" || exit 1
         
         echo "epoch ${i} 评估完成"
         echo "----------------------------------"

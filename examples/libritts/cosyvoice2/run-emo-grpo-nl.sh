@@ -9,11 +9,11 @@ stop_stage=5
 train_corpus="casia"
 
 # 训练方法
-method="emo-grpo-olnl"
+method="emo-grpo-nlnl"
 start_epoch=3
 data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}-emo-grpo
 pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
-grpo_checkpoint_path="/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/exp/cosyvoice2/llm/torch_ddp/casia_grpoPS2|b0.04c0.2/epoch_${start_epoch}_whole.pt"
+grpo_checkpoint_path="/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/exp/cosyvoice2/llm/torch_ddp/casia_grpoPS2-nlnl|b0.04c0.2/epoch_${start_epoch}_whole.pt"
 
 datasets="train valid"
 gt_datasets="receive"

@@ -2,7 +2,7 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=3
+stage=5
 stop_stage=5
 
 # 训练数据集
@@ -16,7 +16,7 @@ pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2
 
 
 datasets="train valid"
-gt_datasets="receive"
+
 grpo_datasets="receive samp_1 samp_2 samp_3 samp_4"
 
 # 参数

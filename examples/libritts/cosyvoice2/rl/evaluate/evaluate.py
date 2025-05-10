@@ -173,6 +173,28 @@ def evaluate(subdir, ser_model=None, asr_model=None):
     prosody_sim = prosody_sim / utt_cnt
     print(f"prosody_sim: {prosody_sim}")
 
+    # 有None则先读取再写入，相当于修改
+    if not ser_model or not asr_model:
+        avg_acc_result = {}
+        with open(result_dir_path / result_txt_name, "r", encoding="utf-8") as f:
+            for line in f:
+                if not line:
+                    continue
+                else:
+                    line = line.strip()
+                if "acc" in line:
+                    metric, value = line.split('acc: ')
+                    avg_acc_result[metric] = value
+                elif "EMO SIM" in line:
+                    metric, value = line.split(': ')
+                    emo_sim_result = value
+                elif "WER" in line:
+                    metric, value = line.split(': ')
+                    wer_result = value
+                elif "Prosody" in line:
+                    continue
+                else:
+                    raise Exception(f"未知的指标: {line}")
     with open(result_dir_path / result_txt_name, "w", encoding="utf-8") as f:
         for k, v in avg_acc_result.items():
             f.write(f"{k} acc: {v}\n")
@@ -185,12 +207,18 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Calculate advantage functions for audio files.")
     parser.add_argument("--num_epoch", required=True, help="epoch number")
     parser.add_argument("--method", required=True, help="method")
+    parser.add_argument("--skip_ser", action='store_true',
+                        default=False, help="skip_ser")
+    parser.add_argument("--skip_asr", action='store_true',
+                        default=False, help="skip_asr")
     args = parser.parse_args()
     
+    
     ser_model_name = "emotion2vec_base_finetuned"
-    ser_model = AutoModel(model=f"iic/{ser_model_name}")
+    ser_model = AutoModel(model=f"iic/{ser_model_name}") if not args.skip_ser else None
     asr_model_size = "large-v3"
-    asr_model = WhisperModel(asr_model_size, device="cuda", compute_type="float16", download_root=str(pwd / "eva_model/models"), local_files_only=True)
+    asr_model = WhisperModel(asr_model_size, device="cuda", compute_type="float16", 
+        download_root=str(pwd / "eva_model/models"), local_files_only=True) if not args.skip_asr else None
     # assert False
 
     # 实验目录命名：test_方法|参数_epoch_数字
