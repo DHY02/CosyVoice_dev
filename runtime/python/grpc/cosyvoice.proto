@@ -1,43 +1,82 @@
 syntax = "proto3";
 
 package cosyvoice;
-option go_package = "protos/";
 
-service CosyVoice{
+option go_package = "protos/";
+option java_multiple_files = true;
+option java_package = "com.talkwell.grpc";
+option java_outer_classname = "CosyVoiceProto";
+
+service CosyVoice {
   rpc Inference(Request) returns (stream Response) {}
+  rpc AddSpeaker(AddSpeakerRequest) returns (AddSpeakerResponse) {}
+  rpc RemoveSpeaker(RemoveSpeakerRequest) returns (RemoveSpeakerResponse) {}
 }
 
-message Request{
-  oneof RequestPayload {
-    sftRequest sft_request = 1;
-    zeroshotRequest zero_shot_request = 2;
-    crosslingualRequest cross_lingual_request = 3;
-    instructRequest instruct_request = 4;
+message Request {
+  oneof request_payload {
+    SftRequest sft_request = 1;
+    ZeroshotRequest zero_shot_request = 2;
+    CrosslingualRequest cross_lingual_request = 3;
+    CrosslingualSpkRequest cross_lingual_spk_request = 4;
+    InstructRequest instruct_request = 5;
+    InstructSpkRequest instruct_spk_request = 6;
   }
 }
 
-message sftRequest{
+message SftRequest {
   string spk_id = 1;
   string tts_text = 2;
 }
 
-message zeroshotRequest{
+message ZeroshotRequest {
   string tts_text = 1;
   string prompt_text = 2;
   bytes prompt_audio = 3;
 }
 
-message crosslingualRequest{
+message CrosslingualRequest {
   string tts_text = 1;
   bytes prompt_audio = 2;
 }
 
-message instructRequest{
+message CrosslingualSpkRequest {
+  string tts_text = 1;
+  string spk_id = 2;
+}
+
+message InstructRequest {
+  string tts_text = 1;
+  string instruct_text = 2;
+  bytes prompt_audio = 3;
+}
+
+message InstructSpkRequest {
   string tts_text = 1;
   string spk_id = 2;
   string instruct_text = 3;
 }
 
-message Response{
+message Response {
   bytes tts_audio = 1;
+}
+
+message AddSpeakerRequest {
+  string spk_name = 1;
+  bytes prompt_audio = 2;
+  string prompt_text = 3;
+}
+
+message AddSpeakerResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message RemoveSpeakerRequest{
+  string spk_name = 1;
+}
+
+message RemoveSpeakerResponse{
+  bool success = 1;
+  string message = 2;
 }

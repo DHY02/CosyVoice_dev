@@ -83,6 +83,7 @@ class MaskedDiffWithXvec(torch.nn.Module):
 
         # get conditions
         conds = torch.zeros(feat.shape, device=token.device)
+        # 0.5的概率对样本特征选取一个endpoint，选取范围在前30%的帧
         for i, j in enumerate(feat_len):
             if random.random() < 0.5:
                 continue

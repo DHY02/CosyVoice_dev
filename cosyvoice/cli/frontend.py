@@ -24,6 +24,8 @@ import torchaudio
 import os
 import re
 import inflect
+
+from cosyvoice.utils.spk_emb import get_spk_dir, load_spk_from_pt, load_spk_from_wav
 try:
     import ttsfrd
     use_ttsfrd = True
@@ -150,8 +152,24 @@ class CosyVoiceFrontEnd:
 
     def frontend_sft(self, tts_text, spk_id):
         tts_text_token, tts_text_token_len = self._extract_text_token(tts_text)
-        embedding = self.spk2info[spk_id]['embedding']
-        model_input = {'text': tts_text_token, 'text_len': tts_text_token_len, 'llm_embedding': embedding, 'flow_embedding': embedding}
+
+        # embedding = self.spk2info[spk_id]['embedding']
+        # cosyvoice2从speaker_id.pt中提取说话人信息
+        newspk = load_spk_from_pt(spk_id, get_spk_dir())
+        model_input = {'text': tts_text_token, 'text_len': tts_text_token_len}
+        model_input["flow_embedding"] = newspk["embedding"] 
+        model_input["llm_embedding"] = newspk["embedding"]
+
+        model_input["llm_prompt_speech_token"] = newspk["speech_token"]
+        model_input["llm_prompt_speech_token_len"] = newspk["speech_token_len"]
+
+        model_input["flow_prompt_speech_token"] = newspk["speech_token"]
+        model_input["flow_prompt_speech_token_len"] = newspk["speech_token_len"]
+
+        model_input["prompt_speech_feat_len"] = newspk["speech_feat_len"]
+        model_input["prompt_speech_feat"] = newspk["speech_feat"]
+        model_input["prompt_text"] = newspk["prompt_text"]
+        model_input["prompt_text_len"] = newspk["prompt_text_len"]
         return model_input
 
     def frontend_zero_shot(self, tts_text, prompt_text, prompt_speech_16k, resample_rate):
@@ -183,6 +201,15 @@ class CosyVoiceFrontEnd:
         del model_input['llm_prompt_speech_token_len']
         return model_input
 
+    def frontend_cross_lingual_spk(self, tts_text, spk_id):
+        model_input = self.frontend_sft(tts_text, spk_id)
+        # in cross lingual mode, we remove prompt in llm
+        del model_input['prompt_text']
+        del model_input['prompt_text_len']
+        del model_input['llm_prompt_speech_token']
+        del model_input['llm_prompt_speech_token_len']
+        return model_input
+
     def frontend_instruct(self, tts_text, spk_id, instruct_text):
         model_input = self.frontend_sft(tts_text, spk_id)
         # in instruct mode, we remove spk_embedding in llm due to information leakage
@@ -196,6 +223,16 @@ class CosyVoiceFrontEnd:
         model_input = self.frontend_zero_shot(tts_text, instruct_text + '<|endofprompt|>', prompt_speech_16k, resample_rate)
         del model_input['llm_prompt_speech_token']
         del model_input['llm_prompt_speech_token_len']
+        return model_input
+
+    def frontend_instruct3(self, tts_text, instruct_text, spk_id):
+        """预设音色instruct"""
+        model_input = self.frontend_sft(tts_text, spk_id)
+        del model_input['llm_prompt_speech_token']
+        del model_input['llm_prompt_speech_token_len']
+        prompt_text_token, prompt_text_token_len = self._extract_text_token(instruct_text + '<|endofprompt|>')
+        model_input["prompt_text"] = prompt_text_token
+        model_input["prompt_text_len"] = prompt_text_token_len
         return model_input
 
     def frontend_vc(self, source_speech_16k, prompt_speech_16k, resample_rate):

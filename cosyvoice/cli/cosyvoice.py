@@ -22,6 +22,7 @@ from cosyvoice.cli.frontend import CosyVoiceFrontEnd
 from cosyvoice.cli.model import CosyVoiceModel, CosyVoice2Model
 from cosyvoice.utils.file_utils import logging
 from cosyvoice.utils.class_utils import get_model_type
+from cosyvoice.utils.spk_emb import get_spk_dir, load_spk_from_wav
 
 
 class CosyVoice:
@@ -102,6 +103,18 @@ class CosyVoice:
                 yield model_output
                 start_time = time.time()
 
+    def inference_cross_lingual_spk(self, tts_text, spk_id, stream=False, speed=1.0, text_frontend=True):
+        "预设音色跨语种语音合成"
+        for i in tqdm(self.frontend.text_normalize(tts_text, split=True, text_frontend=text_frontend)):
+            model_input = self.frontend.frontend_cross_lingual_spk(i, spk_id)
+            start_time = time.time()
+            logging.info('synthesis text {}'.format(i))
+            for model_output in self.model.tts(**model_input, stream=stream, speed=speed):
+                speech_len = model_output['tts_speech'].shape[1] / self.sample_rate
+                logging.info('yield speech len {}, rtf {}'.format(speech_len, (time.time() - start_time) / speech_len))
+                yield model_output
+                start_time = time.time()
+
     def inference_instruct(self, tts_text, spk_id, instruct_text, stream=False, speed=1.0, text_frontend=True):
         assert isinstance(self.model, CosyVoiceModel), 'inference_instruct is only implemented for CosyVoice!'
         if self.instruct is False:
@@ -129,7 +142,7 @@ class CosyVoice:
 
 class CosyVoice2(CosyVoice):
 
-    def __init__(self, model_dir, load_jit=False, load_trt=False, fp16=False, use_flow_cache=False):
+    def __init__(self, model_dir, load_jit=False, load_trt=False, fp16=True, use_flow_cache=False):
         self.instruct = True if '-Instruct' in model_dir else False
         self.model_dir = model_dir
         self.fp16 = fp16
@@ -163,6 +176,32 @@ class CosyVoice2(CosyVoice):
                                 self.fp16)
         del configs
 
+    def save_spk(self, prompt_wav_upload, spk_name, prompt_text):
+        """
+            prompt_wav_upload: 16k sample rate tensor waveform
+        """
+        prompt_text = self.frontend.text_normalize(prompt_text, split=False, text_frontend=True)
+        prompt_text_token, prompt_text_token_len = self.frontend._extract_text_token(prompt_text)
+        
+        save_path = os.path.join(get_spk_dir(), f"{spk_name}.pt")
+        data = load_spk_from_wav(prompt_wav_upload, self.sample_rate, self, 
+                                prompt_text_token, prompt_text_token_len,
+                                )
+        
+        torch.save(data, save_path)
+
+    def remove_spk(self, spk_name):
+        rm_path = os.path.join(get_spk_dir(), f"{spk_name}.pt")
+        try:
+            os.remove(rm_path)
+            print(f"文件 {rm_path} 删除成功")
+        except FileNotFoundError:
+            print(f"文件 {rm_path} 不存在，无需删除")
+        except PermissionError:
+            print(f"无权限删除文件 {rm_path}")
+        except Exception as e:
+            print(f"删除文件时出错: {e}")
+
     def inference_instruct(self, *args, **kwargs):
         raise NotImplementedError('inference_instruct is not implemented for CosyVoice2!')
 
@@ -170,6 +209,19 @@ class CosyVoice2(CosyVoice):
         assert isinstance(self.model, CosyVoice2Model), 'inference_instruct2 is only implemented for CosyVoice2!'
         for i in tqdm(self.frontend.text_normalize(tts_text, split=True, text_frontend=text_frontend)):
             model_input = self.frontend.frontend_instruct2(i, instruct_text, prompt_speech_16k, self.sample_rate)
+            start_time = time.time()
+            logging.info('synthesis text {}'.format(i))
+            for model_output in self.model.tts(**model_input, stream=stream, speed=speed):
+                speech_len = model_output['tts_speech'].shape[1] / self.sample_rate
+                logging.info('yield speech len {}, rtf {}'.format(speech_len, (time.time() - start_time) / speech_len))
+                yield model_output
+                start_time = time.time()
+    
+    def inference_instruct3(self, tts_text, instruct_text, spk_id, stream=False, speed=1.0, text_frontend=True):
+        """预设音色instruct"""
+        assert isinstance(self.model, CosyVoice2Model), 'inference_instruct2 is only implemented for CosyVoice2!'
+        for i in tqdm(self.frontend.text_normalize(tts_text, split=True, text_frontend=text_frontend)):
+            model_input = self.frontend.frontend_instruct3(i, instruct_text, spk_id)
             start_time = time.time()
             logging.info('synthesis text {}'.format(i))
             for model_output in self.model.tts(**model_input, stream=stream, speed=speed):
