@@ -56,3 +56,28 @@ def run_autoPCP():
         text=True,
         capture_output=True
     )
+
+# 将汉字用空格分词
+def char_level(text):
+    return " ".join(list(text))
+
+
+def is_chinese(char):
+    return '\u4e00' <= char <= '\u9fff'
+
+def is_english(char):
+    return char.isalpha() and char.encode().isalpha() and char.lower() in 'abcdefghijklmnopqrstuvwxyz'
+
+# 判断字符串的语言
+def detect_language(s):
+    chinese_count = sum(1 for c in s if is_chinese(c))
+    english_count = sum(1 for c in s if is_english(c))
+    
+    if chinese_count > 0 and english_count == 0:
+        return "中文"
+    elif english_count > 0 and chinese_count == 0:
+        return "英文"
+    elif chinese_count > 0 and english_count > 0:
+        return "中英混合"
+    else:
+        return "其他"

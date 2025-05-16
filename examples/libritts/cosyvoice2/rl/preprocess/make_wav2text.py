@@ -77,6 +77,26 @@ def make_infer_text(emo_cnt, mode):
         json.dump(promtwav2refwav_dict, f, ensure_ascii=False, indent=2)
 
 
+# 得到esd数据集test的wav2text
+def make_test_wav2text(dataset):
+    # 测试集的wav2text
+    target_json_path_1 = cosyvoice2_dir / f"wav2text_{dataset}_test.json"
+    src_path = os.path.join(cosyvoice2_dir, "data/esd/test/receive")
+    wav2text_dict = {}
+
+    for entry in os.listdir(src_path):
+        if entry.endswith(".txt"):
+            aid = entry.split('.')[0]
+            txt_path = os.path.join(src_path, entry)
+            with open(txt_path, "r", encoding="utf-8") as f:
+                line = f.readline().strip()
+            assert line != "", print(entry)
+            wav2text_dict[aid] = [line]
+    with open(target_json_path_1, "w", encoding="utf-8") as f:
+        json.dump(wav2text_dict, f, ensure_ascii=False, indent=2)
+
+
+
 # 统计数据集中情感分类及其数量，返回最小数量
 def emo_status(mode):
     emo_cnt = {}
@@ -117,6 +137,7 @@ def make_train_valid_wav2text():
 
 
 if __name__ == "__main__":
-    emo_cnt = emo_status("test")
-    make_infer_text(emo_cnt, "test")
+    # emo_cnt = emo_status("test")
+    # make_infer_text(emo_cnt, "test")
     # make_train_valid_wav2text()
+    make_test_wav2text("esd")

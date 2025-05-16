@@ -342,7 +342,7 @@ def dynamic_batch(data, max_frames_in_batch=12000, mode='train'):
         yield buf
 
 
-def batch(data, batch_type='static', batch_size=4, max_frames_in_batch=18000, mode='train'):
+def batch(data, batch_type='static', batch_size=2, max_frames_in_batch=18000, mode='train'):
     """ Wrapper for static/dynamic batch
     """
     if mode == 'inference':

@@ -6,6 +6,7 @@ import time
 import asyncio
 import torch
 import torchaudio
+import numpy as np
 
 import sys
 import json
@@ -15,7 +16,6 @@ sys.path.append('/root/autodl-tmp/CosyVoice_dev')
 
 from async_cosyvoice.async_cosyvoice import AsyncCosyVoice2
 from cosyvoice.utils.file_utils import load_wav
-random.seed()
 cosyvoice_dir = Path("/root/autodl-tmp/CosyVoice_dev")
 # 训练集
 corpus = "esd"
@@ -65,6 +65,14 @@ async def main():
     output_dir = Path(cosyvoice_dir / "examples/libritts/cosyvoice2/exp/cosyvoice/data")
     (output_dir / f"sampling_{corpus}" / args.output_subdir).mkdir(parents=True, exist_ok=True)
     for k, v in wav2text.items():
+        seed = int(time.time() * 1000) % (2**32 - 1)
+        print(f"Using seed: {seed}")
+        random.seed(seed)
+        np.random.seed(seed)
+        torch.manual_seed(seed)
+        torch.cuda.manual_seed_all(seed)
+        if os.path.exists(str(output_dir / f"sampling_{corpus}" / args.output_subdir / f"{k}.wav")):
+            continue
         tts_text = v[0].split('<|endofprompt|>')[1]
         instruct_text = v[0].split('<|endofprompt|>')[0]
         sample = random.choices(ref_list, k=1)[0]

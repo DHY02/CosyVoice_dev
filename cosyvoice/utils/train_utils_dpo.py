@@ -136,7 +136,12 @@ def init_optimizer_and_scheduler(args, configs, model, gan):
         # use deepspeed optimizer for speedup
         if args.train_engine == "deepspeed":
             def scheduler(opt):
-                return scheduler_type(opt, **configs['train_conf']['scheduler_conf'])
+                if configs['train_conf']['scheduler'] == 'constantlr':
+                    # ConstantLR不需要额外参数
+                    return scheduler_type(opt)
+                else:
+                    # 其他调度器使用配置文件中的参数
+                    return scheduler_type(opt, **configs['train_conf']['scheduler_conf'])
             model, optimizer, _, scheduler = deepspeed.initialize(
                 args=args,
                 model=model,

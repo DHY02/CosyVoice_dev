@@ -1,3 +1,4 @@
+import argparse
 import os
 import re
 import matplotlib.pyplot as plt
@@ -9,129 +10,7 @@ result_dir = "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/eva
 output_dir = Path(__file__).parent / "visualizations"
 os.makedirs(output_dir, exist_ok=True)
 
-
-# def old():
-#     # 自动生成颜色映射
-#     colors = list(mcolors.TABLEAU_COLORS.values())
-
-#     # 数据结构初始化
-#     data = {
-#         "accuracy": {"dpo": {}, "emo_dpo": {}, "init": {}},
-#         "emoSIM": {"dpo": {}, "emo_dpo": {}, "init": {}},
-#         "proSIM": {"dpo": {}, "emo_dpo": {}, "init": {}},
-#         "wer": {"dpo": {}, "emo_dpo": {}, "init": {}}
-#     }
-
-#     # 解析文件名并加载数据
-#     for filename in os.listdir(result_dir):
-#         full_path = os.path.join(result_dir, filename)
-#         if os.path.isdir(full_path):
-#             continue
-        
-#         # 解析文件名
-#         parts = filename[:-4].split("_")
-#         metric = parts[1]
-#         method = "init" if "init" in parts else "emo_dpo" if "emo" in parts and "dpo" in parts else parts[3]
-        
-#         # 获取epoch信息
-#         epoch = 0 if "init" in parts else int(parts[-1]) if "epoch" in parts else 0
-
-#         # 读取文件内容
-#         with open(os.path.join(result_dir, filename)) as f:
-#             content = f.read().strip()
-
-#         # 处理不同指标的数据
-#         if metric == "accuracy":
-#             for line in content.split("\n"):
-#                 emotion, value = line.split(" acc: ")
-#                 key = f"accuracy_{emotion.strip()}"
-#                 if key not in data:
-#                     data[key] = {"dpo": {}, "emo_dpo": {}, "init": {}}
-#                 data[key][method].setdefault(epoch, float(value))
-#         else:
-#             value = float(content.split(": ")[1])
-#             data[metric][method].setdefault(epoch, value)
-
-#     # 1. 绘制折线图
-#     for metric in data:
-#         plt.figure(figsize=(10, 6))
-#         plt.title(metric.replace("_", " ").title())
-#         plt.xlabel("Epoch")
-#         plt.ylabel("Value")
-        
-#         for idx, method in enumerate(["dpo", "emo_dpo", "init"]):
-#             epochs = sorted(data[metric][method].keys())
-#             values = [data[metric][method][e] for e in epochs]
-            
-#             if method == "init":
-#                 plt.scatter(epochs, values, color=colors[idx], s=100, label=method)
-#             else:
-#                 plt.plot(epochs, values, "o-", color=colors[idx], label=method)
-        
-#         plt.legend()
-#         plt.grid(True)
-#         plt.savefig(os.path.join(output_dir, f"line_{metric}.png"))
-#         plt.close()
-
-#     # 2. 最终epoch对比柱状图（使用emoSIM作为示例）
-#     # 2. 最终epoch对比柱状图（在指标名称旁添加箭头）
-#     final_results = {
-#         "dpo": {
-#             "emoSIM": data["emoSIM"]["dpo"][9],
-#             "proSIM": data["proSIM"]["dpo"][9],
-#             "WER": data["wer"]["dpo"][9]
-#         },
-#         "emo_dpo": {
-#             "emoSIM": data["emoSIM"]["emo_dpo"][9],
-#             "proSIM": data["proSIM"]["emo_dpo"][9],
-#             "WER": data["wer"]["emo_dpo"][9]
-#         },
-#         "init": {
-#             "emoSIM": data["emoSIM"]["init"][0],
-#             "proSIM": data["proSIM"]["init"][0],
-#             "WER": data["wer"]["init"][0]
-#         }
-#     }
-
-#     metrics = ["emoSIM", "proSIM", "WER"]
-#     methods = ["dpo", "emo_dpo", "init"]
-
-#     plt.figure(figsize=(12, 6))
-#     bar_width = 0.25
-#     x = range(len(metrics))
-
-#     # 定义每个指标的箭头方向（1表示上箭头，-1表示下箭头）
-#     arrow_directions = {
-#         "emoSIM": 1,    # 越大越好
-#         "proSIM": 1,    # 越大越好
-#         "WER": -1       # 越小越好
-#     }
-
-#     # 绘制柱状图
-#     for idx, method in enumerate(methods):
-#         values = [final_results[method][m] for m in metrics]
-#         plt.bar([i + bar_width*idx for i in x], values, bar_width, label=method, color=colors[idx])
-
-#     # 修改x轴标签，添加箭头
-#     xtick_labels = []
-#     for metric in metrics:
-#         arrow = "↑" if arrow_directions[metric] == 1 else "↓"
-#         xtick_labels.append(f"{metric}\n({arrow})")
-
-#     plt.title("Final Epoch Comparison (emoSIM, proSIM, WER)")
-#     plt.xticks([i + bar_width for i in x], xtick_labels)
-#     plt.ylabel("Value")
-#     plt.legend()
-#     plt.grid(axis='y')
-#     plt.tight_layout()
-#     plt.savefig(os.path.join(output_dir, "final_epoch_comparison.png"))
-#     plt.close()
-
-
-#     print(f"Visualizations saved to: {output_dir}")
-
-
-def visualize_epoch():
+def visualize_epoch(train_corpus, test_corpus):
     # 自动生成颜色映射
     colors = list(mcolors.TABLEAU_COLORS.values())
 
@@ -145,8 +24,21 @@ def visualize_epoch():
             continue
         
         # 解析文件名
-        method = filename.split('_')[1]
-        epoch = filename.split('_')[-1]
+        file_len = len(filename.split('_')) 
+        # '{test_corpus}_{train_corpus}_{methodAndhyp}_epoch_{num_epoch}' like
+        if file_len== 5:
+            f_test_corpus = filename.split('_')[0]
+            f_train_corpus = filename.split('_')[1]
+            if f_test_corpus != test_corpus or f_train_corpus == train_corpus:
+                continue
+            method = filename.split('_')[2]
+            epoch = filename.split('_')[-1]
+        # 'm3ed_casia-it_epoch_9' like
+        elif file_len == 4:
+            method = filename.split('_')[1]
+            epoch = filename.split('_')[-1]
+            print("跳过，因为仅评估新版pipeline")
+            continue
 
         # 读取文件内容
         with open(os.path.join(result_dir, filename)) as f:
@@ -197,9 +89,15 @@ def visualize_epoch():
         
         plt.legend()
         plt.grid(True)
-        plt.savefig(os.path.join(output_dir, f"line_epoch_{metric}.png"))
+        plt.savefig(os.path.join(output_dir, f"{test_corpus}_{train_corpus}_line_epoch_{metric}.png"))
         plt.close()
 
 
 if __name__ == "__main__":
-    visualize_epoch()
+    parser = argparse.ArgumentParser(description="可视化，目前只支持同一训练集和测试集的不同方法的可视化")
+    parser.add_argument("--train_corpus", required=True, 
+                        help="使用的train数据集")
+    parser.add_argument("--test_corpus", required=True, 
+                        help="使用的test数据集")
+    args = parser.parse_args()
+    visualize_epoch(args.train_corpus, args.test_corpus)

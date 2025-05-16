@@ -143,7 +143,7 @@ def init_optimizer_and_scheduler(args, configs, model, gan):
         optimizer_d, scheduler_d = None, None
 
     else:
-        # currently we wrap generator and discriminator in one model, so we cannot use deepspeed
+        # currently we wrap generator and discriminator  one model, so we cannot use deepspeed
         if configs['train_conf']['optim'] == 'adam':
             optimizer = optim.Adam(model.module.generator.parameters(), **configs['train_conf']['optim_conf'])
         elif configs['train_conf']['optim'] == 'adamw':

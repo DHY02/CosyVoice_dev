@@ -1,0 +1,5 @@
+submitit INFO (2025-05-16 08:58:58,780) - Starting with JobEnvironment(job_id=24879, hostname=autodl-container-1e254190c7-cd708c61, local_rank=0(1), node=0(1), global_rank=0(1))
+submitit INFO (2025-05-16 08:58:58,780) - Loading pickle: /root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/outputs/2025-05-16/08-58-51/executor_logs/CompareAudiosModule_56bec8dfc7d93da9c76b80905071251e25796ad5abe2944df473c3ea368614eb/24879_submitted.pkl
+[2025-05-16 08:59:03,820] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+submitit INFO (2025-05-16 08:59:26,042) - Job completed successfully
+submitit INFO (2025-05-16 08:59:26,042) - Exiting after successful completion

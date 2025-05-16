@@ -17,15 +17,13 @@ from async_cosyvoice.async_cosyvoice import AsyncCosyVoice2
 from cosyvoice.utils.file_utils import load_wav
 random.seed(1)
 cosyvoice_dir = Path("/root/autodl-tmp/CosyVoice_dev")
-# 测试集
-corpus = "m3ed/whole"
 
 # 参考音频数据集
 ref_corpus = "casia"
 
-
 async def main(method, num_epoch):
-    result_exp_name=f"test_{method}_epoch_{num_epoch}"
+    global train_corpus, test_corpus
+    result_exp_name=f"{test_corpus}_{train_corpus}_{method}_epoch_{num_epoch}"
     # cosyvoice = AsyncCosyVoice2('./pretrained_models/CosyVoice2-0.5B', load_jit=False, load_trt=False, fp16=True)
     cosyvoice = AsyncCosyVoice2(str(cosyvoice_dir / 'pretrained_models/CosyVoice2-0.5B'), load_jit=True, load_trt=False, fp16=True)
 
@@ -33,7 +31,7 @@ async def main(method, num_epoch):
     task_id = 0
 
     wav2text = {}
-    with open(cosyvoice_dir / f"examples/libritts/cosyvoice2/wav2text_m3ed_test.json", "r", encoding="utf-8") as f:
+    with open(cosyvoice_dir / f"examples/libritts/cosyvoice2/wav2text_{test_corpus}_test.json", "r", encoding="utf-8") as f:
         wav2text = json.load(f)
 
     # 选择ref_corpus数据集的所有说话人的所有情感音频各一条，作为参考音频列表
@@ -88,6 +86,12 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Calculate advantage functions for audio files.")
     parser.add_argument("--num_epoch", required=True, help="epoch number")
     parser.add_argument("--method", required=True, help="method")
+    parser.add_argument("--train_corpus", required=True, help="train_corpus")
+    parser.add_argument("--test_corpus", required=True, help="test_corpus")
     args = parser.parse_args()
-    
+    global train_corpus, test_corpus
+    if args.test_corpus:
+        test_corpus = args.test_corpus 
+    if args.train_corpus:
+        train_corpus = args.train_corpus 
     asyncio.run(main(args.method, args.num_epoch))

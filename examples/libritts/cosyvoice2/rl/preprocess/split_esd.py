@@ -18,15 +18,15 @@ for spk_id in sorted(os.listdir(dataset_dir_path)):
     if not os.path.isdir(spk_path):
         continue
 
-    with open(f"{spk_path}/{spk_id}.txt", "r", encoding="utf-8") as f:
-        for line in f:
-            w_id, text, emo = line.strip().split('\t')
-            
-            if emo == "中立":
-                emo = "冷静" 
-            wav2emo[w_id] = emo
-            wav2text[w_id] = [f"{emo}<|endofprompt|>{text}"]
     if spk_id < "0011":
+        with open(f"{spk_path}/{spk_id}.txt", "r", encoding="utf-8") as f:
+            for line in f:
+                w_id, text, emo = line.strip().split('\t')
+                
+                if emo == "中立":
+                    emo = "冷静" 
+                wav2emo[w_id] = emo
+                wav2text[w_id] = [f"{emo}<|endofprompt|>{text}"]
         for emo_dir in os.listdir(spk_path):
             emo_path = os.path.join(spk_path, emo_dir)
             if not os.path.isdir(emo_path):

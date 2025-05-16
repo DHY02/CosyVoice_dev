@@ -465,7 +465,7 @@ class Qwen2LM(TransformerLM):
         loss = self.criterion_ce(logits[: speech_token.size(0)], lm_target[: speech_token.size(0)].to(device))
         acc = th_accuracy(logits[: speech_token.size(0)].view(-1, self.speech_token_size + 3), lm_target[: speech_token.size(0)], ignore_label=IGNORE_ID)
         if self.dpo:
-            all_logps_sum, all_logps_mean, per_token_logps, loss_masks = self.get_batch_logps_old(
+            all_logps_sum, all_logps_mean, per_token_logps, loss_masks = self.get_batch_logps(
                 logits, lm_target, lm_output_mask, text_token_len, ignore_id=IGNORE_ID
             )
             chosen_logps = all_logps_sum[: speech_token.shape[0]]

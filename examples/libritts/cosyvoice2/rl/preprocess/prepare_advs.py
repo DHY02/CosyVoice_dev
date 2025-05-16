@@ -7,17 +7,24 @@ from funasr import AutoModel
 import torch
 import argparse
 import pandas as pd
-from examples.libritts.cosyvoice2.rl.evaluate.utils import cosine_similarity, run_autoPCP
-
+from examples.libritts.cosyvoice2.rl.evaluate.utils import char_level, cosine_similarity, detect_language, remove_punctuation, run_autoPCP
+from faster_whisper import WhisperModel, BatchedInferencePipeline
+from jiwer import wer
 # Emotion list
 model_output_emo_list = ['angry', 'disgusted', 'fear', 'happy', 'neutral', 'other', 'sad', 'surprise', '<unk>']
+zhEmo2enEmo = {"冷静": "neutral", "生气": "angry", "快乐": "happy", "伤心": "sad", "惊喜": "surprise"}
 ser_model_name = "emotion2vec_base_finetuned"
 pwd = Path(__file__).parent
+evaluate_dir = "/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/rl/evaluate"
+corpus_name = "esd"
 
 def main(src_dir, tgt_dir, wav2text_path, new_loss):
     # Initialize SER model
     ser_model = AutoModel(model=f"iic/{ser_model_name}")
-    
+    asr_model_size = "large-v3"
+    asr_model = WhisperModel(asr_model_size, device="cuda", compute_type="float16", 
+        download_root=os.path.join(evaluate_dir, "eva_model/models"), local_files_only=True)
+    asr_model = BatchedInferencePipeline(model=asr_model)
     # Load transcription dictionary
     with open(wav2text_path, "r", encoding="utf-8") as f:
         trans_dict = json.load(f)
@@ -50,6 +57,7 @@ def main(src_dir, tgt_dir, wav2text_path, new_loss):
             for entry in os.listdir(sub_dir_path):
                 if entry.endswith('.wav'):
                     aid = entry.split('.')[0].strip()
+                    # .adv是Emo ACC的reward文件
                     adv_file = sub_dir_path / f"{aid}.adv"
                     wav_path =  os.path.join(sub_dir_path, entry)
                     ser_res = None
@@ -71,19 +79,26 @@ def main(src_dir, tgt_dir, wav2text_path, new_loss):
                         
                         # Get emotion from transcription
                         try:
-                            instruct_emotion_name = trans_dict[aid][0].split('<|endofprompt|>')[0].lower()
+                            if corpus_name == "esd":
+                                instruct_emotion_name = trans_dict["_".join(aid.split('_')[:-1])][0].split('<|endofprompt|>')[0]
+                            else:
+                                instruct_emotion_name = trans_dict[aid][0].split('<|endofprompt|>')[0].lower()
+                            if detect_language(instruct_emotion_name) == "中文":
+                                instruct_emotion_name = zhEmo2enEmo[instruct_emotion_name]
                             scores = ser_res[0]['scores']
                             ind = model_output_emo_list.index(instruct_emotion_name)
                             adv = round(scores[ind], 2)
                             if aid not in utt2advs:
                                 utt2advs[aid] = {}
                             utt2advs[aid][group_id] = adv
+                            with open(adv_file, "w", encoding="utf-8") as f:
+                                f.write(str(adv))
                         except (KeyError, IndexError, ValueError) as e:
                             print(f"Error processing {aid}: {e}")
                             continue
                     
                     if new_loss:
-                        # emo-grpo的奖励函数改为λ_A Reward_A+λ_ES Reward_ES+λ_PS Reward_PS, 其中负样本的Reward_A 设为0
+                        # emo-grpo的奖励函数改为λ_A Reward_A+λ_ES Reward_ES+λ_PS Reward_PS+λ_WER Reward, 其中负样本的Reward_A 设为0
                         gt_wav_path = os.path.join(src_path / "receive", f"{aid}.wav")
                         reward_es = None
                         es_adv_file = sub_dir_path / f"{aid}.esadv"
@@ -114,7 +129,7 @@ def main(src_dir, tgt_dir, wav2text_path, new_loss):
                         else:
                             reward_es = round(float(line), 2)
                         reward_a = utt2advs[aid][group_id]
-                        utt2advs[aid][group_id] = reward_a * 0.5 + reward_es * 0.2
+                        utt2advs[aid][group_id] = reward_a * 0.25 + reward_es * 0.25
 
                         # 读取 Reward_ps
                         ps_adv_file = wav_path.split('.')[0] + ".psadv"
@@ -123,12 +138,34 @@ def main(src_dir, tgt_dir, wav2text_path, new_loss):
                                 line = f.readline().strip()
                             reward_ps = round(float(line), 2)
                             reward_ps_list.append(reward_ps)
-                            utt2advs[aid][group_id] = round(utt2advs[aid][group_id] + reward_ps * 0.3, 2)
+                            utt2advs[aid][group_id] = round(utt2advs[aid][group_id] + reward_ps * 0.25, 2)
                         else:
                             src_audio.append(str(wav_path))
                             tgt_audio.append(str(gt_wav_path))
                         
-
+                        # 读取 Reward_WER
+                        wer_adv_file = wav_path.split('.')[0] + ".weradv"
+                        if os.path.exists(wer_adv_file):
+                            with open(wer_adv_file, "r", encoding="utf-8") as f:
+                                line = f.readline().strip()
+                            reward_wer = round(float(line), 2) 
+                            print(f"read reward_wer: {reward_wer}") 
+                        else:
+                            segments, _ = asr_model.transcribe(wav_path, beam_size=5, language="zh", initial_prompt="以下是普通话的句子。", batch_size=64)
+                            segments = list(segments)
+                            text = remove_punctuation("".join([seg.text for seg in segments]), "chinese")
+                            text_path = f"{sub_dir_path}/{aid}.normalized.txt"
+                            with open (text_path, "r", encoding="utf-8") as f:
+                                line = f.readline().strip()
+                            ref_text = remove_punctuation(line.split('<|endofprompt|>')[1].strip(), "chinese")
+                            print(f"wav: {aid}")
+                            print(f"trans_text: {text}")
+                            print(f"ref_text: {ref_text}")
+                            reward_wer = 1 - wer(char_level(ref_text), char_level(text))
+                            print(f"Reward_WER: {reward_wer}")
+                            with open(wer_adv_file, "w", encoding="utf-8") as f:
+                                f.write(str(reward_wer))
+                        utt2advs[aid][group_id] = round(utt2advs[aid][group_id] + reward_wer * 0.25, 2)
     # 读取reward_ps
     if new_loss and src_audio != []:
         # AutoPCP
@@ -158,7 +195,7 @@ def main(src_dir, tgt_dir, wav2text_path, new_loss):
             group = df.iloc[i, src_audio_col].split('/')[-2]
             group_id = "-1" if group == "receive" else group.split('_')[-1]
             normalized_ps = (float(p_sim) - min_reward_ps) / (max_reward_ps - min_reward_ps)
-            utt2advs[aid][group_id] = round(utt2advs[aid][group_id] + normalized_ps * 0.3, 2)
+            utt2advs[aid][group_id] = round(utt2advs[aid][group_id] + normalized_ps * 0.25, 2)
             with open (ps_adv_file, "w", encoding="utf-8") as f:
                 f.write(str(normalized_ps))
 

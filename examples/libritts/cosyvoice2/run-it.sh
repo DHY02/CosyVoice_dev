@@ -2,16 +2,16 @@
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
 
-stage=5
+stage=3
 stop_stage=5
 
 # 训练数据集
-train_corpus="casia"
+train_corpus="esd"
 
 # 训练方法, instruction tuning
 method="it"
 
-data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}-emo-dpo
+data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}
 pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
 
 
@@ -112,7 +112,7 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
       --train_data $data_dir/train.data.list \
       --cv_data $data_dir/dev.data.list \
       --model $model \
-      --checkpoint $pretrained_model_dir/${model}_init.pt \
+      --checkpoint $pretrained_model_dir/${model}.pt \
       --model_dir `pwd`/exp/cosyvoice2/$model/$train_engine/$exp_name \
       --tensorboard_dir `pwd`/tensorboard/cosyvoice2/$model/$train_engine/$exp_name \
       --ddp.dist_backend $dist_backend \
