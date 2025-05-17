@@ -25,20 +25,29 @@ def visualize_epoch(train_corpus, test_corpus):
         
         # 解析文件名
         file_len = len(filename.split('_')) 
-        # '{test_corpus}_{train_corpus}_{methodAndhyp}_epoch_{num_epoch}' like
-        if file_len== 5:
-            f_test_corpus = filename.split('_')[0]
-            f_train_corpus = filename.split('_')[1]
-            if f_test_corpus != test_corpus or f_train_corpus == train_corpus:
-                continue
-            method = filename.split('_')[2]
-            epoch = filename.split('_')[-1]
-        # 'm3ed_casia-it_epoch_9' like
-        elif file_len == 4:
-            method = filename.split('_')[1]
-            epoch = filename.split('_')[-1]
-            print("跳过，因为仅评估新版pipeline")
+        if file_len== 4:
             continue
+        # {test_corpus}_{${train_corpus_name}_${method}|b${beta}c${clip}s${emo_train_start_epoch}l${lr}}_epoch_{num_epoch} like
+        elif file_len == 5:
+            splits = filename.split('_')
+            f_test_corpus = splits[0]
+            f_train_corpus = splits[1]
+            if f_test_corpus != test_corpus or f_train_corpus != train_corpus:
+                continue
+            method_hyp = filename.split('_')[2]
+            if '|' in method_hyp and 'l' in method_hyp and 's' in method_hyp:
+                method = method_hyp.split('|')[0]
+                hyp = method_hyp.split('|')[1]
+                start_epoch = int(hyp.split('s')[1].split('l')[0])
+
+            epoch = filename.split('_')[-1]
+            
+            if "emo-grpo" in filename:
+                epoch = int(epoch) + start_epoch + 1
+                epoch = str(epoch)
+                print(f"INFO: 基于start_epoch {start_epoch}，更新emo-grpo的epoch")
+            print(f"加载{filename}")
+
 
         # 读取文件内容
         with open(os.path.join(result_dir, filename)) as f:

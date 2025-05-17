@@ -408,6 +408,209 @@ def move_from_dpo2emo_dpo():
     print("move_from_dpo2emo_dpo is done!")
 
 
+def make_esd_dpo_corpus():
+    """
+        对于esd文件夹下的train和valid, 对于同一个wav_id, 从若干个采样中选择wav_id.adv最小的作为reject,
+        创建reject文件夹将对应的wav和txt放入该文件夹
+    """
+    # 数据源路径
+    esd_root_dir = Path("/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/esd")
+    
+    # 遍历train和valid目录
+    for split in ["train", "valid"]:
+        print(f"处理 {split} 数据集...")
+        split_dir = esd_root_dir / split
+        
+        # 创建reject目录
+        reject_dir = split_dir / "reject"
+        os.makedirs(reject_dir, exist_ok=True)
+        
+        # 获取所有samp_*目录
+        samp_dirs = [d for d in os.listdir(split_dir) if d.startswith('samp_')]
+        
+        # 存储每个音频ID的最小adv值及其路径
+        min_adv_values = {}
+        min_adv_paths = {}
+        
+        # 遍历所有采样目录，找出每个音频ID的最小adv值
+        for samp_dir in samp_dirs:
+            samp_path = split_dir / samp_dir
+            
+            for file in os.listdir(samp_path):
+                if file.endswith('.adv'):
+                    audio_id = file[:-4]  # 去掉.adv后缀
+                    adv_file_path = samp_path / file
+                    
+                    # 读取adv值
+                    try:
+                        with open(adv_file_path, 'r') as f:
+                            adv_value = float(f.readline().strip())
+                    except Exception as e:
+                        print(f"读取{adv_file_path}失败: {e}")
+                        continue
+                    
+                    # 更新最小adv值
+                    if audio_id not in min_adv_values or adv_value < min_adv_values[audio_id]:
+                        min_adv_values[audio_id] = adv_value
+                        min_adv_paths[audio_id] = samp_path / audio_id
+        
+        # 将最小adv值对应的音频和文本复制到reject目录
+        count = 0
+        for audio_id, min_path in min_adv_paths.items():
+            wav_src = f"{min_path}.wav"
+            txt_src = f"{min_path}.normalized.txt"
+            
+            if os.path.exists(wav_src) and os.path.exists(txt_src):
+                wav_dest = reject_dir / f"{audio_id}.wav"
+                txt_dest = reject_dir / f"{audio_id}.normalized.txt"
+                
+                try:
+                    shutil.copy(wav_src, wav_dest)
+                    shutil.copy(txt_src, txt_dest)
+                    count += 1
+                except Exception as e:
+                    print(f"复制文件失败: {e}")
+            else:
+                print(f"警告: 文件不存在 {wav_src} 或 {txt_src}")
+        
+        print(f"{split} 数据集处理完成，共复制 {count} 个reject样本")
+    
+    print("ESD DPO语料库创建完成!")
+
+
+def make_esd_emo_dpo_reject_corpus():
+    """
+        对于esd文件夹下的train和valid, 对于同一个wav_id，寻找同一个文本的不同情感版本作为emo_dpo_reject
+        规则：对于同一说话人的每一个audio_id，其audio_id +/- 350就是同一个文本的不同情感版本
+        注：同一个音频ID只对应一个情感且是唯一的，说话人ID范围是0001-0010，audio_id范围是000001-001750
+        创建emo_dpo_reject文件夹将对应的wav和txt放入该文件夹
+    """
+    random.seed(42)
+    # 数据源路径
+    esd_root_dir = Path("/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/esd")
+    
+    # 定义audio_id范围和增量
+    audio_id_max = 1750  # 范围是000001-001750
+    audio_id_offset = 350  # 同一文本不同情感的偏移量
+    
+    # 遍历train和valid目录
+    for split in ["train", "valid"]:
+        print(f"处理 {split} 数据集...")
+        split_dir = esd_root_dir / split
+        
+        # 创建emo_dpo_reject目录
+        emo_dpo_reject_dir = split_dir / "emo_dpo_reject"
+        os.makedirs(emo_dpo_reject_dir, exist_ok=True)
+        
+        # 获取receive目录中的所有wav文件
+        receive_dir = split_dir / "receive"
+        if not os.path.exists(receive_dir):
+            print(f"警告: {receive_dir} 目录不存在，跳过处理")
+            continue
+            
+        receives = [entry for entry in os.listdir(receive_dir) if entry.endswith('.wav')]
+        if not receives:
+            print(f"警告: {receive_dir} 目录中没有wav文件，跳过处理")
+            continue
+        
+        # 建立映射：话者ID和音频ID到文件名的映射
+        speaker_audio_to_file = {}
+        for wav_file in receives:
+            parts = wav_file.split('_')
+            if len(parts) < 3:
+                continue
+                
+            speaker_id = parts[0]
+            audio_id_str = parts[1]
+            
+            try:
+                audio_id = int(audio_id_str)
+                key = (speaker_id, audio_id)
+                speaker_audio_to_file[key] = wav_file
+            except ValueError:
+                continue
+        
+        # 存储接收-拒绝音频对应关系
+        reject_dict = {}
+        skipped_count = 0
+        
+        # 遍历所有receive音频文件
+        for wav in receives:
+            parts = wav.split('_')
+            if len(parts) < 3:
+                print(f"警告: 无法解析文件名 {wav}，跳过")
+                skipped_count += 1
+                continue
+                
+            speaker_id = parts[0]
+            audio_id_str = parts[1]
+            current_emotion = parts[2].split('.')[0]
+            
+            try:
+                audio_id = int(audio_id_str)
+            except ValueError:
+                print(f"警告: 无法将 {audio_id_str} 转换为整数，跳过 {wav}")
+                skipped_count += 1
+                continue
+            
+            # 尝试可能的偏移量
+            possible_offsets = [-350*2, -350, 350, 350*2, 350*3]
+            random.shuffle(possible_offsets)  # 随机化选择顺序
+            
+            found_match = False
+            for offset in possible_offsets:
+                target_audio_id = audio_id + offset
+                
+                # 确保在有效范围内
+                if 1 <= target_audio_id <= audio_id_max:
+                    key = (speaker_id, target_audio_id)
+                    if key in speaker_audio_to_file:
+                        target_wav = speaker_audio_to_file[key]
+                        target_emotion = target_wav.split('_')[2].split('.')[0]
+                        
+                        # 确保情感不同
+                        if target_emotion != current_emotion:
+                            reject_dict[wav] = target_wav
+                            found_match = True
+                            break
+            
+            if not found_match:
+                print(f"警告: {wav} 没有找到合适的emo_dpo_reject音频，跳过")
+                skipped_count += 1
+        
+        print(f"跳过的文件总数: {skipped_count}")
+        
+        # 复制选中的拒绝样本到emo_dpo_reject目录
+        count = 0
+        for k, v in reject_dict.items():
+            # 文本文件名（与音频同名但扩展名不同）
+            text_name = k.replace('.wav', '.normalized.txt')
+            
+            # 源文件路径
+            src_wav = receive_dir / v
+            src_txt = receive_dir / text_name
+            
+            # 目标文件路径（注意：保持与原receive音频相同的文件名）
+            dst_wav = emo_dpo_reject_dir / k
+            dst_txt = emo_dpo_reject_dir / text_name
+            
+            # 确保源文件存在
+            if os.path.exists(src_wav) and os.path.exists(src_txt):
+                try:
+                    # 复制文件
+                    shutil.copy(src_wav, dst_wav)
+                    shutil.copy(src_txt, dst_txt)
+                    count += 1
+                except Exception as e:
+                    print(f"复制文件失败: {e}")
+            else:
+                print(f"警告: 文件不存在 {src_wav} 或 {src_txt}")
+        
+        print(f"{split} 数据集处理完成，共创建 {count} 个emo_dpo_reject样本")
+    
+    print("ESD emo-dpo-reject语料库创建完成!")
+
+
 if __name__ == '__main__':
     # config = utils.parse_opt()
     # model = models.load(config)
@@ -417,5 +620,6 @@ if __name__ == '__main__':
     # with open(wav2text_path, "r", encoding="utf-8") as f:
     #     tts_texts = json.load(f)
     # make_dpo_corpus_2(model)
-    move_from_dpo2emo_dpo()
+    # move_from_dpo2emo_dpo()
     # make_emo_dpo_reject_corpus()
+    make_esd_emo_dpo_reject_corpus()

@@ -53,6 +53,9 @@ pretrained_models/*
 
 # log
 nohup.*
+logs/*
+examples/libritts/cosyvoice2/logs/*
+examples/libritts/cosyvoice2/outputs/*
 
 examples/libritts/cosyvoice2/rl/evaluate/eva_model/*
 outputs/*

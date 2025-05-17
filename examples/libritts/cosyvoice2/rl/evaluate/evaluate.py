@@ -45,7 +45,7 @@ zhEmo2enEmo = {"冷静": "neutral", "生气": "angry", "快乐": "happy", "伤�
 # 各个指标评估
 def evaluate(subdir, ser_model=None, asr_model=None, skip_prosody=False):
     # 声明全局变量，以便在函数内部可以修改它们
-    global test_corpus, train_corpus, wav2text_path, prompt2ref_path, ref_corpus_dir
+    global test_corpus, exp_name, wav2text_path, prompt2ref_path, ref_corpus_dir
     
     test_dir = test_root_dir / subdir / "instruct"
     dir_len = len(subdir.split('_'))
@@ -59,8 +59,8 @@ def evaluate(subdir, ser_model=None, asr_model=None, skip_prosody=False):
         num_epoch = subdir.split('_')[3]
     else:
         raise Exception("未知的文件夹名")
-    # 测试集_训练集_方法_epoch_numOfEpoch
-    result_txt_name = f"{test_corpus}_{train_corpus}_{methodAndhyp}_epoch_{num_epoch}"
+    # 测试集_exp_name_epoch_numOfEpoch
+    result_txt_name = f"{test_corpus}_{exp_name}_epoch_{num_epoch}"
     print(f"即将写入{result_txt_name}")
     emo_acc_total = {}
     emo_cnt = {}
@@ -222,8 +222,7 @@ def evaluate(subdir, ser_model=None, asr_model=None, skip_prosody=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Calculate advantage functions for audio files.")
     parser.add_argument("--num_epoch", required=False, help="epoch number")
-    parser.add_argument("--method", required=False, help="method")
-    parser.add_argument("--train_corpus", required=False, help="train_corpus")
+    parser.add_argument("--exp_name", required=False, help="exp_name")
     parser.add_argument("--test_corpus", required=False, help="test_corpus")
     parser.add_argument("--skip_ser", action='store_true',
                         default=False, help="skip_ser")
@@ -232,7 +231,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     
     # 更新全局变量
-    global test_corpus, train_corpus, wav2text_path, prompt2ref_path, ref_corpus_dir
+    global test_corpus, exp_name, wav2text_path, prompt2ref_path, ref_corpus_dir
     if args.test_corpus:
         test_corpus = args.test_corpus
         # 更新依赖于test_corpus的路径
@@ -240,10 +239,8 @@ if __name__ == '__main__':
         prompt2ref_path = cosyvoice2_dir / f"promtwav2refwav_{test_corpus}_test.json"
         # 测试集文本参考音频目录
         ref_corpus_dir = cosyvoice2_dir / f"data/{test_corpus}/test/receive"
-
-    if args.train_corpus:
-        train_corpus = args.train_corpus
-    
+    if args.exp_name:
+        exp_name = args.exp_name
     ser_model_name = "emotion2vec_base_finetuned"
     ser_model = AutoModel(model=f"iic/{ser_model_name}") if not args.skip_ser else None
     asr_model_size = "large-v3"
@@ -254,7 +251,7 @@ if __name__ == '__main__':
     # assert False
 
     # 实验目录命名：test_方法|参数_epoch_数字
-    subdir_list = [f'{test_corpus}_{train_corpus}_{args.method}_epoch_{args.num_epoch}']
+    subdir_list = [f'{test_corpus}_{args.exp_name}_epoch_{args.num_epoch}']
     
     # for i in range(1, 10, 2):
     #     subdir = f"test_emo_dpo_epoch_{i}"

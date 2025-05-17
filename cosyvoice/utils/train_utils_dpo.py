@@ -272,7 +272,7 @@ def batch_forward(model, batch, scaler, info_dict, ref_model=None, dpo_loss=None
     else:
         autocast = torch.cuda.amp.autocast(enabled=True, dtype=dtype, cache_enabled=False)
     with autocast:
-        if ref_model and dpo_loss and dpo_loss.use_emp_dpo:
+        if ref_model and dpo_loss and dpo_loss.use_emo_dpo:
             if cur_epoch >= dpo_loss.emo_dpo_epoch:
                 batch["reject_speech_token"] = batch["emo_dpo_reject_speech_token"]
                 batch["reject_speech_token_len"] = batch["emo_dpo_reject_speech_token_len"]

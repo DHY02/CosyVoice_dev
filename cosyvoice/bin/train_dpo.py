@@ -102,6 +102,8 @@ def get_args():
                         default=0.01,
                         type=float,
                         help='beta of dpo training')
+    parser.add_argument('--dpo_ref_model',
+                        help='dpo_ref_model')
     parser.add_argument('--grpo_beta',
                         default=0.04,
                         type=float,
@@ -165,7 +167,7 @@ def main():
         if os.path.exists(args.checkpoint):
             state_dict = torch.load(args.checkpoint, map_location='cpu')
             model.load_state_dict(state_dict, strict=False)
-            if args.dpo or args.grpo:
+            if args.grpo:
                 ref_model.load_state_dict(state_dict, strict=False)
             if 'step' in state_dict:
                 start_step = state_dict['step']
@@ -173,6 +175,19 @@ def main():
                 start_epoch = state_dict['epoch']
         else:
             logging.warning('checkpoint {} do not exsist!'.format(args.checkpoint))
+            
+    if args.dpo and args.dpo_ref_model:
+        if os.path.exists(args.dpo_ref_model):
+            state_dict = torch.load(args.dpo_ref_model, map_location='cpu')
+            model.load_state_dict(state_dict, strict=False)
+            if args.dpo or args.grpo:
+                ref_model.load_state_dict(state_dict, strict=False)
+            if 'step' in state_dict:
+                start_step = state_dict['step']
+            if 'epoch' in state_dict:
+                start_epoch = state_dict['epoch']
+        else:
+            logging.warning('dpo_ref_model {} is not given!'.format(args.dpo_ref_model))
 
     # Dispatch model from cpu to gpu
     model = wrap_cuda_model(args, model)

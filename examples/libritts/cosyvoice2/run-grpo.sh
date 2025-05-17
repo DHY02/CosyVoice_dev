@@ -4,7 +4,7 @@
 set -e
 
 # 定义必须传入的参数列表
-required_params=("corpus" "method" "beta" "clip")
+required_params=("corpus" "method" "beta" "clip", "lr")
 
 # 训练数据集
 train_corpus_name=""
@@ -15,6 +15,7 @@ method=""
 # 默认超参数
 beta=""
 clip=""
+lr=""
 use_grpo_new_loss=true
 
 grpo_datasets="receive samp_1 samp_2 samp_3 samp_4"
@@ -62,6 +63,12 @@ while [[ $# -gt 0 ]]; do
     --clip)
       clip="$2"
       processed_params+=("clip")
+      processed=true
+      shift 2
+      ;;
+    --lr)
+      lr="$2"
+      processed_params+=("lr")
       processed=true
       shift 2
       ;;
@@ -125,7 +132,7 @@ datasets="train valid"
 
 
 # 实验名称（保存目录）
-exp_name="${train_corpus_name}_${method}|b${beta}c${clip}"
+exp_name="${train_corpus_name}_${method}|b${beta}c${clip}s0l${lr}"
 
 # 获取最大的samp_i的i值
 max_samp_num=0

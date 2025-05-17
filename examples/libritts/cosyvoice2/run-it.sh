@@ -1,26 +1,116 @@
 #!/bin/bash
 # Copyright 2024 Alibaba Inc. All Rights Reserved.
 . ./path.sh || exit 1;
+set -e
 
+# 定义必须传入的参数列表
+required_params=("corpus" "method")
+
+# 训练数据集
+train_corpus_name=""
+
+# 训练方法, instruction tuning
+method=""
+
+# 存储已处理的参数
+processed_params=()
 stage=3
 stop_stage=5
 
-# 训练数据集
-train_corpus="esd"
-
-# 训练方法, instruction tuning
-method="it"
-
-data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus}
-pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
-
-
+# 默认参数
+lr=1e-5
 datasets="train valid"
 dpo_datasets="receive"
+train_engine="deepspeed"
 
+# 参数解析，支持传入部分超参数
+while [[ $# -gt 0 ]]; do
+  key="$1"
+  processed=false
+  
+  case $key in
+    -c|--corpus)
+      train_corpus_name="$2"
+      processed_params+=("corpus")
+      processed=true
+      shift 2
+      ;;
+    -s|--stage)
+      stage="$2"
+      processed=true
+      shift 2
+      ;;
+    -e|--stop_stage)
+      stop_stage="$2"
+      processed=true
+      shift 2
+      ;;
+    -m|--method)
+      method="$2"
+      processed_params+=("method")
+      processed=true
+      shift 2
+      ;;
+    --train_engine)
+      train_engine="$2"
+      processed=true
+      shift 2
+      ;;
+    --lr)
+      lr="$2"
+      processed=true
+      shift 2
+      ;;
+    --beta|--clip|--start_epoch|--grpo_datasets)
+      # 这些参数对IT方法不需要，但为了兼容run.sh的调用，需要接收它们
+      shift 2
+      processed=true
+      ;;
+    *)
+      echo "警告: 未知参数 '$key' 将被忽略"
+      processed=true
+      shift
+      ;;
+  esac
+  
+  # 如果参数未被处理，发出警告并跳过
+  if ! $processed; then
+    echo "警告: 参数 '$key' 处理失败，将被忽略"
+    shift
+  fi
+done
+
+# 检查必须参数是否都已提供
+missing_params=()
+for param in "${required_params[@]}"; do
+  if ! [[ " ${processed_params[@]} " =~ " ${param} " ]]; then
+    missing_params+=("$param")
+  fi
+done
+
+# 如果有缺失参数，输出错误并退出
+if [ ${#missing_params[@]} -ne 0 ]; then
+  echo "错误: 以下必须参数未提供: ${missing_params[*]}"
+  echo "用法示例: bash run-it.sh --corpus esd --method it"
+  exit 1
+fi
+
+data_dir=/root/autodl-tmp/CosyVoice_dev/examples/libritts/cosyvoice2/data/${train_corpus_name}
+pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
 
 # 实验名称（保存目录）
-exp_name="${train_corpus}_${method}"
+exp_name="${train_corpus_name}_${method}|b0c0s0l${lr}"
+
+echo "训练数据集: $train_corpus_name"
+echo "训练方法: $method"
+echo "开始阶段: $stage"
+echo "结束阶段: $stop_stage"
+echo "训练引擎: $train_engine"
+echo "实验名称: $exp_name"
+
+pretrained_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B
+init_model_dir=/root/autodl-tmp/CosyVoice_dev/pretrained_models/CosyVoice2-0.5B-bk
+cp ${init_model_dir}/llm.pt ${pretrained_model_dir}/llm.pt || exit 1
 
 # 训练前：先修改第三步参数并运行，跑完第三步后再开始训练
 
@@ -67,25 +157,6 @@ if [ ${stage} -le 3 ] && [ ${stop_stage} -ge 3 ]; then
   done
 fi
 
-# inference
-# if [ ${stage} -le 4 ] && [ ${stop_stage} -ge 4 ]; then
-#   echo "Run inference. Please make sure utt in tts_text is in prompt_data"
-#   # TODO consider remove bin/inference.py, or use similar initilization method as in readme
-#   for mode in instruct; do
-#     python cosyvoice/bin/inference.py --mode $mode \
-#       --gpu 0 \
-#       --config conf/cosyvoice2_dpo_infer.yaml \
-#       --prompt_data data/casia/parquet/data.list \
-#       --prompt_utt2data data/casia/parquet/utt2data.list \
-#       --tts_text `pwd`/wav2tts_text_dpo_1200_test.json \
-#       --qwen_pretrain_path $pretrained_model_dir/CosyVoice-BlankEN \
-#       --llm_model $pretrained_model_dir/llm_sft_dpo_1.pt \
-#       --flow_model $pretrained_model_dir/flow.pt \
-#       --hifigan_model $pretrained_model_dir/hift.pt \
-#       --result_dir `pwd`/exp/cosyvoice/test_dpo_1200_DPO/$mode
-#   done
-# fi
-
 # train llm
 export CUDA_VISIBLE_DEVICES="0"
 num_gpus=1
@@ -93,7 +164,7 @@ job_id=1986
 dist_backend="nccl"
 num_workers=2
 prefetch=100
-train_engine=torch_ddp
+
 if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
   echo "Run train. We only support llm traning for now. If your want to train from scratch, please use conf/cosyvoice.fromscratch.yaml"
   if [ $train_engine == 'deepspeed' ]; then
@@ -101,8 +172,7 @@ if [ ${stage} -le 5 ] && [ ${stop_stage} -ge 5 ]; then
   fi
   cat $data_dir/train/receive/parquet/data.list > $data_dir/train.data.list
   cat $data_dir/valid/receive/parquet/data.list > $data_dir/dev.data.list
-  # NOTE will update llm/hift training later
-  # --qwen_pretrain_path $pretrained_model_dir/CosyVoice-BlankEN \
+  
   for model in llm; do
     torchrun --nnodes=1 --nproc_per_node=$num_gpus \
         --rdzv_id=$job_id --rdzv_backend="c10d" --rdzv_endpoint="localhost:1234" \

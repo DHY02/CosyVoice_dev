@@ -39,7 +39,7 @@ class DPOLoss(torch.nn.Module):
         self.beta = beta
         self.label_smoothing = label_smoothing
         self.ipo = ipo
-        self.use_emp_dpo = use_emo_dpo
+        self.use_emo_dpo = use_emo_dpo
         self.emo_dpo_epoch = emo_dpo_epoch
 
     def forward(
@@ -49,9 +49,39 @@ class DPOLoss(torch.nn.Module):
         reference_chosen_logps: torch.Tensor,
         reference_rejected_logps: torch.Tensor,
     ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        # 监控输入
+        def check_tensor(name, tensor):
+            if torch.isnan(tensor).any():
+                print(f"NaN found in {name}, indices: {torch.nonzero(torch.isnan(tensor))}")
+                return True
+            if torch.isinf(tensor).any():
+                print(f"Inf found in {name}, indices: {torch.nonzero(torch.isinf(tensor))}")
+                return True
+            print(f"{name} stats - min: {tensor.min().item()}, max: {tensor.max().item()}, mean: {tensor.mean().item()}")
+            return False
+        
+        # 检查输入
+        has_issue = False
+        has_issue |= check_tensor("policy_chosen_logps", policy_chosen_logps)
+        has_issue |= check_tensor("policy_rejected_logps", policy_rejected_logps)
+        has_issue |= check_tensor("reference_chosen_logps", reference_chosen_logps)
+        has_issue |= check_tensor("reference_rejected_logps", reference_rejected_logps)
+        
+        # 如有问题，直接返回一个安全的损失值
+        if has_issue:
+            dummy_loss = torch.tensor(0.0, device=policy_chosen_logps.device, requires_grad=True)
+            return dummy_loss, torch.zeros_like(policy_chosen_logps), torch.zeros_like(policy_rejected_logps)
+            
+        # 原有计算
         pi_logratios = policy_chosen_logps - policy_rejected_logps
+        check_tensor("pi_logratios", pi_logratios)
+        
         ref_logratios = reference_chosen_logps - reference_rejected_logps
+        check_tensor("ref_logratios", ref_logratios)
+        
         logits = pi_logratios - ref_logratios
+        check_tensor("logits before jsd", logits)
+        
         jsd = self.get_jsd(policy_chosen_logps - reference_chosen_logps, policy_rejected_logps - reference_rejected_logps)
         logits -= jsd
         if self.ipo:
@@ -69,7 +99,17 @@ class DPOLoss(torch.nn.Module):
         return loss, chosen_rewards, rejected_rewards
 
     def get_jsd(self, cho_ratio, rej_ratio):
-        return torch.log1p(torch.exp(cho_ratio)) - torch.log1p(torch.exp(rej_ratio))
+        # 添加监控
+        cho_max = cho_ratio.max().item()
+        rej_max = rej_ratio.max().item()
+        print(f"cho_ratio max: {cho_max}, rej_ratio max: {rej_max}")
+        jsd = torch.log1p(torch.exp(cho_ratio)) - torch.log1p(torch.exp(rej_ratio))
+        # 检查结果
+        if torch.isnan(jsd).any() or torch.isinf(jsd).any():
+            print(f"JSD has issues - NaN: {torch.isnan(jsd).any()}, Inf: {torch.isinf(jsd).any()}")
+            # 可以返回零或小固定值作为备选
+            return torch.zeros_like(jsd)
+        return jsd
 
 
 class GRPOLoss(torch.nn.Module):

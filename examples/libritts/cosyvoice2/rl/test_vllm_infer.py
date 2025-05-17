@@ -21,9 +21,9 @@ cosyvoice_dir = Path("/root/autodl-tmp/CosyVoice_dev")
 # 参考音频数据集
 ref_corpus = "casia"
 
-async def main(method, num_epoch):
-    global train_corpus, test_corpus
-    result_exp_name=f"{test_corpus}_{train_corpus}_{method}_epoch_{num_epoch}"
+async def main(exp_name, num_epoch):
+    global test_corpus
+    result_exp_name=f"{test_corpus}_{exp_name}_epoch_{num_epoch}"
     # cosyvoice = AsyncCosyVoice2('./pretrained_models/CosyVoice2-0.5B', load_jit=False, load_trt=False, fp16=True)
     cosyvoice = AsyncCosyVoice2(str(cosyvoice_dir / 'pretrained_models/CosyVoice2-0.5B'), load_jit=True, load_trt=False, fp16=True)
 
@@ -85,13 +85,12 @@ async def main(method, num_epoch):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Calculate advantage functions for audio files.")
     parser.add_argument("--num_epoch", required=True, help="epoch number")
-    parser.add_argument("--method", required=True, help="method")
-    parser.add_argument("--train_corpus", required=True, help="train_corpus")
+    parser.add_argument("--exp_name", required=True, help="exp_name like ${train_corpus_name}_${method}|b${beta}c${clip}s${emo_train_start_epoch}l${lr}")
     parser.add_argument("--test_corpus", required=True, help="test_corpus")
     args = parser.parse_args()
-    global train_corpus, test_corpus
+    global exp_name, test_corpus
     if args.test_corpus:
         test_corpus = args.test_corpus 
-    if args.train_corpus:
-        train_corpus = args.train_corpus 
-    asyncio.run(main(args.method, args.num_epoch))
+    if args.exp_name:
+        exp_name = args.exp_name 
+    asyncio.run(main(args.exp_name, args.num_epoch))

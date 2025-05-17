@@ -21,6 +21,7 @@ epoch_interval=1
 stage=1
 stop_stage=3
 
+exp_name=""
 # 参数解析，支持传入部分超参数
 while [[ $# -gt 0 ]]; do
   key="$1"
@@ -69,13 +70,16 @@ while [[ $# -gt 0 ]]; do
       TRAINING_FRAMEWORK="$2"
       shift 2
       ;;
+    --exp_name)
+      EXP_NAME="$2"
+      shift 2
+      ;;
     *)
       shift
       ;;
   esac
 done
 
-EXP_NAME="${TEST_CORPUS}_${TRAIN_CORPUS}_${METHOD}|b${beta}c${clip}"
 MODEL_SRC_DIR="${COSYVOICE_DIR}/examples/libritts/cosyvoice2/exp/cosyvoice2/llm/${TRAINING_FRAMEWORK}/${EXP_NAME}"
 MODEL_DEST_DIR="${COSYVOICE_DIR}/pretrained_models/CosyVoice2-0.5B"
 INFER_SCRIPT="${COSYVOICE_DIR}/examples/libritts/cosyvoice2/rl/test_vllm_infer.py"
@@ -122,10 +126,8 @@ if [ ${stage} -le 1 ] && [ ${stop_stage} -ge 1 ]; then
         SAMPLING_TEMPERATURE=1 SAMPLING_TOP_P=1 SAMPLING_TOP_K=25 \
         python "${INFER_SCRIPT}" \
                 --num_epoch "${i}" \
-                --method "${METHOD}" \
-                --train_corpus "${TRAIN_CORPUS}" \
-                --test_corpus "${TEST_CORPUS}"
-                || { echo "推理失败"; exit 1; }
+                --exp_name "${EXP_NAME}" \
+                --test_corpus "${TEST_CORPUS}" || { echo "推理失败"; exit 1; }
         
         echo "epoch ${i} 推理完成"
         echo "----------------------------------"
